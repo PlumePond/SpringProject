@@ -1,0 +1,3 @@
+Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
+"c:/Users/doubl/SpringProject/Content/Audio/punch.wav","c:/Users/doubl/SpringProject/Content/bin/DesktopGL/Audio/punch.xnb","SoundEffectProcessor","SoundEffectContent",120044,120105,0.8433274
+"c:/Users/doubl/SpringProject/Content/Sprites/ui_panel-1.png","c:/Users/doubl/SpringProject/Content/bin/DesktopGL/Sprites/ui_panel-1.xnb","TextureProcessor","Texture2DContent",204,9301,0.1267347
