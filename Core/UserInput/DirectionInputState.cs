@@ -7,12 +7,15 @@ namespace SpringProject.Core.UserInput;
 
 public class DirectionInputState : InputState
 {
+    protected KeyboardState _currentKeyboardState;
+    protected KeyboardState _previousKeyboardState;
+    
     Keys _up;
     Keys _down;
     Keys _left;
     Keys _right;
 
-    public DirectionInputState(Keys up, Keys down, Keys left, Keys right) : base(Keys.None)
+    public DirectionInputState(Keys up, Keys down, Keys left, Keys right)
     {
         _up = up;
         _down = down;

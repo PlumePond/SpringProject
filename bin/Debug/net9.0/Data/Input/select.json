@@ -1,0 +1,8 @@
+{
+    "bindings": [
+        { 
+            "type": "mouse_click",
+            "button": "Left"
+        }
+    ]
+}

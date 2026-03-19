@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using SpringProject.Core.Audio;
 using SpringProject.Core.Editor;
+using SpringProject.Core.UserInput;
 
 namespace SpringProject.Core.UI;
 
@@ -56,12 +57,12 @@ public class LevelObjectElement : Element
     public override void OnMouseEnter()
     {
         _hovering = true;
-        Main.MouseHoverConsumed = true;
+        Input.MouseHoverConsumed = true;
     }
 
     public override void OnMouseHover()
     {
-        Main.MouseHoverConsumed = true;
+        Input.MouseHoverConsumed = true;
     }
 
     public override void OnMouseExit()
@@ -72,7 +73,7 @@ public class LevelObjectElement : Element
 
     public override void OnPressed()
     {
-        Main.MousePressConsumed = true;
+        Input.MousePressConsumed = true;
         
         _outlineColor = Color.Yellow;
         AudioManager.Get("accept").Play();

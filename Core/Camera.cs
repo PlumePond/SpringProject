@@ -27,26 +27,16 @@ public class Camera
 
         if (scrollDelta != 0 && !keyboard.IsKeyDown(Keys.LeftControl))
         {
-            // Get mouse position in screen coordinates
             Vector2 mouseScreen = new Vector2(mouse.X, mouse.Y);
-
-            // Convert mouse position to world coordinates BEFORE zoom change
             Vector2 mouseWorldBefore = ScreenToWorld(mouseScreen);
 
-            // Apply zoom change
-            float zoomFactor = scrollDelta > 0 ? 1.1f : 0.9f;
-            Zoom *= zoomFactor;
-            Zoom = MathHelper.Clamp(Zoom, 0.1f, 10f);
+            // Step zoom by whole integers, clamped to [1, 10]
+            Zoom = MathHelper.Clamp(Zoom + (scrollDelta > 0 ? 1f : -1f), 1f, 10f);
 
-            // Update the transform matrix with new zoom
             UpdateTransform();
 
-            // Convert mouse position to world coordinates AFTER zoom change
             Vector2 mouseWorldAfter = ScreenToWorld(mouseScreen);
-
-            // Calculate the difference and adjust camera position
-            Vector2 worldDelta = mouseWorldBefore - mouseWorldAfter;
-            Position += worldDelta;
+            Position += mouseWorldBefore - mouseWorldAfter;
         }
 
         // Middle mouse drag for panning
@@ -56,7 +46,6 @@ public class Camera
             Position -= mouseDelta / Zoom;
         }
 
-        // Update transformation matrix
         UpdateTransform();
 
         _prevMouse = mouse;
@@ -64,13 +53,8 @@ public class Camera
 
     private void UpdateTransform()
     {
-        // Create the transform matrix
-        // Note: We need to account for the screen center offset
-        Vector2 screenCenter = new Vector2(_graphics.Viewport.Width / 2f, _graphics.Viewport.Height / 2f);
-
         Transform = Matrix.CreateTranslation(new Vector3(-Position.X, -Position.Y, 0)) *
-                   Matrix.CreateScale(Zoom, Zoom, 1f);
-                   //Matrix.CreateTranslation(new Vector3(screenCenter.X, screenCenter.Y, 0));
+                    Matrix.CreateScale(Zoom, Zoom, 1f);
     }
 
     public Vector2 ScreenToWorld(Vector2 screenPos)

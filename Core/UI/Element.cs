@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using SpringProject.Core.UserInput;
 
 namespace SpringProject.Core.UI;
 
@@ -72,18 +73,26 @@ public class Element
         
     }
 
+    public bool WithinBounds(Point point)
+    {
+        return 
+        point.X >= AbsolutePosition.X && 
+        point.X <= AbsolutePosition.X + size.X * AbsoluteScale.X && 
+        point.Y >= AbsolutePosition.Y && 
+        point.Y <= AbsolutePosition.Y + size.Y * AbsoluteScale.Y;
+    }
+
     public virtual void Update(GameTime gameTime)
     {
-        MouseState MouseState = Mouse.GetState();
+        Point mousePoint = Input.Get("cursor").Point;
 
         // convert mouse position to a point in the window. it is already in window coordinates, but we need to convert it to a point and account for the pixel scale of the UI
-        Point mousePosition = new Point(MouseState.X / Main.Settings.UISize, MouseState.Y / Main.Settings.UISize);
+        Point mousePosition = new Point(mousePoint.X / Main.Settings.UISize, mousePoint.Y / Main.Settings.UISize);
 
         // check if the mouse is hovering over the element
-        bool isHovering = mousePosition.X >= AbsolutePosition.X && mousePosition.X <= AbsolutePosition.X + size.X * AbsoluteScale.X &&
-                          mousePosition.Y >= AbsolutePosition.Y && mousePosition.Y <= AbsolutePosition.Y + size.Y * AbsoluteScale.Y;
+        bool isHovering = WithinBounds(mousePosition);
     
-        bool isPressed = MouseState.LeftButton == ButtonState.Pressed;
+        bool isPressed = Input.Get("ui_click").Holding;
 
         if (isHovering && !_prevHovering)
         {

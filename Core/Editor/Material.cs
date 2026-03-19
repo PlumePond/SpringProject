@@ -12,6 +12,9 @@ namespace SpringProject.Core.Editor
         Stone,
         Dirt,
         Metal,
-        Water
+        Water,
+        Ceramic,
+        Wood,
+        Glass,
     }
 }

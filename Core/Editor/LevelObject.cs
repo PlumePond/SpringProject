@@ -12,7 +12,6 @@ public class LevelObject
 {
     public LevelObjectData data { get; private set; }
     public Point position { get; private set; }
-    public bool hovering { get; private set; } = false;
     public int rotation { get; set; } = 0;
     public bool flipX { get; set; } = false;
     public bool flipY { get; set; } = false;
@@ -28,11 +27,7 @@ public class LevelObject
     public void SetPosition(Point position)
     {
         this.position = position;
-    }
-
-    public void SetHovering(bool hovering)
-    {
-        this.hovering = hovering;
+        CalculateBounds();
     }
 
     public void SetFlipX(bool flipX)
@@ -48,16 +43,19 @@ public class LevelObject
     public void RotateClockwise()
     {
         rotation = (rotation + 90) % 360;
+        CalculateBounds();
     }
 
     public void RotateCounterClockwise()
     {
         rotation = (rotation + 270) % 360;
+        CalculateBounds();
     }
     
     public void SetRotation(int rotation)
     {
         this.rotation = rotation % 360;
+        CalculateBounds();
     }
 
     public void SetColor(Color color)
@@ -65,22 +63,10 @@ public class LevelObject
         this.color = color;
     }
 
-    public void CalculateBounds(int snapSize = 16)
+    public void CalculateBounds()
     {
         bool swapDimensions = rotation == 90 || rotation == 270;
-        Point rotatedSize = swapDimensions
-            ? new Point(data.size.Y, data.size.X)
-            : new Point(data.size.X, data.size.Y);
-
-        Point center = new Point(position.X + data.size.X / 2, position.Y + data.size.Y / 2);
-        
-        int left = center.X - rotatedSize.X / 2;
-        int top = center.Y - rotatedSize.Y / 2;
-        
-        // Snap top-left back to grid
-        left = (left / snapSize) * snapSize;
-        top = (top / snapSize) * snapSize;
-
-        bounds = new Rectangle(left, top, rotatedSize.X, rotatedSize.Y);
+        Point rotatedSize = swapDimensions ? new Point(data.size.Y, data.size.X) : new Point(data.size.X, data.size.Y);
+        bounds = new Rectangle(position.X, position.Y, rotatedSize.X, rotatedSize.Y);
     }
 }

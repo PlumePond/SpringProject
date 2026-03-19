@@ -5,13 +5,15 @@ using System.IO;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using Microsoft.Xna.Framework.Audio;
+using SpringProject.Core;
 using SpringProject.Core.Audio;
+using SpringProject.Core.Debugging;
 
 public static class AudioCompositeLoader
 {
-    public static Dictionary<string, AudioComposite> LoadAll(string folder)
+    public static Dictionary<string, AudioComposite> Load(string folder)
     {
-        var result = new Dictionary<string, AudioComposite>();
+        var dictionary = new Dictionary<string, AudioComposite>();
 
         foreach (string jsonFile in Directory.GetFiles(folder, "*.json"))
         {
@@ -19,6 +21,7 @@ public static class AudioCompositeLoader
             string json = File.ReadAllText(jsonFile);
 
             AudioCompositeData data = JsonSerializer.Deserialize<AudioCompositeData>(json);
+            Debug.Log("Audio .json file found: " + jsonFile);
 
             var composite = new AudioComposite(
                 name,
@@ -38,14 +41,14 @@ public static class AudioCompositeLoader
                 composite.Sounds.Add(SoundEffect.FromStream(memStream));
             }
 
-            result[name] = composite;
+            dictionary[name] = composite;
         }
 
-        return result;
+        return dictionary;
     }
 
     // Private DTOs for deserialization
-    private class AudioCompositeData
+    class AudioCompositeData
     {
         [JsonPropertyName("volume")]  public float Volume { get; set; } = 1.0f;
         [JsonPropertyName("pitch")]   public float Pitch  { get; set; } = 0.0f;
@@ -53,7 +56,7 @@ public static class AudioCompositeLoader
         [JsonPropertyName("variance")] public VarianceData? Variance { get; set; }
     }
 
-    private class VarianceData
+    class VarianceData
     {
         [JsonPropertyName("volume")] public float Volume { get; set; } = 0.0f;
         [JsonPropertyName("pitch")]  public float Pitch  { get; set; } = 0.0f;

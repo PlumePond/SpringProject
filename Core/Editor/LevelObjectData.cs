@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.Json.Serialization;
 
 namespace SpringProject.Core.Editor;
 
@@ -30,8 +31,8 @@ public class LevelObjectData
     }
 }
 
-public class LevelObjectJsonData
+class LevelObjectJsonData
 {
-    public string material = "default";
-    public bool solid = true;
+    [JsonPropertyName("material")] public string material { get; set; } = "default";
+    [JsonPropertyName("solid")] public bool solid { get; set; } = false;
 }

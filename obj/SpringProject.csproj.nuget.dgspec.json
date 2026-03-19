@@ -46,6 +46,10 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "dependencies": {
+            "FontStashSharp.MonoGame": {
+              "target": "Package",
+              "version": "[1.5.4, )"
+            },
             "MonoGame.Content.Builder.Task": {
               "target": "Package",
               "version": "[3.8.*, )"

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -12,24 +13,70 @@ public class InputState
     public bool Released { get; protected set; } = false;
 
     public Point Point { get; protected set; } = Point.Zero;
+    public float Float { get; protected set; } = 0.0f;
+    public int Int { get; protected set; } = 0;
+    public Vector2 Vector { get; protected set; } = Vector2.Zero;
 
-    protected KeyboardState _currentKeyboardState;
-    protected KeyboardState _previousKeyboardState;
+    protected List<InputBinding> _bindings = new List<InputBinding>();
 
-    protected Keys _key;
+    public Action PressedEvent { get; set; }
+    public Action ReleasedEvent { get; set; }
 
-    public InputState(Keys key)
+    public virtual void AddBinding(InputBinding binding)
     {
-        _key = key;
+        _bindings.Add(binding);
     }
 
     public virtual void Update()
     {
-        _previousKeyboardState = _currentKeyboardState;
-        _currentKeyboardState = Keyboard.GetState();
+        bool anyPressed = false;
+        bool anyHolding = false;
+        bool anyReleased = false;
 
-        Pressed = _currentKeyboardState.IsKeyDown(_key) && !_previousKeyboardState.IsKeyDown(_key);
-        Holding = _currentKeyboardState.IsKeyDown(_key);
-        Released = !_currentKeyboardState.IsKeyDown(_key) && _previousKeyboardState.IsKeyDown(_key);
+        Point tempPoint = Point.Zero;
+        float tempFloat = 0.0f;
+        int tempInt = 0;
+        Vector2 tempVector = Vector2.Zero;
+
+        foreach (var binding in _bindings)
+        {
+            binding.Update();
+
+            if (binding.Pressed)
+            {
+                anyPressed = true;
+            }
+            if (binding.Holding)
+            {
+                anyHolding = true;
+            }
+            if (binding.Released)
+            {
+                anyReleased = true;
+            }
+
+            tempPoint += binding.Point;
+            tempFloat += binding.Float;
+            tempInt += binding.Int;
+            tempVector += binding.Vector;
+        }
+
+        Pressed = anyPressed;
+        Holding = anyHolding;
+        Released = anyReleased;
+
+        Point = tempPoint;
+        Float = tempFloat;
+        Int = tempInt;
+        Vector = tempVector;
+
+        if (Pressed)
+        {
+            PressedEvent?.Invoke();
+        }
+        else if (Released)
+        {
+            ReleasedEvent?.Invoke();
+        }
     }
 }

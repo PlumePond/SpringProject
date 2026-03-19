@@ -1,0 +1,123 @@
+using System;
+using System.ComponentModel.Design;
+using System.IO;
+using System.Runtime.Serialization;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
+using Microsoft.Xna.Framework.Content;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
+using SpringProject.Core.Audio;
+using SpringProject.Core.Editor;
+using SpringProject.Core.UserInput;
+
+namespace SpringProject.Core.UI;
+
+public class Slider : Element
+{
+    Texture2D _sliderTexture;
+    Texture2D _handleTexture;
+    Texture2D _selectedTexture;
+    Texture2D _fillTexture;
+
+    int _cornerSize = 16;
+    bool _interacting = false;
+    bool _selected = false;
+    bool _pressed = false;
+
+    float _ratio = 0.0f;
+    float _min = 0.0f;
+    float _max = 0.0f;
+    float _value = 0.0f;
+
+    Point _handleSize = Point.Zero;
+
+    public float Value => _value;
+
+    public Action<float> ChangeValue;
+
+    public Slider(Point position, Point size, Vector2 scale, Origin origin, Anchor anchor, Texture2D sliderTexture, Texture2D handleTexture, Texture2D selectedTexture, Texture2D fillTexture, float min, float max, int cornerSize = 16) : base(position, size, scale, origin, anchor)
+    {
+        _sliderTexture = sliderTexture;
+        _handleTexture = handleTexture;
+        _selectedTexture = selectedTexture;
+        _fillTexture = fillTexture;
+
+        _cornerSize = cornerSize;
+
+        _min = min;
+        _max = max;
+
+        _handleSize = new Point(10, size.Y);
+    }
+
+    public override void Update(GameTime gameTime)
+    {
+        base.Update(gameTime);
+
+        Point mousePoint = Input.Get("cursor").Point;
+        Point fixedMousePoint = new Point(mousePoint.X / Main.Settings.UISize, mousePoint.Y / Main.Settings.UISize);
+
+        float mousePosValue = MathUtils.InverseLerp(AbsolutePosition.X + _handleSize.X / 2, AbsolutePosition.X + size.X - _handleSize.X / 2, fixedMousePoint.X);
+
+        if (_interacting)
+        {
+            _ratio = Math.Clamp(mousePosValue, 0f, 1f);
+            _value = MathHelper.Lerp(_min, _max, _ratio);
+            ChangeValue?.Invoke(_value);
+        }
+
+        if (Input.Get("ui_click").Released && _interacting || !Main.graphicsDevice.Viewport.Bounds.Contains(mousePoint))
+        {
+            _interacting = false;
+        }
+    }
+
+    public override void Draw(SpriteBatch spriteBatch)
+    {
+        base.Draw(spriteBatch);
+
+        // draw slider
+        UIHelper.DrawSegmented(spriteBatch, _sliderTexture, AbsolutePosition, size, AbsoluteScale, _cornerSize, color);
+
+        int handleDistance = (int)MathHelper.Lerp(0.0f, size.X - _handleSize.X, _ratio);
+        Point handlePos = new Point(AbsolutePosition.X + handleDistance, AbsolutePosition.Y);
+
+        // draw fill
+        Point baseFillSize = (size.ToVector2() * AbsoluteScale).ToPoint();
+        Point fillSize = new Point(handleDistance + _handleSize.X / 2, baseFillSize.Y);
+        UIHelper.DrawSegmented(spriteBatch, _fillTexture, AbsolutePosition, fillSize, AbsoluteScale, _cornerSize, color);
+
+        Texture2D handleTexture = _handleTexture;
+
+        if (_selected && !_pressed)
+        {
+            handleTexture = _selectedTexture;
+        }
+
+        // draw handle
+        UIHelper.DrawSegmented(spriteBatch, handleTexture, handlePos, _handleSize, AbsoluteScale, _cornerSize, color);
+    }
+
+    public override void OnPressed()
+    {
+        _interacting = true;
+        _pressed = true;
+    }
+
+    public override void OnReleased()
+    {
+        _pressed = false;
+    }
+
+    public override void OnMouseEnter()
+    {
+        _selected = true;
+    }
+
+    public override void OnMouseExit()
+    {
+        _selected = false;
+        _pressed = false;
+    }
+}

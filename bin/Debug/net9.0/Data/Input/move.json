@@ -1,0 +1,11 @@
+{
+    "bindings": [
+        { 
+            "type": "compound_key", 
+            "up": "W", 
+            "down": "S", 
+            "left": "A", 
+            "right": "D" 
+        }
+    ]
+}
