@@ -1,0 +1,1381 @@
+{
+  "backgroundColor": {
+    "B": 59,
+    "G": 82,
+    "R": 69,
+    "A": 255
+  },
+  "fogColor": {
+    "B": 59,
+    "G": 82,
+    "R": 69,
+    "A": 255
+  },
+  "levelObjects": [
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -48,
+        "Y": -32
+      },
+      "size": {
+        "X": 48,
+        "Y": 48
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_big"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 240,
+        "Y": 160
+      },
+      "size": {
+        "X": 48,
+        "Y": 48
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_big"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 240,
+        "Y": 208
+      },
+      "size": {
+        "X": 48,
+        "Y": 48
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_big"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 192,
+        "Y": 208
+      },
+      "size": {
+        "X": 48,
+        "Y": 48
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_big"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -48,
+        "Y": 112
+      },
+      "size": {
+        "X": 48,
+        "Y": 48
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_big"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 96,
+        "Y": 208
+      },
+      "size": {
+        "X": 48,
+        "Y": 48
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_big"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 144,
+        "Y": 208
+      },
+      "size": {
+        "X": 48,
+        "Y": 48
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_big"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 0,
+        "Y": 208
+      },
+      "size": {
+        "X": 48,
+        "Y": 48
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_big"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 240,
+        "Y": 16
+      },
+      "size": {
+        "X": 48,
+        "Y": 48
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_big"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 48,
+        "Y": 112
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 192,
+        "Y": 160
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 128,
+        "Y": 80
+      },
+      "size": {
+        "X": 48,
+        "Y": 48
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_big"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 176,
+        "Y": 112
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 128,
+        "Y": 48
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 208,
+        "Y": 0
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 144,
+        "Y": 48
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 208,
+        "Y": 32
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 48,
+        "Y": 208
+      },
+      "size": {
+        "X": 48,
+        "Y": 48
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_big"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 208,
+        "Y": 48
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 16,
+        "Y": -16
+      },
+      "size": {
+        "X": 32,
+        "Y": 32
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_medium"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -48,
+        "Y": -80
+      },
+      "size": {
+        "X": 48,
+        "Y": 48
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_big"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 0,
+        "Y": -96
+      },
+      "size": {
+        "X": 48,
+        "Y": 48
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_big"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 48,
+        "Y": -96
+      },
+      "size": {
+        "X": 48,
+        "Y": 48
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_big"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 96,
+        "Y": -96
+      },
+      "size": {
+        "X": 48,
+        "Y": 48
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_big"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 144,
+        "Y": -96
+      },
+      "size": {
+        "X": 48,
+        "Y": 48
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_big"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 192,
+        "Y": -96
+      },
+      "size": {
+        "X": 48,
+        "Y": 48
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_big"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 240,
+        "Y": -96
+      },
+      "size": {
+        "X": 48,
+        "Y": 48
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_big"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 192,
+        "Y": -32
+      },
+      "size": {
+        "X": 32,
+        "Y": 32
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_medium"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 192,
+        "Y": 0
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 96,
+        "Y": -32
+      },
+      "size": {
+        "X": 48,
+        "Y": 48
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_big"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 240,
+        "Y": 64
+      },
+      "size": {
+        "X": 48,
+        "Y": 48
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_big"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 240,
+        "Y": 112
+      },
+      "size": {
+        "X": 48,
+        "Y": 48
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_big"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -48,
+        "Y": 160
+      },
+      "size": {
+        "X": 48,
+        "Y": 48
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_big"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 112,
+        "Y": 80
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 112,
+        "Y": 96
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 112,
+        "Y": 112
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 112,
+        "Y": 128
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 112,
+        "Y": 144
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 112,
+        "Y": 160
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 112,
+        "Y": 176
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 112,
+        "Y": 192
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 208,
+        "Y": 144
+      },
+      "size": {
+        "X": 32,
+        "Y": 32
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_medium"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 128,
+        "Y": 176
+      },
+      "size": {
+        "X": 32,
+        "Y": 32
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_medium"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 80,
+        "Y": 144
+      },
+      "size": {
+        "X": 32,
+        "Y": 32
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_medium"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 64,
+        "Y": 64
+      },
+      "size": {
+        "X": 32,
+        "Y": 32
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_medium"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 48,
+        "Y": 32
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 16,
+        "Y": 32
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 0,
+        "Y": 32
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 112,
+        "Y": 16
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 240,
+        "Y": -32
+      },
+      "size": {
+        "X": 48,
+        "Y": 48
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_big"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 144,
+        "Y": -32
+      },
+      "size": {
+        "X": 48,
+        "Y": 48
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_big"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 48,
+        "Y": -32
+      },
+      "size": {
+        "X": 48,
+        "Y": 48
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_big"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 112,
+        "Y": 64
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 112,
+        "Y": 48
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 16,
+        "Y": 96
+      },
+      "size": {
+        "X": 32,
+        "Y": 32
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_medium"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 32,
+        "Y": 32
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 192,
+        "Y": 32
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -48,
+        "Y": 64
+      },
+      "size": {
+        "X": 48,
+        "Y": 48
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_big"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -48,
+        "Y": 16
+      },
+      "size": {
+        "X": 48,
+        "Y": 48
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_big"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -48,
+        "Y": 208
+      },
+      "size": {
+        "X": 48,
+        "Y": 48
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_big"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 112,
+        "Y": 32
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 32,
+        "Y": 160
+      },
+      "size": {
+        "X": 48,
+        "Y": 48
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_big"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 224,
+        "Y": 48
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 0,
+        "Y": 194
+      },
+      "size": {
+        "X": 104,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Entities/frog_bird"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 227,
+        "Y": 194
+      },
+      "size": {
+        "X": 104,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Entities/frog_bird"
+    }
+  ]
+}

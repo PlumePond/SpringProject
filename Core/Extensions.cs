@@ -108,8 +108,66 @@ public static class Extensions
             int b = Clamp((int)(B * 255.0));
 
             return new Color(r, g, b);
+    }
+
+    public static HSV ToHSV(Color color)
+    {
+        byte r = color.R;
+        byte g = color.G;
+        byte b = color.B;
+
+        double max = Math.Max(Math.Max(r, g), b);
+        double min = Math.Min(Math.Min(r, g), b);
+        double delta = max - min;
+
+        double h = 0;
+        double s = 0; 
+        double v = max / 255.0;
+
+        if (max != 0)
+        {
+            s = delta / max;
         }
 
+        if (s != 0)
+        {
+            if (r == max)
+            {
+                h = (g - b) / delta;
+            }
+            else if (g == max)
+            {
+                h = 2 + (b - r) / delta;
+            }
+            else if (b == max)
+            {
+                h = 4 + (r - g) / delta;
+            }
+
+            h *= 60;
+            
+            if (h < 0)
+            {
+                h += 360;
+            }
+        }
+
+        return new HSV(h, s * 100, v * 100); // H in degrees, S and V as percentages
+    }
+
+    public struct HSV
+    {
+        public double H;
+        public double S;
+        public double V;
+
+        public HSV(double h, double s, double v)
+        {
+            H = h;
+            S = s;
+            V = v;
+        }
+    }
 
     static int Clamp(int i)
     {

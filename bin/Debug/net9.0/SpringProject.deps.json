@@ -9,7 +9,8 @@
       "SpringProject/1.0.0": {
         "dependencies": {
           "FontStashSharp.MonoGame": "1.5.4",
-          "MonoGame.Framework.DesktopGL": "3.8.4.1"
+          "MonoGame.Framework.DesktopGL": "3.8.4.1",
+          "Newtonsoft.Json": "13.0.4"
         },
         "runtime": {
           "SpringProject.dll": {}
@@ -148,6 +149,14 @@
           }
         }
       },
+      "Newtonsoft.Json/13.0.4": {
+        "runtime": {
+          "lib/net6.0/Newtonsoft.Json.dll": {
+            "assemblyVersion": "13.0.0.0",
+            "fileVersion": "13.0.4.30916"
+          }
+        }
+      },
       "NVorbis/0.10.4": {
         "runtime": {
           "lib/netstandard2.0/NVorbis.dll": {
@@ -228,6 +237,13 @@
       "sha512": "sha512-T4E2ppGlSTC2L9US1rxtdg3qTbarRzNId31xZoumUW9cf9Nq8nRQPMu9GzvZGrhfSySf0+UWPEj1rlicps+P/w==",
       "path": "monogame.library.sdl/2.32.2.1",
       "hashPath": "monogame.library.sdl.2.32.2.1.nupkg.sha512"
+    },
+    "Newtonsoft.Json/13.0.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-pdgNNMai3zv51W5aq268sujXUyx7SNdE2bj1wZcWjAQrKMFZV260lbqYop1d2GM67JI1huLRwxo9ZqnfF/lC6A==",
+      "path": "newtonsoft.json/13.0.4",
+      "hashPath": "newtonsoft.json.13.0.4.nupkg.sha512"
     },
     "NVorbis/0.10.4": {
       "type": "package",

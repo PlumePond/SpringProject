@@ -1,6 +1,3 @@
-using System.Collections.Generic;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
 namespace SpringProject.Core.UserInput;
@@ -62,7 +59,7 @@ public class MouseClickBinding : InputBinding
                 break;
         }
 
-        if (!Main.graphicsDevice.Viewport.Bounds.Contains(_mouseState.Position))
+        if (!Main.Graphics.Viewport.Bounds.Contains(_mouseState.Position))
         {
             return;
         }

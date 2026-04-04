@@ -1,4 +1,7 @@
 {
     "material": "ceramic",
-    "solid": false
+    "solid": false,
+    "type": "pot",
+    "frame": { "X": 16, "Y": 18 },
+    "placeSound": "pot_touch"
 }

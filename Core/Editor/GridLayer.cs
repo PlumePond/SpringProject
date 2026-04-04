@@ -5,12 +5,18 @@ namespace SpringProject.Core.Editor;
 
 public class GridLayer
 {
-    List<LevelObject> _levelObjects;
+    public string Name { get; private set; }
+    public float ParallaxFactor { get; private set; }
+    public bool HasFog { get; private set; }
 
-    public List<LevelObject> LevelObjects => _levelObjects;
+    public List<LevelObject> LevelObjects { get; private set; }
 
-    public GridLayer()
+    public GridLayer(string name, float parallaxFactor, bool hasFog)
     {
-        _levelObjects = new List<LevelObject>();
+        Name = name;
+        ParallaxFactor = parallaxFactor;
+        HasFog = hasFog;
+        
+        LevelObjects = new List<LevelObject>();
     }
 }

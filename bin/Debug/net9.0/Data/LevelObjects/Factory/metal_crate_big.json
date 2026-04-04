@@ -1,4 +1,5 @@
 {
     "material": "metal",
-    "solid": true
+    "solid": true,
+    "placeSound": "step_metal"
 }

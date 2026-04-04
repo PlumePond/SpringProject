@@ -1,8 +1,6 @@
 using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
 
 namespace SpringProject.Core.UserInput;
 
@@ -16,6 +14,16 @@ public class InputState
     public float Float { get; protected set; } = 0.0f;
     public int Int { get; protected set; } = 0;
     public Vector2 Vector { get; protected set; } = Vector2.Zero;
+    
+    public Point DeltaPoint { get; protected set; } = Point.Zero;
+    public float DeltaFloat { get; protected set; } = 0.0f;
+    public int DeltaInt { get; protected set; } = 0;
+    public Vector2 DeltaVector { get; protected set; } = Vector2.Zero;
+
+    protected Point _prevPoint = Point.Zero;
+    protected float _prevFloat = 0.0f;
+    protected int _prevInt = 0;
+    protected Vector2 _prevVector = Vector2.Zero;
 
     protected List<InputBinding> _bindings = new List<InputBinding>();
 
@@ -78,5 +86,15 @@ public class InputState
         {
             ReleasedEvent?.Invoke();
         }
+        
+        DeltaPoint = Point - _prevPoint;
+        DeltaFloat = Float - _prevFloat;
+        DeltaInt = Int - _prevInt;
+        DeltaVector = Vector - _prevVector;
+
+        _prevPoint = Point;
+        _prevFloat = Float;
+        _prevInt = Int;
+        _prevVector = Vector;
     }
 }

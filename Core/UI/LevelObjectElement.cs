@@ -17,22 +17,24 @@ public class LevelObjectElement : Element
     public LevelObjectData LevelObjectData => _levelObjectData;
 
     LevelObjectData _levelObjectData;
+    GridPlacement _gridPlacement;
     Texture2D _texture;
     bool _hovering = false;
     
     Color _outlineColor = Color.White;
 
-    public LevelObjectElement(Point position, Vector2 scale, Point size, LevelObjectData levelObjectData) : base(position, size, scale, Origin.MiddleCenter, Anchor.MiddleCenter)
+    public LevelObjectElement(Point position, Vector2 scale, Point size, LevelObjectData levelObjectData, GridPlacement gridPlacement) : base(position, size, scale, Origin.MiddleCenter, Anchor.MiddleCenter)
     {
         _levelObjectData = levelObjectData;
         _texture = levelObjectData.sprite;
+        _gridPlacement = gridPlacement;
     }
 
     public override void Draw(SpriteBatch spriteBatch)
     {
         base.Draw(spriteBatch);
 
-        if (Main.Grid.SelectedObjectData == _levelObjectData)
+        if (_gridPlacement.SelectedObjectData == _levelObjectData)
         {
             color = Color.LightGoldenrodYellow;
         }
@@ -41,28 +43,32 @@ public class LevelObjectElement : Element
             color = Color.White;
         }
 
+        Point frame = _levelObjectData.frame != Point.Zero ? _levelObjectData.frame : _levelObjectData.size;
+
+        Rectangle destRect = new Rectangle(AbsolutePosition, size * AbsoluteScale.ToPoint());
+        Rectangle sourceRect = new Rectangle(_levelObjectData.defaultFramePos, frame);
+
         // draw in a rectangle that is defined by the position, size, and scale of the element
-        spriteBatch.Draw(_texture, new Rectangle(AbsolutePosition, size * AbsoluteScale.ToPoint()), color);
+        spriteBatch.Draw(_texture, destRect, sourceRect, color);
 
         if (_hovering)
         {
-            spriteBatch.Draw(_levelObjectData.outline, new Rectangle(AbsolutePosition, size * AbsoluteScale.ToPoint()), Color.White);
+            spriteBatch.Draw(_levelObjectData.outline, destRect, Color.White);
         }
-        else if (Main.Grid.SelectedObjectData == _levelObjectData)
+        else if (_gridPlacement.SelectedObjectData == _levelObjectData)
         {
-            spriteBatch.Draw(_levelObjectData.outline, new Rectangle(AbsolutePosition, size * AbsoluteScale.ToPoint()), Color.Yellow);
+            spriteBatch.Draw(_levelObjectData.outline, destRect, Color.Yellow);
         }
     }
 
     public override void OnMouseEnter()
     {
         _hovering = true;
-        Input.MouseHoverConsumed = true;
     }
 
     public override void OnMouseHover()
     {
-        Input.MouseHoverConsumed = true;
+        Input.ConsumeHover();
     }
 
     public override void OnMouseExit()
@@ -73,18 +79,18 @@ public class LevelObjectElement : Element
 
     public override void OnPressed()
     {
-        Input.MousePressConsumed = true;
+        Input.ConsumePress();
         
         _outlineColor = Color.Yellow;
         AudioManager.Get("accept").Play();
 
-        if (Main.Grid.SelectedObjectData == _levelObjectData)
+        if (_gridPlacement.SelectedObjectData == _levelObjectData)
         {
-            Main.Grid.SetSelectedObjectData(null);
+            _gridPlacement.SetSelectedObjectData(null);
         }
         else
         {
-            Main.Grid.SetSelectedObjectData(_levelObjectData);
+            _gridPlacement.SetSelectedObjectData(_levelObjectData);
         }
     }
 

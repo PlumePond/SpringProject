@@ -41,6 +41,7 @@ public static class InputLoader
         return inputStates;
     }
 
+    // build binding from key in the json file
     static InputBinding BuildBinding(InputBindingJSONData data) => data.Type switch
     {
         "key" => new KeyBinding(Enum.Parse<Keys>(data.Key, true)),
@@ -48,6 +49,8 @@ public static class InputLoader
         "mouse_click" => new MouseClickBinding(Enum.Parse<MouseButton>(data.Button, true)),
         "controller_button" => new ControllerButtonBinding(Enum.Parse<Buttons>(data.Button, true)),
         "mouse_position" => new MousePositionBinding(),
+        "scroll" => new MouseScrollBinding(),
+        "modifier" => new ModifierBinding(data.Keys.Select(k => Enum.Parse<Keys>(k, true)).ToArray()),
         _ => throw new Exception($"Unknown binding type: {data.Type}")
     };
 
@@ -56,6 +59,7 @@ public static class InputLoader
         public string Type { get; set; }
         public string Key { get; set; }
         public string Button { get; set; }
+        public string[] Keys { get; set; }
         
         // compound key binding
         public string Up { get; set; }

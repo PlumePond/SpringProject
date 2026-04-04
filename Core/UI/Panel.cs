@@ -19,13 +19,13 @@ public class Panel : Element
 
     public override void Draw(SpriteBatch spriteBatch)
     {
-        base.Draw(spriteBatch);
-        
         UIHelper.DrawSegmented(spriteBatch, _texture, AbsolutePosition, size, AbsoluteScale, _cornerSize, color);
+        
+        base.Draw(spriteBatch);
     }
 
     public override void OnMouseHover()
     {
-        Input.MouseHoverConsumed = true;
+        Input.ConsumeHover();
     }
 }

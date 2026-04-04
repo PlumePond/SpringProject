@@ -1,4 +1,6 @@
 {
     "material": "default",
-    "solid": false
+    "solid": true,
+    "type": "box",
+    "scalable": true
 }

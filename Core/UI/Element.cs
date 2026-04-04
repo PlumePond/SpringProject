@@ -20,8 +20,16 @@ public class Element
 
     public Color color { get; protected set; } = Color.White;
 
+    public bool Active { get; protected set; } = true;
+
+    protected bool _hovering = false;
+
     protected bool _prevHovering = false;
     protected bool _prevPressed = false;
+
+    public Rectangle Bounds { get; protected set; }
+
+    public Action<Element> AddChildEvent;
 
     public Point AbsolutePosition
     {
@@ -70,16 +78,12 @@ public class Element
 
     public virtual void Draw(SpriteBatch spriteBatch)
     {
-        
+        DrawChildren(spriteBatch);
     }
 
     public bool WithinBounds(Point point)
     {
-        return 
-        point.X >= AbsolutePosition.X && 
-        point.X <= AbsolutePosition.X + size.X * AbsoluteScale.X && 
-        point.Y >= AbsolutePosition.Y && 
-        point.Y <= AbsolutePosition.Y + size.Y * AbsoluteScale.Y;
+        return Bounds.Contains(point);
     }
 
     public virtual void Update(GameTime gameTime)
@@ -90,42 +94,46 @@ public class Element
         Point mousePosition = new Point(mousePoint.X / Main.Settings.UISize, mousePoint.Y / Main.Settings.UISize);
 
         // check if the mouse is hovering over the element
-        bool isHovering = WithinBounds(mousePosition);
+        _hovering = WithinBounds(mousePosition);
     
         bool isPressed = Input.Get("ui_click").Holding;
 
-        if (isHovering && !_prevHovering)
+        if (_hovering && !_prevHovering)
         {
             OnMouseEnter();
         }
-        else if (isHovering)
+        else if (_hovering)
         {
             OnMouseHover();
         }
-        else if (!isHovering && _prevHovering)
+        else if (!_hovering && _prevHovering)
         {
             OnMouseExit();
         }
 
-        if (isHovering && isPressed && !_prevPressed)
+        if (_hovering && isPressed && !_prevPressed)
         {
             OnPressed();
         }
-        else if (isHovering && !isPressed && _prevPressed)
+        else if (_hovering && !isPressed && _prevPressed)
         {
             OnReleased();
         }
 
-        _prevHovering = isHovering;
+        _prevHovering = _hovering;
         _prevPressed = isPressed;
+
+        UpdateChildren(gameTime);
     }
 
     public void UpdateChildren(GameTime gameTime)
     {
         foreach (var child in _children)
         {
-            child.Update(gameTime);
-            child.UpdateChildren(gameTime);
+            if (child.Active)
+            {
+                child.Update(gameTime);
+            }
         }
     }
 
@@ -133,8 +141,10 @@ public class Element
     {
         foreach (var child in _children)
         {
-            child.Draw(spriteBatch);
-            child.DrawChildren(spriteBatch);
+            if (child.Active)
+            {
+                child.Draw(spriteBatch);
+            }
         }
     }
 
@@ -143,6 +153,8 @@ public class Element
         _children.Add(child);
         child._parent = this;
         child.anchorOffset = child.GetAnchorOffset();
+
+        AddChildEvent?.Invoke(child);
     }
 
     public virtual void RemoveChild(Element child)
@@ -201,10 +213,18 @@ public class Element
         originOffset = GetOriginOffset();
         anchorOffset = GetAnchorOffset();
 
+        ReCalculateBounds();
+
         foreach (var child in _children)
         {
             child.ReCalculateOffsets();
+            ReCalculateBounds();
         }
+    }
+
+    public void ReCalculateBounds()
+    {
+        Bounds = new Rectangle(AbsolutePosition, size * AbsoluteScale.ToPoint());
     }
 
     public Point GetOriginOffset()
@@ -283,5 +303,10 @@ public class Element
 
     public virtual void OnReleased()
     {
+    }
+
+    public void SetActive(bool active)
+    {
+        Active = active;
     }
 }

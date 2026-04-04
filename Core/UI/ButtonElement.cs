@@ -33,16 +33,14 @@ public class ButtonElement : Element
 
     public override void Draw(SpriteBatch spriteBatch)
     {
-        base.Draw(spriteBatch);
-        
-        Texture2D texture = _defaultTexture;
+        UIHelper.DrawSegmented(spriteBatch, _defaultTexture, AbsolutePosition, size, AbsoluteScale, _cornerSize, color);
 
         if (_selected && !_pressed)
         {
-            texture = _selectedTexture;
+            UIHelper.DrawSegmented(spriteBatch, _selectedTexture, AbsolutePosition, size, AbsoluteScale, _cornerSize, color);
         }
 
-        UIHelper.DrawSegmented(spriteBatch, texture, AbsolutePosition, size, AbsoluteScale, _cornerSize, color);
+        base.Draw(spriteBatch);
     }
 
     public override void OnMouseEnter()

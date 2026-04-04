@@ -32,12 +32,10 @@ C:\Users\doubl\SpringProject\obj\Debug\net9.0\refint\SpringProject.dll
 C:\Users\doubl\SpringProject\obj\Debug\net9.0\SpringProject.pdb
 C:\Users\doubl\SpringProject\obj\Debug\net9.0\SpringProject.genruntimeconfig.cache
 C:\Users\doubl\SpringProject\obj\Debug\net9.0\ref\SpringProject.dll
-C:\Users\doubl\SpringProject\bin\Debug\net9.0\Content\Sprites\ui_box-1.xnb
-C:\Users\doubl\SpringProject\bin\Debug\net9.0\Content\Sprites\ui_panel-1.xnb
-C:\Users\doubl\SpringProject\bin\Debug\net9.0\Content\Sprites\ui_color_panel-1.xnb
 C:\Users\doubl\SpringProject\bin\Debug\net9.0\Cyotek.Drawing.BitmapFont.dll
 C:\Users\doubl\SpringProject\bin\Debug\net9.0\FontStashSharp.Base.dll
 C:\Users\doubl\SpringProject\bin\Debug\net9.0\FontStashSharp.MonoGame.dll
 C:\Users\doubl\SpringProject\bin\Debug\net9.0\FontStashSharp.Rasterizers.StbTrueTypeSharp.dll
 C:\Users\doubl\SpringProject\bin\Debug\net9.0\StbImageSharp.dll
 C:\Users\doubl\SpringProject\bin\Debug\net9.0\StbTrueTypeSharp.dll
+C:\Users\doubl\SpringProject\bin\Debug\net9.0\Newtonsoft.Json.dll

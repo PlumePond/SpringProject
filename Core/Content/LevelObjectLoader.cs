@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
-using System.Text.Json;
+using Newtonsoft.Json;
 using System.Threading.Tasks;
 using SpringProject.Core.Debugging;
+using SpringProject.Core.Content.Types;
 
 namespace SpringProject.Core.Content;
 
@@ -43,7 +44,7 @@ public static class LevelObjectLoader
                     string json = File.ReadAllText(jsonFile);
                     Debug.Log("Level Object .json file found: " + jsonFile);
 
-                    LevelObjectJsonData data = JsonSerializer.Deserialize<LevelObjectJsonData>(json);
+                    LevelObjectJsonData data = JsonConvert.DeserializeObject<LevelObjectJsonData>(json);
 
                     // load matching png
                     Texture2D sprite = null;
@@ -80,8 +81,15 @@ public static class LevelObjectLoader
                         Debug.Log("Failed to parse Material");
                     }
 
+                    Type type = typeof(LevelObject);
+
+                    if (LevelObjectTypeLoader.Types.ContainsKey(data.type))
+                    {
+                        type = LevelObjectTypeLoader.Types[data.type];
+                    }
+
                     // instantiate new levelObject
-                    var levelObjectData = new LevelObjectData(objectName, folderName, material, sprite, outline, data.solid);
+                    var levelObjectData = new LevelObjectData(objectName, folderName, material, sprite, outline, data.solid, type, data.scalable, data.frame, data.defaultFramePos, data.placeSound);
 
                     // assign value to dictionary
                     string key = $"{folderName}/{objectName}";
@@ -95,5 +103,10 @@ public static class LevelObjectLoader
                 }
             }
         }
+    }
+
+    public static LevelObjectData Get(string key)
+    {
+        return LevelObjectDataDictionary[key];
     }
 }

@@ -10,8 +10,8 @@ public static class Input
 {
     static Dictionary<string, InputState> _inputStates = new Dictionary<string, InputState>();
 
-    public static bool MouseHoverConsumed = false;
-    public static bool MousePressConsumed = false;
+    public static bool MouseHoverConsumed { get; private set; } = false;
+    public static bool MousePressConsumed { get; private set; } = false;
 
     // add a new input state with the given name and key
     public static void AddState(string name, params InputBinding[] bindings)
@@ -66,5 +66,15 @@ public static class Input
     {
         name = name.ToLower();
         return _inputStates[name];
+    }
+
+    public static void ConsumeHover()
+    {
+        MouseHoverConsumed = true;
+    }
+
+    public static void ConsumePress()
+    {
+        MousePressConsumed = true;
     }
 }

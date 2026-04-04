@@ -9,6 +9,7 @@ public class CompoundKeyBinding : InputBinding
 {
     protected KeyboardState _currentKeyboardState;
     protected KeyboardState _previousKeyboardState;
+    protected bool _previousHolding;
     
     Keys _up;
     Keys _down;
@@ -45,16 +46,18 @@ public class CompoundKeyBinding : InputBinding
 
         Pressed = upPressed || downPressed || leftPressed || rightPressed;
         Holding = upHolding || downHolding || leftHolding || rightHolding;
-        Released = upReleased || downReleased || leftReleased || rightReleased;
+        Released = !Holding && _previousHolding;
 
         int x = 0;
         int y = 0;
 
-        if (upPressed) y -= 1;
-        if (downPressed) y += 1;
-        if (leftPressed) x -= 1;
-        if (rightPressed) x += 1;
+        if (upHolding) y -= 1;
+        if (downHolding) y += 1;
+        if (leftHolding) x -= 1;
+        if (rightHolding) x += 1;
 
         Point = new Point(x, y);
+
+        _previousHolding = Holding;
     }
 }

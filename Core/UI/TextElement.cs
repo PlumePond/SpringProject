@@ -21,6 +21,8 @@ public class TextElement : Element
     public override void Draw(SpriteBatch spriteBatch)
     {
         spriteBatch.DrawString(_font, _text, AbsolutePosition.ToVector2(), color, 0, Vector2.Zero, AbsoluteScale);
+
+        base.Draw(spriteBatch);
     }
 
     public void SetText(string text)

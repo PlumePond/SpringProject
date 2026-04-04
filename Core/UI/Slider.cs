@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using SpringProject.Core.Audio;
+using SpringProject.Core.Debugging;
 using SpringProject.Core.Editor;
 using SpringProject.Core.UserInput;
 
@@ -36,7 +37,7 @@ public class Slider : Element
 
     public Action<float> ChangeValue;
 
-    public Slider(Point position, Point size, Vector2 scale, Origin origin, Anchor anchor, Texture2D sliderTexture, Texture2D handleTexture, Texture2D selectedTexture, Texture2D fillTexture, float min, float max, int cornerSize = 16) : base(position, size, scale, origin, anchor)
+    public Slider(Point position, Point size, Vector2 scale, Origin origin, Anchor anchor, Texture2D sliderTexture, Texture2D handleTexture, Texture2D selectedTexture, Texture2D fillTexture, float min, float max, float defaultValue, int cornerSize = 16) : base(position, size, scale, origin, anchor)
     {
         _sliderTexture = sliderTexture;
         _handleTexture = handleTexture;
@@ -49,6 +50,10 @@ public class Slider : Element
         _max = max;
 
         _handleSize = new Point(10, size.Y);
+
+        // initialize slider
+        _value = defaultValue;
+        _ratio = MathUtils.InverseLerp(_min, _max, _value);
     }
 
     public override void Update(GameTime gameTime)
@@ -67,7 +72,7 @@ public class Slider : Element
             ChangeValue?.Invoke(_value);
         }
 
-        if (Input.Get("ui_click").Released && _interacting || !Main.graphicsDevice.Viewport.Bounds.Contains(mousePoint))
+        if (Input.Get("ui_click").Released && _interacting || !Main.Graphics.Viewport.Bounds.Contains(mousePoint))
         {
             _interacting = false;
         }
@@ -88,15 +93,21 @@ public class Slider : Element
         Point fillSize = new Point(handleDistance + _handleSize.X / 2, baseFillSize.Y);
         UIHelper.DrawSegmented(spriteBatch, _fillTexture, AbsolutePosition, fillSize, AbsoluteScale, _cornerSize, color);
 
-        Texture2D handleTexture = _handleTexture;
+        // draw handle
+        UIHelper.DrawSegmented(spriteBatch, _handleTexture, handlePos, _handleSize, AbsoluteScale, _cornerSize, color);
 
         if (_selected && !_pressed)
         {
-            handleTexture = _selectedTexture;
+            UIHelper.DrawSegmented(spriteBatch, _selectedTexture, handlePos, _handleSize, AbsoluteScale, _cornerSize, color);
         }
+    }
 
-        // draw handle
-        UIHelper.DrawSegmented(spriteBatch, handleTexture, handlePos, _handleSize, AbsoluteScale, _cornerSize, color);
+    public void SetValue(float value)
+    {
+        _value = Math.Clamp(value, _min, _max);
+        _ratio = MathUtils.InverseLerp(_min, _max, _value);
+
+        Debug.Log($"SLIDER VALUE SET: {_value}");
     }
 
     public override void OnPressed()

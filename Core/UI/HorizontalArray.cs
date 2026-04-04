@@ -16,7 +16,7 @@ public class HorizontalArray : Element
 
     public override void Draw(SpriteBatch spriteBatch)
     {
-        
+        base.Draw(spriteBatch);
     }
 
     public override void AddChild(Element child)

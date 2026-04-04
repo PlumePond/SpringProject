@@ -17,10 +17,15 @@ public class LevelObjectData
     public Texture2D sprite { get; private set; }
     public Texture2D outline { get; private set; }
     public bool solid { get; private set; }
+    public Type type { get; private set; }
+    public bool scalable { get; private set; }
+    public Point frame { get; private set; }
+    public string placeSound { get; private set; }
+    public Point defaultFramePos { get; private set; }
 
     public Point size => sprite.Bounds.Size;
 
-    public LevelObjectData(string name, string folder, Material material, Texture2D sprite, Texture2D outline, bool solid)
+    public LevelObjectData(string name, string folder, Material material, Texture2D sprite, Texture2D outline, bool solid, Type type, bool scalable, Point frame, Point defaultFramePos, string placeSound)
     {
         this.name = name;
         this.folder = folder;
@@ -28,6 +33,11 @@ public class LevelObjectData
         this.sprite = sprite;
         this.outline = outline;
         this.solid = solid;
+        this.type = type;
+        this.scalable = scalable;
+        this.frame = frame;
+        this.defaultFramePos = defaultFramePos;
+        this.placeSound = placeSound;
     }
 }
 
@@ -35,4 +45,9 @@ class LevelObjectJsonData
 {
     [JsonPropertyName("material")] public string material { get; set; } = "default";
     [JsonPropertyName("solid")] public bool solid { get; set; } = false;
+    [JsonPropertyName("type")] public string type { get; set; } = "default";
+    [JsonPropertyName("scalable")] public bool scalable { get; set; } = false;
+    [JsonPropertyName("frame")] public Point frame { get; set; } = Point.Zero;
+    [JsonPropertyName("defaultFramePos")] public Point defaultFramePos { get; set; } = Point.Zero;
+    [JsonPropertyName("placeSound")] public string placeSound { get; set; } = null;
 }

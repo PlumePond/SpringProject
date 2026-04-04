@@ -1,0 +1,9 @@
+{
+    "material": "default",
+    "solid": false,
+    "type": "player",
+    "frame": {
+        "X": 13,
+        "Y": 14
+    }
+}
