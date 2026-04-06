@@ -1,9 +1,14 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Reflection.PortableExecutable;
+using System.Threading;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using SpringProject.Core.Audio;
 using SpringProject.Core.Commands;
 using SpringProject.Core.Content;
+using SpringProject.Core.Debugging;
 using SpringProject.Core.Editor;
 using SpringProject.Core.SaveSystem;
 using SpringProject.Core.UI;
@@ -26,6 +31,9 @@ public class LevelEditor : Scene
     Action<float> _setAlphaEvent;
 
     Color _selectedColor = Color.White;
+
+    GridArray _levelObjectGrid;
+    GridArray _slotGrid;
     
     float _hue = 0.0f;
     float _saturation = 0.0f;
@@ -44,148 +52,92 @@ public class LevelEditor : Scene
         // initialize camera
         Camera = new EditorCamera(Main.Graphics, 4, ActiveGrid);
 
-        Texture2D panelTexture = TextureManager.Get("panel");
-        Texture2D panelSelectedTexture = TextureManager.Get("panel_selected");
-        Texture2D panelPressedTexture = TextureManager.Get("panel_dark");
+        ActiveCanvas.AddChild(new ImageElement(Point.Zero, Anchor.TopLeft, TextureManager.Get("gradient-1"), Color.White));
 
-        Texture2D sliderTexture = TextureManager.Get("panel_dark");
-        Texture2D sliderFillTexture = TextureManager.Get("slider_fill");
-        Texture2D colorDisplayTexture = TextureManager.Get("color_display");
+        Panel objectPanel = new Panel(new Point(3, 3), new Point(88, 183), Anchor.TopLeft, TextureManager.Get("panel_dark_gold"), 3);
+        ActiveCanvas.AddChild(objectPanel);
 
-        ActiveCanvas.AddChild(new ImageElement(Point.Zero, Vector2.One, Origin.TopLeft, Anchor.TopLeft, TextureManager.Get("gradient-1"), Color.White));
+        Panel searchPanel = new Panel(new Point(0, 4), new Point(80, 13), Anchor.TopCenter, TextureManager.Get("panel_mid"), 3);
+        searchPanel.AddChild(new ImageElement(new Point(3, 0), Anchor.MiddleLeft, TextureManager.Get("search_icon"), Color.White));
+        Panel inputTextPanel = new Panel(new Point(-4, 0), new Point(65, 7), Anchor.MiddleRight, TextureManager.Get("text_box"), 3);
+        TextInputBox textInput = new TextInputBox(new Point(1, 0), new Point(65, 7), FontManager.Get("body"), "", Color.Gray, Color.White, Anchor.MiddleLeft);
+        textInput.ChangeTextEvent += SearchLevelObjects;
+        inputTextPanel.AddChild(textInput);
+        searchPanel.AddChild(inputTextPanel);
+        objectPanel.AddChild(searchPanel);
 
-        // create a panel element and add it to the canvas
-        Panel panel1 = new Panel(new Point(5, -5), new Point(LevelObjectLoader.LevelObjectDataDictionary.Count * 40 + 50, 50), Vector2.One, Origin.BottomLeft, Anchor.BottomLeft, panelTexture);
-        HorizontalArray horizontalArray = new HorizontalArray(new Point(5, 0), new Point(40, 40), Vector2.One, 5);
-        ActiveCanvas.AddChild(panel1);
-        panel1.AddChild(horizontalArray);
-
-        Panel colorPanel = new Panel(new Point(-5, -5), new Point(110, 202), Vector2.One, Origin.BottomRight, Anchor.BottomRight, panelTexture);
-        Slider hueSlider = new Slider(new Point(5, 110), new Point(100, 10), Vector2.One, Origin.TopLeft, Anchor.TopLeft, sliderTexture, panelTexture, panelSelectedTexture, sliderFillTexture, 0f, 360f, 0f, 3);
-        Slider saturationSlider = new Slider(new Point(5, 121), new Point(100, 10), Vector2.One, Origin.TopLeft, Anchor.TopLeft, sliderTexture, panelTexture, panelSelectedTexture, sliderFillTexture, 0f, 1f, 0f, 3);
-        Slider valueSlider = new Slider(new Point(5, 132), new Point(100, 10), Vector2.One, Origin.TopLeft, Anchor.TopLeft, sliderTexture, panelTexture, panelSelectedTexture, sliderFillTexture, 0f, 1f, 1f, 3);
-        Slider alphaSlider = new Slider(new Point(5, 147), new Point(100, 10), Vector2.One, Origin.TopLeft, Anchor.TopLeft, sliderTexture, panelTexture, panelSelectedTexture, sliderFillTexture, 0f, 1f, 1f, 3);
-        _colorViewPanel = new Panel(new Point(5, 5), new Point(100, 100), Vector2.One, Origin.TopLeft, Anchor.TopLeft, colorDisplayTexture, 3);
-
-        TextElement hueText = new TextElement(new Point(3, 3), Vector2.One * 0.25f, FontManager.Get("body"), "H", Color.Black * 0.5f, Origin.TopLeft, Anchor.TopLeft);
-        hueSlider.AddChild(hueText);
-        TextElement saturationText = new TextElement(new Point(3, 3), Vector2.One * 0.25f, FontManager.Get("body"), "S", Color.Black * 0.5f, Origin.TopLeft, Anchor.TopLeft);
-        saturationSlider.AddChild(saturationText);
-        TextElement valueText = new TextElement(new Point(3, 3), Vector2.One * 0.25f, FontManager.Get("body"), "V", Color.Black * 0.5f, Origin.TopLeft, Anchor.TopLeft);
-        valueSlider.AddChild(valueText);
-        TextElement alphaText = new TextElement(new Point(3, 3), Vector2.One * 0.25f, FontManager.Get("body"), "A", Color.Black * 0.5f, Origin.TopLeft, Anchor.TopLeft);
-        alphaSlider.AddChild(alphaText);
-
-        // set bg color button
-        ButtonElement setBGColorButton = new ButtonElement(new Point(26, -5), new Point(32, 16), Vector2.One, Origin.BottomLeft, Anchor.BottomLeft, panelTexture, panelSelectedTexture, 3);
-        setBGColorButton.Pressed += SetBackground;
-        ImageElement setBGColorIcon = new ImageElement(new Point(0, 0), Vector2.One, Origin.MiddleCenter, Anchor.MiddleCenter, TextureManager.Get("set_bg_color"), Main.UIDefaultColor);
-        setBGColorButton.AddChild(setBGColorIcon);
-        colorPanel.AddChild(setBGColorButton);
-
-        // get bg color button
-        ButtonElement getBGColorButton = new ButtonElement(new Point(63, -5), new Point(32, 16), Vector2.One, Origin.BottomLeft, Anchor.BottomLeft, panelTexture, panelSelectedTexture, 3);
-        getBGColorButton.Pressed += GetBackground;
-        ImageElement getBGColorIcon = new ImageElement(new Point(0, 0), Vector2.One, Origin.MiddleCenter, Anchor.MiddleCenter, TextureManager.Get("get_bg_color"), Main.UIDefaultColor);
-        getBGColorButton.AddChild(getBGColorIcon);
-        colorPanel.AddChild(getBGColorButton);
-
-        // paint objects toggle
-        ToggleElement colorObjects = new ToggleElement(new Point(5, -25), new Point(16, 16), Vector2.One, Origin.BottomLeft, Anchor.BottomLeft, panelTexture, panelSelectedTexture, TextureManager.Get("color_objects"), false, 3);
-        Input.Get("paint_objects").PressedEvent += colorObjects.Toggle;
-        colorObjects.ValueChanged += ActiveGrid.SetColorObjects;
-        colorPanel.AddChild(colorObjects);
-
-        // set object color button
-        ButtonElement setObjectColorButton = new ButtonElement(new Point(26, -25), new Point(32, 16), Vector2.One, Origin.BottomLeft, Anchor.BottomLeft, panelTexture, panelSelectedTexture, 3);
-        setObjectColorButton.Pressed += SetObjectColor;
-        ImageElement setObjectColorIcon = new ImageElement(new Point(0, 0), Vector2.One, Origin.MiddleCenter, Anchor.MiddleCenter, TextureManager.Get("set_object_color"), Main.UIDefaultColor);
-        setObjectColorButton.AddChild(setObjectColorIcon);
-        colorPanel.AddChild(setObjectColorButton);
-
-        // get object color button
-        ButtonElement getObjectColorButton = new ButtonElement(new Point(63, -25), new Point(32, 16), Vector2.One, Origin.BottomLeft, Anchor.BottomLeft, panelTexture, panelSelectedTexture, 3);
-        getObjectColorButton.Pressed += GetObjectColor;
-        ImageElement getObjectColorIcon = new ImageElement(new Point(0, 0), Vector2.One, Origin.MiddleCenter, Anchor.MiddleCenter, TextureManager.Get("get_object_color"), Main.UIDefaultColor);
-        getObjectColorButton.AddChild(getObjectColorIcon);
-        colorPanel.AddChild(getObjectColorButton);
-
-        Panel gridPanel = new Panel(new Point(5, 5), new Point(68, 89), Vector2.One, Origin.TopLeft, Anchor.TopLeft, panelTexture, 16);
-
-        ToggleElement showLayers = new ToggleElement(new Point(5, 5), new Point(16, 16), Vector2.One, Origin.TopLeft, Anchor.TopLeft, panelTexture, panelSelectedTexture, TextureManager.Get("show_layers"), false, 3);
-        Input.Get("show_all_layers").PressedEvent += showLayers.Toggle;
-        showLayers.ValueChanged += ActiveGrid.SetShowAllLayers;
-        gridPanel.AddChild(showLayers);
-
-        ToggleElement showHitboxes = new ToggleElement(new Point(0, 5), new Point(16, 16), Vector2.One, Origin.TopCenter, Anchor.TopCenter, panelTexture, panelSelectedTexture, TextureManager.Get("show_hitboxes"), false, 3);
-        Input.Get("show_hitboxes").PressedEvent += showHitboxes.Toggle;
-        showHitboxes.ValueChanged += ActiveGrid.SetShowHitboxes;
-        gridPanel.AddChild(showHitboxes);
-
-        ToggleElement showGridLines = new ToggleElement(new Point(-5, 5), new Point(16, 16), Vector2.One, Origin.TopRight, Anchor.TopRight, panelTexture, panelSelectedTexture, TextureManager.Get("show_grid_lines"), false, 3);
-        Input.Get("show_grid_lines").PressedEvent += showGridLines.Toggle;
-        showGridLines.ValueChanged += ActiveGrid.SetShowGridLines;
-        gridPanel.AddChild(showGridLines);
-
-        ToggleElement showParallax = new ToggleElement(new Point(5, 26), new Point(16, 16), Vector2.One, Origin.TopLeft, Anchor.TopLeft, panelTexture, panelSelectedTexture, TextureManager.Get("show_parallax"), false, 3);
-        Input.Get("show_parallax").PressedEvent += showParallax.Toggle;
-        showParallax.ValueChanged += ActiveGrid.SetShowParallax;
-        gridPanel.AddChild(showParallax);
+        ScrollRect scrollRect = new ScrollRect(new Point(0, -4), new Point(80, 160), Anchor.BottomCenter);
+        objectPanel.AddChild(scrollRect);
         
-        ActiveCanvas.AddChild(gridPanel);
+        _levelObjectGrid = new GridArray(new Point(0, 0), new Point(80, 160), new Point(16, 16), 0, Anchor.TopLeft);
+        _slotGrid = new GridArray(new Point(0, 0), new Point(80, 160), new Point(16, 16), 0, Anchor.TopLeft);
+        scrollRect.AddChild(_slotGrid);
+        scrollRect.AddChild(_levelObjectGrid);
 
-        Panel savePanel = new Panel(new Point(-5, 5), new Point(42, 68), Vector2.One, Origin.TopRight, Anchor.TopRight, panelTexture, 3);
-
-        ButtonElement saveButton = new ButtonElement(new Point(5, 47), new Point(32, 16), Vector2.One, Origin.TopLeft, Anchor.TopLeft, panelTexture, panelSelectedTexture, 3);
-        saveButton.Pressed += SaveLevel;
-        ImageElement saveButtonIcon = new ImageElement(new Point(0, 0), Vector2.One, Origin.MiddleCenter, Anchor.MiddleCenter, TextureManager.Get("save_icon"), Main.UIDefaultColor);
-        saveButton.AddChild(saveButtonIcon);
-        savePanel.AddChild(saveButton);
-
-        ButtonElement playButton = new ButtonElement(new Point(5, 26), new Point(32, 16), Vector2.One, Origin.TopLeft, Anchor.TopLeft, panelTexture, panelSelectedTexture, 3);
-        playButton.Pressed += () =>
-        {
-            GameScene.levelName = levelName;
-            Main.SetScene<GameScene>(true);
-        };
-        playButton.AddChild(new ImageElement(new Point(0, 0), Vector2.One, Origin.MiddleCenter, Anchor.MiddleCenter, TextureManager.Get("play_icon"), Main.UIDefaultColor));
-        savePanel.AddChild(playButton);
-
-        ButtonElement mainMenuButton = new ButtonElement(new Point(5, 5), new Point(32, 16), Vector2.One, Origin.TopLeft, Anchor.TopLeft, panelTexture, panelSelectedTexture, 3);
-        mainMenuButton.Pressed += OpenMainMenu;
-        ImageElement mainMenuIcon = new ImageElement(new Point(0, 0), Vector2.One, Origin.MiddleCenter, Anchor.MiddleCenter, TextureManager.Get("menu_icon"), Main.UIDefaultColor);
-        mainMenuButton.AddChild(mainMenuIcon);
-        savePanel.AddChild(mainMenuButton);
-
-        ActiveCanvas.AddChild(savePanel);
-
-        _debugText = new TextElement(new Point(5, 99), Vector2.One * 0.5f, FontManager.Get("body"), "", Color.White, Origin.TopLeft, Anchor.TopLeft);
-        ActiveCanvas.AddChild(_debugText);
-
-        colorPanel.AddChild(hueSlider);
-        colorPanel.AddChild(saturationSlider);
-        colorPanel.AddChild(valueSlider);
-        colorPanel.AddChild(alphaSlider);
-        colorPanel.AddChild(_colorViewPanel);
-        ActiveCanvas.AddChild(colorPanel);
-
-        hueSlider.ChangeValue += OnHueChanged;
-        saturationSlider.ChangeValue += OnSaturationChanged;
-        valueSlider.ChangeValue += OnValueChanged;
-        alphaSlider.ChangeValue += OnAlphaChanged;
-
-        _setHueEvent += hueSlider.SetValue;
-        _setSaturationEvent += saturationSlider.SetValue;
-        _setValueEvent += valueSlider.SetValue;
-        _setAlphaEvent += alphaSlider.SetValue;
-
-        foreach (LevelObjectData levelObjectData in LevelObjectLoader.LevelObjectDataDictionary.Values)
-        {
-            LevelObjectElement levelObjectElement = new LevelObjectElement(Point.Zero, Vector2.One, new Point(40, 40), levelObjectData, GridPlacement);
-            horizontalArray.AddChild(levelObjectElement);
-        }
+        RepopulateLevelObjects(_levelObjectGrid, _slotGrid, LevelObjectLoader.LevelObjectDataDictionary.Values.ToArray());
 
         LevelSaveManager.Load(levelName, ActiveGrid);
+
+        Input.Get("save").PressedEvent += SaveLevel;
+    }
+
+    void RepopulateLevelObjects(GridArray objectGrid, GridArray slotGrid, LevelObjectData[] levelObjectDatas)
+    {
+        // reset children if there are already children
+        if (objectGrid.Children.Count > 0)
+        {
+            objectGrid.Clear();
+        }
+
+        for (int i = 0; i < levelObjectDatas.Length; i++)
+        {
+            var data = levelObjectDatas[i];
+            
+            Point frame = data.frame != Point.Zero ? data.frame : data.size;
+            var levelObject = new LevelObjectElement(Point.Zero, Anchor.TopLeft, frame, data, GridPlacement);
+            objectGrid.AddChild(levelObject);
+        }
+
+        objectGrid.PackChildren();
+
+        RepopulateSlots(slotGrid, objectGrid.GridRows);
+    }
+
+    void RepopulateSlots(GridArray slotGrid, int rowCount)
+    {
+        // reset children if there are already children
+        if (slotGrid.Children.Count > 0)
+        {
+            slotGrid.Clear();
+        }
+
+        rowCount = Math.Max(10, rowCount);
+
+        int count = rowCount * 5;
+
+        for (int i = 0; i < count; i++)
+        {
+            ImageElement slot = new ImageElement(Point.Zero, Anchor.TopLeft, TextureManager.Get("object_slot"), Color.White);
+            slotGrid.AddChild(slot);
+        }
+
+        slotGrid.PackChildren();
+    }
+
+    void SearchLevelObjects(string text)
+    {
+        var datas = new List<LevelObjectData>();
+        
+        // check to see if any of the names of the level objects contain the value of the search 
+        foreach (var kvp in LevelObjectLoader.LevelObjectDataDictionary)
+        {
+            if (kvp.Key.ToLower().Contains(text.ToLower()))
+            {
+                datas.Add(kvp.Value);
+            }
+        }
+
+        RepopulateLevelObjects(_levelObjectGrid, _slotGrid, datas.ToArray());
     }
 
     public override void Update(GameTime gameTime)
@@ -201,7 +153,7 @@ public class LevelEditor : Scene
         GridPlacement.Update(gameTime);
         Camera.Update(gameTime);
 
-        _debugText.SetText($"Layer: {ActiveGrid.layers[ActiveGrid.activeLayer].Name}");
+        //_debugText.SetText($"Layer: {ActiveGrid.layers[ActiveGrid.activeLayer].Name}");
 
         if (Input.Get("undo").Pressed)
         {
@@ -236,12 +188,13 @@ public class LevelEditor : Scene
     void SaveLevel()
     {
         LevelSaveManager.Save(ActiveGrid);
+        AudioManager.Get("save").Play();
     }
 
     void SetBackground()
     {
         ActiveGrid.SetFogColor(_selectedColor);
-        ActiveGrid.SetBackgroundColor(Extensions.FromHSV(_hue, _saturation, _value));
+        ActiveGrid.SetBackgroundColor(ColorUtils.FromHSV(_hue, _saturation, _value));
     }
 
     void GetBackground()
@@ -273,7 +226,7 @@ public class LevelEditor : Scene
     {
         GridPlacement.SelectColor(color);
         _colorViewPanel.SetColor(color);
-        Extensions.HSV hsv = Extensions.ToHSV(color);
+        ColorUtils.HSV hsv = ColorUtils.ToHSV(color);
 
         _hue = (float)hsv.H;
         _saturation = (float)hsv.S / 100.0f;
@@ -289,32 +242,32 @@ public class LevelEditor : Scene
     void OnHueChanged(float hue)
     {
         _hue = hue;
-        _selectedColor = Extensions.FromHSV(_hue, _saturation, _value) * _alpha;
+        _selectedColor = ColorUtils.FromHSV(_hue, _saturation, _value) * _alpha;
         GridPlacement.SelectColor(_selectedColor);
-        _colorViewPanel.SetColor(Extensions.FromHSV(_hue, _saturation, _value));
+        _colorViewPanel.SetColor(ColorUtils.FromHSV(_hue, _saturation, _value));
     }
 
     void OnSaturationChanged(float saturation)
     {
         _saturation = saturation;
-        _selectedColor = Extensions.FromHSV(_hue, _saturation, _value) * _alpha;
+        _selectedColor = ColorUtils.FromHSV(_hue, _saturation, _value) * _alpha;
         GridPlacement.SelectColor(_selectedColor);
-        _colorViewPanel.SetColor(Extensions.FromHSV(_hue, _saturation, _value));
+        _colorViewPanel.SetColor(ColorUtils.FromHSV(_hue, _saturation, _value));
     }
 
     void OnValueChanged(float value)
     {
         _value = value;
-        _selectedColor = Extensions.FromHSV(_hue, _saturation, _value) * _alpha;
+        _selectedColor = ColorUtils.FromHSV(_hue, _saturation, _value) * _alpha;
         GridPlacement.SelectColor(_selectedColor);
-        _colorViewPanel.SetColor(Extensions.FromHSV(_hue, _saturation, _value));
+        _colorViewPanel.SetColor(ColorUtils.FromHSV(_hue, _saturation, _value));
     }
 
     void OnAlphaChanged(float alpha)
     {
         _alpha = alpha;
-        _selectedColor = Extensions.FromHSV(_hue, _saturation, _value) * _alpha;
+        _selectedColor = ColorUtils.FromHSV(_hue, _saturation, _value) * _alpha;
         GridPlacement.SelectColor(_selectedColor);
-        _colorViewPanel.SetColor(Extensions.FromHSV(_hue, _saturation, _value));
+        _colorViewPanel.SetColor(ColorUtils.FromHSV(_hue, _saturation, _value));
     }
 }

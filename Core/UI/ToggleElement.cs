@@ -20,7 +20,7 @@ public class ToggleElement : Element
 
     public Action<bool> ValueChanged;
 
-    public ToggleElement(Point position, Point size, Vector2 scale, Origin origin, Anchor anchor, Texture2D defaultTexture, Texture2D selectedTexture, Texture2D displayTexture, bool defaultValue, int cornerSize = 16) : base(position, size, scale, origin, anchor)
+    public ToggleElement(Point position, Point size, Anchor anchor, Texture2D defaultTexture, Texture2D selectedTexture, Texture2D displayTexture, bool defaultValue, int cornerSize = 3) : base(position, size, anchor)
     {
         _defaultTexture = defaultTexture;
         _selectedTexture = selectedTexture;
@@ -29,7 +29,7 @@ public class ToggleElement : Element
         _cornerSize = cornerSize;
         _value = defaultValue;
 
-        _displayElement = new ImageElement(Point.Zero, scale, Origin.MiddleCenter, Anchor.MiddleCenter, _displayTexture, Main.UIDefaultColor);
+        _displayElement = new ImageElement(Point.Zero, Anchor.MiddleCenter, _displayTexture, Main.UIDefaultColor);
         AddChild(_displayElement);
     }
 

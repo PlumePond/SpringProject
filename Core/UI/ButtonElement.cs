@@ -1,6 +1,7 @@
 using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using SpringProject.Core.Debugging;
 using SpringProject.Core.UserInput;
 
 namespace SpringProject.Core.UI;
@@ -16,7 +17,7 @@ public class ButtonElement : Element
 
     public Action Pressed;
 
-    public ButtonElement(Point position, Point size, Vector2 scale, Origin origin, Anchor anchor, Texture2D defaultTexture, Texture2D selectedTexture, int cornerSize = 16) : base(position, size, scale, origin, anchor)
+    public ButtonElement(Point position, Point size, Anchor anchor, Texture2D defaultTexture, Texture2D selectedTexture, int cornerSize = 3) : base(position, size, anchor)
     {
         _defaultTexture = defaultTexture;
         _selectedTexture = selectedTexture;
@@ -41,27 +42,36 @@ public class ButtonElement : Element
         }
 
         base.Draw(spriteBatch);
+
+        // Debug.DrawRectangleOutline(spriteBatch, Bounds, Color.Lime, 1);
     }
 
     public override void OnMouseEnter()
     {
         _selected = true;
+        Cursor.BeginHover();
     }
 
     public override void OnMouseExit()
     {
         _selected = false;
         _pressed = false;
+
+        Cursor.EndHover();
     }
 
     public override void OnPressed()
     {
         _pressed = true;
+
+        Cursor.BeginPress();
     }
 
     public override void OnReleased()
     {
         _pressed = false;
         Pressed?.Invoke();
+
+        Cursor.EndPress();
     }
 }

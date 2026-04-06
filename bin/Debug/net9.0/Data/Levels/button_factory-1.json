@@ -1694,14 +1694,14 @@
     },
     {
       "color": {
-        "B": 17,
-        "G": 17,
-        "R": 17,
+        "B": 0,
+        "G": 0,
+        "R": 0,
         "A": 255
       },
       "position": {
-        "X": 288,
-        "Y": 240
+        "X": 32,
+        "Y": 272
       },
       "size": {
         "X": 16,
@@ -1868,8 +1868,8 @@
         "A": 255
       },
       "position": {
-        "X": 32,
-        "Y": 272
+        "X": 144,
+        "Y": 320
       },
       "size": {
         "X": 16,
@@ -1883,14 +1883,14 @@
     },
     {
       "color": {
-        "B": 0,
-        "G": 0,
-        "R": 0,
+        "B": 17,
+        "G": 17,
+        "R": 17,
         "A": 255
       },
       "position": {
-        "X": 144,
-        "Y": 320
+        "X": 288,
+        "Y": 240
       },
       "size": {
         "X": 16,
@@ -1931,7 +1931,7 @@
         "A": 255
       },
       "position": {
-        "X": -16,
+        "X": 144,
         "Y": 240
       },
       "size": {
@@ -2429,14 +2429,14 @@
     },
     {
       "color": {
-        "B": 0,
-        "G": 0,
-        "R": 0,
+        "B": 17,
+        "G": 17,
+        "R": 17,
         "A": 255
       },
       "position": {
-        "X": 144,
-        "Y": 240
+        "X": 96,
+        "Y": 256
       },
       "size": {
         "X": 16,
@@ -2597,14 +2597,14 @@
     },
     {
       "color": {
-        "B": 17,
-        "G": 17,
-        "R": 17,
+        "B": 0,
+        "G": 0,
+        "R": 0,
         "A": 255
       },
       "position": {
-        "X": 96,
-        "Y": 256
+        "X": -16,
+        "Y": 240
       },
       "size": {
         "X": 16,
@@ -3086,7 +3086,448 @@
         "A": 255
       },
       "position": {
-        "X": 224,
+        "X": 80,
+        "Y": 256
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 48,
+        "Y": 64
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -96,
+        "Y": 128
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -80,
+        "Y": 32
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 128,
+        "Y": 224
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 138,
+        "G": 155,
+        "R": 175,
+        "A": 255
+      },
+      "position": {
+        "X": 288,
+        "Y": 64
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 112,
+        "Y": 48
+      },
+      "size": {
+        "X": 48,
+        "Y": 48
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_big"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 336,
+        "Y": 160
+      },
+      "size": {
+        "X": 32,
+        "Y": 32
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_medium"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 352,
+        "Y": 96
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -144,
+        "Y": 128
+      },
+      "size": {
+        "X": 48,
+        "Y": 48
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_big"
+    },
+    {
+      "color": {
+        "B": 138,
+        "G": 155,
+        "R": 175,
+        "A": 255
+      },
+      "position": {
+        "X": -176,
+        "Y": 160
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -112,
+        "Y": -16
+      },
+      "size": {
+        "X": 48,
+        "Y": 48
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_big"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 80,
+        "Y": 192
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 368,
+        "Y": 64
+      },
+      "size": {
+        "X": 48,
+        "Y": 48
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_big"
+    },
+    {
+      "color": {
+        "B": 138,
+        "G": 155,
+        "R": 175,
+        "A": 255
+      },
+      "position": {
+        "X": 368,
+        "Y": 208
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 368,
+        "Y": 192
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -192,
+        "Y": 16
+      },
+      "size": {
+        "X": 32,
+        "Y": 32
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_medium"
+    },
+    {
+      "color": {
+        "B": 138,
+        "G": 155,
+        "R": 175,
+        "A": 255
+      },
+      "position": {
+        "X": -160,
+        "Y": 160
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 138,
+        "G": 155,
+        "R": 175,
+        "A": 255
+      },
+      "position": {
+        "X": 208,
+        "Y": 304
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 0,
+        "Y": 176
+      },
+      "size": {
+        "X": 32,
+        "Y": 32
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_medium"
+    },
+    {
+      "color": {
+        "B": 138,
+        "G": 155,
+        "R": 175,
+        "A": 255
+      },
+      "position": {
+        "X": 288,
+        "Y": 240
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 138,
+        "G": 155,
+        "R": 175,
+        "A": 255
+      },
+      "position": {
+        "X": -160,
         "Y": -16
       },
       "size": {
@@ -3098,6 +3539,1098 @@
       "flipY": false,
       "layer": 4,
       "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 96,
+        "Y": 192
+      },
+      "size": {
+        "X": 32,
+        "Y": 32
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_medium"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 560,
+        "Y": 144
+      },
+      "size": {
+        "X": 32,
+        "Y": 32
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_medium"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 128,
+        "Y": 192
+      },
+      "size": {
+        "X": 32,
+        "Y": 32
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_medium"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 48,
+        "Y": 304
+      },
+      "size": {
+        "X": 32,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/shaft_big"
+    },
+    {
+      "color": {
+        "B": 138,
+        "G": 155,
+        "R": 175,
+        "A": 255
+      },
+      "position": {
+        "X": 112,
+        "Y": 272
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 432,
+        "Y": 176
+      },
+      "size": {
+        "X": 32,
+        "Y": 32
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_medium"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 352,
+        "Y": 224
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 138,
+        "G": 155,
+        "R": 175,
+        "A": 255
+      },
+      "position": {
+        "X": 224,
+        "Y": 240
+      },
+      "size": {
+        "X": 32,
+        "Y": 32
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_medium"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 96,
+        "Y": 80
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 368,
+        "Y": 176
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 138,
+        "G": 155,
+        "R": 175,
+        "A": 255
+      },
+      "position": {
+        "X": 320,
+        "Y": 48
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 560,
+        "Y": 176
+      },
+      "size": {
+        "X": 32,
+        "Y": 32
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_medium"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 96,
+        "Y": 64
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 138,
+        "G": 155,
+        "R": 175,
+        "A": 255
+      },
+      "position": {
+        "X": 256,
+        "Y": 16
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 138,
+        "G": 155,
+        "R": 175,
+        "A": 255
+      },
+      "position": {
+        "X": -32,
+        "Y": -16
+      },
+      "size": {
+        "X": 32,
+        "Y": 32
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_medium"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 48,
+        "Y": 224
+      },
+      "size": {
+        "X": 32,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/shaft_big"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 80,
+        "Y": 240
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 432,
+        "Y": 160
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 448,
+        "Y": 48
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 138,
+        "G": 155,
+        "R": 175,
+        "A": 255
+      },
+      "position": {
+        "X": 336,
+        "Y": 48
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 448,
+        "Y": 64
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 464,
+        "Y": 48
+      },
+      "size": {
+        "X": 32,
+        "Y": 32
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_medium"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 336,
+        "Y": 192
+      },
+      "size": {
+        "X": 32,
+        "Y": 32
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_medium"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 112,
+        "Y": 240
+      },
+      "size": {
+        "X": 32,
+        "Y": 32
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_medium"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 272,
+        "Y": 176
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 240,
+        "Y": 176
+      },
+      "size": {
+        "X": 32,
+        "Y": 32
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_medium"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 48,
+        "Y": 320
+      },
+      "size": {
+        "X": 32,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/shaft_big"
+    },
+    {
+      "color": {
+        "B": 138,
+        "G": 155,
+        "R": 175,
+        "A": 255
+      },
+      "position": {
+        "X": 320,
+        "Y": 32
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 138,
+        "G": 155,
+        "R": 175,
+        "A": 255
+      },
+      "position": {
+        "X": -64,
+        "Y": -32
+      },
+      "size": {
+        "X": 32,
+        "Y": 32
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_medium"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 368,
+        "Y": 160
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 432,
+        "Y": 48
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 138,
+        "G": 155,
+        "R": 175,
+        "A": 255
+      },
+      "position": {
+        "X": 240,
+        "Y": 224
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 138,
+        "G": 155,
+        "R": 175,
+        "A": 255
+      },
+      "position": {
+        "X": 272,
+        "Y": 16
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 48,
+        "Y": 288
+      },
+      "size": {
+        "X": 32,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/shaft_big"
+    },
+    {
+      "color": {
+        "B": 138,
+        "G": 155,
+        "R": 175,
+        "A": 255
+      },
+      "position": {
+        "X": 224,
+        "Y": 32
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -80,
+        "Y": 192
+      },
+      "size": {
+        "X": 32,
+        "Y": 32
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_medium"
+    },
+    {
+      "color": {
+        "B": 138,
+        "G": 155,
+        "R": 175,
+        "A": 255
+      },
+      "position": {
+        "X": 16,
+        "Y": 256
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 138,
+        "G": 155,
+        "R": 175,
+        "A": 255
+      },
+      "position": {
+        "X": 96,
+        "Y": 272
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 144,
+        "Y": 96
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 138,
+        "G": 155,
+        "R": 175,
+        "A": 255
+      },
+      "position": {
+        "X": 288,
+        "Y": 224
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 32,
+        "Y": 208
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 256,
+        "Y": 208
+      },
+      "size": {
+        "X": 32,
+        "Y": 32
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_medium"
+    },
+    {
+      "color": {
+        "B": 138,
+        "G": 155,
+        "R": 175,
+        "A": 255
+      },
+      "position": {
+        "X": 208,
+        "Y": 32
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 138,
+        "G": 155,
+        "R": 175,
+        "A": 255
+      },
+      "position": {
+        "X": 256,
+        "Y": 0
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 138,
+        "G": 155,
+        "R": 175,
+        "A": 255
+      },
+      "position": {
+        "X": 16,
+        "Y": 240
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 138,
+        "G": 155,
+        "R": 175,
+        "A": 255
+      },
+      "position": {
+        "X": 288,
+        "Y": 16
+      },
+      "size": {
+        "X": 32,
+        "Y": 32
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_medium"
+    },
+    {
+      "color": {
+        "B": 138,
+        "G": 155,
+        "R": 175,
+        "A": 255
+      },
+      "position": {
+        "X": 80,
+        "Y": -16
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 0,
+        "Y": 64
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 138,
+        "G": 155,
+        "R": 175,
+        "A": 255
+      },
+      "position": {
+        "X": 192,
+        "Y": 32
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 138,
+        "G": 155,
+        "R": 175,
+        "A": 255
+      },
+      "position": {
+        "X": 160,
+        "Y": 272
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 138,
+        "G": 155,
+        "R": 175,
+        "A": 255
+      },
+      "position": {
+        "X": -48,
+        "Y": 0
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 560,
+        "Y": 80
+      },
+      "size": {
+        "X": 32,
+        "Y": 32
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_medium"
     },
     {
       "color": {
@@ -3128,102 +4661,18 @@
         "A": 255
       },
       "position": {
-        "X": -144,
-        "Y": -16
-      },
-      "size": {
-        "X": 16,
+        "X": 144,
         "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 138,
-        "G": 155,
-        "R": 175,
-        "A": 255
-      },
-      "position": {
-        "X": 48,
-        "Y": 48
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 138,
-        "G": 155,
-        "R": 175,
-        "A": 255
-      },
-      "position": {
-        "X": -80,
-        "Y": -32
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 138,
-        "G": 155,
-        "R": 175,
-        "A": 255
-      },
-      "position": {
-        "X": -240,
-        "Y": 16
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 48,
-        "Y": 240
       },
       "size": {
         "X": 32,
-        "Y": 16
+        "Y": 32
       },
       "rotation": 0,
       "flipX": false,
       "flipY": false,
       "layer": 4,
-      "dataKey": "Factory/shaft_big"
+      "dataKey": "Factory/metal_crate_medium"
     },
     {
       "color": {
@@ -3233,8 +4682,449 @@
         "A": 255
       },
       "position": {
-        "X": -176,
+        "X": -48,
+        "Y": 176
+      },
+      "size": {
+        "X": 48,
         "Y": 48
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_big"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 496,
+        "Y": 176
+      },
+      "size": {
+        "X": 32,
+        "Y": 32
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_medium"
+    },
+    {
+      "color": {
+        "B": 138,
+        "G": 155,
+        "R": 175,
+        "A": 255
+      },
+      "position": {
+        "X": -64,
+        "Y": 0
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 138,
+        "G": 155,
+        "R": 175,
+        "A": 255
+      },
+      "position": {
+        "X": 176,
+        "Y": 32
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -160,
+        "Y": 144
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 160,
+        "Y": 48
+      },
+      "size": {
+        "X": 48,
+        "Y": 48
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_big"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 0,
+        "Y": 208
+      },
+      "size": {
+        "X": 32,
+        "Y": 32
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_medium"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -48,
+        "Y": 144
+      },
+      "size": {
+        "X": 32,
+        "Y": 32
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_medium"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 96,
+        "Y": 240
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 352,
+        "Y": 80
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -16,
+        "Y": 160
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -64,
+        "Y": 16
+      },
+      "size": {
+        "X": 32,
+        "Y": 32
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_medium"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -96,
+        "Y": 32
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -160,
+        "Y": 48
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 384,
+        "Y": 176
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -192,
+        "Y": 128
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 176,
+        "Y": 240
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -16,
+        "Y": 64
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 138,
+        "G": 155,
+        "R": 175,
+        "A": 255
+      },
+      "position": {
+        "X": 272,
+        "Y": 240
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 138,
+        "G": 155,
+        "R": 175,
+        "A": 255
+      },
+      "position": {
+        "X": 96,
+        "Y": 256
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 138,
+        "G": 155,
+        "R": 175,
+        "A": 255
+      },
+      "position": {
+        "X": 64,
+        "Y": 0
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 138,
+        "G": 155,
+        "R": 175,
+        "A": 255
+      },
+      "position": {
+        "X": -208,
+        "Y": 16
       },
       "size": {
         "X": 16,
@@ -3275,239 +5165,8 @@
         "A": 255
       },
       "position": {
-        "X": -208,
-        "Y": 16
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 138,
-        "G": 155,
-        "R": 175,
-        "A": 255
-      },
-      "position": {
-        "X": -48,
-        "Y": 0
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 138,
-        "G": 155,
-        "R": 175,
-        "A": 255
-      },
-      "position": {
-        "X": 288,
-        "Y": 64
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 138,
-        "G": 155,
-        "R": 175,
-        "A": 255
-      },
-      "position": {
-        "X": 144,
-        "Y": 16
-      },
-      "size": {
-        "X": 32,
-        "Y": 32
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_medium"
-    },
-    {
-      "color": {
-        "B": 138,
-        "G": 155,
-        "R": 175,
-        "A": 255
-      },
-      "position": {
-        "X": 96,
-        "Y": -16
-      },
-      "size": {
-        "X": 32,
-        "Y": 32
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_medium"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 528,
-        "Y": 176
-      },
-      "size": {
-        "X": 32,
-        "Y": 32
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_medium"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 496,
-        "Y": 48
-      },
-      "size": {
-        "X": 32,
-        "Y": 32
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_medium"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 560,
-        "Y": 80
-      },
-      "size": {
-        "X": 32,
-        "Y": 32
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_medium"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 224,
-        "Y": 80
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 138,
-        "G": 155,
-        "R": 175,
-        "A": 255
-      },
-      "position": {
-        "X": 176,
-        "Y": 32
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 138,
-        "G": 155,
-        "R": 175,
-        "A": 255
-      },
-      "position": {
-        "X": -224,
-        "Y": 16
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 138,
-        "G": 155,
-        "R": 175,
-        "A": 255
-      },
-      "position": {
-        "X": 416,
-        "Y": 48
+        "X": -112,
+        "Y": 192
       },
       "size": {
         "X": 16,
@@ -3528,49 +5187,7 @@
       },
       "position": {
         "X": 80,
-        "Y": 224
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 304,
-        "Y": 48
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": -144,
-        "Y": 48
+        "Y": 64
       },
       "size": {
         "X": 16,
@@ -3587,11 +5204,305 @@
         "B": 138,
         "G": 155,
         "R": 175,
+        "A": 255
+      },
+      "position": {
+        "X": -192,
+        "Y": 144
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -160,
+        "Y": 128
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 138,
+        "G": 155,
+        "R": 175,
+        "A": 255
+      },
+      "position": {
+        "X": 208,
+        "Y": 240
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 138,
+        "G": 155,
+        "R": 175,
+        "A": 255
+      },
+      "position": {
+        "X": 0,
+        "Y": 240
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 48,
+        "Y": 336
+      },
+      "size": {
+        "X": 32,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/shaft_big"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -208,
+        "Y": 128
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 138,
+        "G": 155,
+        "R": 175,
+        "A": 255
+      },
+      "position": {
+        "X": 176,
+        "Y": 288
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 192,
+        "Y": 240
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 138,
+        "G": 155,
+        "R": 175,
+        "A": 255
+      },
+      "position": {
+        "X": 384,
+        "Y": 48
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 416,
+        "Y": 64
+      },
+      "size": {
+        "X": 32,
+        "Y": 32
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_medium"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
         "A": 255
       },
       "position": {
         "X": 272,
+        "Y": 80
+      },
+      "size": {
+        "X": 32,
+        "Y": 32
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_medium"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -80,
+        "Y": 128
+      },
+      "size": {
+        "X": 16,
         "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 144,
+        "Y": 240
+      },
+      "size": {
+        "X": 32,
+        "Y": 32
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_medium"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -32,
+        "Y": 224
+      },
+      "size": {
+        "X": 32,
+        "Y": 32
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_medium"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 160,
+        "Y": 192
       },
       "size": {
         "X": 16,
@@ -3611,7 +5522,7 @@
         "A": 255
       },
       "position": {
-        "X": 64,
+        "X": 80,
         "Y": 0
       },
       "size": {
@@ -3633,7 +5544,7 @@
       },
       "position": {
         "X": 176,
-        "Y": 96
+        "Y": 192
       },
       "size": {
         "X": 16,
@@ -3653,113 +5564,8 @@
         "A": 255
       },
       "position": {
-        "X": 320,
-        "Y": 48
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 138,
-        "G": 155,
-        "R": 175,
-        "A": 255
-      },
-      "position": {
-        "X": 352,
-        "Y": 64
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 138,
-        "G": 155,
-        "R": 175,
-        "A": 255
-      },
-      "position": {
-        "X": -64,
-        "Y": 0
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 48,
+        "X": 144,
         "Y": 272
-      },
-      "size": {
-        "X": 32,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/shaft_big"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 528,
-        "Y": 48
-      },
-      "size": {
-        "X": 32,
-        "Y": 32
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_medium"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 416,
-        "Y": 96
       },
       "size": {
         "X": 16,
@@ -3800,27 +5606,6 @@
         "A": 255
       },
       "position": {
-        "X": -128,
-        "Y": -16
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 138,
-        "G": 155,
-        "R": 175,
-        "A": 255
-      },
-      "position": {
         "X": 128,
         "Y": 0
       },
@@ -3863,8 +5648,50 @@
         "A": 255
       },
       "position": {
-        "X": 160,
+        "X": 144,
+        "Y": 224
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 176,
         "Y": 96
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -144,
+        "Y": 48
       },
       "size": {
         "X": 16,
@@ -3884,8 +5711,8 @@
         "A": 255
       },
       "position": {
-        "X": 224,
-        "Y": 32
+        "X": 352,
+        "Y": 64
       },
       "size": {
         "X": 16,
@@ -3926,50 +5753,8 @@
         "A": 255
       },
       "position": {
-        "X": -160,
-        "Y": 0
-      },
-      "size": {
-        "X": 48,
-        "Y": 48
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_big"
-    },
-    {
-      "color": {
-        "B": 138,
-        "G": 155,
-        "R": 175,
-        "A": 255
-      },
-      "position": {
-        "X": 352,
-        "Y": 32
-      },
-      "size": {
         "X": 32,
-        "Y": 32
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_medium"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": -208,
-        "Y": 32
+        "Y": 256
       },
       "size": {
         "X": 16,
@@ -3989,18 +5774,18 @@
         "A": 255
       },
       "position": {
-        "X": 112,
-        "Y": 16
+        "X": 48,
+        "Y": 272
       },
       "size": {
         "X": 32,
-        "Y": 32
+        "Y": 16
       },
       "rotation": 0,
       "flipX": false,
       "flipY": false,
       "layer": 4,
-      "dataKey": "Factory/metal_crate_medium"
+      "dataKey": "Factory/shaft_big"
     },
     {
       "color": {
@@ -4010,8 +5795,8 @@
         "A": 255
       },
       "position": {
-        "X": 128,
-        "Y": 96
+        "X": -208,
+        "Y": 32
       },
       "size": {
         "X": 16,
@@ -4109,14 +5894,14 @@
     },
     {
       "color": {
-        "B": 138,
-        "G": 155,
-        "R": 175,
+        "B": 255,
+        "G": 255,
+        "R": 255,
         "A": 255
       },
       "position": {
-        "X": 384,
-        "Y": 32
+        "X": 160,
+        "Y": 96
       },
       "size": {
         "X": 16,
@@ -4136,8 +5921,8 @@
         "A": 255
       },
       "position": {
-        "X": 32,
-        "Y": 256
+        "X": 416,
+        "Y": 96
       },
       "size": {
         "X": 16,
@@ -4157,8 +5942,29 @@
         "A": 255
       },
       "position": {
-        "X": 288,
+        "X": 256,
+        "Y": 240
+      },
+      "size": {
+        "X": 16,
         "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 208,
+        "Y": 48
       },
       "size": {
         "X": 32,
@@ -4175,42 +5981,21 @@
         "B": 255,
         "G": 255,
         "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 32,
-        "Y": 240
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 138,
-        "G": 155,
-        "R": 175,
         "A": 255
       },
       "position": {
         "X": -64,
-        "Y": -32
+        "Y": 48
       },
       "size": {
-        "X": 32,
-        "Y": 32
+        "X": 16,
+        "Y": 16
       },
       "rotation": 0,
       "flipX": false,
       "flipY": false,
       "layer": 4,
-      "dataKey": "Factory/metal_crate_medium"
+      "dataKey": "Factory/metal_crate_small"
     },
     {
       "color": {
@@ -4220,29 +6005,8 @@
         "A": 255
       },
       "position": {
-        "X": 112,
-        "Y": 240
-      },
-      "size": {
-        "X": 32,
-        "Y": 32
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_medium"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 192,
-        "Y": 192
+        "X": -32,
+        "Y": 16
       },
       "size": {
         "X": 48,
@@ -4262,60 +6026,39 @@
         "A": 255
       },
       "position": {
-        "X": 208,
-        "Y": 80
+        "X": 304,
+        "Y": 64
       },
       "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 32,
-        "Y": 224
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
         "X": 48,
-        "Y": 288
+        "Y": 48
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_big"
+    },
+    {
+      "color": {
+        "B": 138,
+        "G": 155,
+        "R": 175,
+        "A": 255
+      },
+      "position": {
+        "X": 336,
+        "Y": 240
       },
       "size": {
-        "X": 32,
+        "X": 16,
         "Y": 16
       },
       "rotation": 0,
       "flipX": false,
       "flipY": false,
       "layer": 4,
-      "dataKey": "Factory/shaft_big"
+      "dataKey": "Factory/metal_crate_small"
     },
     {
       "color": {
@@ -4325,7 +6068,7 @@
         "A": 255
       },
       "position": {
-        "X": 432,
+        "X": 384,
         "Y": 160
       },
       "size": {
@@ -4346,60 +6089,18 @@
         "A": 255
       },
       "position": {
-        "X": 448,
-        "Y": 48
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 336,
-        "Y": 192
-      },
-      "size": {
-        "X": 32,
+        "X": 240,
         "Y": 32
       },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_medium"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 448,
-        "Y": 64
-      },
       "size": {
-        "X": 16,
-        "Y": 16
+        "X": 48,
+        "Y": 48
       },
       "rotation": 0,
       "flipX": false,
       "flipY": false,
       "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
+      "dataKey": "Factory/metal_crate_big"
     },
     {
       "color": {
@@ -4409,8 +6110,8 @@
         "A": 255
       },
       "position": {
-        "X": 464,
-        "Y": 48
+        "X": 176,
+        "Y": 256
       },
       "size": {
         "X": 32,
@@ -4473,7 +6174,7 @@
       },
       "position": {
         "X": 48,
-        "Y": 320
+        "Y": 208
       },
       "size": {
         "X": 32,
@@ -4493,8 +6194,281 @@
         "A": 255
       },
       "position": {
+        "X": 240,
+        "Y": 208
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 80,
+        "Y": 80
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 138,
+        "G": 155,
+        "R": 175,
+        "A": 255
+      },
+      "position": {
+        "X": 272,
+        "Y": 192
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 138,
+        "G": 155,
+        "R": 175,
+        "A": 255
+      },
+      "position": {
         "X": 320,
+        "Y": 224
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 138,
+        "G": 155,
+        "R": 175,
+        "A": 255
+      },
+      "position": {
+        "X": 224,
+        "Y": 0
+      },
+      "size": {
+        "X": 32,
         "Y": 32
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_medium"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -96,
+        "Y": 144
+      },
+      "size": {
+        "X": 48,
+        "Y": 48
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_big"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -112,
+        "Y": 32
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 138,
+        "G": 155,
+        "R": 175,
+        "A": 255
+      },
+      "position": {
+        "X": -208,
+        "Y": 144
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 138,
+        "G": 155,
+        "R": 175,
+        "A": 255
+      },
+      "position": {
+        "X": -128,
+        "Y": 176
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 138,
+        "G": 155,
+        "R": 175,
+        "A": 255
+      },
+      "position": {
+        "X": -176,
+        "Y": 144
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 138,
+        "G": 155,
+        "R": 175,
+        "A": 255
+      },
+      "position": {
+        "X": -64,
+        "Y": 224
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 400,
+        "Y": 160
+      },
+      "size": {
+        "X": 32,
+        "Y": 32
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_medium"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 32,
+        "Y": 224
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 138,
+        "G": 155,
+        "R": 175,
+        "A": 255
+      },
+      "position": {
+        "X": 384,
+        "Y": 192
       },
       "size": {
         "X": 16,
@@ -4516,468 +6490,6 @@
       "position": {
         "X": 560,
         "Y": 48
-      },
-      "size": {
-        "X": 32,
-        "Y": 32
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_medium"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 368,
-        "Y": 160
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 48,
-        "Y": 208
-      },
-      "size": {
-        "X": 32,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/shaft_big"
-    },
-    {
-      "color": {
-        "B": 138,
-        "G": 155,
-        "R": 175,
-        "A": 255
-      },
-      "position": {
-        "X": 240,
-        "Y": 224
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 496,
-        "Y": 176
-      },
-      "size": {
-        "X": 32,
-        "Y": 32
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_medium"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 336,
-        "Y": 256
-      },
-      "size": {
-        "X": 192,
-        "Y": 128
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Entities/wobbler"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 432,
-        "Y": 48
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 48,
-        "Y": 336
-      },
-      "size": {
-        "X": 32,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/shaft_big"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 80,
-        "Y": 240
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 240,
-        "Y": 176
-      },
-      "size": {
-        "X": 32,
-        "Y": 32
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_medium"
-    },
-    {
-      "color": {
-        "B": 138,
-        "G": 155,
-        "R": 175,
-        "A": 255
-      },
-      "position": {
-        "X": 208,
-        "Y": 32
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 432,
-        "Y": 176
-      },
-      "size": {
-        "X": 32,
-        "Y": 32
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_medium"
-    },
-    {
-      "color": {
-        "B": 138,
-        "G": 155,
-        "R": 175,
-        "A": 255
-      },
-      "position": {
-        "X": 336,
-        "Y": 48
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 96,
-        "Y": 64
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 48,
-        "Y": 304
-      },
-      "size": {
-        "X": 32,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/shaft_big"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 32,
-        "Y": 208
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 138,
-        "G": 155,
-        "R": 175,
-        "A": 255
-      },
-      "position": {
-        "X": -32,
-        "Y": -16
-      },
-      "size": {
-        "X": 32,
-        "Y": 32
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_medium"
-    },
-    {
-      "color": {
-        "B": 138,
-        "G": 155,
-        "R": 175,
-        "A": 255
-      },
-      "position": {
-        "X": -160,
-        "Y": -16
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 272,
-        "Y": 176
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 48,
-        "Y": 224
-      },
-      "size": {
-        "X": 32,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/shaft_big"
-    },
-    {
-      "color": {
-        "B": 138,
-        "G": 155,
-        "R": 175,
-        "A": 255
-      },
-      "position": {
-        "X": 288,
-        "Y": 224
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 144,
-        "Y": 96
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 256,
-        "Y": 208
       },
       "size": {
         "X": 32,
@@ -5012,192 +6524,45 @@
     },
     {
       "color": {
-        "B": 138,
-        "G": 155,
-        "R": 175,
-        "A": 255
-      },
-      "position": {
-        "X": 256,
-        "Y": 0
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
         "B": 255,
         "G": 255,
         "R": 255,
         "A": 255
       },
       "position": {
-        "X": 560,
-        "Y": 144
-      },
-      "size": {
-        "X": 32,
-        "Y": 32
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_medium"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 560,
-        "Y": 176
-      },
-      "size": {
-        "X": 32,
-        "Y": 32
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_medium"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 96,
+        "X": 192,
         "Y": 192
       },
       "size": {
-        "X": 32,
-        "Y": 32
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_medium"
-    },
-    {
-      "color": {
-        "B": 138,
-        "G": 155,
-        "R": 175,
-        "A": 255
-      },
-      "position": {
-        "X": 288,
-        "Y": 240
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 138,
-        "G": 155,
-        "R": 175,
-        "A": 255
-      },
-      "position": {
-        "X": 256,
-        "Y": 16
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": -80,
-        "Y": 192
-      },
-      "size": {
-        "X": 32,
-        "Y": 32
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_medium"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 368,
-        "Y": 176
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 138,
-        "G": 155,
-        "R": 175,
-        "A": 255
-      },
-      "position": {
-        "X": 400,
+        "X": 48,
         "Y": 48
       },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_big"
+    },
+    {
+      "color": {
+        "B": 138,
+        "G": 155,
+        "R": 175,
+        "A": 255
+      },
+      "position": {
+        "X": -192,
+        "Y": -16
+      },
       "size": {
-        "X": 16,
-        "Y": 16
+        "X": 32,
+        "Y": 32
       },
       "rotation": 0,
       "flipX": false,
       "flipY": false,
       "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
+      "dataKey": "Factory/metal_crate_medium"
     },
     {
       "color": {
@@ -5207,8 +6572,8 @@
         "A": 255
       },
       "position": {
-        "X": 128,
-        "Y": 192
+        "X": 496,
+        "Y": 48
       },
       "size": {
         "X": 32,
@@ -5229,7 +6594,7 @@
       },
       "position": {
         "X": 384,
-        "Y": 192
+        "Y": 32
       },
       "size": {
         "X": 16,
@@ -5240,6 +6605,27 @@
       "flipY": false,
       "layer": 4,
       "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 138,
+        "G": 155,
+        "R": 175,
+        "A": 255
+      },
+      "position": {
+        "X": 96,
+        "Y": -16
+      },
+      "size": {
+        "X": 32,
+        "Y": 32
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_medium"
     },
     {
       "color": {
@@ -5270,18 +6656,18 @@
         "A": 255
       },
       "position": {
-        "X": 400,
-        "Y": 160
+        "X": 304,
+        "Y": 48
       },
       "size": {
-        "X": 32,
-        "Y": 32
+        "X": 16,
+        "Y": 16
       },
       "rotation": 0,
       "flipX": false,
       "flipY": false,
       "layer": 4,
-      "dataKey": "Factory/metal_crate_medium"
+      "dataKey": "Factory/metal_crate_small"
     },
     {
       "color": {
@@ -5292,7 +6678,49 @@
       },
       "position": {
         "X": 80,
-        "Y": 208
+        "Y": 224
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 138,
+        "G": 155,
+        "R": 175,
+        "A": 255
+      },
+      "position": {
+        "X": 416,
+        "Y": 48
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 138,
+        "G": 155,
+        "R": 175,
+        "A": 255
+      },
+      "position": {
+        "X": -224,
+        "Y": 16
       },
       "size": {
         "X": 16,
@@ -5312,50 +6740,8 @@
         "A": 255
       },
       "position": {
-        "X": 384,
-        "Y": 176
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 138,
-        "G": 155,
-        "R": 175,
-        "A": 255
-      },
-      "position": {
-        "X": 256,
-        "Y": 240
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 138,
-        "G": 155,
-        "R": 175,
-        "A": 255
-      },
-      "position": {
-        "X": 336,
-        "Y": 240
+        "X": 224,
+        "Y": 80
       },
       "size": {
         "X": 16,
@@ -5376,154 +6762,7 @@
       },
       "position": {
         "X": 208,
-        "Y": 48
-      },
-      "size": {
-        "X": 32,
-        "Y": 32
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_medium"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 240,
-        "Y": 32
-      },
-      "size": {
-        "X": 48,
-        "Y": 48
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_big"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": -64,
-        "Y": 16
-      },
-      "size": {
-        "X": 32,
-        "Y": 32
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_medium"
-    },
-    {
-      "color": {
-        "B": 138,
-        "G": 155,
-        "R": 175,
-        "A": 255
-      },
-      "position": {
-        "X": -192,
-        "Y": -16
-      },
-      "size": {
-        "X": 32,
-        "Y": 32
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_medium"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 176,
-        "Y": 256
-      },
-      "size": {
-        "X": 32,
-        "Y": 32
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_medium"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": -32,
-        "Y": 224
-      },
-      "size": {
-        "X": 32,
-        "Y": 32
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_medium"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 144,
-        "Y": 240
-      },
-      "size": {
-        "X": 32,
-        "Y": 32
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_medium"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": -80,
-        "Y": 128
+        "Y": 80
       },
       "size": {
         "X": 16,
@@ -5543,178 +6782,10 @@
         "A": 255
       },
       "position": {
-        "X": -48,
-        "Y": 144
-      },
-      "size": {
-        "X": 32,
-        "Y": 32
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_medium"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 192,
-        "Y": 240
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 138,
-        "G": 155,
-        "R": 175,
-        "A": 255
-      },
-      "position": {
-        "X": 160,
-        "Y": 272
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 138,
-        "G": 155,
-        "R": 175,
-        "A": 255
-      },
-      "position": {
-        "X": 272,
-        "Y": 240
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": -48,
+        "X": 528,
         "Y": 176
       },
       "size": {
-        "X": 48,
-        "Y": 48
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_big"
-    },
-    {
-      "color": {
-        "B": 138,
-        "G": 155,
-        "R": 175,
-        "A": 255
-      },
-      "position": {
-        "X": 192,
-        "Y": 32
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": -192,
-        "Y": 128
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 138,
-        "G": 155,
-        "R": 175,
-        "A": 255
-      },
-      "position": {
-        "X": 80,
-        "Y": -16
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 0,
-        "Y": 208
-      },
-      "size": {
         "X": 32,
         "Y": 32
       },
@@ -5726,35 +6797,14 @@
     },
     {
       "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
+        "B": 138,
+        "G": 155,
+        "R": 175,
         "A": 255
       },
       "position": {
-        "X": -160,
+        "X": 48,
         "Y": 48
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": -96,
-        "Y": 32
       },
       "size": {
         "X": 16,
@@ -5774,8 +6824,8 @@
         "A": 255
       },
       "position": {
-        "X": 272,
-        "Y": 192
+        "X": 400,
+        "Y": 48
       },
       "size": {
         "X": 16,
@@ -5796,7 +6846,28 @@
       },
       "position": {
         "X": 336,
-        "Y": 160
+        "Y": 256
+      },
+      "size": {
+        "X": 192,
+        "Y": 128
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Entities/wobbler"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 16,
+        "Y": 48
       },
       "size": {
         "X": 32,
@@ -5816,50 +6887,29 @@
         "A": 255
       },
       "position": {
-        "X": 144,
-        "Y": 224
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 0,
-        "Y": 64
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 112,
+        "X": -48,
         "Y": 48
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -160,
+        "Y": 0
       },
       "size": {
         "X": 48,
@@ -5879,50 +6929,8 @@
         "A": 255
       },
       "position": {
-        "X": -16,
-        "Y": 160
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 112,
-        "Y": 224
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 352,
-        "Y": 80
+        "X": 80,
+        "Y": 208
       },
       "size": {
         "X": 16,
@@ -5942,8 +6950,8 @@
         "A": 255
       },
       "position": {
-        "X": 320,
-        "Y": 224
+        "X": -48,
+        "Y": 240
       },
       "size": {
         "X": 16,
@@ -5957,13 +6965,34 @@
     },
     {
       "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
+        "B": 138,
+        "G": 155,
+        "R": 175,
         "A": 255
       },
       "position": {
-        "X": 176,
+        "X": 16,
+        "Y": 16
+      },
+      "size": {
+        "X": 32,
+        "Y": 32
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_medium"
+    },
+    {
+      "color": {
+        "B": 138,
+        "G": 155,
+        "R": 175,
+        "A": 255
+      },
+      "position": {
+        "X": -96,
         "Y": 192
       },
       "size": {
@@ -5984,8 +7013,176 @@
         "A": 255
       },
       "position": {
-        "X": 240,
+        "X": -112,
+        "Y": 176
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -176,
+        "Y": 128
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 138,
+        "G": 155,
+        "R": 175,
+        "A": 255
+      },
+      "position": {
+        "X": -48,
+        "Y": 224
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 160,
         "Y": 208
+      },
+      "size": {
+        "X": 32,
+        "Y": 32
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_medium"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 112,
+        "Y": 224
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 336,
+        "Y": 224
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 64,
+        "Y": 16
+      },
+      "size": {
+        "X": 48,
+        "Y": 48
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_big"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 96,
+        "Y": 224
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 138,
+        "G": 155,
+        "R": 175,
+        "A": 255
+      },
+      "position": {
+        "X": -144,
+        "Y": -16
       },
       "size": {
         "X": 16,
@@ -6006,51 +7203,51 @@
       },
       "position": {
         "X": 48,
-        "Y": 64
+        "Y": 240
       },
       "size": {
-        "X": 16,
+        "X": 32,
         "Y": 16
       },
       "rotation": 0,
       "flipX": false,
       "flipY": false,
       "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
+      "dataKey": "Factory/shaft_big"
     },
     {
       "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
+        "B": 138,
+        "G": 155,
+        "R": 175,
         "A": 255
       },
       "position": {
-        "X": -96,
-        "Y": 128
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": -80,
+        "X": 352,
         "Y": 32
       },
       "size": {
+        "X": 32,
+        "Y": 32
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_medium"
+    },
+    {
+      "color": {
+        "B": 138,
+        "G": 155,
+        "R": 175,
+        "A": 255
+      },
+      "position": {
+        "X": -128,
+        "Y": -16
+      },
+      "size": {
         "X": 16,
         "Y": 16
       },
@@ -6068,7 +7265,7 @@
         "A": 255
       },
       "position": {
-        "X": -192,
+        "X": 112,
         "Y": 16
       },
       "size": {
@@ -6089,7 +7286,7 @@
         "A": 255
       },
       "position": {
-        "X": 352,
+        "X": 128,
         "Y": 96
       },
       "size": {
@@ -6104,489 +7301,6 @@
     },
     {
       "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": -16,
-        "Y": 64
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 138,
-        "G": 155,
-        "R": 175,
-        "A": 255
-      },
-      "position": {
-        "X": 80,
-        "Y": 0
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 160,
-        "Y": 48
-      },
-      "size": {
-        "X": 48,
-        "Y": 48
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_big"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": -64,
-        "Y": 48
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 96,
-        "Y": 240
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": -32,
-        "Y": 16
-      },
-      "size": {
-        "X": 48,
-        "Y": 48
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_big"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 80,
-        "Y": 80
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 304,
-        "Y": 64
-      },
-      "size": {
-        "X": 48,
-        "Y": 48
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_big"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 272,
-        "Y": 80
-      },
-      "size": {
-        "X": 32,
-        "Y": 32
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_medium"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 416,
-        "Y": 64
-      },
-      "size": {
-        "X": 32,
-        "Y": 32
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_medium"
-    },
-    {
-      "color": {
-        "B": 138,
-        "G": 155,
-        "R": 175,
-        "A": 255
-      },
-      "position": {
-        "X": 384,
-        "Y": 48
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 160,
-        "Y": 192
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": -160,
-        "Y": 144
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 176,
-        "Y": 240
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 64,
-        "Y": 64
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 16,
-        "Y": 48
-      },
-      "size": {
-        "X": 32,
-        "Y": 32
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_medium"
-    },
-    {
-      "color": {
-        "B": 138,
-        "G": 155,
-        "R": 175,
-        "A": 255
-      },
-      "position": {
-        "X": -192,
-        "Y": 144
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 64,
-        "Y": 16
-      },
-      "size": {
-        "X": 48,
-        "Y": 48
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_big"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": -208,
-        "Y": 128
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 138,
-        "G": 155,
-        "R": 175,
-        "A": 255
-      },
-      "position": {
-        "X": 0,
-        "Y": 240
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 0,
-        "Y": 176
-      },
-      "size": {
-        "X": 32,
-        "Y": 32
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_medium"
-    },
-    {
-      "color": {
-        "B": 138,
-        "G": 155,
-        "R": 175,
-        "A": 255
-      },
-      "position": {
-        "X": 16,
-        "Y": 256
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 96,
-        "Y": 224
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
         "B": 138,
         "G": 155,
         "R": 175,
@@ -6594,807 +7308,9 @@
       },
       "position": {
         "X": 224,
-        "Y": 0
-      },
-      "size": {
-        "X": 32,
-        "Y": 32
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_medium"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 384,
-        "Y": 160
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 138,
-        "G": 155,
-        "R": 175,
-        "A": 255
-      },
-      "position": {
-        "X": -112,
-        "Y": 192
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 80,
-        "Y": 64
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": -160,
-        "Y": 128
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 336,
-        "Y": 224
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 138,
-        "G": 155,
-        "R": 175,
-        "A": 255
-      },
-      "position": {
-        "X": 208,
-        "Y": 240
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 138,
-        "G": 155,
-        "R": 175,
-        "A": 255
-      },
-      "position": {
-        "X": -48,
-        "Y": 224
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 138,
-        "G": 155,
-        "R": 175,
-        "A": 255
-      },
-      "position": {
-        "X": 176,
-        "Y": 288
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": -176,
-        "Y": 128
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 138,
-        "G": 155,
-        "R": 175,
-        "A": 255
-      },
-      "position": {
-        "X": -112,
-        "Y": 176
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 138,
-        "G": 155,
-        "R": 175,
-        "A": 255
-      },
-      "position": {
-        "X": -96,
-        "Y": 192
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 138,
-        "G": 155,
-        "R": 175,
-        "A": 255
-      },
-      "position": {
-        "X": 16,
-        "Y": 16
-      },
-      "size": {
-        "X": 32,
-        "Y": 32
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_medium"
-    },
-    {
-      "color": {
-        "B": 138,
-        "G": 155,
-        "R": 175,
-        "A": 255
-      },
-      "position": {
-        "X": -48,
-        "Y": 240
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 160,
-        "Y": 208
-      },
-      "size": {
-        "X": 32,
-        "Y": 32
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_medium"
-    },
-    {
-      "color": {
-        "B": 138,
-        "G": 155,
-        "R": 175,
-        "A": 255
-      },
-      "position": {
-        "X": 112,
-        "Y": 272
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": -96,
-        "Y": 144
-      },
-      "size": {
-        "X": 48,
-        "Y": 48
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_big"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 80,
-        "Y": 192
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 138,
-        "G": 155,
-        "R": 175,
-        "A": 255
-      },
-      "position": {
-        "X": 96,
-        "Y": 272
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 138,
-        "G": 155,
-        "R": 175,
-        "A": 255
-      },
-      "position": {
-        "X": 96,
-        "Y": 256
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 368,
-        "Y": 192
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 138,
-        "G": 155,
-        "R": 175,
-        "A": 255
-      },
-      "position": {
-        "X": 224,
-        "Y": 240
-      },
-      "size": {
-        "X": 32,
-        "Y": 32
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_medium"
-    },
-    {
-      "color": {
-        "B": 138,
-        "G": 155,
-        "R": 175,
-        "A": 255
-      },
-      "position": {
-        "X": 16,
-        "Y": 240
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": -112,
-        "Y": 32
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 352,
-        "Y": 224
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 138,
-        "G": 155,
-        "R": 175,
-        "A": 255
-      },
-      "position": {
-        "X": -160,
-        "Y": 160
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 128,
-        "Y": 224
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 138,
-        "G": 155,
-        "R": 175,
-        "A": 255
-      },
-      "position": {
-        "X": 80,
-        "Y": 256
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 96,
-        "Y": 80
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 138,
-        "G": 155,
-        "R": 175,
-        "A": 255
-      },
-      "position": {
-        "X": 208,
-        "Y": 304
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 138,
-        "G": 155,
-        "R": 175,
-        "A": 255
-      },
-      "position": {
-        "X": -208,
-        "Y": 144
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 138,
-        "G": 155,
-        "R": 175,
-        "A": 255
-      },
-      "position": {
-        "X": -176,
-        "Y": 144
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 368,
-        "Y": 64
-      },
-      "size": {
-        "X": 48,
-        "Y": 48
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_big"
-    },
-    {
-      "color": {
-        "B": 138,
-        "G": 155,
-        "R": 175,
-        "A": 255
-      },
-      "position": {
-        "X": -176,
-        "Y": 160
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": -144,
-        "Y": 128
-      },
-      "size": {
-        "X": 48,
-        "Y": 48
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_big"
-    },
-    {
-      "color": {
-        "B": 138,
-        "G": 155,
-        "R": 175,
-        "A": 255
-      },
-      "position": {
-        "X": -128,
-        "Y": 176
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": -48,
-        "Y": 48
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": -112,
         "Y": -16
       },
       "size": {
-        "X": 48,
-        "Y": 48
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_big"
-    },
-    {
-      "color": {
-        "B": 138,
-        "G": 155,
-        "R": 175,
-        "A": 255
-      },
-      "position": {
-        "X": -64,
-        "Y": 224
-      },
-      "size": {
         "X": 16,
         "Y": 16
       },
@@ -7406,35 +7322,14 @@
     },
     {
       "color": {
-        "B": 138,
-        "G": 155,
-        "R": 175,
+        "B": 255,
+        "G": 255,
+        "R": 255,
         "A": 255
       },
       "position": {
-        "X": 144,
-        "Y": 272
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 138,
-        "G": 155,
-        "R": 175,
-        "A": 255
-      },
-      "position": {
-        "X": 368,
-        "Y": 208
+        "X": 32,
+        "Y": 240
       },
       "size": {
         "X": 16,
@@ -7454,7 +7349,112 @@
         "A": 255
       },
       "position": {
-        "X": -112,
+        "X": 528,
+        "Y": 48
+      },
+      "size": {
+        "X": 32,
+        "Y": 32
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_medium"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 64,
+        "Y": 64
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -176,
+        "Y": 48
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 138,
+        "G": 155,
+        "R": 175,
+        "A": 255
+      },
+      "position": {
+        "X": -80,
+        "Y": -32
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 138,
+        "G": 155,
+        "R": 175,
+        "A": 255
+      },
+      "position": {
+        "X": -240,
+        "Y": 16
+      },
+      "size": {
+        "X": 16,
+        "Y": 16
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Factory/metal_crate_small"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -160,
         "Y": 110
       },
       "size": {
@@ -7475,7 +7475,7 @@
         "A": 255
       },
       "position": {
-        "X": -160,
+        "X": -128,
         "Y": 110
       },
       "size": {
@@ -7517,7 +7517,7 @@
         "A": 255
       },
       "position": {
-        "X": -128,
+        "X": -112,
         "Y": 110
       },
       "size": {
@@ -7559,8 +7559,8 @@
         "A": 255
       },
       "position": {
-        "X": 128,
-        "Y": 141
+        "X": 205,
+        "Y": 129
       },
       "size": {
         "X": 104,
@@ -7571,6 +7571,90 @@
       "flipY": false,
       "layer": 4,
       "dataKey": "Entities/frog_bird"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 208,
+        "Y": 174
+      },
+      "size": {
+        "X": 80,
+        "Y": 36
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Pots/pot_big"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 288,
+        "Y": 158
+      },
+      "size": {
+        "X": 80,
+        "Y": 36
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Pots/pot_big"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 224,
+        "Y": 174
+      },
+      "size": {
+        "X": 80,
+        "Y": 36
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Pots/pot_big"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 320,
+        "Y": 158
+      },
+      "size": {
+        "X": 80,
+        "Y": 36
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Pots/pot_big"
     },
     {
       "color": {
@@ -7586,6 +7670,48 @@
       "size": {
         "X": 672,
         "Y": 96
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 5,
+      "dataKey": "General/black_box"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 392,
+        "Y": 184
+      },
+      "size": {
+        "X": 32,
+        "Y": 224
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 5,
+      "dataKey": "General/black_box"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -200,
+        "Y": 344
+      },
+      "size": {
+        "X": 592,
+        "Y": 64
       },
       "rotation": 0,
       "flipX": false,
@@ -7721,6 +7847,27 @@
     },
     {
       "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 64,
+        "Y": 416
+      },
+      "size": {
+        "X": 192,
+        "Y": 144
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 5,
+      "dataKey": "General/black_box"
+    },
+    {
+      "color": {
         "B": 138,
         "G": 155,
         "R": 175,
@@ -7742,39 +7889,18 @@
     },
     {
       "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": -200,
-        "Y": 344
-      },
-      "size": {
-        "X": 592,
-        "Y": 64
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 5,
-      "dataKey": "General/black_box"
-    },
-    {
-      "color": {
         "B": 138,
         "G": 155,
         "R": 175,
         "A": 255
       },
       "position": {
-        "X": -200,
-        "Y": 152
+        "X": -184,
+        "Y": 136
       },
       "size": {
-        "X": 16,
-        "Y": 128
+        "X": 112,
+        "Y": 144
       },
       "rotation": 0,
       "flipX": false,
@@ -7937,12 +8063,12 @@
         "A": 255
       },
       "position": {
-        "X": -184,
-        "Y": 136
+        "X": -200,
+        "Y": 152
       },
       "size": {
-        "X": 112,
-        "Y": 144
+        "X": 16,
+        "Y": 128
       },
       "rotation": 0,
       "flipX": false,
@@ -7958,12 +8084,12 @@
         "A": 255
       },
       "position": {
-        "X": 392,
-        "Y": 184
+        "X": 256,
+        "Y": 416
       },
       "size": {
-        "X": 32,
-        "Y": 224
+        "X": 96,
+        "Y": 96
       },
       "rotation": 0,
       "flipX": false,

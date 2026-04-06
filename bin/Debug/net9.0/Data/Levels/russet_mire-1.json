@@ -20,186 +20,18 @@
         "A": 255
       },
       "position": {
-        "X": -48,
-        "Y": -32
-      },
-      "size": {
-        "X": 48,
-        "Y": 48
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_big"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 240,
-        "Y": 160
-      },
-      "size": {
-        "X": 48,
-        "Y": 48
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_big"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 240,
-        "Y": 208
-      },
-      "size": {
-        "X": 48,
-        "Y": 48
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_big"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 192,
-        "Y": 208
-      },
-      "size": {
-        "X": 48,
-        "Y": 48
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_big"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": -48,
-        "Y": 112
-      },
-      "size": {
-        "X": 48,
-        "Y": 48
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_big"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 96,
-        "Y": 208
-      },
-      "size": {
-        "X": 48,
-        "Y": 48
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_big"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 144,
-        "Y": 208
-      },
-      "size": {
-        "X": 48,
-        "Y": 48
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_big"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 0,
-        "Y": 208
-      },
-      "size": {
-        "X": 48,
-        "Y": 48
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_big"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 240,
+        "X": 69,
         "Y": 16
       },
       "size": {
-        "X": 48,
-        "Y": 48
+        "X": 39,
+        "Y": 34
       },
       "rotation": 0,
       "flipX": false,
       "flipY": false,
       "layer": 4,
-      "dataKey": "Factory/metal_crate_big"
+      "dataKey": "BrassCity/chandelier"
     },
     {
       "color": {
@@ -209,1131 +41,18 @@
         "A": 255
       },
       "position": {
-        "X": 48,
-        "Y": 112
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 192,
-        "Y": 160
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 128,
-        "Y": 80
-      },
-      "size": {
-        "X": 48,
-        "Y": 48
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_big"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 176,
-        "Y": 112
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 128,
-        "Y": 48
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 208,
-        "Y": 0
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 144,
-        "Y": 48
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 208,
-        "Y": 32
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 48,
-        "Y": 208
-      },
-      "size": {
-        "X": 48,
-        "Y": 48
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_big"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 208,
-        "Y": 48
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 16,
-        "Y": -16
-      },
-      "size": {
-        "X": 32,
-        "Y": 32
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_medium"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": -48,
-        "Y": -80
-      },
-      "size": {
-        "X": 48,
-        "Y": 48
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_big"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 0,
-        "Y": -96
-      },
-      "size": {
-        "X": 48,
-        "Y": 48
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_big"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 48,
-        "Y": -96
-      },
-      "size": {
-        "X": 48,
-        "Y": 48
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_big"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 96,
-        "Y": -96
-      },
-      "size": {
-        "X": 48,
-        "Y": 48
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_big"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 144,
-        "Y": -96
-      },
-      "size": {
-        "X": 48,
-        "Y": 48
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_big"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 192,
-        "Y": -96
-      },
-      "size": {
-        "X": 48,
-        "Y": 48
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_big"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 240,
-        "Y": -96
-      },
-      "size": {
-        "X": 48,
-        "Y": 48
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_big"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 192,
-        "Y": -32
-      },
-      "size": {
-        "X": 32,
-        "Y": 32
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_medium"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 192,
-        "Y": 0
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 96,
-        "Y": -32
-      },
-      "size": {
-        "X": 48,
-        "Y": 48
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_big"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 240,
+        "X": 194,
         "Y": 64
       },
       "size": {
-        "X": 48,
-        "Y": 48
+        "X": 39,
+        "Y": 34
       },
       "rotation": 0,
       "flipX": false,
       "flipY": false,
       "layer": 4,
-      "dataKey": "Factory/metal_crate_big"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 240,
-        "Y": 112
-      },
-      "size": {
-        "X": 48,
-        "Y": 48
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_big"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": -48,
-        "Y": 160
-      },
-      "size": {
-        "X": 48,
-        "Y": 48
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_big"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 112,
-        "Y": 80
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 112,
-        "Y": 96
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 112,
-        "Y": 112
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 112,
-        "Y": 128
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 112,
-        "Y": 144
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 112,
-        "Y": 160
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 112,
-        "Y": 176
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 112,
-        "Y": 192
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 208,
-        "Y": 144
-      },
-      "size": {
-        "X": 32,
-        "Y": 32
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_medium"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 128,
-        "Y": 176
-      },
-      "size": {
-        "X": 32,
-        "Y": 32
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_medium"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 80,
-        "Y": 144
-      },
-      "size": {
-        "X": 32,
-        "Y": 32
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_medium"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 64,
-        "Y": 64
-      },
-      "size": {
-        "X": 32,
-        "Y": 32
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_medium"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 48,
-        "Y": 32
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 16,
-        "Y": 32
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 0,
-        "Y": 32
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 112,
-        "Y": 16
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 240,
-        "Y": -32
-      },
-      "size": {
-        "X": 48,
-        "Y": 48
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_big"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 144,
-        "Y": -32
-      },
-      "size": {
-        "X": 48,
-        "Y": 48
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_big"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 48,
-        "Y": -32
-      },
-      "size": {
-        "X": 48,
-        "Y": 48
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_big"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 112,
-        "Y": 64
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 112,
-        "Y": 48
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 16,
-        "Y": 96
-      },
-      "size": {
-        "X": 32,
-        "Y": 32
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_medium"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 32,
-        "Y": 32
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 192,
-        "Y": 32
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": -48,
-        "Y": 64
-      },
-      "size": {
-        "X": 48,
-        "Y": 48
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_big"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": -48,
-        "Y": 16
-      },
-      "size": {
-        "X": 48,
-        "Y": 48
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_big"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": -48,
-        "Y": 208
-      },
-      "size": {
-        "X": 48,
-        "Y": 48
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_big"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 112,
-        "Y": 32
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 32,
-        "Y": 160
-      },
-      "size": {
-        "X": 48,
-        "Y": 48
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_big"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 224,
-        "Y": 48
-      },
-      "size": {
-        "X": 16,
-        "Y": 16
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "Factory/metal_crate_small"
+      "dataKey": "BrassCity/chandelier"
     },
     {
       "color": {
@@ -1376,6 +95,8049 @@
       "flipY": false,
       "layer": 4,
       "dataKey": "Entities/frog_bird"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -16,
+        "Y": 160
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -32,
+        "Y": 160
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -48,
+        "Y": 160
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -48,
+        "Y": 176
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -48,
+        "Y": 192
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -32,
+        "Y": 192
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -16,
+        "Y": 192
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -16,
+        "Y": 176
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -32,
+        "Y": 176
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -48,
+        "Y": 208
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -48,
+        "Y": 224
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -32,
+        "Y": 224
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -16,
+        "Y": 224
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -16,
+        "Y": 208
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -32,
+        "Y": 208
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -48,
+        "Y": 240
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -32,
+        "Y": 240
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -16,
+        "Y": 240
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 0,
+        "Y": 208
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 0,
+        "Y": 224
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 0,
+        "Y": 240
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 16,
+        "Y": 240
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 32,
+        "Y": 240
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 32,
+        "Y": 224
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 32,
+        "Y": 208
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 16,
+        "Y": 208
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 16,
+        "Y": 224
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 48,
+        "Y": 208
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 48,
+        "Y": 224
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 48,
+        "Y": 240
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 64,
+        "Y": 240
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 80,
+        "Y": 240
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 80,
+        "Y": 224
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 80,
+        "Y": 208
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 64,
+        "Y": 208
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 64,
+        "Y": 224
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 96,
+        "Y": 208
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 96,
+        "Y": 224
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 96,
+        "Y": 240
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 112,
+        "Y": 240
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 128,
+        "Y": 240
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 128,
+        "Y": 224
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 128,
+        "Y": 208
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 112,
+        "Y": 208
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 112,
+        "Y": 224
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 144,
+        "Y": 208
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 144,
+        "Y": 224
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 144,
+        "Y": 240
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 160,
+        "Y": 240
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 176,
+        "Y": 240
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 176,
+        "Y": 224
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 176,
+        "Y": 208
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 160,
+        "Y": 208
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 160,
+        "Y": 224
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 192,
+        "Y": 208
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 192,
+        "Y": 224
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 192,
+        "Y": 240
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 208,
+        "Y": 240
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 224,
+        "Y": 224
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 224,
+        "Y": 208
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 208,
+        "Y": 208
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 208,
+        "Y": 224
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 224,
+        "Y": 240
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 240,
+        "Y": 208
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 240,
+        "Y": 224
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 240,
+        "Y": 240
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 256,
+        "Y": 240
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 256,
+        "Y": 224
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 272,
+        "Y": 224
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 272,
+        "Y": 208
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 256,
+        "Y": 208
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 240,
+        "Y": 192
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 256,
+        "Y": 192
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 272,
+        "Y": 192
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 240,
+        "Y": 176
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 272,
+        "Y": 176
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 256,
+        "Y": 176
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 256,
+        "Y": 160
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 240,
+        "Y": 160
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 272,
+        "Y": 160
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 240,
+        "Y": 112
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 240,
+        "Y": 128
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 240,
+        "Y": 144
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 256,
+        "Y": 144
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 272,
+        "Y": 144
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 272,
+        "Y": 128
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 272,
+        "Y": 112
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 256,
+        "Y": 112
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 256,
+        "Y": 128
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 240,
+        "Y": 96
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 240,
+        "Y": 80
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 240,
+        "Y": 64
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 256,
+        "Y": 64
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 272,
+        "Y": 64
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 272,
+        "Y": 80
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 272,
+        "Y": 96
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 256,
+        "Y": 96
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 256,
+        "Y": 80
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 240,
+        "Y": 48
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 240,
+        "Y": 32
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 240,
+        "Y": 16
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 256,
+        "Y": 16
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 272,
+        "Y": 16
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 272,
+        "Y": 32
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 272,
+        "Y": 48
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 256,
+        "Y": 48
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 256,
+        "Y": 32
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 240,
+        "Y": 0
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 240,
+        "Y": -16
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 256,
+        "Y": -16
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 256,
+        "Y": -32
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 272,
+        "Y": -16
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 272,
+        "Y": 0
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 256,
+        "Y": 0
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 240,
+        "Y": -32
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 272,
+        "Y": -32
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 208,
+        "Y": 32
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 208,
+        "Y": 48
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 224,
+        "Y": 48
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 192,
+        "Y": 32
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 160,
+        "Y": 80
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 144,
+        "Y": 80
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 128,
+        "Y": 80
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 128,
+        "Y": 96
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 128,
+        "Y": 112
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 144,
+        "Y": 112
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 160,
+        "Y": 112
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 160,
+        "Y": 96
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 144,
+        "Y": 96
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 176,
+        "Y": 112
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 208,
+        "Y": 144
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 208,
+        "Y": 160
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 224,
+        "Y": 160
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 224,
+        "Y": 144
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 192,
+        "Y": 160
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 128,
+        "Y": 176
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 128,
+        "Y": 192
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 144,
+        "Y": 192
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 144,
+        "Y": 176
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 112,
+        "Y": 192
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 112,
+        "Y": 176
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 112,
+        "Y": 16
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 112,
+        "Y": 32
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 112,
+        "Y": 48
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 112,
+        "Y": 64
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 112,
+        "Y": 80
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 112,
+        "Y": 96
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 112,
+        "Y": 112
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 112,
+        "Y": 128
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 112,
+        "Y": 144
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 112,
+        "Y": 160
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 128,
+        "Y": 48
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 144,
+        "Y": 48
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 64,
+        "Y": 64
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 64,
+        "Y": 80
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 80,
+        "Y": 80
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 80,
+        "Y": 64
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 16,
+        "Y": 96
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 16,
+        "Y": 112
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 32,
+        "Y": 112
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 32,
+        "Y": 96
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 48,
+        "Y": 112
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 80,
+        "Y": 144
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 80,
+        "Y": 160
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 96,
+        "Y": 160
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 96,
+        "Y": 144
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 64,
+        "Y": 160
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 64,
+        "Y": 176
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 64,
+        "Y": 192
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 48,
+        "Y": 192
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 32,
+        "Y": 192
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 32,
+        "Y": 176
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 48,
+        "Y": 160
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 48,
+        "Y": 176
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 32,
+        "Y": 160
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -16,
+        "Y": 112
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -16,
+        "Y": 128
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -16,
+        "Y": 144
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -32,
+        "Y": 144
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -48,
+        "Y": 144
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -48,
+        "Y": 128
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -48,
+        "Y": 112
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -32,
+        "Y": 112
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -32,
+        "Y": 128
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -16,
+        "Y": 96
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -32,
+        "Y": 96
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -48,
+        "Y": 80
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -48,
+        "Y": 64
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -32,
+        "Y": 64
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -16,
+        "Y": 64
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -32,
+        "Y": 80
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -48,
+        "Y": 96
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -16,
+        "Y": 80
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -16,
+        "Y": 48
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -32,
+        "Y": 48
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -48,
+        "Y": 48
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -48,
+        "Y": 32
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -48,
+        "Y": 16
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -32,
+        "Y": 16
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -16,
+        "Y": 16
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -16,
+        "Y": 32
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -32,
+        "Y": 32
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 48,
+        "Y": 32
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 32,
+        "Y": 32
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 16,
+        "Y": 32
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 0,
+        "Y": 32
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 16,
+        "Y": -16
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 16,
+        "Y": 0
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 32,
+        "Y": 0
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 32,
+        "Y": -16
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 48,
+        "Y": -32
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 48,
+        "Y": -16
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 48,
+        "Y": 0
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 64,
+        "Y": 0
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 80,
+        "Y": 0
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 80,
+        "Y": -16
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 80,
+        "Y": -32
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 64,
+        "Y": -32
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 64,
+        "Y": -16
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 96,
+        "Y": 0
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 112,
+        "Y": 0
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 128,
+        "Y": 0
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 144,
+        "Y": 0
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 160,
+        "Y": 0
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 176,
+        "Y": 0
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 192,
+        "Y": 0
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 208,
+        "Y": 0
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 208,
+        "Y": -16
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 208,
+        "Y": -32
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 192,
+        "Y": -32
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 176,
+        "Y": -32
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 160,
+        "Y": -32
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 144,
+        "Y": -32
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 128,
+        "Y": -32
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 112,
+        "Y": -32
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 96,
+        "Y": -32
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 96,
+        "Y": -16
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 112,
+        "Y": -16
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 128,
+        "Y": -16
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 144,
+        "Y": -16
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 160,
+        "Y": -16
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 176,
+        "Y": -16
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 192,
+        "Y": -16
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -16,
+        "Y": 0
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -32,
+        "Y": 0
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -48,
+        "Y": 0
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -48,
+        "Y": -16
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -48,
+        "Y": -32
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -32,
+        "Y": -32
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -16,
+        "Y": -32
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -16,
+        "Y": -16
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -32,
+        "Y": -16
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -16,
+        "Y": -48
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -32,
+        "Y": -48
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -48,
+        "Y": -48
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -48,
+        "Y": -64
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -48,
+        "Y": -80
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -32,
+        "Y": -80
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -16,
+        "Y": -80
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -16,
+        "Y": -64
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -32,
+        "Y": -64
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 0,
+        "Y": -96
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 0,
+        "Y": -80
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 0,
+        "Y": -64
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 16,
+        "Y": -64
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 32,
+        "Y": -64
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 32,
+        "Y": -80
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 32,
+        "Y": -96
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 16,
+        "Y": -96
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 16,
+        "Y": -80
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 48,
+        "Y": -64
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 48,
+        "Y": -80
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 48,
+        "Y": -96
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 64,
+        "Y": -96
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 80,
+        "Y": -80
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 64,
+        "Y": -64
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 64,
+        "Y": -80
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 80,
+        "Y": -96
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 80,
+        "Y": -64
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 96,
+        "Y": -64
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 112,
+        "Y": -64
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 128,
+        "Y": -64
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 144,
+        "Y": -64
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 160,
+        "Y": -64
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 176,
+        "Y": -64
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 192,
+        "Y": -64
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 208,
+        "Y": -64
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 224,
+        "Y": -64
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 240,
+        "Y": -64
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 256,
+        "Y": -64
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 272,
+        "Y": -64
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 272,
+        "Y": -80
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 272,
+        "Y": -96
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 256,
+        "Y": -96
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 240,
+        "Y": -96
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 224,
+        "Y": -96
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 208,
+        "Y": -96
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 192,
+        "Y": -96
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 176,
+        "Y": -96
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 160,
+        "Y": -96
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 144,
+        "Y": -96
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 128,
+        "Y": -96
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 112,
+        "Y": -96
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 96,
+        "Y": -96
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 96,
+        "Y": -80
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 112,
+        "Y": -80
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 128,
+        "Y": -80
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 144,
+        "Y": -80
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 160,
+        "Y": -80
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 176,
+        "Y": -80
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 192,
+        "Y": -80
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 208,
+        "Y": -80
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 224,
+        "Y": -80
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 240,
+        "Y": -80
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 256,
+        "Y": -80
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 96,
+        "Y": 126
+      },
+      "size": {
+        "X": 80,
+        "Y": 36
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Pots/pot_big"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 64,
+        "Y": 142
+      },
+      "size": {
+        "X": 80,
+        "Y": 36
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Pots/pot_big"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 96,
+        "Y": 190
+      },
+      "size": {
+        "X": 80,
+        "Y": 36
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Pots/pot_big"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 80,
+        "Y": 190
+      },
+      "size": {
+        "X": 80,
+        "Y": 36
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Pots/pot_big"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 26,
+        "Y": 78
+      },
+      "size": {
+        "X": 80,
+        "Y": 36
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Pots/pot_big"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 137,
+        "Y": 30
+      },
+      "size": {
+        "X": 80,
+        "Y": 36
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Pots/pot_big"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 19,
+        "Y": -35
+      },
+      "size": {
+        "X": 80,
+        "Y": 36
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Pots/pot_big"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -64,
+        "Y": 208
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 5,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -48,
+        "Y": 224
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 5,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -32,
+        "Y": 224
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 5,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -16,
+        "Y": 224
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 5,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -16,
+        "Y": 208
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 5,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -32,
+        "Y": 208
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 5,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -48,
+        "Y": 208
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 5,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -64,
+        "Y": 192
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 5,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -48,
+        "Y": 192
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 5,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -32,
+        "Y": 192
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 5,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 0,
+        "Y": 224
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 5,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 16,
+        "Y": 224
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 5,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 32,
+        "Y": 224
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 5,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 48,
+        "Y": 224
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 5,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 0,
+        "Y": 208
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 5,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 16,
+        "Y": 208
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 5,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 32,
+        "Y": 208
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 5,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 64,
+        "Y": 224
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 5,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 48,
+        "Y": 240
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 5,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 48,
+        "Y": 256
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 5,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 64,
+        "Y": 256
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 5,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 64,
+        "Y": 240
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 5,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 32,
+        "Y": 256
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 5,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 16,
+        "Y": 256
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 5,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 0,
+        "Y": 256
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 5,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -16,
+        "Y": 256
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 5,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -16,
+        "Y": 272
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 5,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -32,
+        "Y": 256
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 5,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -48,
+        "Y": 256
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 5,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -64,
+        "Y": 256
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 5,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -80,
+        "Y": 256
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 5,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -80,
+        "Y": 240
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 5,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -80,
+        "Y": 224
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 5,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -80,
+        "Y": 208
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 5,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -96,
+        "Y": 208
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 5,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -96,
+        "Y": 224
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 5,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -64,
+        "Y": 240
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 5,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -64,
+        "Y": 224
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 5,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -96,
+        "Y": 240
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 5,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -48,
+        "Y": 240
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 5,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -32,
+        "Y": 240
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 5,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -80,
+        "Y": 192
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 5,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 0,
+        "Y": 240
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 5,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 16,
+        "Y": 240
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 5,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -16,
+        "Y": 240
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 5,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 32,
+        "Y": 240
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 5,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 48,
+        "Y": 272
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 5,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 32,
+        "Y": 272
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 5,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 16,
+        "Y": 272
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 5,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 0,
+        "Y": 272
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 5,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -32,
+        "Y": 272
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 5,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -48,
+        "Y": 272
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 5,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -64,
+        "Y": 272
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 5,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": -80,
+        "Y": 272
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 5,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 48,
+        "Y": 64
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 6,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 48,
+        "Y": 80
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 6,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 64,
+        "Y": 64
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 6,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 48,
+        "Y": 48
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 7,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 48,
+        "Y": 64
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 7,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 64,
+        "Y": 64
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 7,
+      "dataKey": "RussetMire/clover_tile"
+    },
+    {
+      "color": {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      "position": {
+        "X": 64,
+        "Y": 48
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 7,
+      "dataKey": "RussetMire/clover_tile"
     }
   ]
 }

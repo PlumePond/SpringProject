@@ -29,6 +29,9 @@ public class RemoveObjectCommand : ICommand
         _grid.layers[_levelObject.layer].LevelObjects.Remove(_levelObject);
 
         _gridPlacement.Dehover();
+
+        // trigger on removed
+        _levelObject.OnRemoved();
     }
 
     public void Undo()

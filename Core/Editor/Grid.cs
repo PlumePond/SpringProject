@@ -23,7 +23,7 @@ public class Grid
 
     public Color FogColor { get; private set; } = Color.White;
     public Color BackgroundColor { get; private set; } = Color.White;
-    public SpriteFontBase DebugFont { get; private set; }
+    public Font DebugFont { get; private set; }
 
     public bool editor { get; private set; }
 
@@ -187,6 +187,7 @@ public class Grid
                 levelObject.SetSize(levelObjectSaveData.size);
 
                 AddLevelObject(levelObjectSaveData.layer, levelObject);
+                levelObject.OnPlaced();
             }
             else
             {

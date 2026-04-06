@@ -37,24 +37,24 @@ public class GameScene : Scene
         Grid.SetShowAllLayers(true);
         Grid.SetShowParallax(true);
 
-        Panel savePanel = new Panel(new Point(-5, 5), new Point(42, 47), Vector2.One, Origin.TopRight, Anchor.TopRight, panelTexture, 3);
+        Panel savePanel = new Panel(new Point(-5, 5), new Point(42, 47), Anchor.TopRight, panelTexture, 3);
 
-        ButtonElement editorButton = new ButtonElement(new Point(5, 26), new Point(32, 16), Vector2.One, Origin.TopLeft, Anchor.TopLeft, panelTexture, panelSelectedTexture, 3);
+        ButtonElement editorButton = new ButtonElement(new Point(5, 26), new Point(32, 16), Anchor.TopLeft, panelTexture, panelSelectedTexture, 3);
         editorButton.Pressed += () =>
         {
             LevelEditor.levelName = levelName;
             Main.SetScene<LevelEditor>(true);
         };
-        ImageElement saveButtonIcon = new ImageElement(new Point(0, 0), Vector2.One, Origin.MiddleCenter, Anchor.MiddleCenter, TextureManager.Get("edit_icon"), Main.UIDefaultColor);
+        ImageElement saveButtonIcon = new ImageElement(new Point(0, 0), Anchor.MiddleCenter, TextureManager.Get("edit_icon"), Main.UIDefaultColor);
         editorButton.AddChild(saveButtonIcon);
         savePanel.AddChild(editorButton);
 
-        ButtonElement mainMenuButton = new ButtonElement(new Point(5, 5), new Point(32, 16), Vector2.One, Origin.TopLeft, Anchor.TopLeft, panelTexture, panelSelectedTexture, 3);
+        ButtonElement mainMenuButton = new ButtonElement(new Point(5, 5), new Point(32, 16), Anchor.TopLeft, panelTexture, panelSelectedTexture, 3);
         mainMenuButton.Pressed += () => 
         { 
             Main.SetScene<MainMenu>(false);
         };
-        ImageElement mainMenuIcon = new ImageElement(new Point(0, 0), Vector2.One, Origin.MiddleCenter, Anchor.MiddleCenter, TextureManager.Get("menu_icon"), Main.UIDefaultColor);
+        ImageElement mainMenuIcon = new ImageElement(new Point(0, 0), Anchor.MiddleCenter, TextureManager.Get("menu_icon"), Main.UIDefaultColor);
         mainMenuButton.AddChild(mainMenuIcon);
         savePanel.AddChild(mainMenuButton);
 

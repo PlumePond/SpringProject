@@ -1,4 +1,12 @@
 {
     "material": "default",
-    "solid": false
+    "solid": false,
+    "frame": {
+        "X": 32,
+        "Y": 32
+    },
+    "defaultFramePos": {
+        "X": 0,
+        "Y": 32
+    }
 }

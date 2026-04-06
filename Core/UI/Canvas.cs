@@ -8,7 +8,7 @@ namespace SpringProject.Core.UI;
 
 public class Canvas : Element
 {
-    public Canvas(Point localPosition, Point size, Vector2 localScale, Origin origin = Origin.MiddleCenter, Anchor anchor = Anchor.MiddleCenter) : base(localPosition, size, localScale, origin, anchor)
+    public Canvas(Point localPosition, Point size, Anchor anchor = Anchor.MiddleCenter) : base(localPosition, size, anchor)
     {
     }
 

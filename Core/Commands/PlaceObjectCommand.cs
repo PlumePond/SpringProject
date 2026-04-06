@@ -48,6 +48,9 @@ public class PlaceObjectCommand : ICommand
         }
                     
         _grid.layers[_layer].LevelObjects.Add(_levelObject);
+
+        // trigger on placed
+        _levelObject.OnPlaced();
     }
 
     public void Undo()

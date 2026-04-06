@@ -1,6 +1,7 @@
 using FontStashSharp;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using SpringProject.Core.Content;
 using SpringProject.Core.Debugging;
 using SpringProject.Core.UI;
 using System;
@@ -40,6 +41,16 @@ public class LevelObject
         CalculateBounds();
     }
 
+    public virtual void OnPlaced()
+    {
+        
+    }
+
+    public virtual void OnRemoved()
+    {
+        
+    }
+
     public virtual void Update(GameTime gameTime)
     {
         
@@ -61,34 +72,34 @@ public class LevelObject
         if (transform.flipX) effects |= SpriteEffects.FlipHorizontally;
         if (transform.flipY) effects |= SpriteEffects.FlipVertically;
 
-
         Vector2 drawScale = new Vector2((float)size.X / data.sprite.Width, (float)size.Y / data.sprite.Height);
 
         Color objectColor = selected ? Color.LightGoldenrodYellow * color : color;
-
-        Rectangle? sourceRect = frame != Point.Zero ? new Rectangle(Point.Zero, frame) : null;
+        
+        Rectangle? sourceRect = frame != Point.Zero ? new Rectangle(data.defaultFramePos, frame) : null;
+        Rectangle? outlineSourceRect = frame != Point.Zero ? new Rectangle(data.frameOutline ? data.defaultFramePos : Point.Zero, frame) : null;
 
         spriteBatch.Draw(data.sprite, drawPos, sourceRect, objectColor * tint, radians, origin, drawScale, effects, 0f);
 
         if (hovered)
         {
-            spriteBatch.Draw(data.outline, drawPos, sourceRect, Color.White, radians, origin, drawScale, effects, 0f);
+            spriteBatch.Draw(data.outline, drawPos, outlineSourceRect, Color.White, radians, origin, drawScale, effects, 0f);
         }
         else if (selected)
         {
-            spriteBatch.Draw(data.outline, drawPos, sourceRect, Color.Yellow, radians, origin, drawScale, effects, 0f);
+            spriteBatch.Draw(data.outline, drawPos, outlineSourceRect, Color.Yellow, radians, origin, drawScale, effects, 0f);
         }
     }
 
-    public virtual void DrawDebug(SpriteBatch spriteBatch, SpriteFontBase font)
+    public virtual void DrawDebug(SpriteBatch spriteBatch, Font font)
     {
         Color hitboxColor = data.solid ? Color.Green : Color.Blue;
         Debug.DrawRectangle(spriteBatch, bounds, hitboxColor * 0.25f);
 
         string debugText = $"{data.material}";
         Vector2 textPos = bounds.Center.ToVector2();
-        Vector2 textOrigin = font.MeasureString(debugText) * 0.5f;
-        spriteBatch.DrawString(font, debugText, textPos, Color.White, 0, textOrigin, Vector2.One * 0.25f);
+        Vector2 textOrigin = font.FontBase.MeasureString(debugText) * 0.5f;
+        spriteBatch.DrawString(font.FontBase, debugText, textPos, Color.White, 0, textOrigin, Vector2.One * 0.25f);
         
         if (hovered)
         {

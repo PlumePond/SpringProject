@@ -9,7 +9,7 @@ public class HorizontalArray : Element
 {
     protected int _space;
 
-    public HorizontalArray(Point position, Point size, Vector2 scale, int space) : base(position, size, scale, Origin.MiddleLeft, Anchor.MiddleLeft)
+    public HorizontalArray(Point position, Point size, int space) : base(position, size, Anchor.MiddleLeft)
     {
         _space = space;
     }

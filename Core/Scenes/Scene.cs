@@ -21,7 +21,7 @@ public abstract class Scene
             windowSize.Y / Main.Settings.UISize
         );
         
-        ActiveCanvas = new Canvas(Point.Zero, scaledSize, Vector2.One, Origin.TopLeft, Anchor.TopLeft);
+        SetActiveCanvas(new Canvas(Point.Zero, scaledSize, Anchor.TopLeft));
 
         Initialize();
     }
@@ -39,6 +39,24 @@ public abstract class Scene
     public virtual void Close()
     {
         
+    }
+
+    protected void SetActiveCanvas(Canvas canvas)
+    {
+        if (ActiveCanvas != null)
+        {
+            foreach (var child in ActiveCanvas.Children)
+            {
+                child.SetActive(false);
+            }
+        }
+
+        ActiveCanvas = canvas;
+
+        foreach (var child in ActiveCanvas.Children)
+        {
+            child.SetActive(true);
+        }
     }
 
     void UpdateCanvasSize()

@@ -12,7 +12,6 @@ using SpringProject.Core.UserInput;
 using FontStashSharp;
 using System.IO;
 using SpringProject.Core.Debugging;
-using static Extensions;
 using System.Net;
 using SpringProject.Core.SaveSystem;
 using SpringProject.Core.Scenes;
@@ -43,8 +42,9 @@ public class Main : Game
     public static Scene LevelEditorScene;
 
     //public static Color UIEnabledColor = new Color(246 / 255f, 244 / 255f, 118 / 255f);
-    public static Color UIEnabledColor = new Color(255 / 255f, 255 / 255f, 255 / 255f);
+    //public static Color UIEnabledColor = new Color(255 / 255f, 255 / 255f, 255 / 255f);
     public static Color UIDefaultColor = new Color(94 / 255f, 91 / 255f, 106 / 255f);
+    public static Color UIEnabledColor = new Color(255 / 255f, 187 / 255f, 15 / 255f);
 
     private static Dictionary<Type, Scene> _sceneCache = new();
 
@@ -81,6 +81,8 @@ public class Main : Game
         CalculateUIMatrix();
 
         SetScene<MainMenu>(false);
+
+        Cursor.SetCursor(CursorType.Pointer);
     }
 
     protected override void Update(GameTime gameTime)
@@ -107,6 +109,8 @@ public class Main : Game
             _graphics.IsFullScreen = !_graphics.IsFullScreen;
             _graphics.ApplyChanges();
         }
+
+        Cursor.Update(gameTime);
         
         base.Update(gameTime);
     }
@@ -116,6 +120,7 @@ public class Main : Game
         base.Draw(gameTime);
 
         ActiveScene.Draw(_spriteBatch);
+        Cursor.Draw(_spriteBatch);
     }
 
     public static void SetScene<T>(bool forceNew = true) where T : Scene, new()

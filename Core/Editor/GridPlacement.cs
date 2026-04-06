@@ -35,6 +35,8 @@ public class GridPlacement
 
     int resizeDistance = 4;
 
+    bool _objectHoverConsumed = false;
+
     Color _selectedColor = Color.White;
 
     AudioComposite _placeSound => AudioManager.Get("place");
@@ -150,7 +152,9 @@ public class GridPlacement
         // do not place if the mouse press is already consumed by a UI element
         if (_selectedObjectData != null && _canPlaceObject && selectedObject == null && !Input.MousePressConsumed && !Input.MouseHoverConsumed)
         {
-            Point snappedPosition = CalculateSmartPlacement(mousePos, _selectedObjectData.size, _selectedObjectData.frame, _rotation, out bool invalidPlacement);
+            //Debug.Log($"Enforce grid: {_selectedObjectData.enforceGrid}");
+            int snapSize = _selectedObjectData.enforceGrid ? (int)SnapSize.Whole : (int)_snapSize;
+            Point snappedPosition = CalculateSmartPlacement(mousePos, _selectedObjectData.size, _selectedObjectData.frame, snapSize, _rotation, out bool invalidPlacement);
             if (Input.Get("place").Pressed || (Input.Get("place").Holding && _swipe))
             {
                 if (invalidPlacement)
@@ -175,13 +179,14 @@ public class GridPlacement
             // if the mouse hover has already been consumed by a UI element, do not allow hovering over world objects
             if (Input.MouseHoverConsumed)
             {
+                Dehover();
                 break;
             }
 
-            // updated mouse hover consumed
+            // update object hover consumed
             if (levelObject == hoveredObject)
             {
-                Input.ConsumeHover();
+                _objectHoverConsumed = true;
             }
             
             // check for object hovering
@@ -449,9 +454,8 @@ public class GridPlacement
         hoveredObject = null;
     }
 
-    public Point SnapToGrid(Point pos)
+    public Point SnapToGrid(Point pos, int snapSize)
     {
-        int snapSize = (int)_snapSize;
         int x = (int)Math.Floor(pos.X / (double)snapSize) * snapSize;
         int y = (int)Math.Floor(pos.Y / (double)snapSize) * snapSize;
         return new Point(x, y);
@@ -467,7 +471,7 @@ public class GridPlacement
         // draw tile debug
         if (!Input.MouseHoverConsumed && _grid.showHitboxes)
         {
-            Point gridPos = SnapToGrid(mousePos);
+            Point gridPos = SnapToGrid(mousePos, _selectedObjectData.enforceGrid ? (int)SnapSize.Whole : (int)_snapSize);
             Point gridSize = new Point((int)_snapSize, (int)_snapSize);
             Rectangle gridRect = new Rectangle(gridPos, gridSize);
             Debug.DrawRectangleOutline(spriteBatch, gridRect, Color.White, 1);
@@ -476,7 +480,8 @@ public class GridPlacement
         // draw preview
         if (_selectedObjectData != null && _canPlaceObject && selectedObject == null && !Input.MouseHoverConsumed)
         {
-            Point snappedPos = CalculateSmartPlacement(mousePos, _selectedObjectData.size, _selectedObjectData.frame, _rotation, out bool invalidPlacement);
+            int snapSize = _selectedObjectData.enforceGrid ? (int)SnapSize.Whole : (int)_snapSize;
+            Point snappedPos = CalculateSmartPlacement(mousePos, _selectedObjectData.size, _selectedObjectData.frame, snapSize, _rotation, out bool invalidPlacement);
             Color objectColor = _grid.colorObjects ? _selectedColor : Color.White;
             Color color = invalidPlacement ? Color.Red * 0.5f : objectColor * 0.5f;
             DrawPlacementPreview(spriteBatch, _selectedObjectData, snappedPos, _rotation, _flipX, _flipY, color);
@@ -507,7 +512,7 @@ public class GridPlacement
         if (flipX) effects |= SpriteEffects.FlipHorizontally;
         if (flipY) effects |= SpriteEffects.FlipVertically;
 
-        Rectangle? sourceRect = data.frame != Point.Zero ? new Rectangle(Point.Zero, data.frame) : null;
+        Rectangle? sourceRect = data.frame != Point.Zero ? new Rectangle(data.defaultFramePos, data.frame) : null;
 
         spriteBatch.Draw(data.sprite, drawPos, sourceRect, color, radians, origin, Vector2.One, effects, 0f);
     }
@@ -570,9 +575,9 @@ public class GridPlacement
         _selectedObjectData = levelObjectData;
     }
 
-    public Point CalculatePlacement(Point pos, Point size, int rotation, out bool invalidPlacement)
+    public Point CalculatePlacement(Point pos, Point size, int snapSize, int rotation, out bool invalidPlacement)
     {
-        pos = SnapToGrid(pos);
+        pos = SnapToGrid(pos, snapSize);
         invalidPlacement = OverlapsExistingObject(pos, size, rotation);
 
         return pos;
@@ -599,12 +604,10 @@ public class GridPlacement
     }
 
     // calculate the best position to place an object based on the current mouse position and the positions of existing objects
-    public Point CalculateSmartPlacement(Point position, Point size, Point frame, int rotation, out bool invalidPlacement, LevelObject ignoreObject = null)
+    public Point CalculateSmartPlacement(Point position, Point size, Point frame, int snapSize, int rotation, out bool invalidPlacement, LevelObject ignoreObject = null)
     {
-        int snapValue = (int)_snapSize;
-
         // snap the mouse position to the grid
-        Point snappedMouse = SnapToGrid(position);
+        Point snappedMouse = SnapToGrid(position, snapSize);
 
         // account for frame
         Point framedSize = (frame != Point.Zero) ? frame : size;
@@ -614,23 +617,23 @@ public class GridPlacement
         Point rotatedSize = swapDimensions ? new Point(framedSize.Y, framedSize.X) : new Point(framedSize.X, framedSize.Y);
 
         // center offset, rounded to nearest snap increment
-        int centerOffsetX = (rotatedSize.X / 2 / snapValue) * snapValue;
-        int centerOffsetY = (rotatedSize.Y / 2 / snapValue) * snapValue;
+        int centerOffsetX = (rotatedSize.X / 2 / snapSize) * snapSize;
+        int centerOffsetY = (rotatedSize.Y / 2 / snapSize) * snapSize;
 
         Point centeredPosition = new Point(snappedMouse.X - centerOffsetX, snappedMouse.Y - centerOffsetY);
 
         // search nearby grid-aligned offsets, closest first
         // the constraint: at least one edge of the object must still touch snappedMouse's grid cell
         // so the offset range is limited to [-objectSize+snapValue, objectSize-snapValue] in each axis
-        int maxOffsetX = rotatedSize.X - snapValue;
-        int maxOffsetY = rotatedSize.Y - snapValue;
+        int maxOffsetX = rotatedSize.X - snapSize;
+        int maxOffsetY = rotatedSize.Y - snapSize;
 
         // build candidates sorted by distance from centeredPosition
         List<(Point point, int distSq)> candidates = new();
 
-        for (int dx = -maxOffsetX; dx <= maxOffsetX; dx += snapValue)
+        for (int dx = -maxOffsetX; dx <= maxOffsetX; dx += snapSize)
         {
-            for (int dy = -maxOffsetY; dy <= maxOffsetY; dy += snapValue)
+            for (int dy = -maxOffsetY; dy <= maxOffsetY; dy += snapSize)
             {
                 Point candidate = new Point(snappedMouse.X + dx, snappedMouse.Y + dy); // was: - dx, - dy
                 int distSq = (candidate.X - centeredPosition.X) * (candidate.X - centeredPosition.X)

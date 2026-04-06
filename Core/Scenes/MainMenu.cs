@@ -30,9 +30,9 @@ public class MainMenu : Scene
             windowSize.Y / Main.Settings.UISize
         );
 
-        _mainCanvas = new Canvas(Point.Zero, scaledSize, Vector2.One, Origin.TopLeft, Anchor.TopLeft);
-        _editorLevelSelectCanvas = new Canvas(Point.Zero, scaledSize, Vector2.One, Origin.TopLeft, Anchor.TopLeft);
-        _saveFileSelectCanvas = new Canvas(Point.Zero, scaledSize, Vector2.One, Origin.TopLeft, Anchor.TopLeft);
+        _mainCanvas = new Canvas(Point.Zero, scaledSize, Anchor.TopLeft);
+        _editorLevelSelectCanvas = new Canvas(Point.Zero, scaledSize, Anchor.TopLeft);
+        _saveFileSelectCanvas = new Canvas(Point.Zero, scaledSize, Anchor.TopLeft);
 
         Texture2D panelTexture = TextureManager.Get("panel");
         Texture2D panelSelectedTexture = TextureManager.Get("panel_selected");
@@ -42,37 +42,37 @@ public class MainMenu : Scene
         Texture2D sliderFillTexture = TextureManager.Get("slider_fill");
         Texture2D colorDisplayTexture = TextureManager.Get("color_display");
 
-        SpriteFontBase font = FontManager.Get("body");
+        Font font = FontManager.Get("body");
 
-        ButtonElement playButton = new ButtonElement(new Point(0, -16), new Point(96, 32), Vector2.One, Origin.MiddleCenter, Anchor.MiddleCenter, panelTexture, panelSelectedTexture, 3);
+        ButtonElement playButton = new ButtonElement(new Point(0, -16), new Point(96, 32), Anchor.MiddleCenter, panelTexture, panelSelectedTexture, 3);
         playButton.Pressed += () =>
         {
             SetActiveCanvas(_saveFileSelectCanvas);
         };
-        playButton.AddChild(new TextElement(Point.Zero, Vector2.One * 0.5f, font, "Play", Color.White));
+        playButton.AddChild(new TextElement(Point.Zero, font, "Play", Color.White));
         _mainCanvas.AddChild(playButton);
 
-        ButtonElement editorButton = new ButtonElement(new Point(0, 16), new Point(96, 32), Vector2.One, Origin.MiddleCenter, Anchor.MiddleCenter, panelTexture, panelSelectedTexture, 3);
+        ButtonElement editorButton = new ButtonElement(new Point(0, 16), new Point(96, 32), Anchor.MiddleCenter, panelTexture, panelSelectedTexture, 3);
         editorButton.Pressed += () =>
         {
             SetActiveCanvas(_editorLevelSelectCanvas);
         };
-        editorButton.AddChild(new TextElement(Point.Zero, Vector2.One * 0.5f, font, "Editor", Color.White));
+        editorButton.AddChild(new TextElement(Point.Zero, font, "Editor", Color.White));
         _mainCanvas.AddChild(editorButton);
 
         LevelSaveManager.LoadAll();
 
-        HorizontalArray horizontalArray = new HorizontalArray(Point.Zero, scaledSize, Vector2.One, 10);
+        HorizontalArray horizontalArray = new HorizontalArray(Point.Zero, scaledSize, 10);
         _editorLevelSelectCanvas.AddChild(horizontalArray);
 
         foreach (var levelData in LevelSaveManager.LoadedLevelsData)
         {
-            var levelSelectPanel = new Panel(new Point(0, 16), new Point(64, 64), Vector2.One, Origin.MiddleLeft, Anchor.MiddleLeft, panelTexture, 3);
-            levelSelectPanel.AddChild(new TextElement(Point.Zero, Vector2.One * 0.5f, font, levelData.Key, Color.White));
+            var levelSelectPanel = new Panel(new Point(0, 16), new Point(64, 64), Anchor.MiddleLeft, panelTexture, 3);
+            levelSelectPanel.AddChild(new TextElement(Point.Zero, font, levelData.Key, Color.White));
             horizontalArray.AddChild(levelSelectPanel);
 
-            var levelPlayButton = new ButtonElement(Point.Zero, new Point(16, 16), Vector2.One, Origin.BottomLeft, Anchor.BottomLeft, panelTexture, panelSelectedTexture, 3);
-            levelPlayButton.AddChild(new ImageElement(Point.Zero, Vector2.One, Origin.MiddleCenter, Anchor.MiddleCenter, TextureManager.Get("play_icon"), Main.UIDefaultColor));
+            var levelPlayButton = new ButtonElement(Point.Zero, new Point(16, 16), Anchor.BottomLeft, panelTexture, panelSelectedTexture, 3);
+            levelPlayButton.AddChild(new ImageElement(Point.Zero, Anchor.MiddleCenter, TextureManager.Get("play_icon"), Main.UIDefaultColor));
             levelPlayButton.Pressed += () => 
             { 
                 GameScene.levelName = levelData.Key;  
@@ -80,8 +80,8 @@ public class MainMenu : Scene
             };
             levelSelectPanel.AddChild(levelPlayButton);
 
-            var levelEditButton = new ButtonElement(new Point(16, 0), new Point(16, 16), Vector2.One, Origin.BottomLeft, Anchor.BottomLeft, panelTexture, panelSelectedTexture, 3);
-            levelEditButton.AddChild(new ImageElement(Point.Zero, Vector2.One, Origin.MiddleCenter, Anchor.MiddleCenter, TextureManager.Get("edit_icon"), Main.UIDefaultColor));
+            var levelEditButton = new ButtonElement(new Point(16, 0), new Point(16, 16), Anchor.BottomLeft, panelTexture, panelSelectedTexture, 3);
+            levelEditButton.AddChild(new ImageElement(Point.Zero, Anchor.MiddleCenter, TextureManager.Get("edit_icon"), Main.UIDefaultColor));
             levelEditButton.Pressed += () => 
             { 
                 LevelEditor.levelName = levelData.Key;  
@@ -99,25 +99,9 @@ public class MainMenu : Scene
         // newLevelButton.AddChild(new TextElement(Point.Zero, Vector2.One * 0.5f, font, levelData.Key, Color.White));
         // horizontalArray.AddChild(levelSelectEditButton);
 
-        // grid array for testing purposes
-        ScrollRect scrollRect = new ScrollRect(Point.Zero, new Point(80, 160), Vector2.One, Origin.TopLeft, Anchor.TopLeft);
-        GridArray gridAray = new GridArray(Point.Zero, new Point(80, 160), Vector2.One, new Point(16, 16), 0, Origin.TopLeft, Anchor.TopLeft);
-        scrollRect.AddChild(gridAray);
-        _mainCanvas.AddChild(scrollRect);
-
-        for (int i = 0; i < 128; i++)
-        {
-            ImageElement slot = new ImageElement(Point.Zero, Vector2.One, Origin.TopLeft, Anchor.TopLeft, TextureManager.Get("object_slot"), Color.White);
-            slot.AddChild(new TextElement(Point.Zero, Vector2.One * 0.25f, FontManager.Get("body"), i.ToString(), Color.White, Origin.MiddleCenter, Anchor.MiddleCenter));
-            gridAray.AddChild(slot);
-        }
+        _mainCanvas.AddChild(new TextInputBox(Point.Zero, new Point(30, 7), font, "[insert text]", Color.Gray, Color.Magenta, Anchor.TopLeft));
 
         SetActiveCanvas(_mainCanvas);
-    }
-
-    void SetActiveCanvas(Canvas canvas)
-    {
-        ActiveCanvas = canvas;
     }
 
     public override void Start()
@@ -137,23 +121,6 @@ public class MainMenu : Scene
         base.Draw(spriteBatch);
 
         spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, SamplerState.PointClamp, null, null, null, Main.UIMatrtix);
-
-        Texture2D texture = TextureManager.Get("scroll_bar");
-        Rectangle frame = new Rectangle(40, 40, 16, 127);
-
-        Rectangle topLeft = new Rectangle(0, 0, 2, 2);
-        Rectangle top = new Rectangle(3, 0, 2, 2);
-        Rectangle topRight = new Rectangle(6, 0, 2, 2);
-
-        Rectangle left = new Rectangle(0, 3, 2, 2);
-        Rectangle mid = new Rectangle(3, 3, 2, 2);
-        Rectangle right = new Rectangle(6, 3, 2, 2);
-        
-        Rectangle bottomLeft = new Rectangle(0, 6, 2, 3);  // Y was 8, should be 6
-        Rectangle bottom = new Rectangle(3, 6, 2, 3);  // Y was 8, should be 6
-        Rectangle bottomRight = new Rectangle(6, 6, 2, 3);
-
-        UIHelper.DrawSegmentedRepeating(spriteBatch, texture, frame, topLeft, top, topRight, left, mid, right, bottomLeft, bottom, bottomRight);
 
         spriteBatch.End();
     }

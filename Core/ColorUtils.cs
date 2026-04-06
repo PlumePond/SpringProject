@@ -1,9 +1,10 @@
 
 
 using System;
+using System.Diagnostics.Contracts;
 using Microsoft.Xna.Framework;
 
-public static class Extensions
+public static class ColorUtils
 {
         /// <summary>
     /// Convert HSV to RGB
@@ -110,6 +111,11 @@ public static class Extensions
             return new Color(r, g, b);
     }
 
+    public static Color FromHSV(HSV hsv)
+    {
+        return FromHSV(hsv.H, hsv.S, hsv.V);
+    }
+
     public static HSV ToHSV(Color color)
     {
         byte r = color.R;
@@ -174,5 +180,24 @@ public static class Extensions
         if (i < 0) return 0;
         if (i > 255) return 255;
         return i;
+    }
+
+    public static (int r, int g, int b) HexToRgb(string hex)
+    {
+        if (hex.StartsWith("#"))
+        {
+            hex = hex.Substring(1);
+        }
+
+        int r = int.Parse(hex.Substring(0, 2), System.Globalization.NumberStyles.HexNumber);
+        int g = int.Parse(hex.Substring(2, 2), System.Globalization.NumberStyles.HexNumber);
+        int b = int.Parse(hex.Substring(4, 2), System.Globalization.NumberStyles.HexNumber);
+
+        return (r, g, b);
+    }
+
+    public static Color Desaturate(Color color, float amount)
+    {
+        return Color.Lerp(color, Color.White, amount);
     }
 }

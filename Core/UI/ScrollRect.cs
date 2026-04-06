@@ -11,11 +11,11 @@ namespace SpringProject.Core;
 public class ScrollRect : Element
 {
     protected int _scrollOffset;
-    protected int _scrollSpeed = 4;
+    protected int _scrollSpeed = 1;
 
     int _contentHeight;
     
-    public ScrollRect(Point localPosition, Point size, Vector2 localScale, Origin origin = Origin.MiddleCenter, Anchor anchor = Anchor.MiddleCenter) : base(localPosition, size, localScale, origin, anchor)
+    public ScrollRect(Point localPosition, Point size, Anchor anchor = Anchor.MiddleCenter) : base(localPosition, size, anchor)
     {
         
     }
@@ -23,6 +23,11 @@ public class ScrollRect : Element
     public override void Update(GameTime gameTime)
     {
         base.Update(gameTime);
+
+        if (_children.Count < 1)
+        {
+            return;
+        }
 
         int scrollDelta = Input.Get("scroll").DeltaInt / 120;
 
@@ -54,7 +59,7 @@ public class ScrollRect : Element
         };
 
         Rectangle originalScissor = Main.Graphics.ScissorRectangle;
-        Rectangle scissorRect = new Rectangle(AbsolutePosition, size * AbsoluteScale.ToPoint() * new Point(2, 2));
+        Rectangle scissorRect = new Rectangle(AbsolutePosition * new Point(Main.Settings.UISize), size * AbsoluteScale.ToPoint() * new Point(Main.Settings.UISize));
         Main.Graphics.ScissorRectangle = scissorRect;
 
         // draw children
@@ -68,6 +73,8 @@ public class ScrollRect : Element
 
         // restart the previous spritebatch
         spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, SamplerState.PointClamp, null, null, null, Main.UIMatrtix);
+
+        //Debug.DrawRectangleOutline(spriteBatch, Bounds, Color.Lime, 1);
     }
 
     public override void AddChild(Element child)
@@ -84,13 +91,11 @@ public class ScrollRect : Element
 
         foreach (var child in _children)
         {
-            int bottom = child.AbsolutePosition.Y + (int)(child.size.Y * child.AbsoluteScale.Y);
+            int bottom = child.localPosition.Y + child.size.Y;
             if (bottom > maxY) maxY = bottom;
         }
 
         _contentHeight = maxY;
-
-        Debug.Log($"Scroll rect content height: {_contentHeight}");
     }
 
     void OnChildAddChild(Element child)

@@ -4,6 +4,7 @@ using System.ComponentModel;
 using FontStashSharp;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using SpringProject.Core.Content;
 using SpringProject.Core.Debugging;
 
 namespace SpringProject.Core.Editor;
@@ -182,7 +183,7 @@ public class Entity : LevelObject
         
     }
 
-    public override void DrawDebug(SpriteBatch spriteBatch, SpriteFontBase font)
+    public override void DrawDebug(SpriteBatch spriteBatch, Font font)
     {
         base.DrawDebug(spriteBatch, font);
 

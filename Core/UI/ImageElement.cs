@@ -10,13 +10,13 @@ public class ImageElement : Element
 {
     Texture2D _texture;
 
-    public ImageElement(Point position, Vector2 scale, Origin origin, Anchor anchor, Texture2D texture, Color color) : base(position, texture.Bounds.Size, scale, origin, anchor)
+    public ImageElement(Point position, Anchor anchor, Texture2D texture, Color color) : base(position, texture.Bounds.Size, anchor)
     {
         _texture = texture;
         this.color = color;
     }
 
-    public ImageElement(Point position, Vector2 scale, Point size, Origin origin, Anchor anchor, Texture2D texture) : base(position, size, scale, origin, anchor)
+    public ImageElement(Point position, Point size, Anchor anchor, Texture2D texture) : base(position, size, anchor)
     {
         _texture = texture;
     }

@@ -36,7 +36,7 @@ public class Pot : Entity
         base.Update(gameTime);
     }
 
-    public override void DrawDebug(SpriteBatch spriteBatch, SpriteFontBase font)
+    public override void DrawDebug(SpriteBatch spriteBatch, Font font)
     {
         base.DrawDebug(spriteBatch, font);
 

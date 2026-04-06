@@ -89,7 +89,7 @@ public static class LevelObjectLoader
                     }
 
                     // instantiate new levelObject
-                    var levelObjectData = new LevelObjectData(objectName, folderName, material, sprite, outline, data.solid, type, data.scalable, data.frame, data.defaultFramePos, data.placeSound);
+                    var levelObjectData = new LevelObjectData(objectName, folderName, material, sprite, outline, data.solid, type, data.scalable, data.frame, data.defaultFramePos, data.frameOutline, data.enforceGrid, data.tags, data.placeSound);
 
                     // assign value to dictionary
                     string key = $"{folderName}/{objectName}";

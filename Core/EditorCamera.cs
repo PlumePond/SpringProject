@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using SpringProject.Core.Editor;
+using SpringProject.Core.UI;
 using SpringProject.Core.UserInput;
 
 namespace SpringProject.Core;
@@ -38,6 +39,16 @@ public class EditorCamera : Camera
         {
             Vector2 mouseDelta = Input.Get("cursor").DeltaVector;
             Position -= mouseDelta / Zoom;
+        }
+
+        if (Input.Get("camera_pan").Pressed)
+        {
+            Cursor.BeginGrab();
+        }
+
+        if (Input.Get("camera_pan").Released)
+        {
+            Cursor.EndGrab();
         }
 
         base.Update(gameTime);

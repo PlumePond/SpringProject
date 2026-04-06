@@ -37,7 +37,7 @@ public class Slider : Element
 
     public Action<float> ChangeValue;
 
-    public Slider(Point position, Point size, Vector2 scale, Origin origin, Anchor anchor, Texture2D sliderTexture, Texture2D handleTexture, Texture2D selectedTexture, Texture2D fillTexture, float min, float max, float defaultValue, int cornerSize = 16) : base(position, size, scale, origin, anchor)
+    public Slider(Point position, Point size, Anchor anchor, Texture2D sliderTexture, Texture2D handleTexture, Texture2D selectedTexture, Texture2D fillTexture, float min, float max, float defaultValue, int cornerSize = 16) : base(position, size, anchor)
     {
         _sliderTexture = sliderTexture;
         _handleTexture = handleTexture;

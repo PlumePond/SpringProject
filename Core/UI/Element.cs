@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -11,8 +12,7 @@ public class Element
 {
     public Point localPosition { get; protected set; }
     public Point size { get; protected set; }
-    public Vector2 localScale { get; protected set; }
-    public Origin origin { get; protected set; }
+    public Vector2 localScale { get; protected set; } = Vector2.One;
     public Anchor anchor { get; protected set; }
 
     public Point originOffset { get; protected set; }
@@ -61,19 +61,19 @@ public class Element
         }
     }
 
+    public List<Element> Children => _children;
+
     protected List<Element> _children;
     protected Element _parent;
 
-    public Element(Point localPosition, Point size, Vector2 localScale, Origin origin = Origin.MiddleCenter, Anchor anchor = Anchor.MiddleCenter)
+    public Element(Point localPosition, Point size, Anchor anchor = Anchor.MiddleCenter)
     {
         this.localPosition = localPosition;
         this.size = size;
-        this.localScale = localScale;
-        this.origin = origin;
         this.anchor = anchor;
 
         _children = new List<Element>();
-        originOffset = GetOriginOffset();
+        ReCalculateOffsets();
     }
 
     public virtual void Draw(SpriteBatch spriteBatch)
@@ -81,7 +81,7 @@ public class Element
         DrawChildren(spriteBatch);
     }
 
-    public bool WithinBounds(Point point)
+    public virtual bool WithinBounds(Point point)
     {
         return Bounds.Contains(point);
     }
@@ -120,10 +120,25 @@ public class Element
             OnReleased();
         }
 
+        if (!_hovering && isPressed && !_prevPressed)
+        {
+            OnPressedOff();
+        }
+
         _prevHovering = _hovering;
         _prevPressed = isPressed;
 
         UpdateChildren(gameTime);
+    }
+
+    public virtual void OnEnable()
+    {
+        
+    }
+
+    public virtual void OnDisable()
+    {
+        
     }
 
     public void UpdateChildren(GameTime gameTime)
@@ -155,6 +170,12 @@ public class Element
         child.anchorOffset = child.GetAnchorOffset();
 
         AddChildEvent?.Invoke(child);
+        child.OnParented(this);
+    }
+
+    public virtual void OnParented(Element parent)
+    {
+        ReCalculateOffsets();
     }
 
     public virtual void RemoveChild(Element child)
@@ -197,12 +218,6 @@ public class Element
         anchorOffset = GetAnchorOffset();
     }
 
-    public void SetOrigin(Origin origin)
-    {
-        this.origin = origin;
-        originOffset = GetOriginOffset();
-    }
-
     public void SetColor(Color color)
     {
         this.color = color;
@@ -229,25 +244,25 @@ public class Element
 
     public Point GetOriginOffset()
     {
-        switch (origin)
+        switch (anchor)
         {
-            case Origin.TopLeft:
+            case Anchor.TopLeft:
                 return Point.Zero;
-            case Origin.TopCenter:
+            case Anchor.TopCenter:
                 return new Point(-size.X / 2, 0);
-            case Origin.TopRight:
+            case Anchor.TopRight:
                 return new Point(-size.X, 0);
-            case Origin.MiddleLeft:
+            case Anchor.MiddleLeft:
                 return new Point(0, -size.Y / 2);
-            case Origin.MiddleCenter:
+            case Anchor.MiddleCenter:
                 return new Point(-size.X / 2, -size.Y / 2);
-            case Origin.MiddleRight:
+            case Anchor.MiddleRight:
                 return new Point(-size.X, -size.Y / 2);
-            case Origin.BottomLeft:
+            case Anchor.BottomLeft:
                 return new Point(0, -size.Y);
-            case Origin.BottomCenter:
+            case Anchor.BottomCenter:
                 return new Point(-size.X / 2, -size.Y);
-            case Origin.BottomRight:
+            case Anchor.BottomRight:
                 return new Point(-size.X, -size.Y);
             default:
                 return Point.Zero;
@@ -305,8 +320,22 @@ public class Element
     {
     }
 
+    public virtual void OnPressedOff()
+    {
+        
+    }
+
     public void SetActive(bool active)
     {
         Active = active;
+
+        if (!active)
+        {
+            OnDisable();
+        }
+        else
+        {
+            OnEnable();
+        }
     }
 }

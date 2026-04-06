@@ -22,16 +22,11 @@ public static class LevelObjectTypeLoader
         {
             if (type.IsClass && !type.IsAbstract && baseType.IsAssignableFrom(type))
             {
-                var key = ToSnakeCase(type.Name);
+                var key = StringUtils.ToSnakeCase(type.Name);
                 Types[key] = type;
 
                 Debug.Log($"Level object type loaded: '{key}'");
             }
         }
-    }
-
-    static string ToSnakeCase(string name)
-    {
-        return Regex.Replace(name, "(?<=[a-z])([A-Z])", "_$1").ToLower();
     }
 }
