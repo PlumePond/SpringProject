@@ -52,6 +52,22 @@
           "lib/netstandard2.0/FontStashSharp.Rasterizers.StbTrueTypeSharp.dll": {}
         }
       },
+      "Microsoft.Extensions.DependencyInjection.Abstractions/7.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net7.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net7.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net6.0/_._": {}
+        }
+      },
       "MonoGame.Content.Builder.Task/3.8.4.1": {
         "type": "package",
         "build": {
@@ -211,6 +227,22 @@
         "runtime": {
           "lib/netcoreapp2.0/_._": {}
         }
+      },
+      "TextCopy/6.2.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "7.0.0"
+        },
+        "compile": {
+          "lib/net6.0/TextCopy.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/TextCopy.dll": {
+            "related": ".xml"
+          }
+        }
       }
     }
   },
@@ -289,6 +321,35 @@
         "fontstashsharp.rasterizers.stbtruetypesharp.nuspec",
         "lib/net471/FontStashSharp.Rasterizers.StbTrueTypeSharp.dll",
         "lib/netstandard2.0/FontStashSharp.Rasterizers.StbTrueTypeSharp.dll"
+      ]
+    },
+    "Microsoft.Extensions.DependencyInjection.Abstractions/7.0.0": {
+      "sha512": "h3j/QfmFN4S0w4C2A6X7arXij/M/OVw3uQHSOFxnND4DyAzO1F9eMX7Eti7lU/OkSthEE0WzRsfT/Dmx86jzCw==",
+      "type": "package",
+      "path": "microsoft.extensions.dependencyinjection.abstractions/7.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "buildTransitive/net461/Microsoft.Extensions.DependencyInjection.Abstractions.targets",
+        "buildTransitive/net462/_._",
+        "buildTransitive/net6.0/_._",
+        "buildTransitive/netcoreapp2.0/Microsoft.Extensions.DependencyInjection.Abstractions.targets",
+        "lib/net462/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
+        "lib/net462/Microsoft.Extensions.DependencyInjection.Abstractions.xml",
+        "lib/net6.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
+        "lib/net6.0/Microsoft.Extensions.DependencyInjection.Abstractions.xml",
+        "lib/net7.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
+        "lib/net7.0/Microsoft.Extensions.DependencyInjection.Abstractions.xml",
+        "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.Abstractions.xml",
+        "lib/netstandard2.1/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
+        "lib/netstandard2.1/Microsoft.Extensions.DependencyInjection.Abstractions.xml",
+        "microsoft.extensions.dependencyinjection.abstractions.7.0.0.nupkg.sha512",
+        "microsoft.extensions.dependencyinjection.abstractions.nuspec",
+        "useSharedDesignerContext.txt"
       ]
     },
     "MonoGame.Content.Builder.Task/3.8.4.1": {
@@ -499,6 +560,30 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "TextCopy/6.2.1": {
+      "sha512": "ryejViUBmHQ2XMie2AiRBn7KVKu2Gh/hqrctGSAUf1BufwfPjr+MWuACNBaiG+40TMbWRDJZgV73Tpl9hggeRw==",
+      "type": "package",
+      "path": "textcopy/6.2.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "icon.png",
+        "lib/monoandroid90/TextCopy.dll",
+        "lib/monoandroid90/TextCopy.xml",
+        "lib/net462/TextCopy.dll",
+        "lib/net462/TextCopy.xml",
+        "lib/net6.0/TextCopy.dll",
+        "lib/net6.0/TextCopy.xml",
+        "lib/netstandard2.0/TextCopy.dll",
+        "lib/netstandard2.0/TextCopy.xml",
+        "lib/netstandard2.1/TextCopy.dll",
+        "lib/netstandard2.1/TextCopy.xml",
+        "lib/xamarinios10/TextCopy.dll",
+        "lib/xamarinios10/TextCopy.xml",
+        "textcopy.6.2.1.nupkg.sha512",
+        "textcopy.nuspec"
+      ]
     }
   },
   "projectFileDependencyGroups": {
@@ -506,7 +591,8 @@
       "FontStashSharp.MonoGame >= 1.5.4",
       "MonoGame.Content.Builder.Task >= 3.8.*",
       "MonoGame.Framework.DesktopGL >= 3.8.*",
-      "Newtonsoft.Json >= 13.0.4"
+      "Newtonsoft.Json >= 13.0.4",
+      "textcopy >= 6.2.1"
     ]
   },
   "packageFolders": {
@@ -569,6 +655,10 @@
           "Newtonsoft.Json": {
             "target": "Package",
             "version": "[13.0.4, )"
+          },
+          "textcopy": {
+            "target": "Package",
+            "version": "[6.2.1, )"
           }
         },
         "imports": [

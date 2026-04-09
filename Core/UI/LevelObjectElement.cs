@@ -18,13 +18,14 @@ public class LevelObjectElement : Element
 
     LevelObjectData _levelObjectData;
     GridPlacement _gridPlacement;
-    Texture2D _texture;
     bool _hovering = false;
+
+    const int MAX_WIDTH = 3;
+    const int MAX_HEIGHT = 3;
 
     public LevelObjectElement(Point position, Anchor anchor, Point size, LevelObjectData levelObjectData, GridPlacement gridPlacement) : base(position, size, anchor)
     {
         _levelObjectData = levelObjectData;
-        _texture = levelObjectData.sprite;
         _gridPlacement = gridPlacement;
     }
 
@@ -41,38 +42,27 @@ public class LevelObjectElement : Element
             color = Color.White;
         }
 
-        Point frame = _levelObjectData.frame != Point.Zero ? _levelObjectData.frame : _levelObjectData.size;
-        // Point frame = new Point(16);
+        Rectangle destRect = new Rectangle(AbsolutePosition, GetFrame() * AbsoluteScale.ToPoint());
+        Rectangle sourceRect = new Rectangle(_levelObjectData.defaultFramePos, GetFrame());
 
-        if (frame.X > 16)
+        if (_gridPlacement.SelectedObjectData == _levelObjectData || _hovering)
         {
-            frame.X = (int)MathF.Floor(frame.X / 16) * 16;
+            var outlineColor = (_gridPlacement.SelectedObjectData == _levelObjectData) ? Main.SelectedOutlineColor : Main.HoverOutlineColor;
+            TextureUtils.DrawOutlineExpanded(spriteBatch, _levelObjectData.alphaTexture, sourceRect, destRect, outlineColor);
         }
-        if (frame.Y > 16)
-        {
-            frame.Y = (int)MathF.Floor(frame.Y / 16) * 16;
-        }
-
-        Rectangle destRect = new Rectangle(AbsolutePosition, frame * AbsoluteScale.ToPoint());
-        Rectangle sourceRect = new Rectangle(_levelObjectData.defaultFramePos, frame);
-
-        // to prevent the frame pos from affecting the outline
-        Rectangle outlineSourceRect = new Rectangle(_levelObjectData.frameOutline ? _levelObjectData.defaultFramePos : Point.Zero, frame);
 
         // draw in a rectangle that is defined by the position, size, and scale of the element
-        spriteBatch.Draw(_texture, destRect, sourceRect, color);
-
-        if (_hovering)
-        {
-            spriteBatch.Draw(_levelObjectData.outline, destRect, outlineSourceRect, Color.White);
-        }
-        else if (_gridPlacement.SelectedObjectData == _levelObjectData)
-        {
-            spriteBatch.Draw(_levelObjectData.outline, destRect, outlineSourceRect, Main.UIEnabledColor);
-        }
+        spriteBatch.Draw(_levelObjectData.sprite, destRect, sourceRect, color);
     }
 
     public override bool WithinBounds(Point point)
+    {
+        Rectangle rect = new Rectangle(AbsolutePosition, GetFrame());
+
+        return rect.Contains(point);
+    }
+
+    Point GetFrame()
     {
         Point frame = _levelObjectData.frame != Point.Zero ? _levelObjectData.frame : _levelObjectData.size;
 
@@ -85,10 +75,12 @@ public class LevelObjectElement : Element
             frame.Y = (int)MathF.Floor(frame.Y / 16) * 16;
         }
 
-        Rectangle rect = new Rectangle(AbsolutePosition, frame * AbsoluteScale.ToPoint());
+        frame.X = Math.Min(frame.X, MAX_WIDTH * 16);
+        frame.Y = Math.Min(frame.Y, MAX_HEIGHT * 16);
 
-        return rect.Contains(point);
+        return frame * AbsoluteScale.ToPoint();
     }
+    
 
     public override void OnMouseEnter()
     {

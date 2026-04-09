@@ -74,6 +74,13 @@ public class Grid
     {
         Main.Graphics.Clear(BackgroundColor);
 
+        LayerPass(spriteBatch);
+        OutlinePass(spriteBatch);
+        GridLinePass(spriteBatch);
+    }
+
+    void LayerPass(SpriteBatch spriteBatch)
+    {
         // iterate through the layers backward
         for (int layer = layers.Length - 1; layer >= 0; layer--)
         {  
@@ -90,6 +97,9 @@ public class Grid
 
             foreach (LevelObject levelObject in layers[layer].LevelObjects)
             {
+                // if the level object is selected or hovered, draw it in the outline pass instead
+                if (levelObject.selected || levelObject.hovered) continue;
+
                 Color tint = Color.White;
 
                 if (!showAllLayers)
@@ -111,9 +121,29 @@ public class Grid
 
             spriteBatch.End();
         }
+    }
 
+    void OutlinePass(SpriteBatch spriteBatch)
+    {
         float gridParallaxFactor = showParallax ? layers[activeLayer].ParallaxFactor : 0.0f;
-        spriteBatch.Begin(SpriteSortMode.Deferred, null, SamplerState.PointClamp, null, null, null, Camera.Instance.GetGridLineTransform(gridParallaxFactor));
+        spriteBatch.Begin(SpriteSortMode.Deferred, null, SamplerState.PointClamp, null, null, null, Camera.Instance.GetParallaxTransform(gridParallaxFactor));
+
+        foreach (var levelObject in layers[activeLayer].LevelObjects)
+        {
+            // don't draw the outline if it is not selected or hovered
+            if (!levelObject.selected && !levelObject.hovered) continue;
+
+            levelObject.DrawOutline(spriteBatch);
+            levelObject.Draw(spriteBatch);
+        }
+
+        spriteBatch.End();
+    }
+
+    void GridLinePass(SpriteBatch spriteBatch)
+    {
+        float gridParallaxFactor = showParallax ? layers[activeLayer].ParallaxFactor : 0.0f;
+        spriteBatch.Begin(SpriteSortMode.Deferred, null, SamplerState.PointClamp, null, null, null, Camera.Instance.GetParallaxTransform(gridParallaxFactor));
 
         if (showGridLines)
         {
@@ -125,27 +155,30 @@ public class Grid
 
     void DrawGridLines(SpriteBatch spriteBatch, float zoom)
     {
-        int rawCellSize = 16;
-        int cellSize = (int)(rawCellSize * zoom);
+        int cellSize = 16; // world-space units, no zoom scaling
+
         Color gridColor = Color.White * 0.1f;
 
-        // get the visible world bounds from the camera
-        Vector2 topLeft = Camera.Instance.ScreenToWorld(Vector2.Zero);
-        Vector2 bottomRight = Camera.Instance.ScreenToWorld(new Vector2(Main.GameWindow.ClientBounds.Width, Main.GameWindow.ClientBounds.Height));
+        // Convert screen corners to world space using the parallax-adjusted transform
+        // so the grid snaps correctly for the active layer's parallax factor
+        float parallaxFactor = showParallax ? layers[activeLayer].ParallaxFactor : 0.0f;
+        Vector2 topLeft     = Camera.Instance.ScreenToWorld(Vector2.Zero, parallaxFactor);
+        Vector2 bottomRight = Camera.Instance.ScreenToWorld(
+            new Vector2(Main.GameWindow.ClientBounds.Width, Main.GameWindow.ClientBounds.Height),
+            parallaxFactor
+        );
 
-        // snap start positions to the nearest cell boundary
+        // Snap to cell boundaries in world space
         int startX = (int)Math.Floor(topLeft.X / cellSize) * cellSize;
         int startY = (int)Math.Floor(topLeft.Y / cellSize) * cellSize;
         int endX   = (int)Math.Ceiling(bottomRight.X / cellSize) * cellSize;
         int endY   = (int)Math.Ceiling(bottomRight.Y / cellSize) * cellSize;
 
-        // vertical lines
         for (int x = startX; x <= endX; x += cellSize)
         {
             Debug.DrawLine(spriteBatch, new Vector2(x, startY), new Vector2(x, endY), gridColor, 1);
         }
 
-        // horizontal lines
         for (int y = startY; y <= endY; y += cellSize)
         {
             Debug.DrawLine(spriteBatch, new Vector2(startX, y), new Vector2(endX, y), gridColor, 1);

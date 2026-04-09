@@ -24,9 +24,9 @@ public static class LevelObjectTypeLoader
             {
                 var key = StringUtils.ToSnakeCase(type.Name);
                 Types[key] = type;
-
-                Debug.Log($"Level object type loaded: '{key}'");
             }
         }
+
+        Debug.Log($"Level Object Types loaded! ({Types.Count}).");
     }
 }

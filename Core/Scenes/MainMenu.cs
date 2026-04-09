@@ -34,13 +34,13 @@ public class MainMenu : Scene
         _editorLevelSelectCanvas = new Canvas(Point.Zero, scaledSize, Anchor.TopLeft);
         _saveFileSelectCanvas = new Canvas(Point.Zero, scaledSize, Anchor.TopLeft);
 
-        Texture2D panelTexture = TextureManager.Get("panel");
-        Texture2D panelSelectedTexture = TextureManager.Get("panel_selected");
-        Texture2D panelPressedTexture = TextureManager.Get("panel_dark");
+        string panelTexture = "panel";
+        string panelSelectedTexture = "panel_selected";
+        string panelPressedTexture = "panel_dark";
 
-        Texture2D sliderTexture = TextureManager.Get("panel_dark");
-        Texture2D sliderFillTexture = TextureManager.Get("slider_fill");
-        Texture2D colorDisplayTexture = TextureManager.Get("color_display");
+        string sliderTexture = "panel_dark";
+        string sliderFillTexture = "slider_fill";
+        string colorDisplayTexture = "color_display";
 
         Font font = FontManager.Get("body");
 
@@ -72,7 +72,7 @@ public class MainMenu : Scene
             horizontalArray.AddChild(levelSelectPanel);
 
             var levelPlayButton = new ButtonElement(Point.Zero, new Point(16, 16), Anchor.BottomLeft, panelTexture, panelSelectedTexture, 3);
-            levelPlayButton.AddChild(new ImageElement(Point.Zero, Anchor.MiddleCenter, TextureManager.Get("play_icon"), Main.UIDefaultColor));
+            levelPlayButton.AddChild(new ImageElement(Point.Zero, Anchor.MiddleCenter, "play_icon", Main.UIDefaultColor));
             levelPlayButton.Pressed += () => 
             { 
                 GameScene.levelName = levelData.Key;  
@@ -81,7 +81,7 @@ public class MainMenu : Scene
             levelSelectPanel.AddChild(levelPlayButton);
 
             var levelEditButton = new ButtonElement(new Point(16, 0), new Point(16, 16), Anchor.BottomLeft, panelTexture, panelSelectedTexture, 3);
-            levelEditButton.AddChild(new ImageElement(Point.Zero, Anchor.MiddleCenter, TextureManager.Get("edit_icon"), Main.UIDefaultColor));
+            levelEditButton.AddChild(new ImageElement(Point.Zero, Anchor.MiddleCenter, "edit_icon", Main.UIDefaultColor));
             levelEditButton.Pressed += () => 
             { 
                 LevelEditor.levelName = levelData.Key;  
@@ -99,7 +99,7 @@ public class MainMenu : Scene
         // newLevelButton.AddChild(new TextElement(Point.Zero, Vector2.One * 0.5f, font, levelData.Key, Color.White));
         // horizontalArray.AddChild(levelSelectEditButton);
 
-        _mainCanvas.AddChild(new TextInputBox(Point.Zero, new Point(30, 7), font, "[insert text]", Color.Gray, Color.Magenta, Anchor.TopLeft));
+        _mainCanvas.AddChild(new TextInputBox(new Point(-5, -5), new Point(30, 7), font, "[insert text]", Color.Black * 0.25f, Color.Black, Anchor.BottomRight));
 
         SetActiveCanvas(_mainCanvas);
     }

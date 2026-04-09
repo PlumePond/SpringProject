@@ -21,13 +21,14 @@ public static class TextureLoader
         foreach (string pngFile in Directory.GetFiles(folder, "*.png"))
         {
             string name = Path.GetFileNameWithoutExtension(pngFile);
-            Debug.Log("Texture .png file found: " + pngFile);
 
             using FileStream stream = File.OpenRead(pngFile);
             Texture2D texture = Texture2D.FromStream(graphicsDevice, stream);
 
             dictionary[name] = texture;
         }
+
+        Debug.Log($"Textures loaded! ({dictionary.Count}).");
 
         return dictionary;
     }

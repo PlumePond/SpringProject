@@ -31,12 +31,6 @@ public class Camera
             Matrix.CreateScale(Zoom, Zoom, 1f);
     }
 
-    public Matrix GetGridLineTransform(float parallaxFactor)
-    {
-        float multiplier = 1f - parallaxFactor;
-        return Matrix.CreateTranslation(new Vector3(-Position.X * multiplier, -Position.Y * multiplier, 0));
-    }
-
     protected void UpdateTransform()
     {
         Transform = Matrix.CreateTranslation(new Vector3(-Position.X, -Position.Y, 0)) *

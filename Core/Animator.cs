@@ -95,7 +95,6 @@ public class Animator
         if (_levelObject.transform.flipX) effects |= SpriteEffects.FlipHorizontally;
         if (_levelObject.transform.flipY) effects |= SpriteEffects.FlipVertically;
 
-
         Vector2 drawScale = new Vector2((float)_levelObject.size.X / _levelObject.data.sprite.Width, (float)_levelObject.size.Y / _levelObject.data.sprite.Height);
 
         Color objectColor = _levelObject.selected ? Color.LightGoldenrodYellow * _levelObject.color : _levelObject.color;
@@ -104,14 +103,25 @@ public class Animator
         Rectangle sourceRect = new Rectangle(sourcePos, _levelObject.frame);
 
         spriteBatch.Draw(_levelObject.data.sprite, drawPos, sourceRect, objectColor * _levelObject.tint, radians, origin, drawScale, effects, 0f);
+    }
 
-        if (_levelObject.hovered)
-        {
-            spriteBatch.Draw(_levelObject.data.outline, drawPos, sourceRect, Color.White, radians, origin, drawScale, effects, 0f);
-        }
-        else if (_levelObject.selected)
-        {
-            spriteBatch.Draw(_levelObject.data.outline, drawPos, sourceRect, Color.Yellow, radians, origin, drawScale, effects, 0f);
-        }
+    public void DrawOutline(SpriteBatch spriteBatch)
+    {
+        Point framedSize = _levelObject.data.frame != Point.Zero ? _levelObject.data.frame : _levelObject.data.size;
+        Vector2 drawPos = new Vector2(_levelObject.bounds.X + _levelObject.bounds.Width / 2f, _levelObject.bounds.Y + _levelObject.bounds.Height / 2f);
+        Vector2 origin = new Vector2(framedSize.X / 2f, framedSize.Y / 2f);
+        float radians = _levelObject.transform.rotation * (float)Math.PI / 180f;
+
+        SpriteEffects effects = SpriteEffects.None;
+        if (_levelObject.transform.flipX) effects |= SpriteEffects.FlipHorizontally;
+        if (_levelObject.transform.flipY) effects |= SpriteEffects.FlipVertically;
+
+        Vector2 drawScale = new Vector2((float)_levelObject.size.X / _levelObject.data.sprite.Width, (float)_levelObject.size.Y / _levelObject.data.sprite.Height);
+        Point sourcePos = new Point(CurrentFrame * _levelObject.frame.X, CurrentAnimation.Index * _levelObject.frame.Y);
+        Rectangle sourceRect = new Rectangle(sourcePos, _levelObject.frame);
+
+        var outlineColor = _levelObject.selected ? Main.SelectedOutlineColor : Main.HoverOutlineColor;
+
+        TextureUtils.DrawOutlineExpanded(spriteBatch, _levelObject.data.alphaTexture, drawPos, sourceRect, outlineColor, radians, origin, drawScale, effects, 0);
     }
 }

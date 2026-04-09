@@ -21,7 +21,6 @@ public static class AudioCompositeLoader
             string json = File.ReadAllText(jsonFile);
 
             AudioCompositeData data = JsonSerializer.Deserialize<AudioCompositeData>(json);
-            Debug.Log("Audio .json file found: " + jsonFile);
 
             var composite = new AudioComposite(
                 name,
@@ -43,6 +42,8 @@ public static class AudioCompositeLoader
 
             dictionary[name] = composite;
         }
+
+        Debug.Log($"Audio Composites loaded! ({dictionary.Count}).");
 
         return dictionary;
     }

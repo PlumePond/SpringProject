@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using SpringProject.Core.Audio;
+using SpringProject.Core.Content;
 using SpringProject.Core.Debugging;
 using SpringProject.Core.Editor;
 using SpringProject.Core.UserInput;
@@ -16,10 +17,10 @@ namespace SpringProject.Core.UI;
 
 public class Slider : Element
 {
-    Texture2D _sliderTexture;
-    Texture2D _handleTexture;
-    Texture2D _selectedTexture;
-    Texture2D _fillTexture;
+    string _sliderTexture;
+    string _handleTexture;
+    string _selectedTexture;
+    string _fillTexture;
 
     int _cornerSize = 16;
     bool _interacting = false;
@@ -37,7 +38,7 @@ public class Slider : Element
 
     public Action<float> ChangeValue;
 
-    public Slider(Point position, Point size, Anchor anchor, Texture2D sliderTexture, Texture2D handleTexture, Texture2D selectedTexture, Texture2D fillTexture, float min, float max, float defaultValue, int cornerSize = 16) : base(position, size, anchor)
+    public Slider(Point position, Point size, Anchor anchor, string sliderTexture, string handleTexture, string selectedTexture, string fillTexture, float min, float max, float defaultValue, int cornerSize = 16) : base(position, size, anchor)
     {
         _sliderTexture = sliderTexture;
         _handleTexture = handleTexture;
@@ -83,7 +84,7 @@ public class Slider : Element
         base.Draw(spriteBatch);
 
         // draw slider
-        UIHelper.DrawSegmented(spriteBatch, _sliderTexture, AbsolutePosition, size, AbsoluteScale, _cornerSize, color);
+        UIHelper.DrawSegmented(spriteBatch, TextureManager.Get(_sliderTexture), AbsolutePosition, size, AbsoluteScale, _cornerSize, color);
 
         int handleDistance = (int)MathHelper.Lerp(0.0f, size.X - _handleSize.X, _ratio);
         Point handlePos = new Point(AbsolutePosition.X + handleDistance, AbsolutePosition.Y);
@@ -91,14 +92,14 @@ public class Slider : Element
         // draw fill
         Point baseFillSize = (size.ToVector2() * AbsoluteScale).ToPoint();
         Point fillSize = new Point(handleDistance + _handleSize.X / 2, baseFillSize.Y);
-        UIHelper.DrawSegmented(spriteBatch, _fillTexture, AbsolutePosition, fillSize, AbsoluteScale, _cornerSize, color);
+        UIHelper.DrawSegmented(spriteBatch, TextureManager.Get(_fillTexture), AbsolutePosition, fillSize, AbsoluteScale, _cornerSize, color);
 
         // draw handle
-        UIHelper.DrawSegmented(spriteBatch, _handleTexture, handlePos, _handleSize, AbsoluteScale, _cornerSize, color);
+        UIHelper.DrawSegmented(spriteBatch, TextureManager.Get(_handleTexture), handlePos, _handleSize, AbsoluteScale, _cornerSize, color);
 
         if (_selected && !_pressed)
         {
-            UIHelper.DrawSegmented(spriteBatch, _selectedTexture, handlePos, _handleSize, AbsoluteScale, _cornerSize, color);
+            UIHelper.DrawSegmented(spriteBatch, TextureManager.Get(_selectedTexture), handlePos, _handleSize, AbsoluteScale, _cornerSize, color);
         }
     }
 

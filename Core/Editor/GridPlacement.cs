@@ -36,6 +36,8 @@ public class GridPlacement
     int resizeDistance = 4;
 
     bool _objectHoverConsumed = false;
+    bool _justPlaced = false;
+    Point _mousePos;
 
     Color _selectedColor = Color.White;
 
@@ -47,6 +49,9 @@ public class GridPlacement
     Texture2D _resizeHandleSelectedTexture = null;
 
     Grid _grid;
+
+    LevelObject _objectToDrag;
+    bool _dragging = false;
 
     public GridPlacement(Grid grid)
     {
@@ -64,59 +69,28 @@ public class GridPlacement
     public void Update(GameTime gameTime)
     {
         // used to prevent placing an object and selecting it in the same frame
-        bool justPlaced = false;
+        _justPlaced = false;
 
         _swipe = Input.Get("swipe").Holding;
 
-        if (Input.Get("rotate_ccw").Pressed)
-        {
-            _rotation = (_rotation + 270) % 360;
-            if (selectedObject != null && !selectedObject.data.scalable)
-            {
-                selectedObject.RotateCounterClockwise();
-            }
-        }
-        else if (Input.Get("rotate_cw").Pressed)
-        {
-            _rotation = (_rotation + 90) % 360;
-            if (selectedObject != null && !selectedObject.data.scalable)
-            {
-                selectedObject.RotateClockwise();
-            }
-        }
+        float parallaxFactor = _grid.showParallax ? _grid.layers[_grid.activeLayer].ParallaxFactor : 0.0f;
+        _mousePos = Camera.Instance.ScreenToWorld(Input.Get("cursor").Vector, parallaxFactor).ToPoint();
 
-        if (Input.Get("flip_x").Pressed)
-        {
-            _flipX = !_flipX;
-            if (selectedObject != null)
-            {
-                selectedObject.SetFlipX(_flipX);
-            }
-        }
+        HandleRotations();
+        HandleFlipping();
+        HandleSnapMode();
+        HandleLayerSelection();
+        HandlePlacement();
+        HandleHovering();
+        HandleSelection();
+        HandleDragging(gameTime);
+        HandleMovement();
+        HandleDeletion();
+        HandleResizing();
+    }
 
-        if (Input.Get("flip_y").Pressed)
-        {
-            _flipY = !_flipY;
-            if (selectedObject != null)
-            {
-                selectedObject.SetFlipY(_flipY);
-            }
-        }
-
-        // check for snap mode input
-        if (Input.Get("snap_half").Holding)
-        {
-            _snapSize = SnapSize.Half;
-        }
-        else if (Input.Get("snap_pixel").Holding)
-        {
-            _snapSize = SnapSize.Pixel;
-        }
-        else
-        {
-            _snapSize = SnapSize.Whole;
-        }
-
+    void HandleLayerSelection()
+    {
         if (Input.Get("layer_up").Pressed)
         {
             _grid.SetActiveLayer(_grid.activeLayer + 1);
@@ -143,10 +117,68 @@ public class GridPlacement
 
             _canPlaceObject = true;
         }
+    }
 
-        float parallaxFactor = _grid.showParallax ? _grid.layers[_grid.activeLayer].ParallaxFactor : 0.0f;
-        Point mousePos = Camera.Instance.ScreenToWorld(Input.Get("cursor").Vector, parallaxFactor).ToPoint();
+    void HandleSnapMode()
+    {
+        // check for snap mode input
+        if (Input.Get("snap_half").Holding)
+        {
+            _snapSize = SnapSize.Half;
+        }
+        else if (Input.Get("snap_pixel").Holding)
+        {
+            _snapSize = SnapSize.Pixel;
+        }
+        else
+        {
+            _snapSize = SnapSize.Whole;
+        }
+    }
 
+    void HandleFlipping()
+    {
+        if (Input.Get("flip_x").Pressed)
+        {
+            _flipX = !_flipX;
+            if (selectedObject != null)
+            {
+                selectedObject.SetFlipX(_flipX);
+            }
+        }
+
+        if (Input.Get("flip_y").Pressed)
+        {
+            _flipY = !_flipY;
+            if (selectedObject != null)
+            {
+                selectedObject.SetFlipY(_flipY);
+            }
+        }
+    }
+
+    void HandleRotations()
+    {
+        if (Input.Get("rotate_ccw").Pressed)
+        {
+            _rotation = (_rotation + 270) % 360;
+            if (selectedObject != null && !selectedObject.data.scalable)
+            {
+                selectedObject.RotateCounterClockwise();
+            }
+        }
+        else if (Input.Get("rotate_cw").Pressed)
+        {
+            _rotation = (_rotation + 90) % 360;
+            if (selectedObject != null && !selectedObject.data.scalable)
+            {
+                selectedObject.RotateClockwise();
+            }
+        }
+    }
+
+    void HandlePlacement()
+    {
         // check for object placement
         // do not place if there is a currently selected world object
         // do not place if the mouse press is already consumed by a UI element
@@ -154,7 +186,7 @@ public class GridPlacement
         {
             //Debug.Log($"Enforce grid: {_selectedObjectData.enforceGrid}");
             int snapSize = _selectedObjectData.enforceGrid ? (int)SnapSize.Whole : (int)_snapSize;
-            Point snappedPosition = CalculateSmartPlacement(mousePos, _selectedObjectData.size, _selectedObjectData.frame, snapSize, _rotation, out bool invalidPlacement);
+            Point snappedPosition = CalculateSmartPlacement(_selectedObjectData, _mousePos, snapSize, _rotation, out bool invalidPlacement);
             if (Input.Get("place").Pressed || (Input.Get("place").Holding && _swipe))
             {
                 if (invalidPlacement)
@@ -164,12 +196,147 @@ public class GridPlacement
                 }
                 else
                 {
-                    justPlaced = true;
+                    _justPlaced = true;
                     PlaceObject(_selectedObjectData, snappedPosition, _grid.activeLayer);
                 }
             }
         }
+    }
 
+    void HandleMovement()
+    {
+        // check for object movement
+        if (selectedObject != null)
+        {
+            var direction = Input.Get("move").Point;
+
+            if (Input.Get("move").Pressed)
+            {
+                var newPos = new Point(selectedObject.transform.position.X + direction.X * (int)_snapSize, selectedObject.transform.position.Y + direction.Y * (int)_snapSize);
+                if (!OverlapsExistingObject(newPos, selectedObject.data.size, selectedObject.transform.rotation, selectedObject))
+                {
+                    selectedObject.SetPosition(newPos);
+                }
+            }
+        }
+    }
+
+    float _dragTimer = 0.0f;
+    const float TIME_PRESSED_UNTIL_DRAGGING = 0.2f;
+
+    void HandleDragging(GameTime gameTime)
+    {
+        if (_objectToDrag != null)
+        {
+            _dragTimer += (float)gameTime.ElapsedGameTime.TotalSeconds;
+        }
+
+        if (Input.Get("select").Released && _objectToDrag != null)
+        {
+            if (_dragging)
+            {
+                EndDrag();
+            }
+            else
+            {
+                Cursor.EndPress();
+                Select(_objectToDrag);
+                _objectToDrag = null;
+            }
+        }
+
+        // dont drag if the object stops being hovered
+        if (hoveredObject == null && _objectToDrag != null && !_dragging)
+        {
+            Cursor.EndPress();
+            Select(_objectToDrag);
+            _objectToDrag = null;
+        }
+
+        if (_dragTimer >= TIME_PRESSED_UNTIL_DRAGGING && !_dragging && hoveredObject != null)
+        {
+            if (_objectToDrag == hoveredObject)
+            {
+                BeginDrag();
+            }
+        }
+
+        // drag
+        if (_dragging && _objectToDrag != null)
+        {
+            int snapSize = _objectToDrag.data.enforceGrid ? (int)SnapSize.Whole : (int)_snapSize;
+            Point snappedPosition = CalculateSmartPlacement(_objectToDrag.data, _mousePos, snapSize, _rotation, out bool invalidPlacement, _objectToDrag);
+            
+            if (!invalidPlacement)
+            {
+                _objectToDrag.SetPosition(snappedPosition);
+            }
+        }
+    }
+    
+    void HandleDeletion()
+    {
+        if (hoveredObject != null && !_justPlaced && Input.Get("remove").Pressed)
+        {
+            RemoveObject(hoveredObject);
+            _canPlaceObject = true;
+        }
+        if (hoveredObject != null && !_justPlaced && _swipe && Input.Get("remove").Holding)
+        {
+            RemoveObject(hoveredObject);
+            _canPlaceObject = true;
+        }
+    }
+
+    void TryDrag(LevelObject levelObject)
+    {
+        _dragTimer = 0.0f;
+        _objectToDrag = levelObject;
+    }
+
+    void BeginDrag()
+    {
+        _dragging = true;
+        Cursor.BeginGrab();
+    }
+
+    void EndDrag()
+    {
+        _objectToDrag = null;
+        _dragging = false;
+        Cursor.EndGrab();
+    }
+
+    void HandleSelection()
+    {
+        // check for object selection
+        if (Input.Get("select").Pressed && !_justPlaced)
+        {
+            if (hoveredObject != null)
+            {
+                if (selectedObject == hoveredObject && !Input.MouseHoverConsumed)
+                {
+                    Deselect();
+                }
+                else
+                {
+                    Cursor.BeginPress();
+                    TryDrag(hoveredObject);
+                }
+            }
+            else if (selectedObject != null && !Input.MouseHoverConsumed)
+            {
+                // only deselect if the mouse isn't near a resize handle
+                if (!IsNearAnyHandle(_mousePos, selectedObject))
+                {
+                    Deselect();
+                }
+            }
+        }
+    }
+
+    void HandleHovering()
+    {
         // check for object selection
         // reverse order in order to hover the topmost selected object
         for (int i = _grid.layers[_grid.activeLayer].LevelObjects.Count - 1; i >= 0; i--)
@@ -190,12 +357,12 @@ public class GridPlacement
             }
             
             // check for object hovering
-            if (levelObject.bounds.Contains(mousePos) && levelObject != hoveredObject)
+            if (levelObject.hitbox.Contains(_mousePos) && levelObject != hoveredObject)
             {
                  // do not allow hovering if the cursor is by a resizing handle
                 if (selectedObject != null)
                 {
-                    if (IsNearAnyHandle(mousePos, selectedObject))
+                    if (IsNearAnyHandle(_mousePos, selectedObject))
                     {
                         break;
                     }
@@ -205,66 +372,12 @@ public class GridPlacement
                 _canPlaceObject = false;
                 break;
             }
-            else if (!levelObject.bounds.Contains(mousePos) && levelObject == hoveredObject)
+            else if (!levelObject.hitbox.Contains(_mousePos) && levelObject == hoveredObject)
             {
                 Dehover();
                 _canPlaceObject = true;
             }
         }
-
-        // check for object movement
-        if (selectedObject != null)
-        {
-            var direction = Input.Get("move").Point;
-
-            if (Input.Get("move").Pressed)
-            {
-                var newPos = new Point(selectedObject.transform.position.X + direction.X * (int)_snapSize, selectedObject.transform.position.Y + direction.Y * (int)_snapSize);
-                if (!OverlapsExistingObject(newPos, selectedObject.data.size, selectedObject.transform.rotation, selectedObject))
-                {
-                    selectedObject.SetPosition(newPos);
-                }
-            }
-        }
-
-        // check for object deletion
-        if (hoveredObject != null && !justPlaced && Input.Get("remove").Pressed)
-        {
-            RemoveObject(hoveredObject);
-            _canPlaceObject = true;
-        }
-        if (hoveredObject != null && !justPlaced && _swipe && Input.Get("remove").Holding)
-        {
-            RemoveObject(hoveredObject);
-            _canPlaceObject = true;
-        }
-
-        // check for object selection
-        if (Input.Get("select").Pressed && !justPlaced)
-        {
-            if (hoveredObject != null)
-            {
-                if (selectedObject == hoveredObject && !Input.MouseHoverConsumed)
-                {
-                    Deselect();
-                }
-                else
-                {
-                    Select(hoveredObject);
-                }
-            }
-            else if (selectedObject != null && !Input.MouseHoverConsumed)
-            {
-                // only deselect if the mouse isn't near a resize handle
-                if (!IsNearAnyHandle(mousePos, selectedObject))
-                {
-                    Deselect();
-                }
-            }
-        }
-
-        // check for object resizing
-        Resizing();
     }
 
     public void Select(LevelObject levelObject)
@@ -283,7 +396,7 @@ public class GridPlacement
 
     bool IsNearAnyHandle(Point mousePos, LevelObject levelObject)
     {
-        Rectangle bounds = levelObject.bounds;
+        Rectangle bounds = levelObject.hitbox;
 
         Point[] handlePositions = new Point[]
         {
@@ -307,7 +420,7 @@ public class GridPlacement
         return false;
     }
 
-    void Resizing()
+    void HandleResizing()
     {
         // check for object resizing
         if (selectedObject != null && selectedObject.data.scalable)
@@ -316,10 +429,10 @@ public class GridPlacement
             float parallaxFactor = _grid.showParallax ? _grid.layers[_grid.activeLayer].ParallaxFactor : 0.0f;
             Point mousePos = Camera.Instance.ScreenToWorld(Input.Get("cursor").Vector, parallaxFactor).ToPoint();
 
-            bool atTopEdge    = Math.Abs(mousePos.Y - selectedObject.bounds.Top)    < resizeDistance;
-            bool atBottomEdge = Math.Abs(mousePos.Y - selectedObject.bounds.Bottom) < resizeDistance;
-            bool atLeftEdge   = Math.Abs(mousePos.X - selectedObject.bounds.Left)   < resizeDistance;
-            bool atRightEdge  = Math.Abs(mousePos.X - selectedObject.bounds.Right)  < resizeDistance;
+            bool atTopEdge    = Math.Abs(mousePos.Y - selectedObject.hitbox.Top)    < resizeDistance;
+            bool atBottomEdge = Math.Abs(mousePos.Y - selectedObject.hitbox.Bottom) < resizeDistance;
+            bool atLeftEdge   = Math.Abs(mousePos.X - selectedObject.hitbox.Left)   < resizeDistance;
+            bool atRightEdge  = Math.Abs(mousePos.X - selectedObject.hitbox.Right)  < resizeDistance;
 
             // Begin drag
             if (Input.Get("select").Pressed && _activeHandle == ResizeHandle.None)
@@ -339,7 +452,7 @@ public class GridPlacement
                 {
                     _activeHandle    = handle;
                     _mouseDragStart  = mousePos;
-                    _dragStartBounds = selectedObject.bounds;
+                    _dragStartBounds = selectedObject.hitbox;
                     Input.ConsumePress(); // prevent deselect from firing
                 }
             }
@@ -469,7 +582,7 @@ public class GridPlacement
         spriteBatch.Begin(SpriteSortMode.Deferred, null, SamplerState.PointClamp, null, null, null, Camera.Instance.GetParallaxTransform(parallaxFactor));
 
         // draw tile debug
-        if (!Input.MouseHoverConsumed && _grid.showHitboxes)
+        if (!Input.MouseHoverConsumed && _grid.showHitboxes && _selectedObjectData != null)
         {
             Point gridPos = SnapToGrid(mousePos, _selectedObjectData.enforceGrid ? (int)SnapSize.Whole : (int)_snapSize);
             Point gridSize = new Point((int)_snapSize, (int)_snapSize);
@@ -481,7 +594,7 @@ public class GridPlacement
         if (_selectedObjectData != null && _canPlaceObject && selectedObject == null && !Input.MouseHoverConsumed)
         {
             int snapSize = _selectedObjectData.enforceGrid ? (int)SnapSize.Whole : (int)_snapSize;
-            Point snappedPos = CalculateSmartPlacement(mousePos, _selectedObjectData.size, _selectedObjectData.frame, snapSize, _rotation, out bool invalidPlacement);
+            Point snappedPos = CalculateSmartPlacement(_selectedObjectData, mousePos, snapSize, _rotation, out bool invalidPlacement);
             Color objectColor = _grid.colorObjects ? _selectedColor : Color.White;
             Color color = invalidPlacement ? Color.Red * 0.5f : objectColor * 0.5f;
             DrawPlacementPreview(spriteBatch, _selectedObjectData, snappedPos, _rotation, _flipX, _flipY, color);
@@ -524,14 +637,14 @@ public class GridPlacement
 
         Point[] handlePositions = new Point[]
         {
-            new Point(levelObject.bounds.Left,              levelObject.bounds.Top),               // TopLeft
-            new Point(levelObject.bounds.Center.X,          levelObject.bounds.Top),               // Top
-            new Point(levelObject.bounds.Right,             levelObject.bounds.Top),               // TopRight
-            new Point(levelObject.bounds.Right,             levelObject.bounds.Center.Y),          // Right
-            new Point(levelObject.bounds.Right,             levelObject.bounds.Bottom),            // BottomRight
-            new Point(levelObject.bounds.Center.X,          levelObject.bounds.Bottom),            // Bottom
-            new Point(levelObject.bounds.Left,              levelObject.bounds.Bottom),            // BottomLeft
-            new Point(levelObject.bounds.Left,              levelObject.bounds.Center.Y),          // Left
+            new Point(levelObject.hitbox.Left,              levelObject.hitbox.Top),               // TopLeft
+            new Point(levelObject.hitbox.Center.X,          levelObject.hitbox.Top),               // Top
+            new Point(levelObject.hitbox.Right,             levelObject.hitbox.Top),               // TopRight
+            new Point(levelObject.hitbox.Right,             levelObject.hitbox.Center.Y),          // Right
+            new Point(levelObject.hitbox.Right,             levelObject.hitbox.Bottom),            // BottomRight
+            new Point(levelObject.hitbox.Center.X,          levelObject.hitbox.Bottom),            // Bottom
+            new Point(levelObject.hitbox.Left,              levelObject.hitbox.Bottom),            // BottomLeft
+            new Point(levelObject.hitbox.Left,              levelObject.hitbox.Center.Y),          // Left
         };
 
         for (int i = 0; i < handlePositions.Length; i++)
@@ -588,7 +701,7 @@ public class GridPlacement
         foreach (LevelObject obj in _grid.layers[_grid.activeLayer].LevelObjects)
         {
             if (obj == ignoreObject) continue;
-            if (rect.Intersects(obj.bounds))
+            if (rect.Intersects(obj.hitbox))
                 return true;
         }
         return false;
@@ -604,38 +717,38 @@ public class GridPlacement
     }
 
     // calculate the best position to place an object based on the current mouse position and the positions of existing objects
-    public Point CalculateSmartPlacement(Point position, Point size, Point frame, int snapSize, int rotation, out bool invalidPlacement, LevelObject ignoreObject = null)
+    public Point CalculateSmartPlacement(LevelObjectData data, Point position, int snapSize, int rotation, out bool invalidPlacement, LevelObject ignoreObject = null)
     {
-        // snap the mouse position to the grid
         Point snappedMouse = SnapToGrid(position, snapSize);
 
-        // account for frame
-        Point framedSize = (frame != Point.Zero) ? frame : size;
+        Point framedSize = (data.frame != Point.Zero) ? data.frame : data.size;
 
-        // account for rotation
+        // Calculate the hitbox offset from the object's origin
+        Point hitboxOffset = Point.Zero;
+        if (!data.hitbox.Equals(Rectangle.Empty))
+        {
+            framedSize = data.hitbox.Size;
+            hitboxOffset = data.hitbox.Location; // offset from object origin to hitbox
+        }
+
         bool swapDimensions = rotation == 90 || rotation == 270;
         Point rotatedSize = swapDimensions ? new Point(framedSize.Y, framedSize.X) : new Point(framedSize.X, framedSize.Y);
 
-        // center offset, rounded to nearest snap increment
         int centerOffsetX = (rotatedSize.X / 2 / snapSize) * snapSize;
         int centerOffsetY = (rotatedSize.Y / 2 / snapSize) * snapSize;
 
         Point centeredPosition = new Point(snappedMouse.X - centerOffsetX, snappedMouse.Y - centerOffsetY);
 
-        // search nearby grid-aligned offsets, closest first
-        // the constraint: at least one edge of the object must still touch snappedMouse's grid cell
-        // so the offset range is limited to [-objectSize+snapValue, objectSize-snapValue] in each axis
         int maxOffsetX = rotatedSize.X - snapSize;
         int maxOffsetY = rotatedSize.Y - snapSize;
 
-        // build candidates sorted by distance from centeredPosition
         List<(Point point, int distSq)> candidates = new();
 
         for (int dx = -maxOffsetX; dx <= maxOffsetX; dx += snapSize)
         {
             for (int dy = -maxOffsetY; dy <= maxOffsetY; dy += snapSize)
             {
-                Point candidate = new Point(snappedMouse.X + dx, snappedMouse.Y + dy); // was: - dx, - dy
+                Point candidate = new Point(snappedMouse.X + dx, snappedMouse.Y + dy);
                 int distSq = (candidate.X - centeredPosition.X) * (candidate.X - centeredPosition.X)
                         + (candidate.Y - centeredPosition.Y) * (candidate.Y - centeredPosition.Y);
                 candidates.Add((candidate, distSq));
@@ -649,13 +762,13 @@ public class GridPlacement
             if (!OverlapsExistingObject(candidate, framedSize, rotation, ignoreObject))
             {
                 invalidPlacement = false;
-                return candidate;
+                // Subtract hitbox offset so the object's transform position is correct
+                return new Point(candidate.X - hitboxOffset.X, candidate.Y - hitboxOffset.Y);
             }
         }
 
-        // no valid placement found
         invalidPlacement = true;
-        return centeredPosition;
+        return new Point(centeredPosition.X - hitboxOffset.X, centeredPosition.Y - hitboxOffset.Y);
     }
 }
 

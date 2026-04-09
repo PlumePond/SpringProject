@@ -30,7 +30,6 @@ public static class FontLoader
 
             // use newtonsoft (my love) to deserialize the json
             FontJSONData data = JsonConvert.DeserializeObject<FontJSONData>(json);
-            Debug.Log("Font .json file found: " + jsonFile);
 
             string ttfFilePath = $"{folder}/{name}.ttf";
             FontSystem fontSystem = new FontSystem();
@@ -51,6 +50,8 @@ public static class FontLoader
 
             dictionary[name] = font;
         }
+
+        Debug.Log($"Fonts loaded! ({dictionary.Count}).");
 
         return dictionary;
     }

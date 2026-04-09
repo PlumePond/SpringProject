@@ -1,11 +1,11 @@
 using FontStashSharp;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using SpringProject.Core.Debugging;
 using SpringProject.Core.Editor;
 using SpringProject.Core.UserInput;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -17,26 +17,44 @@ namespace SpringProject.Core.Content;
 
 public static class InputLoader
 {
-    public static Dictionary<string, List<InputBinding>> Load(string directory)
+    public static List<InputState> Load(string directory)
     {
         var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
-        var inputStates = new Dictionary<string, List<InputBinding>>();
+        var inputStates = new List<InputState>();
 
         foreach (var jsonFile in Directory.GetFiles(directory, "*.json"))
         {
             var data = JsonSerializer.Deserialize<InputStateJSONData>(File.ReadAllText(jsonFile), options);
             string name = Path.GetFileNameWithoutExtension(jsonFile);
 
-            if (!inputStates.ContainsKey(name))
+            bool alreadyExists = false;
+            foreach (var state in inputStates)
             {
-                inputStates[name] = new List<InputBinding>();
+                if (state.Name == name)
+                {
+                    alreadyExists = true;
+                    break;
+                }
             }
 
-            foreach (var bindingData in data.Bindings)
+            if (!alreadyExists)
             {
-                inputStates[name].Add(BuildBinding(bindingData));
+                var state = new InputState();
+
+                foreach (var bindingData in data.Bindings)
+                {
+                    var binding = BuildBinding(bindingData);
+                    state.AddBinding(binding);
+                }
+
+                state.Name = name;
+                state.IgnoreLock = data.IgnoreLock;
+
+                inputStates.Add(state);
             }
         }
+
+        Debug.Log($"Input States loaded! ({inputStates.Count}).");
 
         return inputStates;
     }
@@ -70,7 +88,7 @@ public static class InputLoader
 
     class InputStateJSONData
     {
-        public string Name { get; set; }
+        [JsonPropertyName("ignoreLock")] public bool IgnoreLock { get; set; } = false;
         public InputBindingJSONData[] Bindings { get; set; }
     }
 }

@@ -18,6 +18,9 @@ public class GridArray : Element
     List<bool[]> _packingNodes = new();
     public int gridColumns { get; private set; }
 
+    const int MAX_WIDTH = 3;
+    const int MAX_HEIGHT = 3;
+
     public int GridRows => _packingNodes.Count; 
     
     public GridArray(Point localPosition, Point size, Point gridSize, int space, Anchor anchor = Anchor.MiddleCenter) : base(localPosition, size, anchor)
@@ -111,7 +114,10 @@ public class GridArray : Element
         size.X = Math.Max(_gridSize.X, size.X);
         size.Y = Math.Max(_gridSize.Y, size.Y);
 
-        return new Point(size.X / _gridSize.X, size.Y / _gridSize.Y);
+        var nodeCountX = Math.Min(size.X / _gridSize.X, MAX_WIDTH);
+        var nodeCountY = Math.Min(size.Y / _gridSize.Y, MAX_HEIGHT);
+
+        return new Point(nodeCountX, nodeCountY);
     }
 
     Point FindFreePosition(Point nodeSize)

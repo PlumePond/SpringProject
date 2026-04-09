@@ -18,13 +18,14 @@ public enum CursorType
     BoxSelect,
     Paint,
     Dropper,
+    None
 }
 
 public static class Cursor
 {
     static Texture2D _cursorTexture;
     static Point _cursorOffset;
-    public static CursorType CurrentType { get; private set; }
+    public static CursorType CurrentType { get; private set; } = CursorType.None;
 
     static CursorType _previousType;
 
@@ -35,10 +36,12 @@ public static class Cursor
             Main.Instance.IsMouseVisible = false;
         }
 
-        if (cursorType == CurrentType)
-        {
-            Debug.Log($"Cursor type is already '{cursorType}'!");
-        }
+        if (cursorType == CurrentType) return;
+
+        // if (cursorType == CurrentType)
+        // {
+        //     Debug.Log($"Cursor type is already '{cursorType}'!");
+        // }
 
         // automatically set the cursor texture based on the cursor type
         CurrentType = cursorType;

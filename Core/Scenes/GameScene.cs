@@ -29,8 +29,8 @@ public class GameScene : Scene
 
         LevelSaveManager.Load(levelName, Grid);
 
-        Texture2D panelTexture = TextureManager.Get("panel");
-        Texture2D panelSelectedTexture = TextureManager.Get("panel_selected");
+        string panelTexture = "panel";
+        string panelSelectedTexture = "panel_selected";
 
         Camera = new GameCamera(Main.Graphics, 4, Grid, Player.Instance?.transform);
 
@@ -45,7 +45,7 @@ public class GameScene : Scene
             LevelEditor.levelName = levelName;
             Main.SetScene<LevelEditor>(true);
         };
-        ImageElement saveButtonIcon = new ImageElement(new Point(0, 0), Anchor.MiddleCenter, TextureManager.Get("edit_icon"), Main.UIDefaultColor);
+        ImageElement saveButtonIcon = new ImageElement(new Point(0, 0), Anchor.MiddleCenter, "edit_icon", Main.UIDefaultColor);
         editorButton.AddChild(saveButtonIcon);
         savePanel.AddChild(editorButton);
 
@@ -54,7 +54,7 @@ public class GameScene : Scene
         { 
             Main.SetScene<MainMenu>(false);
         };
-        ImageElement mainMenuIcon = new ImageElement(new Point(0, 0), Anchor.MiddleCenter, TextureManager.Get("menu_icon"), Main.UIDefaultColor);
+        ImageElement mainMenuIcon = new ImageElement(new Point(0, 0), Anchor.MiddleCenter, "menu_icon", Main.UIDefaultColor);
         mainMenuButton.AddChild(mainMenuIcon);
         savePanel.AddChild(mainMenuButton);
 

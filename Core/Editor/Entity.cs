@@ -34,7 +34,7 @@ public class Entity : LevelObject
         StateMachine = new StateMachine(this);
 
         Velocity = Vector2.Zero;
-        _position = position.ToVector2();
+        _position = hitbox.Location.ToVector2();
         _gravity = 8.0f;
         _groundCheckSize = new Point(data.frame.X - 4, 3);
 
@@ -64,13 +64,13 @@ public class Entity : LevelObject
     void GroundedCheck()
     {
         Grounded = false;
-        _groundCheck = new Rectangle((int)_position.X + _groundCheckSize.X / 4, (int)_position.Y + bounds.Height, _groundCheckSize.X, _groundCheckSize.Y);
+        _groundCheck = new Rectangle((int)_position.X + _groundCheckSize.X / 4, (int)_position.Y + hitbox.Height, _groundCheckSize.X, _groundCheckSize.Y);
 
         foreach (var levelObject in grid.layers[layer].LevelObjects)
         {
             if (levelObject != this && levelObject.data.solid)
             {
-                if (levelObject.bounds.Intersects(_groundCheck))
+                if (levelObject.hitbox.Intersects(_groundCheck))
                 {
                     Grounded = true;
                     FootstepMaterial = levelObject.data.material;
@@ -87,23 +87,24 @@ public class Entity : LevelObject
 
     protected void ResolveCollisions()
     {
-        // x axis
-        int roundedX = (int)MathF.Round(_position.X);
-        int roundedY = (int)MathF.Round(_position.Y);
+        // calculate the offset between _position and the hitbox position
+        Point hitboxOffset = hitbox.Location - transform.position;
 
+        // x axis
+        int roundedY = (int)MathF.Round(_position.Y);
         Point collisionPosX = new Point((int)MathF.Round(_position.X + Velocity.X), roundedY);
-        Rectangle collisionRectX = new Rectangle(collisionPosX, bounds.Size);
+        Rectangle collisionRectX = new Rectangle(collisionPosX + hitboxOffset, hitbox.Size);
 
         foreach (var levelObject in grid.layers[layer].LevelObjects)
         {
             if (levelObject != this && levelObject.data.solid)
             {
-                if (collisionRectX.Intersects(levelObject.bounds))
+                if (collisionRectX.Intersects(levelObject.hitbox))
                 {
                     if (Velocity.X > 0)
-                        _position.X = levelObject.bounds.Left - bounds.Width;
+                        _position.X = levelObject.hitbox.Left - hitbox.Width - hitboxOffset.X;
                     else if (Velocity.X < 0)
-                        _position.X = levelObject.bounds.Right;
+                        _position.X = levelObject.hitbox.Right - hitboxOffset.X;
 
                     Velocity.X = 0;
                 }
@@ -113,19 +114,20 @@ public class Entity : LevelObject
         _position.X += Velocity.X;
 
         // y axis
-        Point collisionPosY = new Point((int)MathF.Round(_position.X), (int)MathF.Round(_position.Y + Velocity.Y));
-        Rectangle collisionRectY = new Rectangle(collisionPosY, bounds.Size);
+        int roundedX = (int)MathF.Round(_position.X);
+        Point collisionPosY = new Point(roundedX, (int)MathF.Round(_position.Y + Velocity.Y));
+        Rectangle collisionRectY = new Rectangle(collisionPosY + hitboxOffset, hitbox.Size);
 
         foreach (var levelObject in grid.layers[layer].LevelObjects)
         {
             if (levelObject != this && levelObject.data.solid)
             {
-                if (collisionRectY.Intersects(levelObject.bounds))
+                if (collisionRectY.Intersects(levelObject.hitbox))
                 {
                     if (Velocity.Y > 0)
-                        _position.Y = levelObject.bounds.Top - bounds.Height;
+                        _position.Y = levelObject.hitbox.Top - hitbox.Height - hitboxOffset.Y;
                     else if (Velocity.Y < 0)
-                        _position.Y = levelObject.bounds.Bottom;
+                        _position.Y = levelObject.hitbox.Bottom - hitboxOffset.Y;
 
                     Velocity.Y = 0;
                 }
@@ -146,7 +148,7 @@ public class Entity : LevelObject
 
                 if (intersectingEntities.Contains(entity))
                 {
-                    if (!bounds.Intersects(entity.bounds))
+                    if (!hitbox.Intersects(entity.hitbox))
                     {
                         intersectingEntities.Remove(entity);
                         OnEntityExit(entity);
@@ -158,7 +160,7 @@ public class Entity : LevelObject
                         }
                     }
                 }
-                else if (bounds.Intersects(levelObject.bounds))
+                else if (hitbox.Intersects(levelObject.hitbox))
                 {
                     intersectingEntities.Add(entity);
                     OnEntityEnter(entity);

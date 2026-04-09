@@ -9,6 +9,7 @@ using Newtonsoft.Json;
 using System.Threading.Tasks;
 using SpringProject.Core.Debugging;
 using SpringProject.Core.Content.Types;
+using System.Drawing;
 
 namespace SpringProject.Core.Content;
 
@@ -36,14 +37,11 @@ public static class LevelObjectLoader
             {
                 string objectName = Path.GetFileNameWithoutExtension(jsonFile);
                 string texture = Path.Combine(folder, objectName + ".png");
-                string outlineTexture = Path.Combine(folder, objectName + "_outline.png");
 
                 try
                 {
                     // parse json
                     string json = File.ReadAllText(jsonFile);
-                    Debug.Log("Level Object .json file found: " + jsonFile);
-
                     LevelObjectJsonData data = JsonConvert.DeserializeObject<LevelObjectJsonData>(json);
 
                     // load matching png
@@ -58,29 +56,8 @@ public static class LevelObjectLoader
                         Debug.Log($"Warning: No matching texture for '{objectName}' in '{folder}'");
                     }
 
-                    // load outline texture if it exists
-                    Texture2D outline = null;
-                    if (File.Exists(outlineTexture))
-                    {
-                        using FileStream stream = File.OpenRead(outlineTexture);
-                        outline = Texture2D.FromStream(graphicsDevice, stream);
-                    }
-                    else
-                    {
-                        Debug.Log($"Warning: No matching outline texture for '{objectName}' in '{folder}'");
-                    }
-
                     Material material = Material.Default;
-
-                    if (Enum.TryParse<Material>(data.material, true, out material))
-                    {
-                        Debug.Log("Successfully parsed Material");
-                    }
-                    else
-                    {
-                        Debug.Log("Failed to parse Material");
-                    }
-
+                    Enum.TryParse(data.material, true, out material);
                     Type type = typeof(LevelObject);
 
                     if (LevelObjectTypeLoader.Types.ContainsKey(data.type))
@@ -89,13 +66,12 @@ public static class LevelObjectLoader
                     }
 
                     // instantiate new levelObject
-                    var levelObjectData = new LevelObjectData(objectName, folderName, material, sprite, outline, data.solid, type, data.scalable, data.frame, data.defaultFramePos, data.frameOutline, data.enforceGrid, data.tags, data.placeSound);
+                    var levelObjectData = new LevelObjectData(objectName, folderName, material, sprite, data.solid, type, data.scalable, data.frame, data.hitbox, data.defaultFramePos, data.frameOutline, data.enforceGrid, data.tags, data.placeSound);
+                    levelObjectData.path = Path.Combine(contentRoot, folderName, objectName);
 
                     // assign value to dictionary
                     string key = $"{folderName}/{objectName}";
                     _levelObjectDataDictionary[key] = levelObjectData;
-
-                    Debug.Log($"Loaded: {key}");
                 }
                 catch (Exception ex)
                 {
@@ -103,6 +79,8 @@ public static class LevelObjectLoader
                 }
             }
         }
+
+        Debug.Log($"Level Objects loaded! ({_levelObjectDataDictionary.Count})");
     }
 
     public static LevelObjectData Get(string key)

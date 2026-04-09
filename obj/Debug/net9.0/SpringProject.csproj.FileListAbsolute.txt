@@ -39,3 +39,5 @@ C:\Users\doubl\SpringProject\bin\Debug\net9.0\FontStashSharp.Rasterizers.StbTrue
 C:\Users\doubl\SpringProject\bin\Debug\net9.0\StbImageSharp.dll
 C:\Users\doubl\SpringProject\bin\Debug\net9.0\StbTrueTypeSharp.dll
 C:\Users\doubl\SpringProject\bin\Debug\net9.0\Newtonsoft.Json.dll
+C:\Users\doubl\SpringProject\bin\Debug\net9.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\doubl\SpringProject\bin\Debug\net9.0\TextCopy.dll

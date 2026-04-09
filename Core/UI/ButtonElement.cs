@@ -1,6 +1,7 @@
 using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using SpringProject.Core.Content;
 using SpringProject.Core.Debugging;
 using SpringProject.Core.UserInput;
 
@@ -8,8 +9,8 @@ namespace SpringProject.Core.UI;
 
 public class ButtonElement : Element
 {
-    Texture2D _defaultTexture;
-    Texture2D _selectedTexture;
+    string _defaultTexture;
+    string _selectedTexture;
 
     int _cornerSize = 16;
     bool _selected = false;
@@ -17,7 +18,7 @@ public class ButtonElement : Element
 
     public Action Pressed;
 
-    public ButtonElement(Point position, Point size, Anchor anchor, Texture2D defaultTexture, Texture2D selectedTexture, int cornerSize = 3) : base(position, size, anchor)
+    public ButtonElement(Point position, Point size, Anchor anchor, string defaultTexture, string selectedTexture, int cornerSize = 3) : base(position, size, anchor)
     {
         _defaultTexture = defaultTexture;
         _selectedTexture = selectedTexture;
@@ -34,11 +35,11 @@ public class ButtonElement : Element
 
     public override void Draw(SpriteBatch spriteBatch)
     {
-        UIHelper.DrawSegmented(spriteBatch, _defaultTexture, AbsolutePosition, size, AbsoluteScale, _cornerSize, color);
+        UIHelper.DrawSegmented(spriteBatch, TextureManager.Get(_defaultTexture), AbsolutePosition, size, AbsoluteScale, _cornerSize, color);
 
         if (_selected && !_pressed)
         {
-            UIHelper.DrawSegmented(spriteBatch, _selectedTexture, AbsolutePosition, size, AbsoluteScale, _cornerSize, color);
+            UIHelper.DrawSegmented(spriteBatch, TextureManager.Get(_selectedTexture), AbsolutePosition, size, AbsoluteScale, _cornerSize, color);
         }
 
         base.Draw(spriteBatch);

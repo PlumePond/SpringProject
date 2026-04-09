@@ -115,15 +115,24 @@ public class Element
         {
             OnPressed();
         }
+        else if (_hovering && isPressed)
+        {
+            OnHeld();
+        }
         else if (_hovering && !isPressed && _prevPressed)
         {
             OnReleased();
+        }
+        else if (!_hovering && !isPressed && _prevPressed)
+        {
+            OnReleasedOff();
         }
 
         if (!_hovering && isPressed && !_prevPressed)
         {
             OnPressedOff();
         }
+        
 
         _prevHovering = _hovering;
         _prevPressed = isPressed;
@@ -316,8 +325,18 @@ public class Element
     {
     }
 
+    public virtual void OnHeld()
+    {
+        
+    }
+
     public virtual void OnReleased()
     {
+    }
+
+    public virtual void OnReleasedOff()
+    {
+        
     }
 
     public virtual void OnPressedOff()

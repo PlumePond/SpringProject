@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.PortableExecutable;
+using System.Security.Cryptography.X509Certificates;
 using System.Threading;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -52,14 +53,17 @@ public class LevelEditor : Scene
         // initialize camera
         Camera = new EditorCamera(Main.Graphics, 4, ActiveGrid);
 
-        ActiveCanvas.AddChild(new ImageElement(Point.Zero, Anchor.TopLeft, TextureManager.Get("gradient-1"), Color.White));
+        ActiveCanvas.AddChild(new ImageElement(Point.Zero, Anchor.TopLeft, "gradient-1", Color.White));
 
-        Panel objectPanel = new Panel(new Point(3, 3), new Point(88, 183), Anchor.TopLeft, TextureManager.Get("panel_dark_gold"), 3);
+        VerticalSlider slider = new VerticalSlider(new Point(90, 5), new Point(4, 179), Anchor.TopLeft, "scroll_bar", "scroll_handle", "scroll_handle_outline", null, 0, 1, 0, 2);
+        ActiveCanvas.AddChild(slider);
+
+        Panel objectPanel = new Panel(new Point(3, 3), new Point(88, 183), Anchor.TopLeft, "panel_dark_gold", 3);
         ActiveCanvas.AddChild(objectPanel);
 
-        Panel searchPanel = new Panel(new Point(0, 4), new Point(80, 13), Anchor.TopCenter, TextureManager.Get("panel_mid"), 3);
-        searchPanel.AddChild(new ImageElement(new Point(3, 0), Anchor.MiddleLeft, TextureManager.Get("search_icon"), Color.White));
-        Panel inputTextPanel = new Panel(new Point(-4, 0), new Point(65, 7), Anchor.MiddleRight, TextureManager.Get("text_box"), 3);
+        Panel searchPanel = new Panel(new Point(0, 4), new Point(80, 13), Anchor.TopCenter, "panel_mid", 3);
+        searchPanel.AddChild(new ImageElement(new Point(3, 0), Anchor.MiddleLeft, "search_icon", Color.White));
+        Panel inputTextPanel = new Panel(new Point(-4, 0), new Point(65, 7), Anchor.MiddleRight, "text_box", 3);
         TextInputBox textInput = new TextInputBox(new Point(1, 0), new Point(65, 7), FontManager.Get("body"), "", Color.Gray, Color.White, Anchor.MiddleLeft);
         textInput.ChangeTextEvent += SearchLevelObjects;
         inputTextPanel.AddChild(textInput);
@@ -68,11 +72,43 @@ public class LevelEditor : Scene
 
         ScrollRect scrollRect = new ScrollRect(new Point(0, -4), new Point(80, 160), Anchor.BottomCenter);
         objectPanel.AddChild(scrollRect);
+
+        scrollRect.ScrollEvent += slider.SetValue;
+        slider.ChangeValueEvent += scrollRect.SetScroll;
+        scrollRect.UpdateCanScrollEvent += slider.SetCanScroll;
         
         _levelObjectGrid = new GridArray(new Point(0, 0), new Point(80, 160), new Point(16, 16), 0, Anchor.TopLeft);
         _slotGrid = new GridArray(new Point(0, 0), new Point(80, 160), new Point(16, 16), 0, Anchor.TopLeft);
         scrollRect.AddChild(_slotGrid);
         scrollRect.AddChild(_levelObjectGrid);
+
+        string toggleInactiveTexture = "toggle_light_inactive";
+        string toggleActiveTexture = "toggle_light_active";
+        string selectedTexture = "panel_selected";
+
+        // show parallax
+        ToggleElement showParralax = new ToggleElement(new Point(97, 3), new Point(16, 16), Anchor.TopLeft, toggleInactiveTexture, toggleActiveTexture, selectedTexture, "show_parallax", false);
+        showParralax.ValueChanged += (bool value) => { ActiveGrid.SetShowParallax(value); };
+        Input.Get("show_parallax").PressedEvent += showParralax.Toggle;
+        ActiveCanvas.AddChild(showParralax);
+
+        // show layers
+        ToggleElement showLayers = new ToggleElement(new Point(116, 3), new Point(16, 16), Anchor.TopLeft, toggleInactiveTexture, toggleActiveTexture, selectedTexture, "show_layers", false);
+        showLayers.ValueChanged += (bool value) => { ActiveGrid.SetShowAllLayers(value); };
+        Input.Get("show_all_layers").PressedEvent += showLayers.Toggle;
+        ActiveCanvas.AddChild(showLayers);
+
+        // show hitboxes
+        ToggleElement showHitboxes = new ToggleElement(new Point(135, 3), new Point(16, 16), Anchor.TopLeft, toggleInactiveTexture, toggleActiveTexture, selectedTexture, "show_hitboxes", false);
+        showHitboxes.ValueChanged += (bool value) => { ActiveGrid.SetShowHitboxes(value); };
+        Input.Get("show_hitboxes").PressedEvent += showHitboxes.Toggle;
+        ActiveCanvas.AddChild(showHitboxes);
+
+        // show grid
+        ToggleElement showGrid = new ToggleElement(new Point(154, 3), new Point(16, 16), Anchor.TopLeft, toggleInactiveTexture, toggleActiveTexture, selectedTexture, "show_grid_lines", false);
+        showGrid.ValueChanged += (bool value) => { ActiveGrid.SetShowGridLines(value); };
+        Input.Get("show_grid_lines").PressedEvent += showGrid.Toggle;
+        ActiveCanvas.AddChild(showGrid);
 
         RepopulateLevelObjects(_levelObjectGrid, _slotGrid, LevelObjectLoader.LevelObjectDataDictionary.Values.ToArray());
 
@@ -117,7 +153,7 @@ public class LevelEditor : Scene
 
         for (int i = 0; i < count; i++)
         {
-            ImageElement slot = new ImageElement(Point.Zero, Anchor.TopLeft, TextureManager.Get("object_slot"), Color.White);
+            ImageElement slot = new ImageElement(Point.Zero, Anchor.TopLeft, "object_slot", Color.White);
             slotGrid.AddChild(slot);
         }
 

@@ -6,6 +6,9 @@ namespace SpringProject.Core.UserInput;
 
 public class InputState
 {
+    public string Name { get; set; } = "";
+    public bool IgnoreLock { get; set; } = false;
+
     public bool Pressed { get; protected set; } = false;
     public bool Holding { get; protected set; } = false;
     public bool Released { get; protected set; } = false;
@@ -72,6 +75,12 @@ public class InputState
         Pressed = anyPressed;
         Holding = anyHolding;
         Released = anyReleased;
+
+        if (Input.InputLocked && !IgnoreLock)
+        {
+            Pressed = false;
+            Holding = false;
+        }
 
         Point = tempPoint;
         Float = tempFloat;

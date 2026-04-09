@@ -43,8 +43,12 @@ public class Main : Game
 
     //public static Color UIEnabledColor = new Color(246 / 255f, 244 / 255f, 118 / 255f);
     //public static Color UIEnabledColor = new Color(255 / 255f, 255 / 255f, 255 / 255f);
-    public static Color UIDefaultColor = new Color(94 / 255f, 91 / 255f, 106 / 255f);
-    public static Color UIEnabledColor = new Color(255 / 255f, 187 / 255f, 15 / 255f);
+    public static Color UIDefaultColor = new Color(36, 28, 24);
+    public static Color UIEnabledColor = new Color(255, 187, 15);
+
+    public static Color HoverOutlineColor = Color.White;
+    public static Color SelectedOutlineColor = new Color(255, 187, 15);
+    public static Color SelectedTintColor = new Color(255, 187, 15);
 
     private static Dictionary<Type, Scene> _sceneCache = new();
 
@@ -65,6 +69,9 @@ public class Main : Game
         Window.AllowUserResizing = true;
         Window.ClientSizeChanged += OnClientSizeChanged;
 
+        RuntimeReloader.Initialize();
+        TextureManager.Initialize();
+
         Debug.Initialize(GraphicsDevice);
         base.Initialize();
     }
@@ -81,6 +88,9 @@ public class Main : Game
         CalculateUIMatrix();
 
         SetScene<MainMenu>(false);
+
+        // LevelEditor.levelName = "test_world-1";
+        // SetScene<LevelEditor>(false);
 
         Cursor.SetCursor(CursorType.Pointer);
     }

@@ -42,7 +42,7 @@ public static class Debug
     // draws a rectangle for debugging purposes
     public static void DrawRectangle(SpriteBatch spriteBatch, Rectangle rect, Color color)
     {
-        spriteBatch.Draw(_pixel, new Rectangle(rect.Left, rect.Top, rect.Width, rect.Height), color);
+        spriteBatch.Draw(_pixel, rect, color);
     }
 
     // draws a circle for debugging purposes

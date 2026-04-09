@@ -1,4 +1,5 @@
 {
+    "ignoreLock": true,
     "bindings": [
         { 
             "type": "modifier", 

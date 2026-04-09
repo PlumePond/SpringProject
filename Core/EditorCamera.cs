@@ -17,22 +17,22 @@ public class EditorCamera : Camera
 
     public override void Update(GameTime gameTime)
     {
-        // zoom
-        // int scrollDelta = Input.Get("camera_zoom").DeltaInt;
+        //zoom
+        int scrollDelta = Input.Get("camera_zoom").DeltaInt;
 
-        // if (scrollDelta != 0)
-        // {
-        //     Vector2 mouseScreen = Input.Get("cursor").Vector;
-        //     Vector2 mouseWorldBefore = ScreenToWorld(mouseScreen);
+        if (scrollDelta != 0 && !Input.MouseHoverConsumed)
+        {
+            Vector2 mouseScreen = Input.Get("cursor").Vector;
+            Vector2 mouseWorldBefore = ScreenToWorld(mouseScreen);
 
-        //     // step zoom by whole integers, clamped to [1, 10]
-        //     Zoom = MathHelper.Clamp(Zoom + (scrollDelta > 0 ? 1f : -1f), 1f, 10f);
+            // step zoom by whole integers, clamped to [1, 10]
+            Zoom = MathHelper.Clamp(Zoom + (scrollDelta > 0 ? 1f : -1f), 1f, 4f);
 
-        //     UpdateTransform();
+            UpdateTransform();
 
-        //     Vector2 mouseWorldAfter = ScreenToWorld(mouseScreen);
-        //     Position += mouseWorldBefore - mouseWorldAfter;
-        // }
+            Vector2 mouseWorldAfter = ScreenToWorld(mouseScreen);
+            Position += mouseWorldBefore - mouseWorldAfter;
+        }
 
         // middle mouse drag for panning
         if (Input.Get("camera_pan").Holding)

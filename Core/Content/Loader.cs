@@ -1,3 +1,4 @@
+using System.IO;
 using Microsoft.Xna.Framework.Graphics;
 using SpringProject.Core.Audio;
 using SpringProject.Core.Content.Types;
@@ -17,10 +18,10 @@ public static class Loader
         Main.Settings = SettingsLoader.Load("settings.json");
 
         // load data
-        LevelObjectLoader.Load($"{root}/LevelObjects", graphicsDevice);
-        AudioManager.SetSounds(AudioCompositeLoader.Load($"{root}/Audio"));
-        FontManager.SetFonts(FontLoader.Load($"{root}/Fonts"));
-        Input.SetInputStates(InputLoader.Load($"{root}/Input"));
-        TextureManager.SetTextures(TextureLoader.Load($"{root}/Textures", graphicsDevice));
+        LevelObjectLoader.Load(Path.Combine(root, "LevelObjects"), graphicsDevice);
+        AudioManager.SetSounds(AudioCompositeLoader.Load(Path.Combine(root, "Audio")));
+        FontManager.SetFonts(FontLoader.Load(Path.Combine(root, "Fonts")));
+        Input.SetInputStates(InputLoader.Load(Path.Combine(root, "Input")));
+        TextureManager.SetTextures(TextureLoader.Load(Path.Combine(root, "Textures"), graphicsDevice));
     }
 }

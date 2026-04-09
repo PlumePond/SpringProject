@@ -6,6 +6,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Text.Json.Serialization;
+using System.IO;
+using SpringProject.Core.Debugging;
 
 namespace SpringProject.Core.Editor;
 
@@ -15,26 +17,30 @@ public class LevelObjectData
     public string folder { get; private set; }
     public Material material {  get; private set; }
     public Texture2D sprite { get; private set; }
-    public Texture2D outline { get; private set; }
+    public Texture2D alphaTexture { get; private set; } = null;
     public bool solid { get; private set; }
     public Type type { get; private set; }
     public bool scalable { get; private set; }
     public Point frame { get; private set; }
+    public Rectangle hitbox { get; private set; }
     public string placeSound { get; private set; }
     public Point defaultFramePos { get; private set; }
     public bool frameOutline { get; private set; }
     public bool enforceGrid { get; private set; }
     public string[] tags { get; private set; }
 
-    public Point size => sprite.Bounds.Size;
+    public string path { get; set; }
 
-    public LevelObjectData(string name, string folder, Material material, Texture2D sprite, Texture2D outline, bool solid, Type type, bool scalable, Point frame, Point defaultFramePos, bool frameOutline, bool enforceGrid, string[] tags, string placeSound)
+    public Point size => sprite.Bounds.Size;
+    public string texturePath => path + ".png";
+    public string dataPath => path + ".json";
+
+    public LevelObjectData(string name, string folder, Material material, Texture2D sprite, bool solid, Type type, bool scalable, Point frame, Rectangle hitbox, Point defaultFramePos, bool frameOutline, bool enforceGrid, string[] tags, string placeSound)
     {
         this.name = name;
         this.folder = folder;
         this.material = material;
         this.sprite = sprite;
-        this.outline = outline;
         this.solid = solid;
         this.type = type;
         this.scalable = scalable;
@@ -44,6 +50,22 @@ public class LevelObjectData
         this.enforceGrid = enforceGrid;
         this.tags = tags;
         this.placeSound = placeSound;
+        this.hitbox = hitbox;
+
+        alphaTexture = TextureUtils.GenerateAlphaTexture(sprite);
+
+        RuntimeReloader.FileChangedEvent += OnFileChanged;
+    }
+
+    void OnFileChanged(object sender, FileSystemEventArgs e)
+    {
+        if (!File.Exists(e.FullPath)) return; // skip directories
+        if (!e.FullPath.Equals(texturePath)) return; // if the path is equal to the texture path
+
+        using (var stream = File.OpenRead(texturePath))
+        {
+            sprite = Texture2D.FromStream(Main.Graphics, stream);
+        }
     }
 }
 
@@ -59,4 +81,5 @@ class LevelObjectJsonData
     [JsonPropertyName("frameOutline")] public bool frameOutline { get; set; } = false;
     [JsonPropertyName("enforceGrid")] public bool enforceGrid { get; set; } = false;
     [JsonPropertyName("tags")] public string[] tags { get; set; } = null;
+    [JsonPropertyName("hitbox")] public Rectangle hitbox { get; set; } = Rectangle.Empty;
 }

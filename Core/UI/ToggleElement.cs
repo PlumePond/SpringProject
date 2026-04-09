@@ -1,15 +1,17 @@
 using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using SpringProject.Core.Content;
 using SpringProject.Core.UserInput;
 
 namespace SpringProject.Core.UI;
 
 public class ToggleElement : Element
 {
-    Texture2D _defaultTexture;
-    Texture2D _selectedTexture;
-    Texture2D _displayTexture;
+    string _inactiveTexture;
+    string _activeTexture;
+    string _selectedTexture;
+    string _displayTexture;
 
     int _cornerSize = 16;
     bool _selected = false;
@@ -20,9 +22,10 @@ public class ToggleElement : Element
 
     public Action<bool> ValueChanged;
 
-    public ToggleElement(Point position, Point size, Anchor anchor, Texture2D defaultTexture, Texture2D selectedTexture, Texture2D displayTexture, bool defaultValue, int cornerSize = 3) : base(position, size, anchor)
+    public ToggleElement(Point position, Point size, Anchor anchor, string inactiveTeture, string activeTexture, string selectedTexture, string displayTexture, bool defaultValue, int cornerSize = 3) : base(position, size, anchor)
     {
-        _defaultTexture = defaultTexture;
+        _inactiveTexture = inactiveTeture;
+        _activeTexture = activeTexture;
         _selectedTexture = selectedTexture;
         _displayTexture = displayTexture;
 
@@ -40,10 +43,10 @@ public class ToggleElement : Element
 
     public override void Draw(SpriteBatch spriteBatch)
     {
-        UIHelper.DrawSegmented(spriteBatch, _defaultTexture, AbsolutePosition, size, AbsoluteScale, _cornerSize, color);
+        UIHelper.DrawSegmented(spriteBatch, _value ? TextureManager.Get(_activeTexture) : TextureManager.Get(_inactiveTexture), AbsolutePosition, size, AbsoluteScale, _cornerSize, color);
         if (_selected && !_pressed)
         {
-            UIHelper.DrawSegmented(spriteBatch, _selectedTexture, AbsolutePosition, size, AbsoluteScale, _cornerSize, color);
+            UIHelper.DrawSegmented(spriteBatch, TextureManager.Get(_selectedTexture), AbsolutePosition, size, AbsoluteScale, _cornerSize, color);
         }
 
         base.Draw(spriteBatch);
@@ -54,15 +57,23 @@ public class ToggleElement : Element
         _selected = true;
     }
 
+    public override void OnMouseHover()
+    {
+        Input.ConsumeHover();
+    }
+
     public override void OnMouseExit()
     {
         _selected = false;
         _pressed = false;
+        Cursor.EndPress();
     }
 
     public override void OnPressed()
     {
         _pressed = true;
+        Input.ConsumePress();
+        Cursor.BeginPress();
     }
 
     public override void OnReleased()
@@ -70,6 +81,7 @@ public class ToggleElement : Element
         _pressed = false;
 
         Toggle();
+        Cursor.EndPress();
     }
 
     public void Toggle()

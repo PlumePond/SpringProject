@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -13,15 +14,12 @@ public static class Input
     public static bool MouseHoverConsumed { get; private set; } = false;
     public static bool MousePressConsumed { get; private set; } = false;
 
+    public static bool InputLocked { get; private set; } = false;
+
     // add a new input state with the given name and key
-    public static void AddState(string name, params InputBinding[] bindings)
+    public static void AddState(InputState state)
     {
-        _inputStates[name] = new InputState();
-        
-        foreach (InputBinding binding in bindings)
-        {
-            _inputStates[name].AddBinding(binding);
-        }
+        _inputStates.Add(state.Name, state);
     }
 
     public static bool StateExists(string name)
@@ -41,16 +39,16 @@ public static class Input
         }
     }
 
-    public static void SetInputStates(Dictionary<string, List<InputBinding>> inputStates)
+    public static void SetInputStates(List<InputState> inputStates)
     {
-        foreach (var (name, bindings) in inputStates)
+        foreach (var state in inputStates)
         {
-            AddState(name, bindings.ToArray());
+            AddState(state);
         }
     }
 
     public static void Update()
-    {
+    {  
         // at the start of each frame, reset the mouse hovering and mouse press consumed flags
         MousePressConsumed = false;
         MouseHoverConsumed = false;
@@ -76,5 +74,10 @@ public static class Input
     public static void ConsumePress()
     {
         MousePressConsumed = true;
+    }
+
+    public static void SetLocked(bool value)
+    {
+        InputLocked = value;
     }
 }

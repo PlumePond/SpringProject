@@ -8,5 +8,11 @@
     "defaultFramePos": {
         "X": 0,
         "Y": 32
+    },
+    "hitbox": {
+        "X": 7,
+        "Y": 7,
+        "Width": 19,
+        "Height": 20
     }
 }

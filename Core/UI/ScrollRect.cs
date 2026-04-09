@@ -14,6 +14,10 @@ public class ScrollRect : Element
     protected int _scrollSpeed = 1;
 
     int _contentHeight;
+    protected bool _canScroll = true;
+
+    public Action<float> ScrollEvent;
+    public Action<bool> UpdateCanScrollEvent;
     
     public ScrollRect(Point localPosition, Point size, Anchor anchor = Anchor.MiddleCenter) : base(localPosition, size, anchor)
     {
@@ -31,13 +35,19 @@ public class ScrollRect : Element
 
         int scrollDelta = Input.Get("scroll").DeltaInt / 120;
 
-        if (_hovering)
+        if (_hovering && scrollDelta != 0)
         {
             _scrollOffset -= scrollDelta * _scrollSpeed;
+            _scrollOffset = Math.Clamp(_scrollOffset, 0, _contentHeight - size.Y);
+            
+            float ratio = (_contentHeight - size.Y) > 0 ? (float)_scrollOffset / (_contentHeight - size.Y) : 0f;
+            ScrollEvent?.Invoke(ratio);
         }
-
-        // clamp scroll offset
-        _scrollOffset = Math.Clamp(_scrollOffset, 0, _contentHeight - size.Y);
+        else
+        {
+            // clamp scroll offset
+            _scrollOffset = Math.Clamp(_scrollOffset, 0, _contentHeight - size.Y);
+        }
 
         Point childPos = new Point(0, -_scrollOffset);
 
@@ -85,6 +95,18 @@ public class ScrollRect : Element
         child.AddChildEvent += OnChildAddChild;
     }
 
+    public void SetScroll(float ratio)
+    {
+        ratio = Math.Clamp(ratio, 0f, 1f);
+        _scrollOffset = (int)(ratio * (_contentHeight - size.Y));
+
+        Point childPos = new Point(0, -_scrollOffset);
+        foreach (var child in _children)
+        {
+            child.SetLocalPosition(childPos);
+        }
+    }
+
     void CalculateContentHeight()
     {
         int maxY = size.Y;
@@ -96,10 +118,26 @@ public class ScrollRect : Element
         }
 
         _contentHeight = maxY;
+
+        CalculateCanScroll();
     }
 
     void OnChildAddChild(Element child)
     {
         CalculateContentHeight();
+    }
+    
+    void CalculateCanScroll()
+    {
+        if (_contentHeight - size.Y > 0 && !_canScroll)
+        {
+            _canScroll = true;
+            UpdateCanScrollEvent?.Invoke(_canScroll);
+        }
+        else if (_contentHeight - size.Y <= 0 && _canScroll)
+        {
+            _canScroll = false;
+            UpdateCanScrollEvent?.Invoke(_canScroll);
+        }
     }
 }
