@@ -10,8 +10,8 @@ namespace SpringProject.Core.UI;
 
 public class Panel : Element
 {
-    int _cornerSize = 16;
-    string _textureName = "";
+    protected int _cornerSize = 16;
+    protected string _textureName = "";
 
     public Panel(Point position, Point size, Anchor anchor, string textureName, int cornerSize = 3) : base(position, size, anchor)
     {

@@ -17,7 +17,8 @@ public class ParticleSystem
         Particles = new List<Particle>();
     }
 
-    public void Add(string name, ParticleData data)
+    // adds a particle type to the particle system using particle data
+    public void AddType(string name, ParticleData data)
     {
         if (!ParticleTypes.ContainsKey(name))
         {
@@ -29,6 +30,7 @@ public class ParticleSystem
         }
     }
 
+    // creates an instant burst of particles. useful for explosions, dust, things of the sort
     public void Burst(string name, Vector2 position, int min, int max, float rangeX, float rangeY)
     {
         if (ParticleTypes.TryGetValue(name, out ParticleData data))
@@ -51,10 +53,10 @@ public class ParticleSystem
         }
     }
 
-    void AddParticle(ParticleData data, Vector2 position)
+    // adds a particle to the system at a position
+    public void AddParticle(ParticleData data, Vector2 position)
     {
         Particle particle = new Particle(data, position);
-
         Particles.Add(particle);
     }
 
@@ -65,6 +67,7 @@ public class ParticleSystem
             particle.Update(gameTime);
         }
 
+        // remove any particles whose lifecycles are complete
         Particles.RemoveAll(p => p.finished);
     }
 

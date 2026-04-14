@@ -1,4 +1,5 @@
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using SpringProject.Core.Editor;
 
 namespace SpringProject.Core;
@@ -22,6 +23,16 @@ public abstract class State
     }
 
     public virtual void Update(GameTime gameTime)
+    {
+        
+    }
+
+    public virtual void Draw(SpriteBatch spriteBatch)
+    {
+        
+    }
+
+    public virtual void DrawDebug(SpriteBatch spriteBatch)
     {
         
     }

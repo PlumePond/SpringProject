@@ -36,7 +36,7 @@ public class Box : LevelObject
 
         Vector2 drawScale = new Vector2((float)size.X / data.sprite.Width, (float)size.Y / data.sprite.Height);
 
-        Color objectColor = selected ? Color.LightGoldenrodYellow * color : color;
+        Color objectColor = selected ? Color.LightGoldenrodYellow * ColorManager.Get(colorIndex) : ColorManager.Get(colorIndex);
 
         spriteBatch.Draw(data.sprite, drawPos, null, objectColor * tint, radians, origin, drawScale, effects, 0f);
 

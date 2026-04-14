@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using SpringProject.Core.Debugging;
 using SpringProject.Core.Editor;
 
@@ -49,5 +50,15 @@ public class StateMachine
     public void Update(GameTime gameTime)
     {
         CurrentState?.Update(gameTime);
+    }
+
+    public void Draw(SpriteBatch spriteBatch)
+    {
+        CurrentState?.Draw(spriteBatch);
+    }
+
+    public void DrawDebug(SpriteBatch spriteBatch)
+    {
+        CurrentState?.DrawDebug(spriteBatch);
     }
 }

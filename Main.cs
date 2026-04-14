@@ -68,12 +68,12 @@ public class Main : Game
         _graphics.HardwareModeSwitch = false; // important for borderless windowed mode to work properly
         Window.AllowUserResizing = true;
         Window.ClientSizeChanged += OnClientSizeChanged;
-
-        RuntimeReloader.Initialize();
-        TextureManager.Initialize();
-
+        
         Debug.Initialize(GraphicsDevice);
         base.Initialize();
+
+        _graphics.IsFullScreen = !_graphics.IsFullScreen;
+        _graphics.ApplyChanges();
     }
 
     protected override void LoadContent()
@@ -92,6 +92,8 @@ public class Main : Game
         // LevelEditor.levelName = "test_world-1";
         // SetScene<LevelEditor>(false);
 
+        IsMouseVisible = false;
+        Cursor.SetEnabled(true);
         Cursor.SetCursor(CursorType.Pointer);
     }
 

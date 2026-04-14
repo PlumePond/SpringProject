@@ -118,9 +118,7 @@ public static class ColorUtils
 
     public static HSV ToHSV(Color color)
     {
-        byte r = color.R;
-        byte g = color.G;
-        byte b = color.B;
+        color.Deconstruct(out byte r, out byte g, out byte b);
 
         double max = Math.Max(Math.Max(r, g), b);
         double min = Math.Min(Math.Min(r, g), b);
@@ -158,7 +156,7 @@ public static class ColorUtils
             }
         }
 
-        return new HSV(h, s * 100, v * 100); // H in degrees, S and V as percentages
+        return new HSV(h, s, v); // H in degrees, S and V as percentages
     }
 
     public struct HSV

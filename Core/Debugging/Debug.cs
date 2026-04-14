@@ -79,11 +79,23 @@ public static class Debug
 
         //spriteBatch.Draw(_pixel, rect, null, color, angle, Vector2.Zero, SpriteEffects.None, 0);
 
-        spriteBatch.Draw(_pixel, start, null, color, angle, Vector2.Zero, stretch, SpriteEffects.None, 0f);
+        spriteBatch.Draw(_pixel, start, null, color, angle, new Vector2(0, 0.5f), stretch, SpriteEffects.None, 0f);
     }
 
     public static void DrawLine(SpriteBatch spriteBatch, Point start, Point end, Color color, float thickness = 1.0f)
     {
         DrawLine(spriteBatch, start.ToVector2(), end.ToVector2(), color, thickness);
+    }
+
+    public static void DrawRay(SpriteBatch spriteBatch, RayData rayData, Color hitColor, Color noHitColor, float thickness = 1.0f)
+    {
+        DrawLine(spriteBatch, rayData.Start, rayData.End, rayData.Hits.Count > 0 ? hitColor : noHitColor, thickness);
+
+        if (rayData == null) return;
+
+        foreach (var hit in rayData.Hits)
+        {
+            DrawRectangleOutline(spriteBatch, hit.HitObject.hitbox, hitColor);
+        }
     }
 }

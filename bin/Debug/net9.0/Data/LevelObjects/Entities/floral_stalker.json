@@ -1,0 +1,15 @@
+{
+    "material": "foliage",
+    "solid": false,
+    "type": "floral_stalker",
+    "frame": {
+        "X": 32,
+        "Y": 32
+    },
+    "hitbox": {
+        "X": 9,
+        "Y": 16,
+        "Width": 15,
+        "Height": 16
+    }
+}

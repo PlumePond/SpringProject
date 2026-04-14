@@ -7,6 +7,7 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using SpringProject.Core.Audio;
+using SpringProject.Core.Debugging;
 using SpringProject.Core.Editor;
 using SpringProject.Core.UserInput;
 
@@ -114,6 +115,7 @@ public class LevelObjectElement : Element
         else
         {
             _gridPlacement.SetSelectedObjectData(_levelObjectData);
+            SetInfo();
         }
 
         Cursor.BeginPress();
@@ -123,5 +125,13 @@ public class LevelObjectElement : Element
     {
         SetColor(Color.White);
         Cursor.EndPress();
+    }
+
+    public void SetInfo()
+    {
+        InfoPanel.ClearElements();
+
+        InfoPanel.AddElement("text", new TextElement(new Point(4, 3), FontManager.Get("body"), _levelObjectData.name, Main.SelectedOutlineColor, Anchor.TopLeft));
+        InfoPanel.AddElement("type", new TextElement(new Point(4, 14), FontManager.Get("body"), $"type: {_levelObjectData.typeName}", Color.White, Anchor.TopLeft));
     }
 }

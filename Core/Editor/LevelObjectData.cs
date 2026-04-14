@@ -30,6 +30,7 @@ public class LevelObjectData
     public string[] tags { get; private set; }
 
     public string path { get; set; }
+    public string typeName { get; set; }
 
     public Point size => sprite.Bounds.Size;
     public string texturePath => path + ".png";

@@ -6,6 +6,7 @@ using SpringProject.Core.Content;
 using SpringProject.Core.Debugging;
 using SpringProject.Core.UserInput;
 using SpringProject.Core.Editor;
+using System.Text.RegularExpressions;
 
 namespace SpringProject.Core.UI;
 
@@ -28,14 +29,10 @@ public static class Cursor
     public static CursorType CurrentType { get; private set; } = CursorType.None;
 
     static CursorType _previousType;
+    static bool _enabled = false;
 
     public static void SetCursor(CursorType cursorType)
     {
-        if (Main.Instance.IsMouseVisible)
-        {
-            Main.Instance.IsMouseVisible = false;
-        }
-
         if (cursorType == CurrentType) return;
 
         // if (cursorType == CurrentType)
@@ -70,8 +67,16 @@ public static class Cursor
         }
     }
 
+    public static void SetEnabled(bool enabled)
+    {
+        _enabled = enabled;
+    }
+
     public static void Draw(SpriteBatch spriteBatch)
     {
+        // do not draw if the cursor is not enabled
+        if (!_enabled) return;
+
         spriteBatch.Begin(SpriteSortMode.Deferred, null, SamplerState.PointClamp, null, null, null, Main.UIMatrtix);
 
         var point = Vector2.Transform(Input.Get("cursor").Vector + _cursorOffset.ToVector2() * Main.Settings.UISize, Matrix.Invert(Main.UIMatrtix));

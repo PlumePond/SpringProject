@@ -1,426 +1,16 @@
 {
-  "backgroundColor": {
-    "B": 255,
-    "G": 255,
-    "R": 255,
-    "A": 255
-  },
-  "fogColor": {
-    "B": 255,
-    "G": 255,
-    "R": 255,
-    "A": 255
+  "backgroundColorIndex": 1,
+  "fogColorIndex": 1,
+  "size": {
+    "X": 16,
+    "Y": 16
   },
   "levelObjects": [
     {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 160,
-        "Y": 112
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "RussetMire/clover_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 48,
-        "Y": 112
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "RussetMire/clover_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 64,
-        "Y": 112
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "RussetMire/clover_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 112,
-        "Y": 112
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "RussetMire/clover_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
+      "colorIndex": 0,
       "position": {
         "X": 288,
-        "Y": 192
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "RussetMire/clover_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 64,
-        "Y": 144
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "RussetMire/clover_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 304,
-        "Y": 192
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "RussetMire/clover_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 368,
-        "Y": 128
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "RussetMire/clover_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 368,
-        "Y": 192
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "RussetMire/clover_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 96,
-        "Y": 144
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "RussetMire/clover_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 80,
-        "Y": 144
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "RussetMire/clover_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 64,
-        "Y": 128
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "RussetMire/clover_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 352,
-        "Y": 192
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "RussetMire/clover_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 384,
-        "Y": 160
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "RussetMire/clover_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 384,
-        "Y": 144
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "RussetMire/clover_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 384,
-        "Y": 128
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "RussetMire/clover_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 352,
-        "Y": 128
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "RussetMire/clover_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 96,
-        "Y": 128
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "RussetMire/clover_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 368,
-        "Y": 96
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "RussetMire/clover_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 96,
-        "Y": 336
+        "Y": 32
       },
       "size": {
         "X": 112,
@@ -433,35 +23,9 @@
       "dataKey": "PetalGardens/petal_tile"
     },
     {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
+      "colorIndex": 0,
       "position": {
-        "X": 272,
-        "Y": 208
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "RussetMire/clover_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 352,
+        "X": 128,
         "Y": 144
       },
       "size": {
@@ -472,17 +36,236 @@
       "flipX": false,
       "flipY": false,
       "layer": 4,
-      "dataKey": "RussetMire/clover_tile"
+      "dataKey": "PetalGardens/petal_tile"
     },
     {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
+      "colorIndex": 0,
       "position": {
-        "X": 352,
+        "X": 16,
+        "Y": 32
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "PetalGardens/petal_tile"
+    },
+    {
+      "colorIndex": 0,
+      "position": {
+        "X": 112,
+        "Y": 144
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "PetalGardens/petal_tile"
+    },
+    {
+      "colorIndex": 0,
+      "position": {
+        "X": 160,
+        "Y": 144
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "PetalGardens/petal_tile"
+    },
+    {
+      "colorIndex": 0,
+      "position": {
+        "X": 176,
+        "Y": 144
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "PetalGardens/petal_tile"
+    },
+    {
+      "colorIndex": 0,
+      "position": {
+        "X": 192,
+        "Y": 144
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "PetalGardens/petal_tile"
+    },
+    {
+      "colorIndex": 0,
+      "position": {
+        "X": 208,
+        "Y": 144
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "PetalGardens/petal_tile"
+    },
+    {
+      "colorIndex": 0,
+      "position": {
+        "X": 176,
+        "Y": 192
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "PetalGardens/petal_tile"
+    },
+    {
+      "colorIndex": 0,
+      "position": {
+        "X": 176,
+        "Y": 208
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "PetalGardens/petal_tile"
+    },
+    {
+      "colorIndex": 0,
+      "position": {
+        "X": 144,
+        "Y": 144
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "PetalGardens/petal_tile"
+    },
+    {
+      "colorIndex": 0,
+      "position": {
+        "X": 192,
+        "Y": 112
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "PetalGardens/petal_tile"
+    },
+    {
+      "colorIndex": 0,
+      "position": {
+        "X": 224,
+        "Y": 112
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "PetalGardens/petal_tile"
+    },
+    {
+      "colorIndex": 0,
+      "position": {
+        "X": 112,
+        "Y": 48
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "PetalGardens/petal_tile"
+    },
+    {
+      "colorIndex": 0,
+      "position": {
+        "X": 160,
+        "Y": 112
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "PetalGardens/petal_tile"
+    },
+    {
+      "colorIndex": 0,
+      "position": {
+        "X": 144,
+        "Y": 112
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "PetalGardens/petal_tile"
+    },
+    {
+      "colorIndex": 0,
+      "position": {
+        "X": 112,
         "Y": 160
       },
       "size": {
@@ -493,57 +276,10 @@
       "flipX": false,
       "flipY": false,
       "layer": 4,
-      "dataKey": "RussetMire/clover_tile"
+      "dataKey": "PetalGardens/petal_tile"
     },
     {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 368,
-        "Y": 160
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "RussetMire/clover_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 352,
-        "Y": 64
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "RussetMire/clover_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
+      "colorIndex": 0,
       "position": {
         "X": 128,
         "Y": 112
@@ -556,17 +292,252 @@
       "flipX": false,
       "flipY": false,
       "layer": 4,
-      "dataKey": "RussetMire/clover_tile"
+      "dataKey": "PetalGardens/petal_tile"
     },
     {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
+      "colorIndex": 0,
       "position": {
-        "X": 288,
+        "X": 112,
+        "Y": 176
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "PetalGardens/petal_tile"
+    },
+    {
+      "colorIndex": 0,
+      "position": {
+        "X": 176,
+        "Y": 176
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "PetalGardens/petal_tile"
+    },
+    {
+      "colorIndex": 0,
+      "position": {
+        "X": 0,
+        "Y": 176
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "PetalGardens/petal_tile"
+    },
+    {
+      "colorIndex": 0,
+      "position": {
+        "X": 16,
+        "Y": 176
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "PetalGardens/petal_tile"
+    },
+    {
+      "colorIndex": 0,
+      "position": {
+        "X": 16,
+        "Y": 160
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "PetalGardens/petal_tile"
+    },
+    {
+      "colorIndex": 0,
+      "position": {
+        "X": 16,
+        "Y": 144
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "PetalGardens/petal_tile"
+    },
+    {
+      "colorIndex": 0,
+      "position": {
+        "X": 16,
+        "Y": 128
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "PetalGardens/petal_tile"
+    },
+    {
+      "colorIndex": 0,
+      "position": {
+        "X": 16,
+        "Y": 112
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "PetalGardens/petal_tile"
+    },
+    {
+      "colorIndex": 0,
+      "position": {
+        "X": 16,
+        "Y": 96
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "PetalGardens/petal_tile"
+    },
+    {
+      "colorIndex": 0,
+      "position": {
+        "X": 0,
+        "Y": 192
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "PetalGardens/petal_tile"
+    },
+    {
+      "colorIndex": 0,
+      "position": {
+        "X": 240,
+        "Y": 64
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "PetalGardens/petal_tile"
+    },
+    {
+      "colorIndex": 0,
+      "position": {
+        "X": 16,
+        "Y": 48
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "PetalGardens/petal_tile"
+    },
+    {
+      "colorIndex": 0,
+      "position": {
+        "X": 208,
+        "Y": 32
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "PetalGardens/petal_tile"
+    },
+    {
+      "colorIndex": 0,
+      "position": {
+        "X": 208,
+        "Y": 176
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "PetalGardens/petal_tile"
+    },
+    {
+      "colorIndex": 0,
+      "position": {
+        "X": 208,
+        "Y": 160
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "PetalGardens/petal_tile"
+    },
+    {
+      "colorIndex": 0,
+      "position": {
+        "X": 224,
         "Y": 208
       },
       "size": {
@@ -577,17 +548,12 @@
       "flipX": false,
       "flipY": false,
       "layer": 4,
-      "dataKey": "RussetMire/clover_tile"
+      "dataKey": "PetalGardens/petal_tile"
     },
     {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
+      "colorIndex": 0,
       "position": {
-        "X": 176,
+        "X": 144,
         "Y": 176
       },
       "size": {
@@ -598,2454 +564,13 @@
       "flipX": false,
       "flipY": false,
       "layer": 4,
-      "dataKey": "RussetMire/clover_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 192,
-        "Y": 176
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "RussetMire/clover_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 272,
-        "Y": 128
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "RussetMire/clover_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 272,
-        "Y": 144
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "RussetMire/clover_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 272,
-        "Y": 192
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "RussetMire/clover_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 272,
-        "Y": 160
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "RussetMire/clover_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 80,
-        "Y": 96
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "RussetMire/clover_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 272,
-        "Y": 224
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "RussetMire/clover_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 80,
-        "Y": 160
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "RussetMire/clover_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 192,
-        "Y": 192
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "RussetMire/clover_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 176,
-        "Y": 192
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "RussetMire/clover_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 288,
-        "Y": 176
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "RussetMire/clover_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 416,
-        "Y": 64
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "RussetMire/clover_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 416,
-        "Y": 80
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "RussetMire/clover_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 416,
-        "Y": 96
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "RussetMire/clover_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 80,
-        "Y": 64
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "RussetMire/clover_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 288,
-        "Y": 96
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "RussetMire/clover_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 64,
-        "Y": 80
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "RussetMire/clover_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 48,
-        "Y": 96
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "RussetMire/clover_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 32,
-        "Y": 112
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "RussetMire/clover_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 304,
-        "Y": 176
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "RussetMire/clover_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 48,
-        "Y": 128
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "RussetMire/clover_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 368,
-        "Y": 64
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "RussetMire/clover_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 384,
-        "Y": 80
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "RussetMire/clover_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 368,
-        "Y": 80
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "RussetMire/clover_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 352,
-        "Y": 80
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "RussetMire/clover_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 64,
-        "Y": 96
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "RussetMire/clover_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 96,
-        "Y": 80
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "RussetMire/clover_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 416,
-        "Y": 128
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "RussetMire/clover_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 304,
-        "Y": 96
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "RussetMire/clover_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 288,
-        "Y": 112
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "RussetMire/clover_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 96,
-        "Y": 112
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "RussetMire/clover_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 224,
-        "Y": 176
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "RussetMire/clover_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 208,
-        "Y": 128
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "RussetMire/clover_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 272,
-        "Y": 64
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "RussetMire/clover_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 240,
-        "Y": 176
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "RussetMire/clover_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 96,
-        "Y": 96
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "RussetMire/clover_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 80,
-        "Y": 80
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "RussetMire/clover_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 256,
-        "Y": 144
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "RussetMire/clover_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 240,
-        "Y": 128
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "RussetMire/clover_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 272,
-        "Y": 112
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "RussetMire/clover_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 208,
-        "Y": 144
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "RussetMire/clover_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 288,
-        "Y": 80
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "RussetMire/clover_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 384,
-        "Y": 192
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "RussetMire/clover_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 80,
-        "Y": 352
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
       "dataKey": "PetalGardens/petal_tile"
     },
     {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 192,
-        "Y": 384
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "PetalGardens/petal_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 240,
-        "Y": 160
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "RussetMire/clover_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 112,
-        "Y": 96
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "RussetMire/clover_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 224,
-        "Y": 144
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "RussetMire/clover_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 240,
-        "Y": 144
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "RussetMire/clover_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 208,
-        "Y": 176
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "RussetMire/clover_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 224,
-        "Y": 112
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "RussetMire/clover_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 352,
-        "Y": 96
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "RussetMire/clover_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 320,
-        "Y": 176
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "RussetMire/clover_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 176,
-        "Y": 112
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "RussetMire/clover_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 208,
-        "Y": 64
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "RussetMire/clover_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 208,
-        "Y": 80
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "RussetMire/clover_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 384,
-        "Y": 96
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "RussetMire/clover_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 192,
-        "Y": 80
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "RussetMire/clover_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 192,
-        "Y": 96
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "RussetMire/clover_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 176,
-        "Y": 96
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "RussetMire/clover_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 208,
-        "Y": 112
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "RussetMire/clover_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 112,
-        "Y": 128
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "RussetMire/clover_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 80,
-        "Y": 128
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "RussetMire/clover_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 192,
-        "Y": 112
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "RussetMire/clover_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 208,
-        "Y": 160
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "RussetMire/clover_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 256,
-        "Y": 176
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "RussetMire/clover_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 272,
-        "Y": 176
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "RussetMire/clover_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 272,
-        "Y": 80
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "RussetMire/clover_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 208,
-        "Y": 96
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "RussetMire/clover_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 272,
-        "Y": 96
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "RussetMire/clover_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 320,
-        "Y": 112
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "RussetMire/clover_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 304,
-        "Y": 112
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "RussetMire/clover_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 208,
-        "Y": 192
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "RussetMire/clover_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 240,
-        "Y": 112
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "RussetMire/clover_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 256,
-        "Y": 112
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "RussetMire/clover_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 208,
-        "Y": 208
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "RussetMire/clover_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 192,
-        "Y": 208
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "RussetMire/clover_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 208,
-        "Y": 224
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "RussetMire/clover_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 208,
-        "Y": 320
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "PetalGardens/petal_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 208,
-        "Y": 384
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "PetalGardens/petal_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 208,
-        "Y": 400
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "PetalGardens/petal_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 208,
-        "Y": 416
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "PetalGardens/petal_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 224,
-        "Y": 304
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "PetalGardens/petal_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 256,
-        "Y": 304
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "PetalGardens/petal_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 240,
-        "Y": 304
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "PetalGardens/petal_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 240,
-        "Y": 368
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "PetalGardens/petal_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 208,
-        "Y": 304
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "PetalGardens/petal_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 224,
-        "Y": 336
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "PetalGardens/petal_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 208,
-        "Y": 336
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "PetalGardens/petal_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 208,
-        "Y": 368
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "PetalGardens/petal_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 240,
-        "Y": 320
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "PetalGardens/petal_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 272,
-        "Y": 368
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "PetalGardens/petal_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 272,
-        "Y": 352
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "PetalGardens/petal_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 272,
-        "Y": 336
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "PetalGardens/petal_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 272,
-        "Y": 320
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "PetalGardens/petal_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 224,
-        "Y": 368
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "PetalGardens/petal_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 176,
-        "Y": 384
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "PetalGardens/petal_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 192,
-        "Y": 400
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "PetalGardens/petal_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 240,
-        "Y": 336
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "PetalGardens/petal_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 208,
-        "Y": 288
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "PetalGardens/petal_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 240,
-        "Y": 352
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "PetalGardens/petal_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 256,
-        "Y": 368
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "PetalGardens/petal_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 272,
-        "Y": 304
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "PetalGardens/petal_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 256,
-        "Y": 336
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "PetalGardens/petal_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 272,
-        "Y": 272
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "PetalGardens/petal_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 272,
-        "Y": 400
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "PetalGardens/petal_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 272,
-        "Y": 416
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "PetalGardens/petal_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 288,
-        "Y": 368
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "PetalGardens/petal_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 304,
-        "Y": 368
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "PetalGardens/petal_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 320,
-        "Y": 368
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "PetalGardens/petal_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 192,
-        "Y": 368
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "PetalGardens/petal_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 176,
-        "Y": 368
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "PetalGardens/petal_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 272,
-        "Y": 288
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "PetalGardens/petal_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 176,
-        "Y": 304
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "PetalGardens/petal_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 272,
-        "Y": 256
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "PetalGardens/petal_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 272,
-        "Y": 384
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "PetalGardens/petal_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
+      "colorIndex": 0,
       "position": {
         "X": 160,
-        "Y": 304
+        "Y": 176
       },
       "size": {
         "X": 112,
@@ -3058,15 +583,10 @@
       "dataKey": "PetalGardens/petal_tile"
     },
     {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
+      "colorIndex": 0,
       "position": {
-        "X": 320,
-        "Y": 304
+        "X": 80,
+        "Y": 208
       },
       "size": {
         "X": 112,
@@ -3079,15 +599,10 @@
       "dataKey": "PetalGardens/petal_tile"
     },
     {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
+      "colorIndex": 0,
       "position": {
-        "X": 288,
-        "Y": 272
+        "X": 112,
+        "Y": 112
       },
       "size": {
         "X": 112,
@@ -3100,15 +615,10 @@
       "dataKey": "PetalGardens/petal_tile"
     },
     {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
+      "colorIndex": 0,
       "position": {
-        "X": 288,
-        "Y": 288
+        "X": 80,
+        "Y": 112
       },
       "size": {
         "X": 112,
@@ -3121,15 +631,10 @@
       "dataKey": "PetalGardens/petal_tile"
     },
     {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
+      "colorIndex": 0,
       "position": {
-        "X": 304,
-        "Y": 288
+        "X": 160,
+        "Y": 48
       },
       "size": {
         "X": 112,
@@ -3142,15 +647,10 @@
       "dataKey": "PetalGardens/petal_tile"
     },
     {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
+      "colorIndex": 0,
       "position": {
-        "X": 192,
-        "Y": 272
+        "X": 64,
+        "Y": 112
       },
       "size": {
         "X": 112,
@@ -3163,78 +663,10 @@
       "dataKey": "PetalGardens/petal_tile"
     },
     {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 192,
-        "Y": 288
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "PetalGardens/petal_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 192,
-        "Y": 304
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "PetalGardens/petal_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 176,
-        "Y": 288
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "PetalGardens/petal_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
+      "colorIndex": 0,
       "position": {
         "X": 128,
-        "Y": 304
+        "Y": 96
       },
       "size": {
         "X": 112,
@@ -3247,15 +679,10 @@
       "dataKey": "PetalGardens/petal_tile"
     },
     {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
+      "colorIndex": 0,
       "position": {
-        "X": 288,
-        "Y": 304
+        "X": 128,
+        "Y": 80
       },
       "size": {
         "X": 112,
@@ -3268,57 +695,10 @@
       "dataKey": "PetalGardens/petal_tile"
     },
     {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 304,
-        "Y": 304
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "PetalGardens/petal_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 160,
-        "Y": 368
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "PetalGardens/petal_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
+      "colorIndex": 0,
       "position": {
         "X": 112,
-        "Y": 304
+        "Y": 80
       },
       "size": {
         "X": 112,
@@ -3331,15 +711,122 @@
       "dataKey": "PetalGardens/petal_tile"
     },
     {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
+      "colorIndex": 0,
+      "position": {
+        "X": 112,
+        "Y": 96
       },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "PetalGardens/petal_tile"
+    },
+    {
+      "colorIndex": 0,
+      "position": {
+        "X": 96,
+        "Y": 80
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "PetalGardens/petal_tile"
+    },
+    {
+      "colorIndex": 0,
+      "position": {
+        "X": 96,
+        "Y": 96
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "PetalGardens/petal_tile"
+    },
+    {
+      "colorIndex": 0,
+      "position": {
+        "X": 64,
+        "Y": 128
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "PetalGardens/petal_tile"
+    },
+    {
+      "colorIndex": 0,
+      "position": {
+        "X": 64,
+        "Y": 144
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "PetalGardens/petal_tile"
+    },
+    {
+      "colorIndex": 0,
+      "position": {
+        "X": 16,
+        "Y": 192
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "PetalGardens/petal_tile"
+    },
+    {
+      "colorIndex": 0,
+      "position": {
+        "X": 64,
+        "Y": 192
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "PetalGardens/petal_tile"
+    },
+    {
+      "colorIndex": 0,
       "position": {
         "X": 48,
-        "Y": 304
+        "Y": 192
       },
       "size": {
         "X": 112,
@@ -3352,15 +839,10 @@
       "dataKey": "PetalGardens/petal_tile"
     },
     {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
+      "colorIndex": 0,
       "position": {
-        "X": 384,
-        "Y": 384
+        "X": 48,
+        "Y": 208
       },
       "size": {
         "X": 112,
@@ -3373,15 +855,10 @@
       "dataKey": "PetalGardens/petal_tile"
     },
     {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
+      "colorIndex": 0,
       "position": {
-        "X": 352,
-        "Y": 352
+        "X": 64,
+        "Y": 208
       },
       "size": {
         "X": 112,
@@ -3394,15 +871,10 @@
       "dataKey": "PetalGardens/petal_tile"
     },
     {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
+      "colorIndex": 0,
       "position": {
-        "X": 352,
-        "Y": 336
+        "X": 144,
+        "Y": 48
       },
       "size": {
         "X": 112,
@@ -3415,15 +887,10 @@
       "dataKey": "PetalGardens/petal_tile"
     },
     {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
+      "colorIndex": 0,
       "position": {
-        "X": 352,
-        "Y": 320
+        "X": 96,
+        "Y": 112
       },
       "size": {
         "X": 112,
@@ -3436,15 +903,10 @@
       "dataKey": "PetalGardens/petal_tile"
     },
     {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
+      "colorIndex": 0,
       "position": {
-        "X": 368,
-        "Y": 320
+        "X": 32,
+        "Y": 48
       },
       "size": {
         "X": 112,
@@ -3457,15 +919,10 @@
       "dataKey": "PetalGardens/petal_tile"
     },
     {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
+      "colorIndex": 0,
       "position": {
-        "X": 384,
-        "Y": 336
+        "X": 64,
+        "Y": 48
       },
       "size": {
         "X": 112,
@@ -3478,15 +935,10 @@
       "dataKey": "PetalGardens/petal_tile"
     },
     {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
+      "colorIndex": 0,
       "position": {
-        "X": 384,
-        "Y": 320
+        "X": 176,
+        "Y": 48
       },
       "size": {
         "X": 112,
@@ -3499,15 +951,10 @@
       "dataKey": "PetalGardens/petal_tile"
     },
     {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
+      "colorIndex": 0,
       "position": {
-        "X": 384,
-        "Y": 288
+        "X": 80,
+        "Y": 128
       },
       "size": {
         "X": 112,
@@ -3520,15 +967,10 @@
       "dataKey": "PetalGardens/petal_tile"
     },
     {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
+      "colorIndex": 0,
       "position": {
-        "X": 368,
-        "Y": 384
+        "X": 48,
+        "Y": 144
       },
       "size": {
         "X": 112,
@@ -3541,15 +983,10 @@
       "dataKey": "PetalGardens/petal_tile"
     },
     {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
+      "colorIndex": 0,
       "position": {
-        "X": 368,
-        "Y": 288
+        "X": 48,
+        "Y": 128
       },
       "size": {
         "X": 112,
@@ -3562,15 +999,10 @@
       "dataKey": "PetalGardens/petal_tile"
     },
     {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
+      "colorIndex": 0,
       "position": {
-        "X": 384,
-        "Y": 352
+        "X": 48,
+        "Y": 112
       },
       "size": {
         "X": 112,
@@ -3583,120 +1015,10 @@
       "dataKey": "PetalGardens/petal_tile"
     },
     {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 368,
-        "Y": 352
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "PetalGardens/petal_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 352,
-        "Y": 272
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "PetalGardens/petal_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 368,
-        "Y": 272
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "PetalGardens/petal_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 352,
-        "Y": 256
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "PetalGardens/petal_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 384,
-        "Y": 256
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "PetalGardens/petal_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
+      "colorIndex": 0,
       "position": {
         "X": 208,
-        "Y": 272
+        "Y": 48
       },
       "size": {
         "X": 112,
@@ -3709,15 +1031,58 @@
       "dataKey": "PetalGardens/petal_tile"
     },
     {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
+      "colorIndex": 0,
+      "position": {
+        "X": 128,
+        "Y": 48
       },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "PetalGardens/petal_tile"
+    },
+    {
+      "colorIndex": 0,
+      "position": {
+        "X": 192,
+        "Y": 48
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "PetalGardens/petal_tile"
+    },
+    {
+      "colorIndex": 0,
+      "position": {
+        "X": 176,
+        "Y": 112
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "PetalGardens/petal_tile"
+    },
+    {
+      "colorIndex": 0,
       "position": {
         "X": 208,
-        "Y": 256
+        "Y": 112
       },
       "size": {
         "X": 112,
@@ -3730,15 +1095,10 @@
       "dataKey": "PetalGardens/petal_tile"
     },
     {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
+      "colorIndex": 0,
       "position": {
-        "X": 160,
-        "Y": 176
+        "X": 96,
+        "Y": 48
       },
       "size": {
         "X": 112,
@@ -3748,17 +1108,60 @@
       "flipX": false,
       "flipY": false,
       "layer": 4,
-      "dataKey": "RussetMire/clover_tile"
+      "dataKey": "PetalGardens/petal_tile"
     },
     {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
+      "colorIndex": 0,
       "position": {
-        "X": 384,
+        "X": 80,
+        "Y": 48
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "PetalGardens/petal_tile"
+    },
+    {
+      "colorIndex": 0,
+      "position": {
+        "X": 48,
+        "Y": 48
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "PetalGardens/petal_tile"
+    },
+    {
+      "colorIndex": 0,
+      "position": {
+        "X": 240,
+        "Y": 16
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "PetalGardens/petal_tile"
+    },
+    {
+      "colorIndex": 0,
+      "position": {
+        "X": 16,
         "Y": 64
       },
       "size": {
@@ -3769,18 +1172,13 @@
       "flipX": false,
       "flipY": false,
       "layer": 4,
-      "dataKey": "RussetMire/clover_tile"
+      "dataKey": "PetalGardens/petal_tile"
     },
     {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
+      "colorIndex": 0,
       "position": {
-        "X": 352,
-        "Y": 288
+        "X": 240,
+        "Y": 112
       },
       "size": {
         "X": 112,
@@ -3793,15 +1191,10 @@
       "dataKey": "PetalGardens/petal_tile"
     },
     {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
+      "colorIndex": 0,
       "position": {
-        "X": 352,
-        "Y": 384
+        "X": 0,
+        "Y": 96
       },
       "size": {
         "X": 112,
@@ -3814,14 +1207,121 @@
       "dataKey": "PetalGardens/petal_tile"
     },
     {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
+      "colorIndex": 0,
       "position": {
-        "X": 368,
+        "X": 0,
+        "Y": 112
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "PetalGardens/petal_tile"
+    },
+    {
+      "colorIndex": 0,
+      "position": {
+        "X": 0,
+        "Y": 128
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "PetalGardens/petal_tile"
+    },
+    {
+      "colorIndex": 0,
+      "position": {
+        "X": 0,
+        "Y": 144
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "PetalGardens/petal_tile"
+    },
+    {
+      "colorIndex": 0,
+      "position": {
+        "X": 0,
+        "Y": 160
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "PetalGardens/petal_tile"
+    },
+    {
+      "colorIndex": 0,
+      "position": {
+        "X": 0,
+        "Y": 208
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "PetalGardens/petal_tile"
+    },
+    {
+      "colorIndex": 0,
+      "position": {
+        "X": 0,
+        "Y": 224
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "PetalGardens/petal_tile"
+    },
+    {
+      "colorIndex": 0,
+      "position": {
+        "X": 0,
+        "Y": 240
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "PetalGardens/petal_tile"
+    },
+    {
+      "colorIndex": 0,
+      "position": {
+        "X": 0,
         "Y": 256
       },
       "size": {
@@ -3835,15 +1335,10 @@
       "dataKey": "PetalGardens/petal_tile"
     },
     {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
+      "colorIndex": 0,
       "position": {
-        "X": 384,
-        "Y": 272
+        "X": 16,
+        "Y": 240
       },
       "size": {
         "X": 112,
@@ -3856,120 +1351,10 @@
       "dataKey": "PetalGardens/petal_tile"
     },
     {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 304,
-        "Y": 384
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "PetalGardens/petal_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 288,
-        "Y": 384
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "PetalGardens/petal_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 112,
-        "Y": 288
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "PetalGardens/petal_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 64,
-        "Y": 288
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "PetalGardens/petal_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 96,
-        "Y": 304
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "PetalGardens/petal_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
+      "colorIndex": 0,
       "position": {
         "X": 32,
-        "Y": 304
+        "Y": 240
       },
       "size": {
         "X": 112,
@@ -3982,36 +1367,10 @@
       "dataKey": "PetalGardens/petal_tile"
     },
     {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 416,
-        "Y": 320
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "PetalGardens/petal_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
+      "colorIndex": 0,
       "position": {
         "X": 48,
-        "Y": 288
+        "Y": 240
       },
       "size": {
         "X": 112,
@@ -4024,15 +1383,26 @@
       "dataKey": "PetalGardens/petal_tile"
     },
     {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
+      "colorIndex": 0,
+      "position": {
+        "X": 64,
+        "Y": 240
       },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "PetalGardens/petal_tile"
+    },
+    {
+      "colorIndex": 0,
       "position": {
         "X": 80,
-        "Y": 272
+        "Y": 240
       },
       "size": {
         "X": 112,
@@ -4045,15 +1415,10 @@
       "dataKey": "PetalGardens/petal_tile"
     },
     {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
+      "colorIndex": 0,
       "position": {
         "X": 96,
-        "Y": 272
+        "Y": 240
       },
       "size": {
         "X": 112,
@@ -4066,15 +1431,10 @@
       "dataKey": "PetalGardens/petal_tile"
     },
     {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
+      "colorIndex": 0,
       "position": {
-        "X": 80,
-        "Y": 256
+        "X": 0,
+        "Y": 80
       },
       "size": {
         "X": 112,
@@ -4087,15 +1447,106 @@
       "dataKey": "PetalGardens/petal_tile"
     },
     {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
+      "colorIndex": 0,
+      "position": {
+        "X": 240,
+        "Y": 176
       },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "PetalGardens/petal_tile"
+    },
+    {
+      "colorIndex": 0,
+      "position": {
+        "X": 0,
+        "Y": 16
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "PetalGardens/petal_tile"
+    },
+    {
+      "colorIndex": 0,
+      "position": {
+        "X": 0,
+        "Y": 32
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "PetalGardens/petal_tile"
+    },
+    {
+      "colorIndex": 0,
+      "position": {
+        "X": 0,
+        "Y": 0
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "PetalGardens/petal_tile"
+    },
+    {
+      "colorIndex": 0,
+      "position": {
+        "X": 16,
+        "Y": 0
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "PetalGardens/petal_tile"
+    },
+    {
+      "colorIndex": 0,
+      "position": {
+        "X": 32,
+        "Y": 0
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "PetalGardens/petal_tile"
+    },
+    {
+      "colorIndex": 0,
       "position": {
         "X": 48,
-        "Y": 320
+        "Y": 0
       },
       "size": {
         "X": 112,
@@ -4108,36 +1559,10 @@
       "dataKey": "PetalGardens/petal_tile"
     },
     {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 96,
-        "Y": 288
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "PetalGardens/petal_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
+      "colorIndex": 0,
       "position": {
         "X": 80,
-        "Y": 288
+        "Y": 0
       },
       "size": {
         "X": 112,
@@ -4150,36 +1575,10 @@
       "dataKey": "PetalGardens/petal_tile"
     },
     {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 64,
-        "Y": 320
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "PetalGardens/petal_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
+      "colorIndex": 0,
       "position": {
         "X": 112,
-        "Y": 320
+        "Y": 0
       },
       "size": {
         "X": 112,
@@ -4192,15 +1591,10 @@
       "dataKey": "PetalGardens/petal_tile"
     },
     {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
+      "colorIndex": 0,
       "position": {
-        "X": 80,
-        "Y": 336
+        "X": 144,
+        "Y": 0
       },
       "size": {
         "X": 112,
@@ -4213,15 +1607,10 @@
       "dataKey": "PetalGardens/petal_tile"
     },
     {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
+      "colorIndex": 0,
       "position": {
-        "X": 64,
-        "Y": 336
+        "X": 240,
+        "Y": 48
       },
       "size": {
         "X": 112,
@@ -4234,15 +1623,10 @@
       "dataKey": "PetalGardens/petal_tile"
     },
     {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
+      "colorIndex": 0,
       "position": {
-        "X": 64,
-        "Y": 272
+        "X": 176,
+        "Y": 0
       },
       "size": {
         "X": 112,
@@ -4255,15 +1639,10 @@
       "dataKey": "PetalGardens/petal_tile"
     },
     {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
+      "colorIndex": 0,
       "position": {
-        "X": 416,
-        "Y": 288
+        "X": 224,
+        "Y": 0
       },
       "size": {
         "X": 112,
@@ -4276,15 +1655,10 @@
       "dataKey": "PetalGardens/petal_tile"
     },
     {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
+      "colorIndex": 0,
       "position": {
-        "X": 416,
-        "Y": 272
+        "X": 240,
+        "Y": 0
       },
       "size": {
         "X": 112,
@@ -4297,120 +1671,10 @@
       "dataKey": "PetalGardens/petal_tile"
     },
     {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 416,
-        "Y": 256
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "PetalGardens/petal_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 288,
-        "Y": 400
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "PetalGardens/petal_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 64,
-        "Y": 304
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "PetalGardens/petal_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 80,
-        "Y": 320
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "PetalGardens/petal_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
-      "position": {
-        "X": 96,
-        "Y": 320
-      },
-      "size": {
-        "X": 112,
-        "Y": 112
-      },
-      "rotation": 0,
-      "flipX": false,
-      "flipY": false,
-      "layer": 4,
-      "dataKey": "PetalGardens/petal_tile"
-    },
-    {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
+      "colorIndex": 0,
       "position": {
         "X": 208,
-        "Y": 352
+        "Y": 0
       },
       "size": {
         "X": 112,
@@ -4423,18 +1687,717 @@
       "dataKey": "PetalGardens/petal_tile"
     },
     {
-      "color": {
-        "B": 255,
-        "G": 255,
-        "R": 255,
-        "A": 255
-      },
+      "colorIndex": 0,
       "position": {
-        "X": 243,
-        "Y": 98
+        "X": 160,
+        "Y": 0
       },
       "size": {
-        "X": 104,
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "PetalGardens/petal_tile"
+    },
+    {
+      "colorIndex": 0,
+      "position": {
+        "X": 96,
+        "Y": 0
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "PetalGardens/petal_tile"
+    },
+    {
+      "colorIndex": 0,
+      "position": {
+        "X": 64,
+        "Y": 0
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "PetalGardens/petal_tile"
+    },
+    {
+      "colorIndex": 0,
+      "position": {
+        "X": 128,
+        "Y": 0
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "PetalGardens/petal_tile"
+    },
+    {
+      "colorIndex": 0,
+      "position": {
+        "X": 192,
+        "Y": 0
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "PetalGardens/petal_tile"
+    },
+    {
+      "colorIndex": 0,
+      "position": {
+        "X": 0,
+        "Y": 48
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "PetalGardens/petal_tile"
+    },
+    {
+      "colorIndex": 0,
+      "position": {
+        "X": 240,
+        "Y": 240
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "PetalGardens/petal_tile"
+    },
+    {
+      "colorIndex": 0,
+      "position": {
+        "X": 144,
+        "Y": 208
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "PetalGardens/petal_tile"
+    },
+    {
+      "colorIndex": 0,
+      "position": {
+        "X": 192,
+        "Y": 208
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "PetalGardens/petal_tile"
+    },
+    {
+      "colorIndex": 0,
+      "position": {
+        "X": 208,
+        "Y": 208
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "PetalGardens/petal_tile"
+    },
+    {
+      "colorIndex": 0,
+      "position": {
+        "X": 240,
+        "Y": 208
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "PetalGardens/petal_tile"
+    },
+    {
+      "colorIndex": 0,
+      "position": {
+        "X": 240,
+        "Y": 192
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "PetalGardens/petal_tile"
+    },
+    {
+      "colorIndex": 0,
+      "position": {
+        "X": 112,
+        "Y": 192
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "PetalGardens/petal_tile"
+    },
+    {
+      "colorIndex": 0,
+      "position": {
+        "X": 0,
+        "Y": 64
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "PetalGardens/petal_tile"
+    },
+    {
+      "colorIndex": 0,
+      "position": {
+        "X": 144,
+        "Y": 240
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "PetalGardens/petal_tile"
+    },
+    {
+      "colorIndex": 0,
+      "position": {
+        "X": 176,
+        "Y": 240
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "PetalGardens/petal_tile"
+    },
+    {
+      "colorIndex": 0,
+      "position": {
+        "X": 208,
+        "Y": 240
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "PetalGardens/petal_tile"
+    },
+    {
+      "colorIndex": 0,
+      "position": {
+        "X": 240,
+        "Y": 96
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "PetalGardens/petal_tile"
+    },
+    {
+      "colorIndex": 0,
+      "position": {
+        "X": 240,
+        "Y": 32
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "PetalGardens/petal_tile"
+    },
+    {
+      "colorIndex": 0,
+      "position": {
+        "X": 80,
+        "Y": 144
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "PetalGardens/petal_tile"
+    },
+    {
+      "colorIndex": 0,
+      "position": {
+        "X": 16,
+        "Y": 80
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "PetalGardens/petal_tile"
+    },
+    {
+      "colorIndex": 0,
+      "position": {
+        "X": 240,
+        "Y": 80
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "PetalGardens/petal_tile"
+    },
+    {
+      "colorIndex": 0,
+      "position": {
+        "X": 112,
+        "Y": 240
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "PetalGardens/petal_tile"
+    },
+    {
+      "colorIndex": 0,
+      "position": {
+        "X": 112,
+        "Y": 208
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "PetalGardens/petal_tile"
+    },
+    {
+      "colorIndex": 0,
+      "position": {
+        "X": 128,
+        "Y": 208
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "PetalGardens/petal_tile"
+    },
+    {
+      "colorIndex": 0,
+      "position": {
+        "X": 192,
+        "Y": 240
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "PetalGardens/petal_tile"
+    },
+    {
+      "colorIndex": 0,
+      "position": {
+        "X": 128,
+        "Y": 224
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "PetalGardens/petal_tile"
+    },
+    {
+      "colorIndex": 0,
+      "position": {
+        "X": 144,
+        "Y": 224
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "PetalGardens/petal_tile"
+    },
+    {
+      "colorIndex": 0,
+      "position": {
+        "X": 96,
+        "Y": 224
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "PetalGardens/petal_tile"
+    },
+    {
+      "colorIndex": 0,
+      "position": {
+        "X": 80,
+        "Y": 224
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "PetalGardens/petal_tile"
+    },
+    {
+      "colorIndex": 0,
+      "position": {
+        "X": 64,
+        "Y": 224
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "PetalGardens/petal_tile"
+    },
+    {
+      "colorIndex": 0,
+      "position": {
+        "X": 48,
+        "Y": 224
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "PetalGardens/petal_tile"
+    },
+    {
+      "colorIndex": 0,
+      "position": {
+        "X": 160,
+        "Y": 240
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "PetalGardens/petal_tile"
+    },
+    {
+      "colorIndex": 0,
+      "position": {
+        "X": 32,
+        "Y": 224
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "PetalGardens/petal_tile"
+    },
+    {
+      "colorIndex": 0,
+      "position": {
+        "X": 16,
+        "Y": 208
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "PetalGardens/petal_tile"
+    },
+    {
+      "colorIndex": 0,
+      "position": {
+        "X": 112,
+        "Y": 224
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "PetalGardens/petal_tile"
+    },
+    {
+      "colorIndex": 0,
+      "position": {
+        "X": 192,
+        "Y": 32
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "PetalGardens/petal_tile"
+    },
+    {
+      "colorIndex": 0,
+      "position": {
+        "X": 240,
+        "Y": 160
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "PetalGardens/petal_tile"
+    },
+    {
+      "colorIndex": 0,
+      "position": {
+        "X": 240,
+        "Y": 224
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "PetalGardens/petal_tile"
+    },
+    {
+      "colorIndex": 0,
+      "position": {
+        "X": 128,
+        "Y": 240
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "PetalGardens/petal_tile"
+    },
+    {
+      "colorIndex": 0,
+      "position": {
+        "X": 224,
+        "Y": 240
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "PetalGardens/petal_tile"
+    },
+    {
+      "colorIndex": 0,
+      "position": {
+        "X": 16,
+        "Y": 224
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "PetalGardens/petal_tile"
+    },
+    {
+      "colorIndex": 0,
+      "position": {
+        "X": 80,
+        "Y": 192
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "PetalGardens/petal_tile"
+    },
+    {
+      "colorIndex": 0,
+      "position": {
+        "X": 7,
+        "Y": 0
+      },
+      "size": {
+        "X": 160,
+        "Y": 96
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "Entities/floral_stalker"
+    },
+    {
+      "colorIndex": 0,
+      "position": {
+        "X": 228,
+        "Y": 226
+      },
+      "size": {
+        "X": 128,
         "Y": 112
       },
       "rotation": 0,
@@ -4442,6 +2405,132 @@
       "flipY": false,
       "layer": 4,
       "dataKey": "Entities/frog_bird"
+    },
+    {
+      "colorIndex": 0,
+      "position": {
+        "X": 96,
+        "Y": 192
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "PetalGardens/petal_tile"
+    },
+    {
+      "colorIndex": 0,
+      "position": {
+        "X": 96,
+        "Y": 208
+      },
+      "size": {
+        "X": 112,
+        "Y": 112
+      },
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "layer": 4,
+      "dataKey": "PetalGardens/petal_tile"
     }
-  ]
+  ],
+  "color": {
+    "colors": [
+      {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      {
+        "B": 142,
+        "G": 221,
+        "R": 148,
+        "A": 86
+      },
+      {
+        "B": 0,
+        "G": 0,
+        "R": 0,
+        "A": 255
+      },
+      {
+        "B": 255,
+        "G": 0,
+        "R": 209,
+        "A": 255
+      },
+      {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      },
+      {
+        "B": 255,
+        "G": 255,
+        "R": 255,
+        "A": 255
+      }
+    ]
+  }
 }

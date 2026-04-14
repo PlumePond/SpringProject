@@ -18,7 +18,7 @@ public static class RuntimeReloader
     static readonly Dictionary<string, DateTime> _lastReloadTime = new();
     const int DEBOUNCE_MS = 200;
 	
-	public static void Initialize()
+	static RuntimeReloader()
 	{
 		_watcher.NotifyFilter = 
             NotifyFilters.Attributes | 

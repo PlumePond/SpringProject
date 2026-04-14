@@ -97,7 +97,7 @@ public class Animator
 
         Vector2 drawScale = new Vector2((float)_levelObject.size.X / _levelObject.data.sprite.Width, (float)_levelObject.size.Y / _levelObject.data.sprite.Height);
 
-        Color objectColor = _levelObject.selected ? Color.LightGoldenrodYellow * _levelObject.color : _levelObject.color;
+        Color objectColor = _levelObject.selected ? Color.LightGoldenrodYellow * ColorManager.Get(_levelObject.colorIndex) : ColorManager.Get(_levelObject.colorIndex);
 
         Point sourcePos = new Point(CurrentFrame * _levelObject.frame.X, CurrentAnimation.Index * _levelObject.frame.Y);
         Rectangle sourceRect = new Rectangle(sourcePos, _levelObject.frame);

@@ -68,6 +68,7 @@ public static class LevelObjectLoader
                     // instantiate new levelObject
                     var levelObjectData = new LevelObjectData(objectName, folderName, material, sprite, data.solid, type, data.scalable, data.frame, data.hitbox, data.defaultFramePos, data.frameOutline, data.enforceGrid, data.tags, data.placeSound);
                     levelObjectData.path = Path.Combine(contentRoot, folderName, objectName);
+                    levelObjectData.typeName = data.type;
 
                     // assign value to dictionary
                     string key = $"{folderName}/{objectName}";

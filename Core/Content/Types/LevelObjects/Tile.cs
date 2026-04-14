@@ -364,7 +364,7 @@ public class Tile : LevelObject
 
         Vector2 drawScale = new Vector2((float)size.X / data.sprite.Width, (float)size.Y / data.sprite.Height);
 
-        Color objectColor = selected ? Color.LightGoldenrodYellow * color : color;
+        Color objectColor = selected ? Color.LightGoldenrodYellow * ColorManager.Get(colorIndex) : ColorManager.Get(colorIndex);
         
         Rectangle? sourceRect = frame != Point.Zero ? new Rectangle(framePos, frame) : null;
 
@@ -387,7 +387,7 @@ public class Tile : LevelObject
 
         Vector2 drawScale = new Vector2((float)size.X / data.sprite.Width, (float)size.Y / data.sprite.Height);
 
-        Color objectColor = selected ? Color.LightGoldenrodYellow * color : color;
+        Color objectColor = selected ? Color.LightGoldenrodYellow * ColorManager.Get(colorIndex) : ColorManager.Get(colorIndex);
         
         Rectangle? sourceRect = frame != Point.Zero ? new Rectangle(framePos, frame) : null;
 

@@ -15,7 +15,7 @@ using SpringProject.Core.UserInput;
 
 namespace SpringProject.Core.UI;
 
-public class VerticalSlider : Element
+public class Scrollbar : Element
 {
     string _sliderTexture;
     string _handleTexture;
@@ -40,7 +40,7 @@ public class VerticalSlider : Element
 
     bool _canScroll = true;
 
-    public VerticalSlider(Point position, Point size, Anchor anchor, string sliderTexture, string handleTexture, string selectedTexture, string fillTexture, float min, float max, float defaultValue, int cornerSize = 2) : base(position, size, anchor)
+    public Scrollbar(Point position, Point size, Anchor anchor, string sliderTexture, string handleTexture, string selectedTexture, string fillTexture, float min, float max, float defaultValue, int cornerSize = 2) : base(position, size, anchor)
     {
         _sliderTexture = sliderTexture;
         _handleTexture = handleTexture;
@@ -135,8 +135,6 @@ public class VerticalSlider : Element
     {
         _value = Math.Clamp(value, _min, _max);
         _ratio = MathUtils.InverseLerp(_min, _max, _value);
-
-        Debug.Log($"SLIDER VALUE SET: {_value}");
     }
 
     public override void OnPressed()

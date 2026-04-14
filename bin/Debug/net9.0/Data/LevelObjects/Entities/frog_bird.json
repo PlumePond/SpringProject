@@ -3,8 +3,8 @@
     "solid": false,
     "type": "player",
     "frame": {
-        "X": 13,
-        "Y": 14
+        "X": 16,
+        "Y": 16
     },
     "hitbox": {
         "X": 2,

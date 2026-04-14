@@ -16,6 +16,15 @@ public class GameCamera : Camera
     {
         _grid = grid;
         _target = target;
+
+        Point windowSize = Main.GameWindow.ClientBounds.Size;
+
+        Point scaledSize = new Point(
+            windowSize.X / (int)Zoom,
+            windowSize.Y / (int)Zoom
+        );
+        Vector2 targetPosition = new Vector2(_target.position.X - scaledSize.X / 2, _target.position.Y - scaledSize.Y / 2);
+        Position = targetPosition;
     }
 
     public override void Update(GameTime gameTime)

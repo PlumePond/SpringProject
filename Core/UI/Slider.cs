@@ -38,7 +38,7 @@ public class Slider : Element
 
     public Action<float> ChangeValue;
 
-    public Slider(Point position, Point size, Anchor anchor, string sliderTexture, string handleTexture, string selectedTexture, string fillTexture, float min, float max, float defaultValue, int cornerSize = 16) : base(position, size, anchor)
+    public Slider(Point position, Point size, Point handleSize, Anchor anchor, string sliderTexture, string handleTexture, string selectedTexture, string fillTexture, float min, float max, float defaultValue, int cornerSize = 3) : base(position, size, anchor)
     {
         _sliderTexture = sliderTexture;
         _handleTexture = handleTexture;
@@ -50,7 +50,7 @@ public class Slider : Element
         _min = min;
         _max = max;
 
-        _handleSize = new Point(10, size.Y);
+        _handleSize = handleSize;
 
         // initialize slider
         _value = defaultValue;
@@ -61,19 +61,20 @@ public class Slider : Element
     {
         base.Update(gameTime);
 
-        Point mousePoint = Input.Get("cursor").Point;
-        Point fixedMousePoint = new Point(mousePoint.X / Main.Settings.UISize, mousePoint.Y / Main.Settings.UISize);
+        Vector2 mousePos = Input.Get("cursor").Vector;
+        Vector2 fixedMousePos = new Vector2(mousePos.X / Main.Settings.UISize, mousePos.Y / Main.Settings.UISize);
 
-        float mousePosValue = MathUtils.InverseLerp(AbsolutePosition.X + _handleSize.X / 2, AbsolutePosition.X + size.X - _handleSize.X / 2, fixedMousePoint.X);
+        float mousePosValue = MathUtils.InverseLerp(AbsolutePosition.X + _handleSize.X / 2, AbsolutePosition.X + size.X - _handleSize.X / 2, fixedMousePos.X);
 
         if (_interacting)
         {
             _ratio = Math.Clamp(mousePosValue, 0f, 1f);
             _value = MathHelper.Lerp(_min, _max, _ratio);
+            // Debug.Log($"Slider value: {_value}.");
             ChangeValue?.Invoke(_value);
         }
 
-        if (Input.Get("ui_click").Released && _interacting || !Main.Graphics.Viewport.Bounds.Contains(mousePoint))
+        if (Input.Get("ui_click").Released && _interacting || !Main.Graphics.Viewport.Bounds.Contains(mousePos))
         {
             _interacting = false;
         }
@@ -87,7 +88,7 @@ public class Slider : Element
         UIHelper.DrawSegmented(spriteBatch, TextureManager.Get(_sliderTexture), AbsolutePosition, size, AbsoluteScale, _cornerSize, color);
 
         int handleDistance = (int)MathHelper.Lerp(0.0f, size.X - _handleSize.X, _ratio);
-        Point handlePos = new Point(AbsolutePosition.X + handleDistance, AbsolutePosition.Y);
+        Point handlePos = new Point(AbsolutePosition.X + handleDistance, AbsolutePosition.Y - (_handleSize.Y - size.Y) / 2);
 
         // draw fill
         Point baseFillSize = (size.ToVector2() * AbsoluteScale).ToPoint();
@@ -107,24 +108,36 @@ public class Slider : Element
     {
         _value = Math.Clamp(value, _min, _max);
         _ratio = MathUtils.InverseLerp(_min, _max, _value);
-
-        Debug.Log($"SLIDER VALUE SET: {_value}");
     }
 
     public override void OnPressed()
     {
         _interacting = true;
         _pressed = true;
+
+        Cursor.BeginGrab();
     }
 
     public override void OnReleased()
     {
         _pressed = false;
+
+        Cursor.EndGrab();
     }
 
     public override void OnMouseEnter()
     {
         _selected = true;
+
+        if (_interacting)
+        {
+            Cursor.BeginGrab();
+        }
+    }
+
+    public override void OnReleasedOff()
+    {
+        Cursor.EndGrab();
     }
 
     public override void OnMouseExit()

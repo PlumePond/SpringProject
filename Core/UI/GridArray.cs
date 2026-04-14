@@ -65,6 +65,8 @@ public class GridArray : Element
     public override void Draw(SpriteBatch spriteBatch)
     {
         base.Draw(spriteBatch);
+
+        // Debug.DrawRectangleOutline(spriteBatch, Bounds, Color.Lime);
     }
 
     public void Clear()

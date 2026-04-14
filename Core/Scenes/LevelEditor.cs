@@ -1,11 +1,14 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Reflection.PortableExecutable;
+using System.Runtime.InteropServices;
 using System.Security.Cryptography.X509Certificates;
 using System.Threading;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using SpringProject.Core.AI;
 using SpringProject.Core.Audio;
 using SpringProject.Core.Commands;
 using SpringProject.Core.Content;
@@ -22,16 +25,12 @@ public class LevelEditor : Scene
     public Grid ActiveGrid { get; private set; }
     public GridPlacement GridPlacement { get; private set; }
     public Camera Camera { get; private set; }
-
-    Panel _colorViewPanel;
     TextElement _debugText;
 
     Action<float> _setHueEvent;
     Action<float> _setSaturationEvent;
     Action<float> _setValueEvent;
     Action<float> _setAlphaEvent;
-
-    Color _selectedColor = Color.White;
 
     GridArray _levelObjectGrid;
     GridArray _slotGrid;
@@ -50,13 +49,10 @@ public class LevelEditor : Scene
         ActiveGrid = new Grid(true);
         GridPlacement = new GridPlacement(ActiveGrid);
 
-        // initialize camera
-        Camera = new EditorCamera(Main.Graphics, 4, ActiveGrid);
-
         ActiveCanvas.AddChild(new ImageElement(Point.Zero, Anchor.TopLeft, "gradient-1", Color.White));
 
-        VerticalSlider slider = new VerticalSlider(new Point(90, 5), new Point(4, 179), Anchor.TopLeft, "scroll_bar", "scroll_handle", "scroll_handle_outline", null, 0, 1, 0, 2);
-        ActiveCanvas.AddChild(slider);
+        Scrollbar scrollbar = new Scrollbar(new Point(90, 5), new Point(4, 179), Anchor.TopLeft, "scroll_bar", "scroll_handle", "scroll_handle_outline", null, 0, 1, 0, 2);
+        ActiveCanvas.AddChild(scrollbar);
 
         Panel objectPanel = new Panel(new Point(3, 3), new Point(88, 183), Anchor.TopLeft, "panel_dark_gold", 3);
         ActiveCanvas.AddChild(objectPanel);
@@ -73,9 +69,9 @@ public class LevelEditor : Scene
         ScrollRect scrollRect = new ScrollRect(new Point(0, -4), new Point(80, 160), Anchor.BottomCenter);
         objectPanel.AddChild(scrollRect);
 
-        scrollRect.ScrollEvent += slider.SetValue;
-        slider.ChangeValueEvent += scrollRect.SetScroll;
-        scrollRect.UpdateCanScrollEvent += slider.SetCanScroll;
+        scrollRect.ScrollEvent += scrollbar.SetValue;
+        scrollbar.ChangeValueEvent += scrollRect.SetScroll;
+        scrollRect.UpdateCanScrollEvent += scrollbar.SetCanScroll;
         
         _levelObjectGrid = new GridArray(new Point(0, 0), new Point(80, 160), new Point(16, 16), 0, Anchor.TopLeft);
         _slotGrid = new GridArray(new Point(0, 0), new Point(80, 160), new Point(16, 16), 0, Anchor.TopLeft);
@@ -85,6 +81,9 @@ public class LevelEditor : Scene
         string toggleInactiveTexture = "toggle_light_inactive";
         string toggleActiveTexture = "toggle_light_active";
         string selectedTexture = "panel_selected";
+
+        InfoPanel infoPanel = new InfoPanel(new Point(3, -3), new Point(88, 79), Anchor.BottomLeft, "panel_light");
+        ActiveCanvas.AddChild(infoPanel);
 
         // show parallax
         ToggleElement showParralax = new ToggleElement(new Point(97, 3), new Point(16, 16), Anchor.TopLeft, toggleInactiveTexture, toggleActiveTexture, selectedTexture, "show_parallax", false);
@@ -115,6 +114,94 @@ public class LevelEditor : Scene
         LevelSaveManager.Load(levelName, ActiveGrid);
 
         Input.Get("save").PressedEvent += SaveLevel;
+
+        SetupColorPanel();
+        SetupDebugPanel();
+
+        // initialize camera
+        Camera = new EditorCamera(Main.Graphics, 4, ActiveGrid);
+    }
+
+    public override void Start()
+    {
+        base.Start();
+
+        Cursor.SetEnabled(true);
+        SelectColor(0);
+    }
+
+    void SetupDebugPanel()
+    {
+        ActiveCanvas.AddChild(new FPSMeter(new Point(0, 0), FontManager.Get("body"), "fps", Color.White, Anchor.BottomCenter));
+    }
+
+    void SetupColorPanel()
+    {
+        string sliderTexture = "panel_dark";
+        string panelTexture = "panel_light_gold";
+        string panelSelectedTexture = "panel_selected";
+        string sliderFillTexture = "slider_fill";
+
+        Panel colorPanel = new Panel(new Point(-3, -3), new Point(62, 100), Anchor.BottomRight, "panel_light_gold");
+        ActiveCanvas.AddChild(colorPanel);
+
+        GridArray colorGrid = new GridArray(new Point(0, 4), new Point(colorPanel.size.X - 8, 50), new Point(10), 1, Anchor.TopCenter);
+        colorPanel.AddChild(colorGrid);
+
+        RepopulateColorGrid(colorGrid, ColorManager.Colors);
+        ColorManager.ColorListModifiedEvent += (colors) => RepopulateColorGrid(colorGrid, colors);
+        
+        // _colorViewPanel = new Panel(new Point(3, 3), new Point(10, 10), Anchor.TopLeft, "color_display", 3);
+        // colorPanel.AddChild(_colorViewPanel);
+
+        Point sliderSize = new Point(48, 7);
+        Point handleSize = new Point(6, 10);
+        Slider hueSlider = new Slider(new Point(-4, -35), sliderSize, handleSize, Anchor.BottomRight, sliderTexture, panelTexture, panelSelectedTexture, sliderFillTexture, 0f, 360f, 0.0f);
+        colorPanel.AddChild(hueSlider);
+        hueSlider.ChangeValue += OnHueChanged;
+        _setHueEvent += hueSlider.SetValue;
+        Slider saturationSlider = new Slider(new Point(-4, -25), sliderSize, handleSize, Anchor.BottomRight, sliderTexture, panelTexture, panelSelectedTexture, sliderFillTexture, 0f, 1f, 0.0f);
+        colorPanel.AddChild(saturationSlider);
+        saturationSlider.ChangeValue += OnSaturationChanged;
+        _setSaturationEvent += saturationSlider.SetValue;
+        Slider valueSlider = new Slider(new Point(-4, -15), sliderSize, handleSize, Anchor.BottomRight, sliderTexture, panelTexture, panelSelectedTexture, sliderFillTexture, 0f, 1f, 1.0f);
+        colorPanel.AddChild(valueSlider);
+        valueSlider.ChangeValue += OnValueChanged;
+        _setValueEvent += valueSlider.SetValue;
+
+        Slider alphaSlider = new Slider(new Point(-4, -5), sliderSize, handleSize, Anchor.BottomRight, sliderTexture, panelTexture, panelSelectedTexture, sliderFillTexture, 0f, 255f, 255f);
+        colorPanel.AddChild(alphaSlider);
+        alphaSlider.ChangeValue += OnAlphaChanged;
+        _setAlphaEvent += alphaSlider.SetValue;
+
+        Color textColor = Color.Black * 0.5f;
+        
+        TextElement hueText = new TextElement(new Point(-5, 0), FontManager.Get("body"), "h", textColor, Anchor.MiddleLeft);
+        hueSlider.AddChild(hueText);
+        TextElement saturationText = new TextElement(new Point(-5, 0), FontManager.Get("body"), "s", textColor, Anchor.MiddleLeft);
+        saturationSlider.AddChild(saturationText);
+        TextElement valueText = new TextElement(new Point(-5, 0), FontManager.Get("body"), "v", textColor, Anchor.MiddleLeft);
+        valueSlider.AddChild(valueText);
+        TextElement alphaText = new TextElement(new Point(-5, 0), FontManager.Get("body"), "a", textColor, Anchor.MiddleLeft);
+        alphaSlider.AddChild(alphaText);
+
+        ButtonElement setBGColorButton = new ButtonElement(new Point(4, 38), new Point(16, 16), Anchor.TopLeft, "panel_light", panelSelectedTexture);
+        setBGColorButton.AddChild(new ImageElement(new Point(0, 0), Anchor.MiddleCenter, "background_icon", Color.White));
+        setBGColorButton.Pressed += SetBackground;
+        colorPanel.AddChild(setBGColorButton);
+
+        ButtonElement setObjectColor = new ButtonElement(new Point(23, 38), new Point(16, 16), Anchor.TopLeft, "panel_light", panelSelectedTexture);
+        setObjectColor.AddChild(new ImageElement(new Point(0, 0), Anchor.MiddleCenter, "set_object_color", Color.White));
+        setObjectColor.Pressed += SetObjectColor;
+        colorPanel.AddChild(setObjectColor);
+    }
+
+    void RepopulateColorGrid(GridArray colorGrid, List<Color> colors)
+    {
+        for (int i = 0; i < colors.Count; i++)
+        {
+            colorGrid.AddChild(new ColorPanel(Point.Zero, i, this, new Point(10), Anchor.TopLeft));
+        }
     }
 
     void RepopulateLevelObjects(GridArray objectGrid, GridArray slotGrid, LevelObjectData[] levelObjectDatas)
@@ -188,7 +275,6 @@ public class LevelEditor : Scene
         ActiveGrid.Update(gameTime);
         GridPlacement.Update(gameTime);
         Camera.Update(gameTime);
-
         //_debugText.SetText($"Layer: {ActiveGrid.layers[ActiveGrid.activeLayer].Name}");
 
         if (Input.Get("undo").Pressed)
@@ -200,6 +286,11 @@ public class LevelEditor : Scene
         {
             CommandInvoker.Redo();
         }
+
+        if (Input.Get("back").Pressed)
+        {
+            Main.SetScene<MainMenu>();
+        }
     }
 
     public override void Draw(SpriteBatch spriteBatch)
@@ -208,10 +299,6 @@ public class LevelEditor : Scene
         // draw grid
         ActiveGrid.Draw(spriteBatch);
         GridPlacement.Draw(spriteBatch);
-
-        spriteBatch.Begin(SpriteSortMode.Deferred, null, SamplerState.PointClamp, null, null, null, Camera.Transform);
-        
-        spriteBatch.End();
 
         base.Draw(spriteBatch);
     }
@@ -229,26 +316,27 @@ public class LevelEditor : Scene
 
     void SetBackground()
     {
-        ActiveGrid.SetFogColor(_selectedColor);
-        ActiveGrid.SetBackgroundColor(ColorUtils.FromHSV(_hue, _saturation, _value));
+        ActiveGrid.SetFogColorIndex(ColorManager.SelectedColorIndex);
+        ActiveGrid.SetBackgroundColorIndex(ColorManager.SelectedColorIndex);
+
+        Debug.Log("BACKGROUND SET");
     }
 
     void GetBackground()
     {
-        _selectedColor = ActiveGrid.FogColor;
-        SelectColor(ActiveGrid.FogColor);
+        SelectColor(ActiveGrid.BackgroundColorIndex);
     }
 
     void SetObjectColor()
     {
-        GridPlacement.selectedObject?.SetColor(_selectedColor);
+        GridPlacement.selectedObject?.SetColorIndex(ColorManager.SelectedColorIndex);
     }
 
     void GetObjectColor()
     {
         if (GridPlacement.selectedObject != null)
         {
-            Color objectColor = GridPlacement.selectedObject.color;
+            int objectColor = GridPlacement.selectedObject.colorIndex;
             SelectColor(objectColor);
         }
     }
@@ -258,15 +346,16 @@ public class LevelEditor : Scene
         Main.SetScene<MainMenu>(false);
     }
 
-    void SelectColor(Color color)
+    public void SelectColor(int index)
     {
-        GridPlacement.SelectColor(color);
-        _colorViewPanel.SetColor(color);
+        ColorManager.SetColorIndex(index);
+        var color = ColorManager.Get(index);
+
         ColorUtils.HSV hsv = ColorUtils.ToHSV(color);
 
         _hue = (float)hsv.H;
-        _saturation = (float)hsv.S / 100.0f;
-        _value = (float)hsv.V / 100.0f;
+        _saturation = (float)hsv.S;
+        _value = (float)hsv.V;
         _alpha = color.A;
 
         _setHueEvent?.Invoke(_hue);
@@ -278,32 +367,31 @@ public class LevelEditor : Scene
     void OnHueChanged(float hue)
     {
         _hue = hue;
-        _selectedColor = ColorUtils.FromHSV(_hue, _saturation, _value) * _alpha;
-        GridPlacement.SelectColor(_selectedColor);
-        _colorViewPanel.SetColor(ColorUtils.FromHSV(_hue, _saturation, _value));
+        RecalculateColor();
     }
 
     void OnSaturationChanged(float saturation)
     {
         _saturation = saturation;
-        _selectedColor = ColorUtils.FromHSV(_hue, _saturation, _value) * _alpha;
-        GridPlacement.SelectColor(_selectedColor);
-        _colorViewPanel.SetColor(ColorUtils.FromHSV(_hue, _saturation, _value));
+        RecalculateColor();
     }
 
     void OnValueChanged(float value)
     {
         _value = value;
-        _selectedColor = ColorUtils.FromHSV(_hue, _saturation, _value) * _alpha;
-        GridPlacement.SelectColor(_selectedColor);
-        _colorViewPanel.SetColor(ColorUtils.FromHSV(_hue, _saturation, _value));
+        RecalculateColor();
     }
 
     void OnAlphaChanged(float alpha)
     {
         _alpha = alpha;
-        _selectedColor = ColorUtils.FromHSV(_hue, _saturation, _value) * _alpha;
-        GridPlacement.SelectColor(_selectedColor);
-        _colorViewPanel.SetColor(ColorUtils.FromHSV(_hue, _saturation, _value));
+        RecalculateColor();
+    }
+
+    void RecalculateColor()
+    {
+        var fromHsv = ColorUtils.FromHSV(_hue, _saturation, _value);
+        var alphaColor = new Color(fromHsv.R, fromHsv.G, fromHsv.B, (byte)_alpha);
+        ColorManager.Set(ColorManager.SelectedColorIndex, alphaColor);
     }
 }

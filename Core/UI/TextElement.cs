@@ -9,8 +9,8 @@ namespace SpringProject.Core.UI;
 
 public class TextElement : Element
 {
-    string _text = "";
-    Font _font = null;
+    protected string _text = "";
+    protected Font _font = null;
 
     public TextElement(Point localPosition, Font font, string text, Color color, Anchor anchor = Anchor.MiddleCenter) : base(localPosition, Point.Zero, anchor)
     {
@@ -30,7 +30,7 @@ public class TextElement : Element
         base.Draw(spriteBatch);
     }
 
-    public void SetText(string text)
+    public virtual void SetText(string text)
     {
         _text = text;
         size = _font.FontBase.MeasureString(_text, AbsoluteScale).ToPoint() + _font.Offset.ToPoint();

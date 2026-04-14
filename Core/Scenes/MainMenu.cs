@@ -107,11 +107,21 @@ public class MainMenu : Scene
     public override void Start()
     {
         base.Start();
+
+        Cursor.SetEnabled(true);
     }
 
     public override void Update(GameTime gameTime)
     {
         base.Update(gameTime);
+
+        if (Input.Get("back").Pressed)
+        {
+            if (ActiveCanvas != _mainCanvas)
+            {
+                SetActiveCanvas(_mainCanvas);
+            }
+        }
     }
 
     public override void Draw(SpriteBatch spriteBatch)

@@ -12,7 +12,9 @@ public static class TextureManager
     public static Action<Texture2D> TextureUpdatedEvent;
     static string _path = Path.Combine("Data", "Textures");
 
-    public static void Initialize()
+    public static readonly Texture2D MissingTexture;
+
+    static TextureManager()
     {
         RuntimeReloader.FileChangedEvent += OnFileChanged;
     }

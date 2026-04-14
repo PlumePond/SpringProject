@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Security.Cryptography.X509Certificates;
 using FontStashSharp;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -20,12 +21,15 @@ public class Grid
     public bool colorObjects { get; private set; } = false;
     public bool showGridLines { get; private set; } = false;
     public bool showParallax { get; private set; } = false;
+    public Point size { get; private set; }
 
-    public Color FogColor { get; private set; } = Color.White;
-    public Color BackgroundColor { get; private set; } = Color.White;
+    public int FogColorIndex { get; private set; } = 0;
+    public int BackgroundColorIndex { get; private set; } = 0;
     public Font DebugFont { get; private set; }
 
     public bool editor { get; private set; }
+
+    RasterizerState _rasterizerState = new RasterizerState { ScissorTestEnable = true };
 
     public Grid(bool editor)
     {
@@ -38,9 +42,9 @@ public class Grid
             new GridLayer("FG3", -0.2f, false),
             new GridLayer("Mid1", 0.0f, false),
             new GridLayer("Mid2", 0.0f, false),
-            new GridLayer("Mid3", 0.0f, false),
-            new GridLayer("BG1", 0.3f, true),
-            new GridLayer("BG2", 0.4f, true),
+            new GridLayer("Mid3", 0.0f, true),
+            new GridLayer("BG1", 0.1f, true),
+            new GridLayer("BG2", 0.3f, true),
             new GridLayer("BG3", 0.5f, true),
             new GridLayer("BG4", 0.6f, true),
             new GridLayer("BG5", 0.8f, true),
@@ -72,11 +76,35 @@ public class Grid
 
     public void Draw(SpriteBatch spriteBatch)
     {
-        Main.Graphics.Clear(BackgroundColor);
+        // Debug.Log($"Size: {size}");
+        Rectangle originalScissor = Main.Graphics.ScissorRectangle;
 
+
+        // convert the world-space grid bounds to screen space
+        Vector2 topLeft = Camera.Instance.WorldToScreen(Vector2.Zero);
+        Vector2 bottomRight = Camera.Instance.WorldToScreen(new Vector2(size.X * 16, size.Y * 16));
+
+        Rectangle scissorRect = new Rectangle(topLeft.ToPoint(), (bottomRight - topLeft).ToPoint());
+        Main.Graphics.ScissorRectangle = scissorRect;
+
+        BackgroundPass(spriteBatch);
         LayerPass(spriteBatch);
         OutlinePass(spriteBatch);
         GridLinePass(spriteBatch);
+
+        Main.Graphics.ScissorRectangle = originalScissor;
+    }
+
+    void BackgroundPass(SpriteBatch spriteBatch)
+    {
+        Color original = ColorManager.Get(BackgroundColorIndex);
+        Color opaque = new Color(original.R, original.G, original.B, (byte)255);
+
+        Main.Graphics.Clear(Color.Black);
+
+        spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.NonPremultiplied, SamplerState.PointClamp, null, _rasterizerState, null, Camera.Instance.Transform);
+        spriteBatch.Draw(TextureManager.Get("pixel"), new Rectangle(Point.Zero, new Point(size.X * 16, size.Y * 16)), opaque);
+        spriteBatch.End();
     }
 
     void LayerPass(SpriteBatch spriteBatch)
@@ -88,12 +116,12 @@ public class Grid
             {
                 if (layers[layer + 1].HasFog)
                 {
-                    DrawFog(spriteBatch, FogColor);
+                    DrawFog(spriteBatch, ColorManager.Get(FogColorIndex));
                 }
             }
 
             float parallaxFactor = showParallax ? layers[layer].ParallaxFactor : 0.0f;
-            spriteBatch.Begin(SpriteSortMode.Deferred, null, SamplerState.PointClamp, null, null, null, Camera.Instance.GetParallaxTransform(parallaxFactor));
+            spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.NonPremultiplied, SamplerState.PointClamp, null, _rasterizerState, null, Camera.Instance.GetParallaxTransform(parallaxFactor));
 
             foreach (LevelObject levelObject in layers[layer].LevelObjects)
             {
@@ -126,7 +154,7 @@ public class Grid
     void OutlinePass(SpriteBatch spriteBatch)
     {
         float gridParallaxFactor = showParallax ? layers[activeLayer].ParallaxFactor : 0.0f;
-        spriteBatch.Begin(SpriteSortMode.Deferred, null, SamplerState.PointClamp, null, null, null, Camera.Instance.GetParallaxTransform(gridParallaxFactor));
+        spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.NonPremultiplied, SamplerState.PointClamp, null, _rasterizerState, null, Camera.Instance.GetParallaxTransform(gridParallaxFactor));
 
         foreach (var levelObject in layers[activeLayer].LevelObjects)
         {
@@ -143,7 +171,7 @@ public class Grid
     void GridLinePass(SpriteBatch spriteBatch)
     {
         float gridParallaxFactor = showParallax ? layers[activeLayer].ParallaxFactor : 0.0f;
-        spriteBatch.Begin(SpriteSortMode.Deferred, null, SamplerState.PointClamp, null, null, null, Camera.Instance.GetParallaxTransform(gridParallaxFactor));
+        spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.NonPremultiplied, SamplerState.PointClamp, null, null, null, Camera.Instance.GetParallaxTransform(gridParallaxFactor));
 
         if (showGridLines)
         {
@@ -187,7 +215,7 @@ public class Grid
 
     public void DrawFog(SpriteBatch spriteBatch, Color color)
     {
-        spriteBatch.Begin(SpriteSortMode.Deferred, null, SamplerState.PointClamp, null, null);
+        spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.NonPremultiplied, SamplerState.PointClamp, null, _rasterizerState);
 
         Point fogPos = new Point(0, 0);
         Point fogSize = new Point(Main.GameWindow.ClientBounds.Size.X, Main.GameWindow.ClientBounds.Size.Y);
@@ -216,7 +244,7 @@ public class Grid
                 levelObject.SetRotation(levelObjectSaveData.rotation);
                 levelObject.SetFlipX(levelObjectSaveData.flipX);
                 levelObject.SetFlipY(levelObjectSaveData.flipY);
-                levelObject.SetColor(levelObjectSaveData.color);
+                levelObject.SetColorIndex(levelObjectSaveData.colorIndex);
                 levelObject.SetSize(levelObjectSaveData.size);
 
                 AddLevelObject(levelObjectSaveData.layer, levelObject);
@@ -241,6 +269,42 @@ public class Grid
         }
     }
 
+    public bool InsideObject(Point point, int layer, out LevelObject levelObject)
+    {
+        foreach (LevelObject obj in layers[layer].LevelObjects)
+        {
+            if (obj.hitbox.Contains(point))
+            {
+                levelObject = obj;
+                return true;
+            }
+        }
+        
+        levelObject = null;
+        return false;
+    }
+
+    public bool RectInsideObject(Rectangle rect, int layer, out LevelObject levelObject, LevelObject ignore = null)
+    {
+        foreach (LevelObject obj in layers[layer].LevelObjects)
+        {
+            if (obj == ignore) continue;
+            if (!obj.data.solid) continue;
+            if (!obj.hitbox.Intersects(rect)) continue;
+
+            levelObject = obj;
+            return true;
+        }
+
+        levelObject = null;
+        return false;
+    }
+
+    public void SetSize(Point size)
+    {
+        this.size = size;
+    }
+
     public void AddLevelObject(int layer, LevelObject levelObject)
     {
         layers[layer].LevelObjects.Add(levelObject);
@@ -252,14 +316,14 @@ public class Grid
         activeLayer = layer;
     }
 
-    public void SetFogColor(Color color)
+    public void SetFogColorIndex(int index)
     {
-        FogColor = color;
+        FogColorIndex = index;
     }
 
-    public void SetBackgroundColor(Color color)
+    public void SetBackgroundColorIndex(int index)
     {
-        BackgroundColor = color;
+        BackgroundColorIndex = index;
     }
 
     public void SetShowAllLayers(bool value)

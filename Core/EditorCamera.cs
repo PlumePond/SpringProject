@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using SpringProject.Core.Content.Types.LevelObjects;
 using SpringProject.Core.Editor;
 using SpringProject.Core.UI;
 using SpringProject.Core.UserInput;
@@ -13,6 +14,18 @@ public class EditorCamera : Camera
     public EditorCamera(GraphicsDevice graphics, float zoom, Grid grid) : base(graphics, zoom)
     {
         _grid = grid;
+
+        if (Player.Instance == null) return;
+
+        Point windowSize = Main.GameWindow.ClientBounds.Size;
+
+        Point scaledSize = new Point(
+            windowSize.X / (int)Zoom,
+            windowSize.Y / (int)Zoom
+        );
+        var target = Player.Instance.transform;
+        Vector2 targetPosition = new Vector2(target.position.X - scaledSize.X / 2, target.position.Y - scaledSize.Y / 2);
+        Position = targetPosition;
     }
 
     public override void Update(GameTime gameTime)

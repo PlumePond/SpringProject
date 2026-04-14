@@ -16,11 +16,11 @@ public class PlaceObjectCommand : ICommand
     Point _point;
     int _rotation;
     int _layer;
-    Color? _color;
+    int _colorIndex;
 
     LevelObject _levelObject;
 
-    public PlaceObjectCommand(GridPlacement gridPlacement, LevelObjectData levelObjectData, Point point, Grid grid, bool flipX, bool flipY, int rotation, int layer, Color? color)
+    public PlaceObjectCommand(GridPlacement gridPlacement, LevelObjectData levelObjectData, Point point, Grid grid, bool flipX, bool flipY, int rotation, int layer, int colorIndex)
     {
         _gridPlacement = gridPlacement;
         _levelObjectData = levelObjectData;
@@ -30,7 +30,7 @@ public class PlaceObjectCommand : ICommand
         _flipY = flipY;
         _rotation = rotation;
         _layer = layer;
-        _color = color;
+        _colorIndex = colorIndex;
     }
 
     public void Execute()
@@ -41,11 +41,7 @@ public class PlaceObjectCommand : ICommand
         _levelObject.SetFlipX(_flipX);
         _levelObject.SetFlipY(_flipY);
         _levelObject.SetLayer(_layer);
-
-        if (_color != null)
-        {
-            _levelObject.SetColor((Color)_color);
-        }
+        _levelObject.SetColorIndex(_colorIndex);
                     
         _grid.layers[_layer].LevelObjects.Add(_levelObject);
 

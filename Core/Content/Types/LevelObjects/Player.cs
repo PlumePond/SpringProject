@@ -20,19 +20,21 @@ public class Player : Entity
 {
     const float SPEED = 25.0f;
     const float FRICTION = 0.8f;
-    const float JUMP_FORCE = 4f;
+    const float JUMP_FORCE = 4.0f;
 
     public static Player Instance;
     public static ParticleSystem ParticleSystem;
+
+    RayData _rayData;
 
     public override void Initialize(LevelObjectData data, Grid grid, Point position)
     {
         base.Initialize(data, grid, position);
 
         Animator.Add("idle", new Animation(0, 4, 0.15f, true));
-        Animator.Add("walk", new Animation(2, 8, 0.1f, true));
-        Animator.Add("jump", new Animation(3, 6, 0.075f, false));
-        Animator.Add("fall", new Animation(4, 1, 0.1f, false));
+        Animator.Add("walk", new Animation(1, 8, 0.1f, true));
+        Animator.Add("jump", new Animation(2, 6, 0.075f, false));
+        Animator.Add("fall", new Animation(3, 1, 0.1f, false));
 
         Animator.Set("idle");
 
@@ -65,8 +67,8 @@ public class Player : Entity
             startSpeed = 0.1f
         };
 
-        ParticleSystem.Add("big_dust", bigDustData);
-        ParticleSystem.Add("small_dust", smallDustData);
+        ParticleSystem.AddType("big_dust", bigDustData);
+        ParticleSystem.AddType("small_dust", smallDustData);
 
         Instance = this;
     }
@@ -75,7 +77,20 @@ public class Player : Entity
     {
         base.Update(gameTime);
 
+        Raycasting.Cast(grid, layer, hitbox.Center.ToVector2(), Camera.Instance.ScreenToWorld(Input.Get("Cursor").Vector), out _rayData, this, true);
+
         Velocity.X *= FRICTION;
+
+        if (MathF.Abs(Velocity.X) < 0.05f)
+        {
+            Velocity.X = 0f;
+        }
+
+        if (Velocity.Y > 10.0f)
+        {
+            Velocity.Y = 10.0f;
+        }
+
         ParticleSystem.Update(gameTime);
     }
 
@@ -83,6 +98,11 @@ public class Player : Entity
     {
         base.Draw(spriteBatch);
 
+        if (_rayData != null)
+        {
+            Debug.DrawRay(spriteBatch, _rayData, Color.Green, Color.Red);
+        }
+        
         ParticleSystem.Draw(spriteBatch);
     }
 

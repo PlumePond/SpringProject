@@ -1,8 +1,11 @@
 using FontStashSharp;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using NVorbis;
 using SpringProject.Core.Content;
 using SpringProject.Core.Debugging;
+using SpringProject.Core.UI;
+using StbImageSharp;
 using System;
 
 namespace SpringProject.Core.Editor;
@@ -11,8 +14,8 @@ public class LevelObject
 {
     public LevelObjectData data { get; protected set; }
     public Transform transform { get; protected set; }
-    public Color color { get; protected set; } = Color.White;
     public Color tint { get; protected set; } = Color.White;
+    public int colorIndex { get; protected set; } = 0;
     public Rectangle bounds { get; protected set; }
     public Rectangle hitbox { get; protected set; }
     public bool selected { get; protected set; } = false;
@@ -69,7 +72,7 @@ public class LevelObject
         if (transform.flipY) effects |= SpriteEffects.FlipVertically;
 
         Vector2 drawScale = new Vector2((float)size.X / data.sprite.Width, (float)size.Y / data.sprite.Height);
-        Color objectColor = selected ? Color.LightGoldenrodYellow * color : color;
+        Color objectColor = selected ? Color.LightGoldenrodYellow * ColorManager.Get(colorIndex) : ColorManager.Get(colorIndex);
         Rectangle? sourceRect = frame != Point.Zero ? new Rectangle(data.defaultFramePos, frame) : null;
 
         spriteBatch.Draw(data.sprite, drawPos, sourceRect, objectColor * tint, radians, origin, drawScale, effects, 0);
@@ -124,6 +127,7 @@ public class LevelObject
     {
         transform.position = position;
         CalculateBounds();
+        UpdateInfo();
     }
 
     public void SetSize(Point size)
@@ -136,35 +140,45 @@ public class LevelObject
     {
         transform.flipX = flipX;
         CalculateHitbox();
+        UpdateInfo();
     }
 
     public void SetFlipY(bool flipY)
     {
         transform.flipY = flipY;
         CalculateHitbox();
+        UpdateInfo();
     }
 
     public void RotateClockwise()
     {
         transform.rotation = (transform.rotation + 90) % 360;
         CalculateBounds();
+        UpdateInfo();
     }
 
     public void RotateCounterClockwise()
     {
         transform.rotation = (transform.rotation + 270) % 360;
         CalculateBounds();
+        UpdateInfo();
     }
     
     public void SetRotation(int rotation)
     {
         transform.rotation = rotation % 360;
         CalculateBounds();
+        UpdateInfo();
     }
 
-    public void SetColor(Color color)
+    public void SetColorIndex(int index)
     {
-        this.color = color;
+        this.colorIndex = index;
+    }
+
+    public void SetTint(Color tint)
+    {
+        this.tint = tint;
     }
 
     public void SetLayer(int layer)
@@ -175,16 +189,16 @@ public class LevelObject
     public void SetSelected(bool selected)
     {
         this.selected = selected;
+
+        if (selected)
+        {
+            SetInfo();
+        }
     }
 
     public void SetHovered(bool hovered)
     {
         this.hovered = hovered;
-    }
-
-    public void SetTint(Color tint)
-    {
-        this.tint = tint;
     }
 
     public virtual void CalculateBounds()
@@ -218,5 +232,22 @@ public class LevelObject
         }
 
         hitbox = tempHitbox;
+    }
+
+    public virtual void SetInfo()
+    {
+        InfoPanel.ClearElements();
+
+        InfoPanel.AddElement("name", new TextElement(new Point(4, 3), FontManager.Get("body"), data.name, Main.SelectedOutlineColor, Anchor.TopLeft));
+        InfoPanel.AddElement("pos", new TextElement(new Point(4, 13), FontManager.Get("body"), $"pos: ({transform.position.X}, {transform.position.Y})", Color.White, Anchor.TopLeft));
+        InfoPanel.AddElement("color", new TextElement(new Point(4, 23), FontManager.Get("body"), $"color: {colorIndex}", ColorManager.Get(colorIndex), Anchor.TopLeft));
+    }
+
+    public virtual void UpdateInfo()
+    {
+        if (InfoPanel.TryGetElement<TextElement>("pos", out var text))
+        {
+            text.SetText($"pos: ({transform.position.X}, {transform.position.Y})");
+        }
     }
 }

@@ -31,6 +31,11 @@ public class Element
 
     public Action<Element> AddChildEvent;
 
+    public List<Element> Children => _children;
+
+    protected List<Element> _children;
+    protected Element _parent;
+
     public Point AbsolutePosition
     {
         get
@@ -60,11 +65,6 @@ public class Element
             }
         }
     }
-
-    public List<Element> Children => _children;
-
-    protected List<Element> _children;
-    protected Element _parent;
 
     public Element(Point localPosition, Point size, Anchor anchor = Anchor.MiddleCenter)
     {
@@ -180,6 +180,11 @@ public class Element
 
         AddChildEvent?.Invoke(child);
         child.OnParented(this);
+
+        if (Active)
+        {
+            child.SetActive(true);
+        }
     }
 
     public virtual void OnParented(Element parent)

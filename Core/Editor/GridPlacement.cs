@@ -39,8 +39,6 @@ public class GridPlacement
     bool _justPlaced = false;
     Point _mousePos;
 
-    Color _selectedColor = Color.White;
-
     AudioComposite _placeSound => AudioManager.Get("place");
     AudioComposite _removeSound => AudioManager.Get("remove");
     AudioComposite _invalidSound => AudioManager.Get("invalid");
@@ -59,11 +57,6 @@ public class GridPlacement
 
         _resizeHandleTexture = TextureManager.Get("resize_handle");
         _resizeHandleSelectedTexture = TextureManager.Get("resize_handle_selected");
-    }
-
-    public void SelectColor(Color color)
-    {
-        _selectedColor = color;
     }
 
     public void Update(GameTime gameTime)
@@ -434,7 +427,7 @@ public class GridPlacement
             bool atLeftEdge   = Math.Abs(mousePos.X - selectedObject.hitbox.Left)   < resizeDistance;
             bool atRightEdge  = Math.Abs(mousePos.X - selectedObject.hitbox.Right)  < resizeDistance;
 
-            // Begin drag
+            // begin drag
             if (Input.Get("select").Pressed && _activeHandle == ResizeHandle.None)
             {
                 ResizeHandle handle = ResizeHandle.None;
@@ -595,7 +588,7 @@ public class GridPlacement
         {
             int snapSize = _selectedObjectData.enforceGrid ? (int)SnapSize.Whole : (int)_snapSize;
             Point snappedPos = CalculateSmartPlacement(_selectedObjectData, mousePos, snapSize, _rotation, out bool invalidPlacement);
-            Color objectColor = _grid.colorObjects ? _selectedColor : Color.White;
+            Color objectColor = _grid.colorObjects ? ColorManager.SelectedColor : Color.White;
             Color color = invalidPlacement ? Color.Red * 0.5f : objectColor * 0.5f;
             DrawPlacementPreview(spriteBatch, _selectedObjectData, snappedPos, _rotation, _flipX, _flipY, color);
         }
@@ -666,7 +659,7 @@ public class GridPlacement
 
     public void PlaceObject(LevelObjectData levelObjectData, Point point, int layer)
     {
-        CommandInvoker.Execute(new PlaceObjectCommand(this, levelObjectData, point, _grid, _flipX, _flipY, _rotation, layer, _grid.colorObjects ? _selectedColor : null));
+        CommandInvoker.Execute(new PlaceObjectCommand(this, levelObjectData, point, _grid, _flipX, _flipY, _rotation, layer, _grid.colorObjects ? ColorManager.SelectedColorIndex : 0));
 
         _placeSound.Play();
 
@@ -723,7 +716,7 @@ public class GridPlacement
 
         Point framedSize = (data.frame != Point.Zero) ? data.frame : data.size;
 
-        // Calculate the hitbox offset from the object's origin
+        // calculate the hitbox offset from the object's origin
         Point hitboxOffset = Point.Zero;
         if (!data.hitbox.Equals(Rectangle.Empty))
         {
@@ -749,8 +742,8 @@ public class GridPlacement
             for (int dy = -maxOffsetY; dy <= maxOffsetY; dy += snapSize)
             {
                 Point candidate = new Point(snappedMouse.X + dx, snappedMouse.Y + dy);
-                int distSq = (candidate.X - centeredPosition.X) * (candidate.X - centeredPosition.X)
-                        + (candidate.Y - centeredPosition.Y) * (candidate.Y - centeredPosition.Y);
+
+                int distSq = (int)Math.Pow(candidate.X - centeredPosition.X, 2) +  (int)Math.Pow(candidate.Y - centeredPosition.Y, 2);
                 candidates.Add((candidate, distSq));
             }
         }
@@ -762,7 +755,7 @@ public class GridPlacement
             if (!OverlapsExistingObject(candidate, framedSize, rotation, ignoreObject))
             {
                 invalidPlacement = false;
-                // Subtract hitbox offset so the object's transform position is correct
+                // subtract hitbox offset so the object's transform position is correct
                 return new Point(candidate.X - hitboxOffset.X, candidate.Y - hitboxOffset.Y);
             }
         }
