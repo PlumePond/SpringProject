@@ -42,7 +42,7 @@ public class ConveyorBelt : LevelObject
         _animator.Add("idle", new Animation(0, frameCount, FrameInterval, true));
         _animator.Set("idle");
 
-        var collider = AddComponent<Collider>();
+        var collider = AddComponent<BoxCollider>();
         collider.CollisionEnter += OnCollisionEnter;
         collider.CollisionExit += OnCollisionExit;
 

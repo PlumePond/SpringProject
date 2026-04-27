@@ -113,22 +113,16 @@ public class Rigidbody : Component
 
             foreach (var other in LevelObject.grid.layers[LevelObject.layer].LevelObjects)
             {
-                if (!_collider.Collided(other, nextHitboxX)) continue;
+                var otherCollider = other.GetComponent<Collider>(); // only objects with a collider
+                if (otherCollider == null) continue;
+                if (!_collider.CanCollideWith(other)) continue; // skips itself and non-solid objects
+                if (!otherCollider.Overlaps(nextHitboxX)) continue;
 
-                if (_velocity.X > 0 && other.hitbox.Left >= nextHitboxX.Left)
+                if (otherCollider.ResolveX(ref _position, ref ExternalVelocity, ref InternalVelocity, nextHitboxX, hitboxOffset))
                 {
-                    _position.X = other.hitbox.Left - LevelObject.hitbox.Width - hitboxOffset.X;
-                    ExternalVelocity.X = 0;
-                    InternalVelocity.X = 0;
-                    _velocity.X = 0;
-                    break;
-                }
-                else if (Velocity.X < 0 && other.hitbox.Right <= nextHitboxX.Right)
-                {
-                    _position.X = other.hitbox.Right - hitboxOffset.X;
-                    ExternalVelocity.X = 0;
-                    InternalVelocity.X = 0;
-                    _velocity.X = 0;
+                    InternalVelocity.X = 0f;
+                    ExternalVelocity.X = 0f;
+                    _velocity.X = 0f;
                     break;
                 }
             }
@@ -137,15 +131,15 @@ public class Rigidbody : Component
             {
                 if (_velocity.X > 0 && nextHitboxX.Right > LevelObject.size.X * LevelObject.grid.GridSize)
                 {
-                    ExternalVelocity.X = 0;
                     InternalVelocity.X = 0;
+                    ExternalVelocity.X = 0;
                     _velocity.X = 0;
                     _position.X = LevelObject.grid.size.X * LevelObject.grid.GridSize - LevelObject.hitbox.Width - hitboxOffset.X;
                 }
                 else if (Velocity.X < 0 && nextHitboxX.Left < 0)
                 {
-                    ExternalVelocity.X = 0;
                     InternalVelocity.X = 0;
+                    ExternalVelocity.X = 0;
                     _velocity.X = 0;
                     _position.X = 0 - hitboxOffset.X;
                 }
@@ -161,22 +155,16 @@ public class Rigidbody : Component
 
             foreach (var other in LevelObject.grid.layers[LevelObject.layer].LevelObjects)
             {
-                if (!_collider.Collided(other, nextHitboxY)) continue;
+                var otherCollider = other.GetComponent<Collider>(); // only objects with a collider
+                if (otherCollider == null) continue;
+                if (!_collider.CanCollideWith(other)) continue; // skips itself and non-solid objects
+                if (!otherCollider.Overlaps(nextHitboxY)) continue;
 
-                if (_velocity.Y > 0 && other.hitbox.Top >= nextHitboxY.Top)
+                if (otherCollider.ResolveY(ref _position, ref ExternalVelocity, ref InternalVelocity, nextHitboxY, hitboxOffset))
                 {
-                    _position.Y = other.hitbox.Top - LevelObject.hitbox.Height - hitboxOffset.Y;
-                    ExternalVelocity.Y = 0;
-                    InternalVelocity.Y = 0;
-                    _velocity.Y = 0;
-                    break;
-                }
-                else if (_velocity.Y < 0 && other.hitbox.Bottom <= nextHitboxY.Bottom)
-                {
-                    _position.Y = other.hitbox.Bottom - hitboxOffset.Y;
-                    ExternalVelocity.Y = 0;
-                    InternalVelocity.Y = 0;
-                    _velocity.Y = 0;
+                    InternalVelocity.Y = 0f;
+                    ExternalVelocity.Y = 0f;
+                    _velocity.Y = 0f;
                     break;
                 }
             }
@@ -185,15 +173,15 @@ public class Rigidbody : Component
             {
                 if (_velocity.Y > 0 && nextHitboxY.Bottom > LevelObject.grid.size.Y * LevelObject.grid.GridSize)
                 {
-                    ExternalVelocity.Y = 0;
                     InternalVelocity.Y = 0;
+                    ExternalVelocity.Y = 0;
                     _velocity.Y = 0;
                     _position.Y = LevelObject.grid.size.Y * LevelObject.grid.GridSize - LevelObject.hitbox.Height - hitboxOffset.Y;
                 }
                 else if (_velocity.Y < 0 && nextHitboxY.Top < 0)
                 {
-                    ExternalVelocity.Y = 0;
                     InternalVelocity.Y = 0;
+                    ExternalVelocity.Y = 0;
                     _velocity.Y = 0;
                     _position.Y = 0 - hitboxOffset.Y;
                 }

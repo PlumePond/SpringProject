@@ -18,6 +18,8 @@ public class Tile : LevelObject
     public override void Initialize(LevelObjectData data, Grid grid, Point position)
     {
         base.Initialize(data, grid, position);
+
+        AddComponent<BoxCollider>();
     }
 
     public override void OnPlaced()

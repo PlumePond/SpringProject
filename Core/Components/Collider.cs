@@ -5,43 +5,51 @@ using SpringProject.Core.Editor;
 
 namespace SpringProject.Core.Components;
 
-public class Collider : Component
+public abstract class Collider : Component
 {
     public Action<Collider> CollisionEnter;
     public Action<Collider> CollisionExit;
 
     public Rectangle Bounds => LevelObject.hitbox;
 
-    public virtual bool Collided(LevelObject levelObject, Rectangle hitbox)
+    /// <summary>
+    /// Determines whether the Collider should be considered.
+    /// </summary>
+    public virtual bool CanCollideWith(LevelObject other)
     {
-        if (levelObject == LevelObject) return false;
-        if (!levelObject.data.solid) return false;
-        if (!hitbox.Intersects(levelObject.hitbox)) return false;
-
+        if (other == LevelObject) return false;
+        if (!other.data.solid) return false;
         return true;
     }
 
+    /// <summary>
+    /// Does the hitbox overlap even? If so then, yes, check for collisions perchance.
+    /// </summary>
+    public virtual bool Overlaps(Rectangle movingHitbox)
+    {
+        return movingHitbox.Intersects(Bounds);
+    }
+
+    /// <summary>
+    /// Resolves X-axis collision. Returns true if velocity is blocked.
+    /// </summary>
+    public abstract bool ResolveX(ref Vector2 position, ref Vector2 internalVelocity, ref Vector2 externalVelocity, Rectangle nextHitbox, Point hitboxOffset);
+
+    /// <summary>
+    /// Resolves Y-axis collision. Returns true if velocity is blocked.
+    /// </summary>
+    public abstract bool ResolveY(ref Vector2 position, ref Vector2 internalVelocity, ref Vector2 externalVelocity, Rectangle nextHitbox, Point hitboxOffset);
+
+    /// <summary>
+    /// Returns true if the Collider went outside the world's bounds.
+    /// </summary>
     public virtual bool CollidedWithBorders(Rectangle hitbox)
     {
-        int gridSize = 16;
+        var borderRight = LevelObject.grid.size.X * LevelObject.grid.GridSize;
+        var borderLeft = 0;
+        var borderTop = 0;
+        var borderBottom = LevelObject.grid.size.Y * LevelObject.grid.GridSize;
 
-        if (hitbox.Bottom > LevelObject.grid.size.Y * gridSize)
-        {
-            return true;
-        }
-        if (hitbox.Top < 0)
-        {
-            return true;
-        }
-        if (hitbox.Left < 0)
-        {
-            return true;
-        }
-        if (hitbox.Right > LevelObject.grid.size.X * gridSize)
-        {
-            return true;
-        }
-
-        return false;
+        return hitbox.Right > borderRight || hitbox.Left < borderLeft || hitbox.Bottom > borderBottom || hitbox.Top < borderTop;
     }
 }

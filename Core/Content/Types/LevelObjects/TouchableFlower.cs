@@ -30,7 +30,7 @@ public class TouchableFlower : LevelObject
         _animator.Set("default");
 
         
-        AddComponent<Collider>().CollisionEnter += OnCollisionEnter;
+        AddComponent<BoxCollider>().CollisionEnter += OnCollisionEnter;
     }
 
     void OnCollisionEnter(Collider other)

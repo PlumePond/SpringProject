@@ -11,6 +11,23 @@ namespace SpringProject.Core.Cont.Types.LevelObjects;
 
 public class SlopeTile : Tile
 {
+    SlopeCollider _collider;
+
+    public override void Initialize(LevelObjectData data, Grid grid, Point position)
+    {
+        base.Initialize(data, grid, position);
+
+        RemoveComponent<BoxCollider>();
+        _collider = AddComponent<SlopeCollider>();
+    }
+
+    public override void SetFlipX(bool flipX)
+    {
+        base.SetFlipX(flipX);
+
+        _collider.Direction = flipX ? SlopeDirection.RisingRight : SlopeDirection.RisingLeft;
+    }
+
     public override void CalculateFrameIndex()
     {
         SetFrame(0); // default to the first frame for slopes

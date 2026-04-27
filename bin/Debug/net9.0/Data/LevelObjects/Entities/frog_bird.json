@@ -1,6 +1,6 @@
 {
     "material": "default",
-    "solid": false,
+    "solid": true,
     "type": "player",
     "frame": {
         "X": 16,

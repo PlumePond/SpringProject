@@ -136,22 +136,6 @@ public class LevelObject
 
     public virtual void DrawDebug(SpriteBatch spriteBatch, Font font)
     {
-        Color hitboxColor = data.solid ? Color.Green : Color.Blue;
-        Debug.DrawRectangle(spriteBatch, hitbox, hitboxColor * 0.25f);
-        
-        if (hovered)
-        {
-            Debug.DrawRectangleOutline(spriteBatch, hitbox, Color.White, 1);   
-        }
-        else if (selected)
-        {
-            Debug.DrawRectangleOutline(spriteBatch, hitbox, Color.Yellow, 1);   
-        }
-        else
-        {
-            Debug.DrawRectangleOutline(spriteBatch, hitbox, hitboxColor, 1);   
-        }
-
         foreach (var component in Components)
         {
             component.DrawDebug(spriteBatch);
@@ -165,20 +149,20 @@ public class LevelObject
         UpdateInfo();
     }
 
-    public void SetSize(Point size)
+    public virtual void SetSize(Point size)
     {
         this.size = size;
         CalculateBounds();
     }
 
-    public void SetFlipX(bool flipX)
+    public virtual void SetFlipX(bool flipX)
     {
         transform.flipX = flipX;
         CalculateHitbox();
         UpdateInfo();
     }
 
-    public void SetFlipY(bool flipY)
+    public virtual void SetFlipY(bool flipY)
     {
         transform.flipY = flipY;
         CalculateHitbox();
@@ -199,7 +183,7 @@ public class LevelObject
         UpdateInfo();
     }
     
-    public void SetRotation(int rotation)
+    public virtual void SetRotation(int rotation)
     {
         transform.rotation = rotation % 360;
         CalculateBounds();

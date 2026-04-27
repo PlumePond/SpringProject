@@ -31,7 +31,7 @@ public class Entity : LevelObject
     public override void Initialize(LevelObjectData data, Grid grid, Point position)
     {
         base.Initialize(data, grid, position);
-        AddComponent<Collider>();
+        AddComponent<BoxCollider>();
         _rigidBody = AddComponent<Rigidbody>();
 
         Animator = AddComponent<Animator>();
@@ -51,7 +51,16 @@ public class Entity : LevelObject
     {
         _groundCheck = new Rectangle(hitbox.Center.X - GroundCheckSize.X / 2, hitbox.Bottom, GroundCheckSize.X, GroundCheckSize.Y);
 
-        if (grid.RectInsideObject(_groundCheck, layer, out var levelObject, this))
+        if (_groundCheck.Bottom > grid.size.Y * 16)
+        {
+            Grounded = true;
+            return;
+        }
+
+        grid.RectInsideObject(_groundCheck, layer, out var levelObject, this);
+        var collider = levelObject?.GetComponent<Collider>();
+
+        if (collider != null && collider.Overlaps(_groundCheck))
         {
             Grounded = true;
             FootstepMaterial = levelObject.data.material;
@@ -59,11 +68,6 @@ public class Entity : LevelObject
         else
         {
             Grounded = false;
-        }
-  
-        if (_groundCheck.Bottom > grid.size.Y * 16)
-        {
-            Grounded = true;
         }
     }
 

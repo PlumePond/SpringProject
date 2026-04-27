@@ -19,7 +19,7 @@ public class CameraBounds : LevelObject
     {
         base.Initialize(data, grid, position);
 
-        var collider = AddComponent<Collider>();
+        var collider = AddComponent<BoxCollider>();
 
         collider.CollisionEnter += OnCollisionEnter;
         collider.CollisionExit += OnCollisionExit;
