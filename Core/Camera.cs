@@ -6,11 +6,12 @@ namespace SpringProject.Core;
 
 public class Camera
 {
-    public Matrix Transform { get; private set; }
+    public Matrix Transform { get; protected set; }
     public Vector2 Position { get; protected set; }
     public float Zoom { get; protected set; } = 1f;
     protected GraphicsDevice _graphics;
     public static Camera Instance;
+    public Rectangle Bounds { get; protected set; }
 
     public Camera(GraphicsDevice graphics, float zoom)
     {
@@ -57,5 +58,10 @@ public class Camera
     {
         Matrix layerTransform = GetParallaxTransform(parallaxFactor);
         return Vector2.Transform(worldPos, layerTransform);
+    }
+
+    public void SetBounds(Rectangle bounds)
+    {
+        Bounds = bounds;
     }
 }

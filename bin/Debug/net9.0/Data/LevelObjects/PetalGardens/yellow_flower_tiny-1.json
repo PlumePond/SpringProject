@@ -1,4 +1,13 @@
 {
     "material": "foliage",
-    "solid": false
+    "solid": false,
+    "type": "touchable_flower",
+    "frame": { "X": 16, "Y": 16 },
+    "placeSound": "plant_touch",
+    "hitbox": {
+        "X": 6,
+        "Y": 8,
+        "Width": 4,
+        "Height": 8
+    }
 }

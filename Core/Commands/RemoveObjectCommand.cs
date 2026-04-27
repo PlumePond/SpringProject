@@ -3,10 +3,11 @@ using Microsoft.Xna.Framework;
 using SpringProject.Core.Commands;
 using SpringProject.Core.Debugging;
 using SpringProject.Core.Editor;
+using SpringProject.Core.UI;
 
 namespace SpringProject.Core.Commands;
 
-public class RemoveObjectCommand : ICommand
+public class RemoveObjectCommand : Command
 {
     GridPlacement _gridPlacement;
     LevelObject _levelObject;
@@ -19,7 +20,7 @@ public class RemoveObjectCommand : ICommand
         _levelObject = levelObject;
     }
 
-    public void Execute()
+    public override void Execute()
     {
         if (_levelObject == _gridPlacement.selectedObject)
         {
@@ -34,14 +35,14 @@ public class RemoveObjectCommand : ICommand
         _levelObject.OnRemoved();
     }
 
-    public void Undo()
+    public override void Undo()
     {
         _grid.layers[_levelObject.layer].LevelObjects.Add(_levelObject);
 
-        Debug.Log($"Undo: Remove Object '{_levelObject.data.name}'");
+        NotificationManager.Notify($"Undo: Remove Object '{_levelObject.data.name}'");
     }
 
-    public void Redo()
+    public override void Redo()
     {
         if (_levelObject == _gridPlacement.selectedObject)
         {
@@ -52,6 +53,6 @@ public class RemoveObjectCommand : ICommand
 
         _gridPlacement.Dehover();
 
-        Debug.Log($"Redo: Remove Object '{_levelObject.data.name}'");
+        NotificationManager.Notify($"Redo: Remove Object '{_levelObject.data.name}'");
     }
 }

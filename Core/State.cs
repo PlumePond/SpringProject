@@ -1,20 +1,19 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using SpringProject.Core.Components;
 using SpringProject.Core.Editor;
 
 namespace SpringProject.Core;
 
-public abstract class State
+public abstract class State<T> where T : LevelObject
 {
-    protected Entity _entity;
-    protected StateMachine _stateMachine;
-    protected Animator _animator;
-
-    public State(Entity entity)
+    protected T _entity;
+    protected StateMachine<T> _stateMachine;
+    
+    public void Initialize(T entity, StateMachine<T> stateMachine)
     {
         _entity = entity;
-        _stateMachine = _entity.StateMachine;
-        _animator = _entity.Animator;
+        _stateMachine = stateMachine;
     }
 
     public virtual void Enter()
@@ -23,6 +22,11 @@ public abstract class State
     }
 
     public virtual void Update(GameTime gameTime)
+    {
+        
+    }
+
+    public virtual void FixedUpdate(GameTime gameTime)
     {
         
     }

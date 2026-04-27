@@ -13,39 +13,55 @@ using SpringProject.Core.UserInput;
 using System.Runtime.InteropServices;
 using SpringProject.Core.Audio;
 using SpringProject.Core.Particles;
+using SpringProject.Core.Commands;
+using SpringProject.Core.Components;
+using System.Data;
+using System.Runtime.CompilerServices;
 
 namespace SpringProject.Core.Content.Types.LevelObjects;
 
 public class Player : Entity
 {
-    const float SPEED = 25.0f;
-    const float FRICTION = 0.8f;
-    const float JUMP_FORCE = 4.0f;
+    [Parameter("Speed", 0f, 1f)] public float Speed = 0.4f;
+    [Parameter("Internal Friction", 0f, 1f)] public float InternalFriction = 0.8f;
+    [Parameter("External Friction", 0f, 1f)] public float ExternalFriction = 0.8f;
+    [Parameter("Ice Friction", 0f, 1f)] public float IceFriction = 0.95f;
+    [Parameter("Ice Speed", 0f, 1f)] public float IceSpeed = 0.4f;
+    [Parameter("Jump Force", 0f, 8f)] public float JumpForce = 4.0f;
+    [Parameter("God Mode")] public bool GodMode = false;
+    [Parameter("Nickname")] public string Nickname = "";
 
     public static Player Instance;
-    public static ParticleSystem ParticleSystem;
-
-    RayData _rayData;
+    public ParticleSystem ParticleSystem;
+    public Rigidbody Rigidbody;
+    public StateMachine<Player> StateMachine;
 
     public override void Initialize(LevelObjectData data, Grid grid, Point position)
     {
         base.Initialize(data, grid, position);
 
+        Rigidbody = GetComponent<Rigidbody>();
+        StateMachine = AddComponent<StateMachine<Player>>();
+
         Animator.Add("idle", new Animation(0, 4, 0.15f, true));
         Animator.Add("walk", new Animation(1, 8, 0.1f, true));
         Animator.Add("jump", new Animation(2, 6, 0.075f, false));
         Animator.Add("fall", new Animation(3, 1, 0.1f, false));
+        Animator.Add("turn", new Animation(5, 3, 0.075f, false));
 
         Animator.Set("idle");
 
-        StateMachine.Add("idle", new Idle(this));
-        StateMachine.Add("walk", new Walk(this));
-        StateMachine.Add("jump", new Jump(this));
-        StateMachine.Add("fall", new Fall(this));
+        Animator.IterateFrameEvent += StateMachine.IterateFrame;
+
+        StateMachine.Add<Idle>("idle");
+        StateMachine.Add<Walk>("walk");
+        StateMachine.Add<Jump>("jump");
+        StateMachine.Add<Fall>("fall");
+        StateMachine.Add<Turn>("turn");
         
         StateMachine.Set("idle");
 
-        ParticleSystem = new ParticleSystem();
+        ParticleSystem = AddComponent<ParticleSystem>();
 
         var bigDustData = new ParticleData
         {
@@ -73,48 +89,43 @@ public class Player : Entity
         Instance = this;
     }
 
-    public override void Update(GameTime gameTime)
+    public override void FixedUpdate(GameTime gameTime)
     {
-        base.Update(gameTime);
+        base.FixedUpdate(gameTime);
 
-        Raycasting.Cast(grid, layer, hitbox.Center.ToVector2(), Camera.Instance.ScreenToWorld(Input.Get("Cursor").Vector), out _rayData, this, true);
-
-        Velocity.X *= FRICTION;
-
-        if (MathF.Abs(Velocity.X) < 0.05f)
+        if (MathF.Abs(Rigidbody.InternalVelocity.X) < 0.05f)
         {
-            Velocity.X = 0f;
+            Rigidbody.InternalVelocity.X = 0f;
         }
 
-        if (Velocity.Y > 10.0f)
+        if (Rigidbody.InternalVelocity.Y > 10.0f)
         {
-            Velocity.Y = 10.0f;
+            Rigidbody.InternalVelocity.Y = 10.0f;
         }
 
-        ParticleSystem.Update(gameTime);
+        ApplyFriction();
     }
 
-    public override void Draw(SpriteBatch spriteBatch)
+    public void ApplyFriction()
     {
-        base.Draw(spriteBatch);
+        var groundFriction = FootstepMaterial == Material.Ice ? IceFriction : InternalFriction;
+        Rigidbody.InternalVelocity.X *= groundFriction;
 
-        if (_rayData != null)
-        {
-            Debug.DrawRay(spriteBatch, _rayData, Color.Green, Color.Red);
-        }
-        
-        ParticleSystem.Draw(spriteBatch);
+        Rigidbody.ExternalVelocity.X *= Grounded ? groundFriction : ExternalFriction;
     }
 
-    class Idle : State
+    public void ApplyMovement()
     {
-        public Idle(Entity entity) : base(entity)
-        {
-        }
+        Point moveInput = Input.Get("move").Point;
+        var speed = FootstepMaterial == Material.Ice ? IceSpeed : Speed;
+        Rigidbody.InternalVelocity.X += moveInput.X * speed;
+    }
 
+    class Idle : State<Player>
+    {
         public override void Enter()
         {
-            _animator.Set("idle");
+            _entity.Animator.Set("idle");
         }
 
         public override void Update(GameTime gameTime)
@@ -136,32 +147,24 @@ public class Player : Entity
         }
     }
 
-    class Walk : State
+    class Walk : State<Player>
     {
-        public Walk(Entity entity) : base(entity)
-        {
-        }
-
         public override void Enter()
         {
-            _animator.Set("walk");
+            _entity.Animator.Set("walk");
         }
 
         public override void Update(GameTime gameTime)
         {
-            float deltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
-
             Point moveInput = Input.Get("move").Point;
 
-            _entity.Velocity.X += moveInput.X * SPEED * deltaTime;
-
-            if (moveInput.X > 0)
+            if (moveInput.X > 0 && _entity.transform.flipX)
             {
-                _entity.SetFlipX(false);
+                _stateMachine.Set("turn");
             }
-            else if (moveInput.X < 0)
+            else if (moveInput.X < 0 && !_entity.transform.flipX)
             {
-                _entity.SetFlipX(true);
+                _stateMachine.Set("turn");
             }
 
             if (Input.Get("jump").Pressed && _entity.Grounded)
@@ -180,47 +183,53 @@ public class Player : Entity
             }
         }
 
+        public override void FixedUpdate(GameTime gameTime)
+        {
+            _entity.ApplyMovement();
+        }
+
         public override void IterateFrame(int frame)
         {
             Vector2 pos = new Vector2(_entity.transform.position.X, _entity.transform.position.Y + 6);
 
             if (frame == 2)
             {
-                AudioManager.Get("hop_left").Play();
-                ParticleSystem.Burst("small_dust", pos, 2, 3, 5f, 0f);
+                var hopSound = AudioManager.Get("hop_left");
+                hopSound.SetChannel("sfx");
+                hopSound.Play();
+                _entity.ParticleSystem.Burst("small_dust", pos, 2, 3, 5f, 0f);
             }
             else if (frame == 6)
             {
-                AudioManager.Get("hop_right").Play();
-                ParticleSystem.Burst("small_dust", pos, 2, 3, 5f, 0f);
+                var hopSound = AudioManager.Get("hop_right");
+                hopSound.SetChannel("sfx");
+                hopSound.Play();
+                _entity.ParticleSystem.Burst("small_dust", pos, 2, 3, 5f, 0f);
             }
         }
     }
 
-    class Jump : State
+    class Jump : State<Player>
     {
-        public Jump(Entity entity) : base(entity)
-        {
-        }
-
         public override void Enter()
         {
-            _animator.Set("jump");
-            _entity.Velocity.Y = -JUMP_FORCE;
-            AudioManager.Get("jump").Play();
-            AudioManager.Get($"step_{_entity.FootstepMaterial.ToString().ToLower()}").Play();
+            _entity.Animator.Set("jump");
+            _entity.Rigidbody.InternalVelocity.Y = -_entity.JumpForce;
 
+            var jumpSound = AudioManager.Get("jump");
+            jumpSound.SetChannel("sfx");
+            jumpSound.Play();
+
+            var footSound = AudioManager.Get($"step_{_entity.FootstepMaterial.ToString().ToLower()}");
+            footSound.SetChannel("sfx");
+            footSound.Play();
             Vector2 pos = new Vector2(_entity.transform.position.X, _entity.transform.position.Y + 5);
-            ParticleSystem.Burst("big_dust", pos, 2, 3, 10f, 7f);
+            _entity.ParticleSystem.Burst("big_dust", pos, 2, 3, 10f, 7f);
         }
 
         public override void Update(GameTime gameTime)
         {
-            float deltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
-
             Point moveInput = Input.Get("move").Point;
-
-            _entity.Velocity.X += moveInput.X * SPEED * deltaTime;
 
             if (moveInput.X > 0)
             {
@@ -231,44 +240,81 @@ public class Player : Entity
                 _entity.SetFlipX(true);
             }
 
-            if (_entity.Velocity.Y > 0.1f)
+            if (_entity.Rigidbody.Velocity.Y > 0f)
             {
                 _stateMachine.Set("fall");
             }
 
             if (Input.Get("jump").Released)
             {
-                _entity.Velocity.Y *= 0.3f;
+                _entity.Rigidbody.InternalVelocity.Y *= 0.3f;
             }
+        }
+
+        public override void FixedUpdate(GameTime gameTime)
+        {
+            _entity.ApplyMovement();
         }
     }
 
-    class Fall : State
+    class Fall : State<Player>
     {
-        public Fall(Entity entity) : base(entity)
-        {
-        }
-
         public override void Enter()
         {
-            _animator.Set("fall");
+            _entity.Animator.Set("fall");
         }
 
         public override void Update(GameTime gameTime)
         {
-            float deltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
-
-            Point moveInput = Input.Get("move").Point;
-
-            _entity.Velocity.X += moveInput.X * SPEED * deltaTime;
-
             if (_entity.Grounded)
             {
                 _stateMachine.Set("idle");
-                AudioManager.Get($"step_{_entity.FootstepMaterial.ToString().ToLower()}").Play();
+                var landSound = AudioManager.Get($"step_{_entity.FootstepMaterial.ToString().ToLower()}");
+                landSound.SetChannel("sfx");
+                landSound.Play();
 
                 Vector2 pos = new Vector2(_entity.transform.position.X, _entity.transform.position.Y + 10);
-                ParticleSystem.Burst("small_dust", pos, 4, 5, 15f, 1f);
+                _entity.ParticleSystem.Burst("small_dust", pos, 4, 5, 15f, 1f);
+            }
+        }
+
+        public override void FixedUpdate(GameTime gameTime)
+        {
+            _entity.ApplyMovement();
+        }
+    }
+
+    class Turn : State<Player>
+    {
+        public override void Enter()
+        {
+            _entity.Animator.Set("turn");
+        }
+
+        public override void Update(GameTime gameTime)
+        {
+            if (Input.Get("jump").Pressed && _entity.Grounded)
+            {
+                _stateMachine.Set("jump");
+            }
+
+            if (!_entity.Grounded)
+            {
+                _stateMachine.Set("fall");
+            }
+        }
+
+        public override void FixedUpdate(GameTime gameTime)
+        {
+            _entity.ApplyMovement();
+        }
+
+        public override void IterateFrame(int frame)
+        {
+            if (frame >= _entity.Animator.CurrentAnimation.FrameCount)
+            {
+                _entity.SetFlipX(!_entity.transform.flipX);
+                _stateMachine.Set("idle");
             }
         }
     }

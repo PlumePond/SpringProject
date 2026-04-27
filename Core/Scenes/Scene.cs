@@ -80,6 +80,11 @@ public abstract class Scene
         }
     }
 
+    public virtual void FixedUpdate(GameTime gameTime)
+    {
+
+    }
+
     public virtual void Draw(SpriteBatch spriteBatch)
     {
         if (ActiveCanvas.Active)

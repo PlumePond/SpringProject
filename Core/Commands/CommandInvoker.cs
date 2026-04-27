@@ -1,14 +1,15 @@
 using System.Collections.Generic;
 using SpringProject.Core.Debugging;
+using SpringProject.Core.UI;
 
 namespace SpringProject.Core.Commands;
 
 public static class CommandInvoker
 {
-    static readonly Stack<ICommand> _undoStack = new Stack<ICommand>();
-    static readonly Stack<ICommand> _redoStack = new Stack<ICommand>();
+    static readonly Stack<Command> _undoStack = new Stack<Command>();
+    static readonly Stack<Command> _redoStack = new Stack<Command>();
 
-    public static void Execute(ICommand command)
+    public static void Execute(Command command)
     {
         command.Execute();
         _undoStack.Push(command);

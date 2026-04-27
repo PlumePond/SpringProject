@@ -13,17 +13,24 @@ namespace SpringProject.Core.UI;
 
 public class InfoPanel : Panel
 {
-    static InfoPanel _instance;
     static Dictionary<string, Element> _elements = new Dictionary<string, Element>();
+    public static ArrayElement ArrayElement;
+    public static ScrollRect ScrollRect;
+
+    public static InfoPanel Instance;
 
     public InfoPanel(Point position, Point size, Anchor anchor, string textureName, int cornerSize = 3) : base(position, size, anchor, textureName, cornerSize)
     {
+        ScrollRect = new ScrollRect(Point.Zero, new Point(size.X - 5, size.Y - 5), Anchor.MiddleCenter);
+        AddChild(ScrollRect);
+        ArrayElement = new ArrayElement(Point.Zero, ScrollRect.size, 1, ArrayDirection.Down, Anchor.TopCenter );
+        ArrayElement.UpdateSizeEvent += (Point newSize) => {ScrollRect.CalculateContentHeight();};
+        ScrollRect.AddChild(ArrayElement);
     }
 
     public override void OnEnable()
     {
-        Debug.Log("ENABLED!");
-        _instance = this;
+        Instance = this;
     }
     
     /// <summary>
@@ -40,7 +47,7 @@ public class InfoPanel : Panel
         }
         else
         {
-            _instance.AddChild(element);
+            ArrayElement.AddChild(element);
             _elements.Add(name, element);
         }
     }
@@ -49,7 +56,7 @@ public class InfoPanel : Panel
     {
         if (_elements.TryGetValue(name, out Element element))
         {
-            _instance.Children.Remove(element);
+            ArrayElement.Children.Remove(element);
         }
         else
         {
@@ -84,6 +91,6 @@ public class InfoPanel : Panel
     public static void ClearElements()
     {
         _elements.Clear();
-        _instance.ClearChildren();
+        ArrayElement.ClearChildren();
     }
 }

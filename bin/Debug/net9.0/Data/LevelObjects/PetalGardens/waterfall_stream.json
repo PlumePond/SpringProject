@@ -1,0 +1,6 @@
+{
+    "material": "water",
+    "solid": false,
+    "type": "animated_object",
+    "frame": { "X": 16, "Y": 16 }
+}

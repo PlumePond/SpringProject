@@ -41,3 +41,11 @@ C:\Users\doubl\SpringProject\bin\Debug\net9.0\StbTrueTypeSharp.dll
 C:\Users\doubl\SpringProject\bin\Debug\net9.0\Newtonsoft.Json.dll
 C:\Users\doubl\SpringProject\bin\Debug\net9.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
 C:\Users\doubl\SpringProject\bin\Debug\net9.0\TextCopy.dll
+C:\Users\doubl\SpringProject\bin\Debug\net9.0\OpenAL32.dll
+C:\Users\doubl\SpringProject\bin\Debug\net9.0\Microsoft.DotNet.PlatformAbstractions.dll
+C:\Users\doubl\SpringProject\bin\Debug\net9.0\Microsoft.Extensions.DependencyModel.dll
+C:\Users\doubl\SpringProject\bin\Debug\net9.0\Silk.NET.Core.dll
+C:\Users\doubl\SpringProject\bin\Debug\net9.0\Silk.NET.OpenAL.dll
+C:\Users\doubl\SpringProject\bin\Debug\net9.0\Silk.NET.OpenAL.Extensions.Soft.dll
+C:\Users\doubl\SpringProject\bin\Debug\net9.0\Silk.NET.OpenAL.Extensions.Creative.dll
+C:\Users\doubl\SpringProject\bin\Debug\net9.0\Silk.NET.OpenAL.Extensions.EXT.dll

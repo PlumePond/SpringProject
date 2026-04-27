@@ -1,0 +1,19 @@
+{
+    "material": "grass",
+    "solid": true,
+    "type": "tile",
+    "frameOutline": true,
+    "enforceGrid": true,
+    "frame": {
+        "X": 16,
+        "Y": 16
+    },
+    "defaultFramePos": {
+        "X": 48,
+        "Y": 48
+    },
+    "tags": [
+        "petal",
+        "stone"
+    ]
+}

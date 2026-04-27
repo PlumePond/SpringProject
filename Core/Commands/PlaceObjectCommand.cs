@@ -3,10 +3,11 @@ using Microsoft.Xna.Framework;
 using SpringProject.Core.Commands;
 using SpringProject.Core.Debugging;
 using SpringProject.Core.Editor;
+using SpringProject.Core.UI;
 
 namespace SpringProject.Core.Commands;
 
-public class PlaceObjectCommand : ICommand
+public class PlaceObjectCommand : Command
 {
     GridPlacement _gridPlacement;
     LevelObjectData _levelObjectData;
@@ -33,7 +34,7 @@ public class PlaceObjectCommand : ICommand
         _colorIndex = colorIndex;
     }
 
-    public void Execute()
+    public override void Execute()
     {
         _levelObject = (LevelObject)Activator.CreateInstance(_levelObjectData.type);
         _levelObject.Initialize(_levelObjectData, _grid, _point);
@@ -49,7 +50,7 @@ public class PlaceObjectCommand : ICommand
         _levelObject.OnPlaced();
     }
 
-    public void Undo()
+    public override void Undo()
     {
         if (_levelObject == _gridPlacement.selectedObject)
         {
@@ -58,13 +59,13 @@ public class PlaceObjectCommand : ICommand
 
         _grid.layers[_levelObject.layer].LevelObjects.Remove(_levelObject);
 
-        Debug.Log($"Undo: Place Object '{_levelObjectData.name}'");
+        NotificationManager.Notify($"Undo: Place Object '{_levelObject.data.name}'");
     }
 
-    public void Redo()
+    public override void Redo()
     {
         _grid.layers[_levelObject.layer].LevelObjects.Add(_levelObject);
 
-        Debug.Log($"Redo: Place Object '{_levelObjectData.name}'");
+        NotificationManager.Notify($"Redo: Place Object '{_levelObject.data.name}'");
     }
 }

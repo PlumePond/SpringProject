@@ -1,6 +1,6 @@
 namespace SpringProject.Core;
 
-public struct Animation
+public class Animation
 {
     public int Index { get; set; }
     public int FrameCount { get; set; }

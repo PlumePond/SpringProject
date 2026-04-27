@@ -18,10 +18,12 @@ public class ScrollRect : Element
 
     public Action<float> ScrollEvent;
     public Action<bool> UpdateCanScrollEvent;
+
+    Rectangle _scissorRect;
     
     public ScrollRect(Point localPosition, Point size, Anchor anchor = Anchor.MiddleCenter) : base(localPosition, size, anchor)
     {
-        
+        _scissorRect = new Rectangle(AbsolutePosition * new Point(Main.Settings.UISize), size * AbsoluteScale.ToPoint() * new Point(Main.Settings.UISize));
     }
 
     public override void Update(GameTime gameTime)
@@ -69,8 +71,8 @@ public class ScrollRect : Element
         };
 
         Rectangle originalScissor = Main.Graphics.ScissorRectangle;
-        Rectangle scissorRect = new Rectangle(AbsolutePosition * new Point(Main.Settings.UISize), size * AbsoluteScale.ToPoint() * new Point(Main.Settings.UISize));
-        Main.Graphics.ScissorRectangle = scissorRect;
+        _scissorRect = new Rectangle(AbsolutePosition * new Point(Main.Settings.UISize), size * AbsoluteScale.ToPoint() * new Point(Main.Settings.UISize));
+        Main.Graphics.ScissorRectangle = _scissorRect;
 
         // draw children
         spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, SamplerState.PointClamp, null, rasterizerState, null, Main.UIMatrtix);
@@ -93,6 +95,7 @@ public class ScrollRect : Element
 
         CalculateContentHeight();
         child.AddChildEvent += OnChildAddChild;
+        child.SetClippingBounds(Bounds);
     }
 
     public void SetScroll(float ratio)
@@ -107,7 +110,7 @@ public class ScrollRect : Element
         }
     }
 
-    void CalculateContentHeight()
+    public void CalculateContentHeight()
     {
         int maxY = size.Y;
 

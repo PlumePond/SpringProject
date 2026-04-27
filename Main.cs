@@ -16,6 +16,7 @@ using System.Net;
 using SpringProject.Core.SaveSystem;
 using SpringProject.Core.Scenes;
 using System.Collections.Generic;
+using Microsoft.Xna.Framework.Audio;
 
 namespace SpringProject;
 
@@ -50,6 +51,11 @@ public class Main : Game
     public static Color SelectedOutlineColor = new Color(255, 187, 15);
     public static Color SelectedTintColor = new Color(255, 187, 15);
 
+    double _accumulator = 0.0f;
+    public const double FIXED_TIMESTEP = 1.0 / 60.0;
+    const int MAX_STEPS = 5;
+    GameTime _fixedGameTime = new GameTime(TimeSpan.Zero, TimeSpan.FromSeconds(FIXED_TIMESTEP));
+
     private static Dictionary<Type, Scene> _sceneCache = new();
 
     public Main()
@@ -64,6 +70,9 @@ public class Main : Game
 
     protected override void Initialize()
     {
+        AudioManager.CreateChannel("ambience");
+        AudioManager.CreateChannel("sfx");
+
         // window setup
         _graphics.HardwareModeSwitch = false; // important for borderless windowed mode to work properly
         Window.AllowUserResizing = true;
@@ -76,12 +85,20 @@ public class Main : Game
         _graphics.ApplyChanges();
     }
 
+    bool _audioInitialized = false;
+
     protected override void LoadContent()
     {
         _spriteBatch = new SpriteBatch(GraphicsDevice);
 
-        // loads all content needed for the game
-        Loader.Load("Data", GraphicsDevice);
+        if (!_audioInitialized)
+        {
+            var dummy = new DynamicSoundEffectInstance(44100, AudioChannels.Stereo);
+            dummy.Dispose();
+            // loads all content needed for the game
+            Loader.Load("Data", GraphicsDevice);
+            _audioInitialized = true;
+        }
 
         Input.Get("screenshot").PressedEvent = TakeScreenshot;
 
@@ -95,6 +112,27 @@ public class Main : Game
         IsMouseVisible = false;
         Cursor.SetEnabled(true);
         Cursor.SetCursor(CursorType.Pointer);
+
+        ApplySettings();
+    }
+
+    void Accumulate(GameTime gameTime)
+    {
+        _accumulator += gameTime.ElapsedGameTime.TotalSeconds;
+
+        var _remainingSteps = 0;
+        while (_accumulator >= FIXED_TIMESTEP && _remainingSteps < MAX_STEPS)
+        {
+            FixedUpdate(_fixedGameTime);
+            _accumulator -= FIXED_TIMESTEP;
+            _remainingSteps++;
+        }
+    }
+
+    public void ApplySettings()
+    {
+        IsFixedTimeStep = Settings.VSync;
+        _graphics.SynchronizeWithVerticalRetrace = Settings.VSync;
     }
 
     protected override void Update(GameTime gameTime)
@@ -110,6 +148,7 @@ public class Main : Game
         }
 
         ActiveScene.Update(gameTime);
+        Accumulate(gameTime);
 
         // my girlfriend's name is guinn and she is my favorite person in the world
         // i love her very much and want to cover her with kisses
@@ -122,9 +161,16 @@ public class Main : Game
             _graphics.ApplyChanges();
         }
 
+        AudioManager.Update(gameTime);
+
         Cursor.Update(gameTime);
         
         base.Update(gameTime);
+    }
+
+    void FixedUpdate(GameTime gameTime)
+    {
+        ActiveScene.FixedUpdate(gameTime);
     }
 
     protected override void Draw(GameTime gameTime)
@@ -220,5 +266,7 @@ public class Main : Game
         screenshot.Dispose();
 
         ActiveScene.ActiveCanvas.SetActive(canvasActive);
+
+        NotificationManager.Notify($"Screenshot taken!");
     }
 }

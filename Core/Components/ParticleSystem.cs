@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using SpringProject.Core.Particles;
 
-namespace SpringProject.Core.Particles;
+namespace SpringProject.Core.Components;
 
-public class ParticleSystem
+public class ParticleSystem : Component
 {
     public List<Particle> Particles;
     public Dictionary<string, ParticleData> ParticleTypes;
@@ -60,7 +61,7 @@ public class ParticleSystem
         Particles.Add(particle);
     }
 
-    public void Update(GameTime gameTime)
+    public override void Update(GameTime gameTime)
     {
         foreach (var particle in Particles)
         {
@@ -71,7 +72,7 @@ public class ParticleSystem
         Particles.RemoveAll(p => p.finished);
     }
 
-    public void Draw(SpriteBatch spriteBatch)
+    public override void Draw(SpriteBatch spriteBatch)
     {
         foreach (var particle in Particles)
         {

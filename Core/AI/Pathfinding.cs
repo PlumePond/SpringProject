@@ -47,7 +47,7 @@ public class Node(Point point)
     }
 }
 
-public static class Pathfinder
+public static class Pathfinding
 {
     static Grid _grid;
     static Rectangle _bounds;

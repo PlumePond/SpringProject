@@ -6,6 +6,8 @@ using FontStashSharp;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using SpringProject.Core.AI;
+using SpringProject.Core.Audio;
+using SpringProject.Core.Components;
 using SpringProject.Core.Content;
 using SpringProject.Core.Content.Types.LevelObjects;
 using SpringProject.Core.Editor;
@@ -29,14 +31,14 @@ public class GameScene : Scene
         Grid = new Grid(false);
         LevelSaveManager.Load(levelName, Grid);
 
-        Pathfinder.Initialize(Grid, 4, 16);
+        Pathfinding.Initialize(Grid, 4, 16);
 
         string panelTexture = "panel";
         string panelSelectedTexture = "panel_selected";
 
         Camera = new GameCamera(Main.Graphics, 4, Grid, Player.Instance?.transform);
 
-        ActiveCanvas.AddChild(new FPSMeter(new Point(0, 0), FontManager.Get("body"), "fps", Color.White, Anchor.BottomCenter));
+        ActiveCanvas.AddChild(new FPSMeter(new Point(0, 5), FontManager.Get("body"), "fps", Color.White, Anchor.TopCenter));
 
         Grid.SetShowAllLayers(true);
         Grid.SetShowParallax(true);
@@ -72,13 +74,22 @@ public class GameScene : Scene
         Cursor.SetEnabled(false);
     }
 
+    public override void Close()
+    {
+        base.Close();
+
+        ComponentSystem.Reset();
+    }
+
     public override void Update(GameTime gameTime)
     {
         base.Update(gameTime);
 
         Grid.Update(gameTime);
         Camera.Update(gameTime);
-        Pathfinder.Update(gameTime);
+        Pathfinding.Update(gameTime);
+
+        ComponentSystem.Update(gameTime);
 
         if (Input.Get("show_hitboxes").Pressed)
         {
@@ -89,6 +100,12 @@ public class GameScene : Scene
         {
             Main.SetScene<MainMenu>();
         }
+    }
+
+    public override void FixedUpdate(GameTime gameTime)
+    {
+        Grid.FixedUpdate(gameTime);
+        ComponentSystem.FixedUpdate(gameTime);
     }
 
     public override void Draw(SpriteBatch spriteBatch)

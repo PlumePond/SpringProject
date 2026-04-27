@@ -1,8 +1,9 @@
 namespace SpringProject.Core.Commands;
 
-public interface ICommand
+public abstract class Command
 {
-    public void Execute();
-    public void Undo();
-    public void Redo();
+    public abstract void Execute();
+    public abstract void Undo();
+    public abstract void Redo();
+    public string Name = "Command";
 }

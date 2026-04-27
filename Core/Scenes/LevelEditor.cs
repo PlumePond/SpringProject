@@ -11,6 +11,7 @@ using Microsoft.Xna.Framework.Graphics;
 using SpringProject.Core.AI;
 using SpringProject.Core.Audio;
 using SpringProject.Core.Commands;
+using SpringProject.Core.Components;
 using SpringProject.Core.Content;
 using SpringProject.Core.Debugging;
 using SpringProject.Core.Editor;
@@ -41,6 +42,8 @@ public class LevelEditor : Scene
     float _alpha = 1.0f;
 
     public static string levelName;
+
+    Dictionary<Notification, Element> _notificationElements = new();
 
     public override void Initialize()
     {
@@ -82,7 +85,7 @@ public class LevelEditor : Scene
         string toggleActiveTexture = "toggle_light_active";
         string selectedTexture = "panel_selected";
 
-        InfoPanel infoPanel = new InfoPanel(new Point(3, -3), new Point(88, 79), Anchor.BottomLeft, "panel_light");
+        InfoPanel infoPanel = new InfoPanel(new Point(3, -3), new Point(88, 79), Anchor.BottomLeft, "panel_dark_gold");
         ActiveCanvas.AddChild(infoPanel);
 
         // show parallax
@@ -113,10 +116,10 @@ public class LevelEditor : Scene
 
         LevelSaveManager.Load(levelName, ActiveGrid);
 
-        Input.Get("save").PressedEvent += SaveLevel;
-
         SetupColorPanel();
         SetupDebugPanel();
+        SetupToolPanel();
+        SetupNotifcations();
 
         // initialize camera
         Camera = new EditorCamera(Main.Graphics, 4, ActiveGrid);
@@ -128,11 +131,56 @@ public class LevelEditor : Scene
 
         Cursor.SetEnabled(true);
         SelectColor(0);
+        Input.Get("save").PressedEvent += SaveLevel;
+    }
+
+    public override void Close()
+    {
+        Input.Get("save").PressedEvent -= SaveLevel;
+        ComponentSystem.Reset();
     }
 
     void SetupDebugPanel()
     {
-        ActiveCanvas.AddChild(new FPSMeter(new Point(0, 0), FontManager.Get("body"), "fps", Color.White, Anchor.BottomCenter));
+        ActiveCanvas.AddChild(new FPSMeter(new Point(0, 5), FontManager.Get("body"), "fps", Color.White, Anchor.TopCenter));
+    }
+
+    void SetupToolPanel()
+    {
+        Panel toolPanel = new Panel(new Point(-3, 3), new Point(24, 78), Anchor.TopRight, "panel_light_gold");
+        ActiveCanvas.AddChild(toolPanel);
+
+        ArrayElement array = new ArrayElement(new Point(0, 4), Point.Zero, 2, ArrayDirection.Down, Anchor.TopCenter);
+        toolPanel.AddChild(array);
+
+        array.AddChild(new ToolElement(Point.Zero, new Point(16), Anchor.TopCenter, "panel_light", "panel_light_gold", "panel_selected", "tool_pointer", GridPlacement.Pointer));
+        array.AddChild(new ToolElement(Point.Zero, new Point(16), Anchor.TopCenter, "panel_light", "panel_light_gold", "panel_selected", "tool_box_select", GridPlacement.BoxSelect));
+        array.AddChild(new ToolElement(Point.Zero, new Point(16), Anchor.TopCenter, "panel_light", "panel_light_gold", "panel_selected", "tool_paint", GridPlacement.Paint));
+        array.AddChild(new ToolElement(Point.Zero, new Point(16), Anchor.TopCenter, "panel_light", "panel_light_gold", "panel_selected", "tool_dropper", GridPlacement.Dropper));
+    }
+
+    void SetupNotifcations()
+    {
+        ArrayElement notificationArray = new ArrayElement(Point.Zero, new Point(10, 0), 1, ArrayDirection.Up, Anchor.BottomCenter);
+        ActiveCanvas.AddChild(notificationArray);
+
+        NotificationManager.NotifyEvent += (Notification notification) => 
+        {
+            int width = (int)FontManager.Get("body").FontBase.MeasureString(notification.Title).X;
+            var element = new Panel(Point.Zero, new Point(width + 6, 14), Anchor.BottomCenter, "panel_light");
+            element.AddChild(new TextElement(Point.Zero, FontManager.Get("body"), notification.Title, Color.White, Anchor.MiddleCenter));
+            _notificationElements.Add(notification, element);
+            notificationArray.AddChild(element);
+        };
+
+        NotificationManager.RemoveEvent += (Notification notification) =>
+        {
+            if (_notificationElements.TryGetValue(notification, out var element))
+            {
+                notificationArray.RemoveChild(element);
+                _notificationElements.Remove(notification);
+            }
+        };
     }
 
     void SetupColorPanel()
@@ -275,7 +323,10 @@ public class LevelEditor : Scene
         ActiveGrid.Update(gameTime);
         GridPlacement.Update(gameTime);
         Camera.Update(gameTime);
+        ComponentSystem.EditorUpdate(gameTime);
         //_debugText.SetText($"Layer: {ActiveGrid.layers[ActiveGrid.activeLayer].Name}");
+
+        NotificationManager.Update(gameTime);
 
         if (Input.Get("undo").Pressed)
         {
@@ -303,15 +354,11 @@ public class LevelEditor : Scene
         base.Draw(spriteBatch);
     }
 
-    public override void Close()
-    {
-        base.Close();
-    }
-
     void SaveLevel()
     {
         LevelSaveManager.Save(ActiveGrid);
         AudioManager.Get("save").Play();
+        NotificationManager.Notify($"Saved level '{levelName}' at {DateTime.Now.ToString("h:mm")} {DateTime.Now.ToString("tt").ToLower()} on {DateTime.Now.ToString("MMM. d, yyyy")}");
     }
 
     void SetBackground()

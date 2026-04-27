@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Text.Json.Serialization;
 using System.IO;
 using SpringProject.Core.Debugging;
+using System.Net.NetworkInformation;
 
 namespace SpringProject.Core.Editor;
 
@@ -28,6 +29,7 @@ public class LevelObjectData
     public bool frameOutline { get; private set; }
     public bool enforceGrid { get; private set; }
     public string[] tags { get; private set; }
+    public bool restrictPlacement { get; private set; }
 
     public string path { get; set; }
     public string typeName { get; set; }
@@ -36,7 +38,7 @@ public class LevelObjectData
     public string texturePath => path + ".png";
     public string dataPath => path + ".json";
 
-    public LevelObjectData(string name, string folder, Material material, Texture2D sprite, bool solid, Type type, bool scalable, Point frame, Rectangle hitbox, Point defaultFramePos, bool frameOutline, bool enforceGrid, string[] tags, string placeSound)
+    public LevelObjectData(string name, string folder, Material material, Texture2D sprite, bool solid, Type type, bool scalable, Point frame, Rectangle hitbox, Point defaultFramePos, bool frameOutline, bool enforceGrid, string[] tags, string placeSound, bool restrictPlacement)
     {
         this.name = name;
         this.folder = folder;
@@ -52,6 +54,7 @@ public class LevelObjectData
         this.tags = tags;
         this.placeSound = placeSound;
         this.hitbox = hitbox;
+        this.restrictPlacement = restrictPlacement;
 
         alphaTexture = TextureUtils.GenerateAlphaTexture(sprite);
 
@@ -83,4 +86,5 @@ class LevelObjectJsonData
     [JsonPropertyName("enforceGrid")] public bool enforceGrid { get; set; } = false;
     [JsonPropertyName("tags")] public string[] tags { get; set; } = null;
     [JsonPropertyName("hitbox")] public Rectangle hitbox { get; set; } = Rectangle.Empty;
+    [JsonPropertyName("restrictPlacement")] public bool restrictPlacement { get; set; } = true;
 }

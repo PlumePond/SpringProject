@@ -37,6 +37,19 @@ public static class LevelSaveManager
                     i, 
                     $"{levelObject.data.folder}/{levelObject.data.name}"
                 );
+
+                // scan self and components for exposed parameters
+                var targets = new List<object> { levelObject };
+                targets.AddRange(levelObject.Components);
+
+                foreach (var target in targets)
+                {
+                    foreach (var param in ParameterScanner.Scan(target))
+                    {
+                        data.parameters[param.Label] = param.GetValue();
+                    }
+                }
+
                 levelObjects.Add(data);
             }
         }
@@ -116,26 +129,15 @@ public class ColorSaveData(Color[] colors)
     public Color[] colors { get; set; } = colors;
 }
 
-public class LevelObjectSaveData
+public class LevelObjectSaveData(int colorIndex, Point position, Point size, int rotation, bool flipX, bool flipY, int layer, string dataKey)
 {
-    public LevelObjectSaveData(int colorIndex, Point position, Point size, int rotation, bool flipX, bool flipY, int layer, string dataKey)
-    {
-        this.colorIndex = colorIndex;
-        this.position = position;
-        this.size = size;
-        this.rotation = rotation;
-        this.flipX = flipX;
-        this.flipY = flipY;
-        this.layer = layer;
-        this.dataKey = dataKey;
-    }
-
-    public int colorIndex { get; set; }
-    public Point position { get; set; }
-    public Point size { get; set; }
-    public int rotation { get; set; }
-    public bool flipX { get; set; }
-    public bool flipY { get; set; }
-    public int layer { get; set; }
-    public string dataKey { get; set; }
+    public int colorIndex { get; set; } = colorIndex;
+    public Point position { get; set; } = position;
+    public Point size { get; set; } = size;
+    public int rotation { get; set; } = rotation;
+    public bool flipX { get; set; } = flipX;
+    public bool flipY { get; set; } = flipY;
+    public int layer { get; set; } = layer;
+    public string dataKey { get; set; } = dataKey;
+    public Dictionary<string, object> parameters { get; set; } = new();
 }

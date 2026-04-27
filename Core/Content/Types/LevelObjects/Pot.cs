@@ -10,25 +10,44 @@ using System.Text;
 using System.Threading.Tasks;
 using SpringProject.Core.Editor;
 using SpringProject.Core.Audio;
+using SpringProject.Core.Components;
 
 namespace SpringProject.Core.Content.Types.LevelObjects;
 
-public class Pot : Entity
+public class Pot : LevelObject
 {
+    Animator _animator;
+
+    //[Parameter("Sound")] public DropdownList Sound { get; set; } = new DropdownList(() => AudioManager.Sounds.Select(s => new DropdownOption(s.Key, s.Value)).ToList());
+
     public override void Initialize(LevelObjectData data, Grid grid, Point position)
     {
         base.Initialize(data, grid, position);
 
-        Animator.Add("default", new Animation(0, 1, 0.1f, false));
-        Animator.Add("wiggle", new Animation(1, 5, 0.1f, false));
+        _animator = AddComponent<Animator>();
 
-        Animator.Set("default");
+        _animator.Add("default", new Animation(0, 1, 0.1f, false));
+        _animator.Add("wiggle", new Animation(1, 5, 0.1f, false));
+
+        _animator.Set("default");
+
+        AddComponent<Collider>().CollisionEnter += OnCollisionEnter;
     }
 
-    public override void OnEntityEnter(Entity other)
+    void OnCollisionEnter(Collider other)
     {
-        Animator.Set("wiggle");
-        AudioManager.Get("pot_touch").Play();
+        if (other.LevelObject.GetComponent<Rigidbody>() == null) return;
+
+        _animator.Set("wiggle");
+        _animator.Queue("default");
+        var sound = AudioManager.Get("pot_touch");
+        sound.SetChannel("sfx");
+        sound.Play(transform.position.ToVector2());
+    }
+
+    public override void OnRemoved()
+    {
+        GetComponent<Collider>().CollisionEnter -= OnCollisionEnter;
     }
 
     public override void Update(GameTime gameTime)

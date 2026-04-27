@@ -6,6 +6,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using SpringProject.Core.AI;
 using SpringProject.Core.Audio;
+using SpringProject.Core.Components;
 using SpringProject.Core.Content.Types.LevelObjects;
 using SpringProject.Core.Debugging;
 using SpringProject.Core.Editor;
@@ -15,39 +16,50 @@ namespace SpringProject.Core.Content.Types;
 
 public class FloralStalker : Entity
 {
-    const float PLAYER_CHECK_INTERVAL = 1.0f;
-    const float ACCELERATION = 0.1f;
-    const float MAX_SPEED = 3.0f;
+    [Parameter("Acceleration", 0f, 1f)] public float Acceleration = 0.1f;
+    [Parameter("Player Check Interval", 0f, 5f)] public float PlayerCheckInterval = 1.0f;
+    [Parameter("Max Speed", 0f, 10f)] public float MaxSpeed = 3.0f;
+    [Parameter("Player Check Radius", 0f, 256f)] public float PlayerCheckRadius = 3.0f;
+    [Parameter("Jump Force", 0f, 30f)] public float JumpForce = 25.0f;
     
     float _playerCheckTimer = 0.0f;
 
     protected override float Gravity => 8.0f;
 
-    public ParticleSystem particleSystem;
+    public ParticleSystem ParticleSystem;
 
     Point _wallCheckSize;
     bool _touchingWall;
-    Rectangle _wallCheck;
+
+    public Rectangle WallCheckRect;
+    public Rigidbody Rigidbody;
+    public StateMachine<FloralStalker> StateMachine;
+    Pathfinder Pathfinder;
 
     public override void Initialize(LevelObjectData data, Grid grid, Point position)
     {
         base.Initialize(data, grid, position);
+
+        Rigidbody = GetComponent<Rigidbody>();
+        Pathfinder = AddComponent<Pathfinder>();
 
         Animator.Add("idle", new Animation(0, 1, 0.15f, false));
         Animator.Add("run", new Animation(2, 5, 0.1f, true));
         Animator.Add("aggro", new Animation(1, 2, 0.2f, false));
         Animator.Set("idle");
 
-        StateMachine.Add("idle", new Idle(this, this));
-        StateMachine.Add("run", new Run(this, this));
-        StateMachine.Add("jump", new Jump(this, this));
-        StateMachine.Add("fall", new Fall(this, this));
-        StateMachine.Add("aggro", new Aggro(this, this));
+        StateMachine = AddComponent<StateMachine<FloralStalker>>();
+
+        StateMachine.Add<Idle>("idle");
+        StateMachine.Add<Run>("run");
+        StateMachine.Add<Jump>("jump");
+        StateMachine.Add<Fall>("fall");
+        StateMachine.Add<Aggro>("aggro");
         StateMachine.Set("idle");
 
         _wallCheckSize = new Point(10, data.hitbox.Height - 4);
 
-        particleSystem = new ParticleSystem();
+        ParticleSystem = new ParticleSystem();
 
         var smallDustData = new ParticleData
         {
@@ -59,14 +71,9 @@ public class FloralStalker : Entity
             startSpeed = 0.5f
         };
 
-        particleSystem.AddType("small_dust", smallDustData);
-    }
+        ParticleSystem.AddType("small_dust", smallDustData);
 
-    public override void Draw(SpriteBatch spriteBatch)
-    {
-        base.Draw(spriteBatch);
-
-        particleSystem.Draw(spriteBatch);
+        Pathfinder.FollowPathEvent += FollowPath;
     }
 
     public override void Update(GameTime gameTime)
@@ -76,20 +83,18 @@ public class FloralStalker : Entity
         WallCheck();
         HandleTargetting(gameTime);
 
-        particleSystem.Update(gameTime);
-
-        if (Velocity.X < 0 && !transform.flipX)
+        if (Rigidbody.Velocity.X < 0 && !transform.flipX)
         {
             SetFlipX(true);
         }
-        else if (Velocity.X > 0 && transform.flipX)
+        else if (Rigidbody.Velocity.X > 0 && transform.flipX)
         {
             SetFlipX(false);
         }
 
-        if (Velocity.Length() > MAX_SPEED)
+        if (Rigidbody.Velocity.Length() > MaxSpeed)
         {
-            Velocity = Vector2.Normalize(Velocity) * MAX_SPEED;
+            Rigidbody.InternalVelocity = Vector2.Normalize(Rigidbody.Velocity) * MaxSpeed;
         }
 
         // if (_target != null)
@@ -104,12 +109,12 @@ public class FloralStalker : Entity
         // }
     }
 
-    protected override void FollowPath()
+    void FollowPath(Node currentNode)
     {
-        var difference = (_path[_currentNode].Point - hitbox.Center).ToVector2();
+        var difference = (currentNode.Point - hitbox.Center).ToVector2();
         if (difference.LengthSquared() < 1f) return;
 
-        Velocity.X += Vector2.Normalize(difference).X * ACCELERATION;
+        Rigidbody.InternalVelocity.X += Vector2.Normalize(difference).X * Acceleration;
 
         if (difference.Y < 0 && Grounded && _touchingWall)
         {
@@ -121,32 +126,21 @@ public class FloralStalker : Entity
     {
         base.DrawDebug(spriteBatch, font);
 
-        Debug.DrawRectangle(spriteBatch, _wallCheck, _touchingWall ? Color.Green : Color.Red);
-
-        if (_path == null)
-        {
-            Debug.Log("Path is null!");
-            return;
-        }
-
-        foreach (var node in _path)
-        {
-            node.Draw(spriteBatch);
-        }
+        Debug.DrawRectangle(spriteBatch, WallCheckRect, _touchingWall ? Color.Green : Color.Red);
     }
 
     void WallCheck()
     {
         if (transform.flipX)
         {
-            _wallCheck = new Rectangle(hitbox.Left - _wallCheckSize.X, hitbox.Center.Y - _wallCheckSize.Y / 2, _wallCheckSize.X, _wallCheckSize.Y);
+            WallCheckRect = new Rectangle(hitbox.Left - _wallCheckSize.X, hitbox.Center.Y - _wallCheckSize.Y / 2, _wallCheckSize.X, _wallCheckSize.Y);
         }
         else
         {
-            _wallCheck = new Rectangle(hitbox.Right, hitbox.Center.Y - _wallCheckSize.Y / 2, _wallCheckSize.X, _wallCheckSize.Y);
+            WallCheckRect = new Rectangle(hitbox.Right, hitbox.Center.Y - _wallCheckSize.Y / 2, _wallCheckSize.X, _wallCheckSize.Y);
         }
 
-        if (grid.RectInsideObject(_wallCheck, layer, out var levelObject, this))
+        if (grid.RectInsideObject(WallCheckRect, layer, out var levelObject, this))
         {
             _touchingWall = true;
             FootstepMaterial = levelObject.data.material;
@@ -162,7 +156,7 @@ public class FloralStalker : Entity
         if (_target != null) return;
 
         _playerCheckTimer += (float)gameTime.ElapsedGameTime.TotalSeconds;
-        if (_playerCheckTimer > PLAYER_CHECK_INTERVAL)
+        if (_playerCheckTimer > PlayerCheckInterval)
         {
             if (Player.Instance != null)
             {
@@ -172,29 +166,21 @@ public class FloralStalker : Entity
         }
     }
 
-    internal class Idle : State
+    class Idle : State<FloralStalker>
     {
-        FloralStalker _floralStalker;
-        const float RADIUS = 128f;
-
-        public Idle(Entity entity, FloralStalker floralStalker) : base(entity)
-        {
-            _floralStalker = floralStalker;
-        }
-
         public override void Enter()
         {
             base.Enter();
-            _animator.Set("idle");
+            _entity.Animator.Set("idle");
         }
 
         public override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
 
-            if (_floralStalker._target != null)
+            if (_entity.Pathfinder.Target != null)
             {
-                if (_entity.hitbox.Center.Distance(_floralStalker._target.position) < RADIUS)
+                if (_entity.hitbox.Center.Distance(_entity.Pathfinder.Target.position) < _entity.PlayerCheckRadius)
                 {
                     _stateMachine.Set("aggro");
                 }
@@ -203,7 +189,7 @@ public class FloralStalker : Entity
 
         public override void DrawDebug(SpriteBatch spriteBatch)
         {
-            Debug.DrawCircle(spriteBatch, _entity.hitbox.Center, RADIUS, Color.Blue, 3, 32);
+            Debug.DrawCircle(spriteBatch, _entity.hitbox.Center, _entity.PlayerCheckRadius, Color.Blue, 1, 32);
         }
 
         public override void Exit()
@@ -212,26 +198,19 @@ public class FloralStalker : Entity
         }
     }
 
-    internal class Run : State
+    class Run : State<FloralStalker>
     {
-        FloralStalker _floralStalker;
-        public Run(Entity entity, FloralStalker floralStalker) : base(entity)
-        {
-            _floralStalker = floralStalker;
-        }
-
         public override void Enter()
         {
             base.Enter();
-            _animator.Set("run");
+            _entity.Animator.Set("run");
         }
 
         public override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
             
-            _floralStalker.HandlePathfinding(gameTime);
-            if (!_entity.Grounded && _entity.Velocity.Y > 0.1f)
+            if (!_entity.Grounded && _entity.Rigidbody.Velocity.Y > 0.1f)
             {
                 _stateMachine.Set("fall");
             }
@@ -241,11 +220,11 @@ public class FloralStalker : Entity
         {
             if (frame == 0 || frame == 4 || frame == 2)
             {
-                AudioManager.Get("fast_critter_footstep").Play();
+                AudioManager.Get("fast_critter_footstep").Play(_entity.transform.position.ToVector2());
                 float offset = -10;
                 float flippedOffset = (_entity.transform.flipX ? -1 : 1) * offset;
                 var offsetVector = new Vector2(flippedOffset, 0);
-                _floralStalker.particleSystem.Burst("small_dust", _entity.hitbox.Center.ToVector2() + offsetVector, 1, 3, 5f, 5f);
+                _entity.ParticleSystem.Burst("small_dust", _entity.hitbox.Center.ToVector2() + offsetVector, 1, 3, 5f, 5f);
             }
         }
 
@@ -255,33 +234,29 @@ public class FloralStalker : Entity
         }
     }
 
-    internal class Jump : State
+    class Jump : State<FloralStalker>
     {
-        FloralStalker _floralStalker;
-
-        public Jump(Entity entity, FloralStalker floralStalker) : base(entity)
-        {
-            _floralStalker = floralStalker;
-        }
-
         public override void Enter()
         {
             base.Enter();
 
             Debug.Log("jump!");
-            _entity.Velocity.Y = -25f;
+            _entity.Rigidbody.InternalVelocity.Y = _entity.JumpForce;
         }
 
         public override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
 
-            if (_entity.Velocity.Y > 0.0f)
+            if (_entity.Rigidbody.Velocity.Y > 0.0f)
             {
                 _stateMachine.Set("fall");
             }
+        }
 
-            _floralStalker.HandlePathfinding(gameTime);
+        public override void FixedUpdate(GameTime gameTime)
+        {
+            _entity.Pathfinder.HandlePathfinding(gameTime);
         }
 
         public override void Exit()
@@ -290,15 +265,8 @@ public class FloralStalker : Entity
         }
     }
 
-    internal class Fall : State
+    class Fall : State<FloralStalker>
     {
-        FloralStalker _floralStalker;
-
-        public Fall(Entity entity, FloralStalker floralStalker) : base(entity)
-        {
-            _floralStalker = floralStalker;
-        }
-
         public override void Enter()
         {
             base.Enter();
@@ -312,8 +280,11 @@ public class FloralStalker : Entity
             {
                 _stateMachine.Set("run");
             }
+        }
 
-            _floralStalker.HandlePathfinding(gameTime);
+        public override void FixedUpdate(GameTime gameTime)
+        {
+            _entity.Pathfinder.HandlePathfinding(gameTime);
         }
 
         public override void Exit()
@@ -322,24 +293,17 @@ public class FloralStalker : Entity
         }
     }
 
-    internal class Aggro : State
+    class Aggro : State<FloralStalker>
     {
-        FloralStalker _floralStalker;
-
-        public Aggro(Entity entity, FloralStalker floralStalker) : base(entity)
-        {
-            _floralStalker = floralStalker;
-        }
-
         float _counter = 0f;
 
         public override void Enter()
         {
             base.Enter();
 
-            _animator.Set("aggro");
+            _entity.Animator.Set("aggro");
             _counter = 0f;
-            _floralStalker.SetFlipX(_floralStalker._target.position.X < _entity.transform.position.X);
+            _entity.SetFlipX(_entity.Pathfinder.Target.position.X < _entity.transform.position.X);
         }
 
         public override void Update(GameTime gameTime)
@@ -348,12 +312,15 @@ public class FloralStalker : Entity
 
             _counter += (float)gameTime.ElapsedGameTime.TotalSeconds;
 
-            if (_counter > _animator.CurrentAnimation.Length)
+            if (_counter > _entity.Animator.CurrentAnimation.Length)
             {
                 _stateMachine.Set("run");
             }
+        }
 
-            _floralStalker.HandlePathfinding(gameTime);
+        public override void FixedUpdate(GameTime gameTime)
+        {
+            _entity.Pathfinder.HandlePathfinding(gameTime);
         }
     }
 }

@@ -72,10 +72,11 @@ public class Particle
             }
         }
 
-        _velocity += _data.gravity;
+        float deltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
+        _velocity += _data.gravity * deltaTime;
 
-        _position += _data.direction * _speed;
-        _position += _velocity;
+        _position += _data.direction * _speed * deltaTime;
+        _position += _velocity * deltaTime;
     }
 
     public void Draw(SpriteBatch spriteBatch)

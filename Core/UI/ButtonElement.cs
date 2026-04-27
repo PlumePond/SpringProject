@@ -75,4 +75,9 @@ public class ButtonElement : Element
 
         Cursor.EndPress();
     }
+
+    public void Reset()
+    {
+        Pressed = null;
+    }
 }

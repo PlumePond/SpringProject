@@ -1,4 +1,6 @@
 {
     "material": "metal",
-    "solid": true
+    "solid": true,
+    "type": "conveyor_belt",
+    "frame": { "X": 64, "Y": 16 }
 }

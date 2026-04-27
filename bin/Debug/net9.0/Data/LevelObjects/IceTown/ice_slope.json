@@ -1,0 +1,10 @@
+{
+    "type": "slope_tile",
+    "material": "ice",
+    "solid": false,
+    "placeSound": "step_ice",
+    "tags": [
+        "ice",
+        "stone"
+    ]
+}

@@ -61,6 +61,18 @@ public static class Cursor
         {
             _cursorOffset = new Point(-6, -5);
         }
+        else if (cursorType == CursorType.BoxSelect)
+        {
+            _cursorOffset = new Point(-3, -3);
+        }
+        else if (cursorType == CursorType.Dropper)
+        {
+            _cursorOffset = new Point(-1, -10);
+        }
+        else if (cursorType == CursorType.Paint)
+        {
+            _cursorOffset = new Point(-5, -8);
+        }
         else
         {
             _cursorOffset = Point.Zero;
@@ -86,12 +98,6 @@ public static class Cursor
         spriteBatch.End();
     }
 
-    static CursorType FromTool(ToolType toolType)
-    {
-        return (CursorType)toolType;
-    }
-
-
     public static void Update(GameTime gameTime)
     {
         
@@ -108,7 +114,15 @@ public static class Cursor
 
     public static void EndHover()
     {
-        SetCursor(FromTool(Tools.CurrentType));
+        if (GridPlacement.CurrentTool != null)
+        {
+            SetCursor(GridPlacement.CurrentTool.CursorType);
+        }
+        else
+        {
+            SetCursor(CursorType.Pointer);
+        }
+        
         _hovering = false;
     }
 
@@ -119,7 +133,14 @@ public static class Cursor
 
     public static void EndPress()
     {
-        SetCursor(_hovering ? CursorType.Pointer : FromTool(Tools.CurrentType));
+        if (GridPlacement.CurrentTool != null && !_hovering)
+        {
+            SetCursor(GridPlacement.CurrentTool.CursorType);
+        }
+        else
+        {
+            SetCursor(CursorType.Pointer);
+        }
     }
 
     public static void BeginText()
@@ -129,7 +150,14 @@ public static class Cursor
 
     public static void EndText()
     {
-        SetCursor(FromTool(Tools.CurrentType));
+        if (GridPlacement.CurrentTool != null)
+        {
+            SetCursor(GridPlacement.CurrentTool.CursorType);
+        }
+        else
+        {
+            SetCursor(CursorType.Pointer);
+        }
     }
 
     public static void BeginGrab()
@@ -140,7 +168,15 @@ public static class Cursor
 
     public static void EndGrab()
     {
-        SetCursor(_hovering ? CursorType.Pointer : FromTool(Tools.CurrentType));
+        if (GridPlacement.CurrentTool != null && !_hovering)
+        {
+            SetCursor(GridPlacement.CurrentTool.CursorType);
+        }
+        else
+        {
+            SetCursor(CursorType.Pointer);
+        }
+        
         _grabbing = false;
     }
 }

@@ -60,6 +60,11 @@ public class LevelObjectElement : Element
     {
         Rectangle rect = new Rectangle(AbsolutePosition, GetFrame());
 
+        if (ClippingBounds.HasValue)
+        {
+            return rect.Contains(point) && ClippingBounds.Value.Contains(point);
+        }
+
         return rect.Contains(point);
     }
 

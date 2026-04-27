@@ -1,5 +1,7 @@
+using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using SpringProject.Core.Audio;
 using SpringProject.Core.Content.Types.LevelObjects;
 using SpringProject.Core.Editor;
 using SpringProject.Core.UI;
@@ -63,6 +65,8 @@ public class EditorCamera : Camera
         {
             Cursor.EndGrab();
         }
+        
+        AudioManager.SetListenerPosition(Position + new Vector2(Main.GameWindow.ClientBounds.Width, Main.GameWindow.ClientBounds.Height) / (2 * Zoom));
 
         base.Update(gameTime);
     }

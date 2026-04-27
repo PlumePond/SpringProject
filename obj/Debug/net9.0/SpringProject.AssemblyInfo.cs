@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SpringProject")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+68aafb35e83d3ee4b5c95424ef429200b8760b0b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+692da314d93ecadcb66b8438f443957005239d64")]
 [assembly: System.Reflection.AssemblyProductAttribute("SpringProject")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SpringProject")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

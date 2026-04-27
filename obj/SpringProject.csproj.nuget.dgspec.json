@@ -62,6 +62,22 @@
               "target": "Package",
               "version": "[13.0.4, )"
             },
+            "Silk.NET.OpenAL": {
+              "target": "Package",
+              "version": "[2.23.0, )"
+            },
+            "Silk.NET.OpenAL.Extensions.Creative": {
+              "target": "Package",
+              "version": "[2.23.0, )"
+            },
+            "Silk.NET.OpenAL.Extensions.EXT": {
+              "target": "Package",
+              "version": "[2.23.0, )"
+            },
+            "Silk.NET.OpenAL.Extensions.Soft": {
+              "target": "Package",
+              "version": "[2.23.0, )"
+            },
             "TextCopy": {
               "target": "Package",
               "version": "[6.2.1, )"

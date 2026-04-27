@@ -4,6 +4,7 @@ using System.ComponentModel;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using SpringProject.Core.Debugging;
 using SpringProject.Core.UserInput;
 
 namespace SpringProject.Core.UI;
@@ -28,6 +29,7 @@ public class Element
     protected bool _prevPressed = false;
 
     public Rectangle Bounds { get; protected set; }
+    public Rectangle? ClippingBounds { get; protected set; } = null;
 
     public Action<Element> AddChildEvent;
 
@@ -83,6 +85,11 @@ public class Element
 
     public virtual bool WithinBounds(Point point)
     {
+        if (ClippingBounds.HasValue)
+        {
+            return Bounds.Contains(point) && ClippingBounds.Value.Contains(point);
+        }
+
         return Bounds.Contains(point);
     }
 
@@ -360,6 +367,17 @@ public class Element
         else
         {
             OnEnable();
+        }
+    }
+
+    public void SetClippingBounds(Rectangle bounds)
+    {
+        ClippingBounds = bounds;
+
+        // recursively set all children's clipping bounds
+        foreach (var child in _children)
+        {
+            child.SetClippingBounds(bounds);
         }
     }
 }

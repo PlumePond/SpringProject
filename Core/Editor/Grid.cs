@@ -22,6 +22,7 @@ public class Grid
     public bool showGridLines { get; private set; } = false;
     public bool showParallax { get; private set; } = false;
     public Point size { get; private set; }
+    public int GridSize { get; private set; } = 16;
 
     public int FogColorIndex { get; private set; } = 0;
     public int BackgroundColorIndex { get; private set; } = 0;
@@ -30,6 +31,9 @@ public class Grid
     public bool editor { get; private set; }
 
     RasterizerState _rasterizerState = new RasterizerState { ScissorTestEnable = true };
+    
+    List<LevelObject> _placementQueue = new();
+    List<LevelObject> _removalQueue = new();
 
     public Grid(bool editor)
     {
@@ -37,23 +41,33 @@ public class Grid
 
         layers =
         [
-            new GridLayer("FG1", -1.0f, false),
-            new GridLayer("FG2", -0.6f, false),
-            new GridLayer("FG3", -0.2f, false),
-            new GridLayer("Mid1", 0.0f, false),
-            new GridLayer("Mid2", 0.0f, false),
-            new GridLayer("Mid3", 0.0f, true),
-            new GridLayer("BG1", 0.1f, true),
-            new GridLayer("BG2", 0.3f, true),
-            new GridLayer("BG3", 0.5f, true),
-            new GridLayer("BG4", 0.6f, true),
-            new GridLayer("BG5", 0.8f, true),
-            new GridLayer("BG6", 1.0f, true),
+            new GridLayer("FG1", -1.0f, false, false),
+            new GridLayer("FG2", -0.6f, false, false),
+            new GridLayer("FG3", -0.2f, false, false),
+            new GridLayer("Mid1", 0.0f, false, false),
+            new GridLayer("Mid2", 0.0f, false, true),
+            new GridLayer("Mid3", 0.0f, true, false),
+            new GridLayer("BG1", 0.1f, true, false),
+            new GridLayer("BG2", 0.3f, true, false),
+            new GridLayer("BG3", 0.5f, true, false),
+            new GridLayer("BG4", 0.6f, true, false),
+            new GridLayer("BG5", 0.8f, true, false),
+            new GridLayer("BG6", 1.0f, true, false),
         ];
 
         activeLayer = 4;
 
         DebugFont = FontManager.Get("body");
+    }
+
+    public void QueueRemove(LevelObject obj)
+    {
+        _removalQueue.Add(obj);
+    }
+    
+    public void QueuePlace(LevelObject obj)
+    {
+        _placementQueue.Add(obj);
     }
 
     public void Update(GameTime gameTime)
@@ -72,13 +86,40 @@ public class Grid
                 }
             }
         }
+
+        foreach (var obj in _removalQueue)
+        {
+            layers[obj.layer].LevelObjects.Remove(obj);
+            obj.OnRemoved();
+        }
+        _removalQueue.Clear();
+
+        foreach (var obj in _placementQueue)
+        {
+            layers[obj.layer].LevelObjects.Add(obj);
+            obj.OnPlaced();
+        }
+        _placementQueue.Clear();
+    }
+
+    public void FixedUpdate(GameTime gameTime)
+    {
+        for (int layer = 0; layer < layers.Length; layer++)
+        {
+            foreach (LevelObject levelObject in layers[layer].LevelObjects)
+            {
+                if (!editor)
+                {
+                    levelObject.FixedUpdate(gameTime);
+                }
+            }
+        }
     }
 
     public void Draw(SpriteBatch spriteBatch)
     {
         // Debug.Log($"Size: {size}");
         Rectangle originalScissor = Main.Graphics.ScissorRectangle;
-
 
         // convert the world-space grid bounds to screen space
         Vector2 topLeft = Camera.Instance.WorldToScreen(Vector2.Zero);
@@ -137,7 +178,15 @@ public class Grid
 
                 // draw the object
                 levelObject.SetTint(tint);
-                levelObject.Draw(spriteBatch);
+                
+                if (editor)
+                {
+                    levelObject.DrawEditor(spriteBatch);
+                }
+                else
+                {
+                    levelObject.Draw(spriteBatch);
+                }
                 
                 // draw the bounds of the object
                 // draw object bounds
@@ -163,6 +212,11 @@ public class Grid
 
             levelObject.DrawOutline(spriteBatch);
             levelObject.Draw(spriteBatch);
+            
+            if (editor)
+            {
+                levelObject.DrawEditor(spriteBatch);
+            }
         }
 
         spriteBatch.End();
@@ -233,26 +287,42 @@ public class Grid
             return;
         }
 
-        foreach (var levelObjectSaveData in levelObjectSaveDataArray)
+        foreach (var data in levelObjectSaveDataArray)
         {
-            if (LevelObjectLoader.LevelObjectDataDictionary.ContainsKey(levelObjectSaveData.dataKey))
+            if (LevelObjectLoader.LevelObjectDataDictionary.ContainsKey(data.dataKey))
             {
-                LevelObjectData levelObjectData = LevelObjectLoader.LevelObjectDataDictionary[levelObjectSaveData.dataKey];
+                LevelObjectData levelObjectData = LevelObjectLoader.LevelObjectDataDictionary[data.dataKey];
                 LevelObject levelObject = (LevelObject)Activator.CreateInstance(levelObjectData.type);
-                levelObject.Initialize(levelObjectData, this, levelObjectSaveData.position);
+                levelObject.Initialize(levelObjectData, this, data.position);
 
-                levelObject.SetRotation(levelObjectSaveData.rotation);
-                levelObject.SetFlipX(levelObjectSaveData.flipX);
-                levelObject.SetFlipY(levelObjectSaveData.flipY);
-                levelObject.SetColorIndex(levelObjectSaveData.colorIndex);
-                levelObject.SetSize(levelObjectSaveData.size);
+                levelObject.SetRotation(data.rotation);
+                levelObject.SetFlipX(data.flipX);
+                levelObject.SetFlipY(data.flipY);
+                levelObject.SetColorIndex(data.colorIndex);
+                levelObject.SetSize(data.size);
 
-                AddLevelObject(levelObjectSaveData.layer, levelObject);
+                // restore exposed parameters
+                var targets = new List<object> { levelObject };
+                targets.AddRange(levelObject.Components);
+
+                foreach (var target in targets)
+                {
+                    foreach (var param in ParameterScanner.Scan(target))
+                    {
+                        if (!data.parameters.TryGetValue(param.Label, out var raw)) continue;
+
+                        // Newtonsoft deserializes numbers as long/double by default, so coerce
+                        var coerced = CoerceValue(raw, param.ValueType);
+                        param.SetValue(coerced);
+                    }
+                }
+
+                AddLevelObject(data.layer, levelObject);
                 levelObject.OnPlaced();
             }
             else
             {
-                Debug.Log($"Warning: Level Object '{levelObjectSaveData.dataKey}' not found!");
+                Debug.Log($"Warning: Level Object '{data.dataKey}' not found!");
             }
         }
 
@@ -267,6 +337,15 @@ public class Grid
                 return aIsEntity.CompareTo(bIsEntity); // false (0) sorts before true (1)
             });
         }
+    }
+
+    static object CoerceValue(object raw, Type targetType)
+    {
+        if (raw is Newtonsoft.Json.Linq.JToken token)
+            return token.ToObject(targetType);
+
+        // fallback for primitives that came through as wrong numeric type
+        return Convert.ChangeType(raw, targetType);
     }
 
     public bool InsideObject(Point point, int layer, out LevelObject levelObject)

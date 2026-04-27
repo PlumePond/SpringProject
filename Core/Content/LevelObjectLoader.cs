@@ -66,7 +66,7 @@ public static class LevelObjectLoader
                     }
 
                     // instantiate new levelObject
-                    var levelObjectData = new LevelObjectData(objectName, folderName, material, sprite, data.solid, type, data.scalable, data.frame, data.hitbox, data.defaultFramePos, data.frameOutline, data.enforceGrid, data.tags, data.placeSound);
+                    var levelObjectData = new LevelObjectData(objectName, folderName, material, sprite, data.solid, type, data.scalable, data.frame, data.hitbox, data.defaultFramePos, data.frameOutline, data.enforceGrid, data.tags, data.placeSound, data.restrictPlacement);
                     levelObjectData.path = Path.Combine(contentRoot, folderName, objectName);
                     levelObjectData.typeName = data.type;
 

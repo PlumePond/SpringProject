@@ -11,6 +11,10 @@
           "FontStashSharp.MonoGame": "1.5.4",
           "MonoGame.Framework.DesktopGL": "3.8.4.1",
           "Newtonsoft.Json": "13.0.4",
+          "Silk.NET.OpenAL": "2.23.0",
+          "Silk.NET.OpenAL.Extensions.Creative": "2.23.0",
+          "Silk.NET.OpenAL.Extensions.EXT": "2.23.0",
+          "Silk.NET.OpenAL.Extensions.Soft": "2.23.0",
           "TextCopy": "6.2.1"
         },
         "runtime": {
@@ -59,11 +63,27 @@
           }
         }
       },
+      "Microsoft.DotNet.PlatformAbstractions/3.1.6": {
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.DotNet.PlatformAbstractions.dll": {
+            "assemblyVersion": "3.1.6.0",
+            "fileVersion": "3.100.620.31604"
+          }
+        }
+      },
       "Microsoft.Extensions.DependencyInjection.Abstractions/7.0.0": {
         "runtime": {
           "lib/net7.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {
             "assemblyVersion": "7.0.0.0",
             "fileVersion": "7.0.22.51805"
+          }
+        }
+      },
+      "Microsoft.Extensions.DependencyModel/9.0.9": {
+        "runtime": {
+          "lib/net9.0/Microsoft.Extensions.DependencyModel.dll": {
+            "assemblyVersion": "9.0.0.9",
+            "fileVersion": "9.0.925.41916"
           }
         }
       },
@@ -174,6 +194,65 @@
           }
         }
       },
+      "Silk.NET.Core/2.23.0": {
+        "dependencies": {
+          "Microsoft.DotNet.PlatformAbstractions": "3.1.6",
+          "Microsoft.Extensions.DependencyModel": "9.0.9"
+        },
+        "runtime": {
+          "lib/net6.0/Silk.NET.Core.dll": {
+            "assemblyVersion": "2.23.0.0",
+            "fileVersion": "2.23.0.0"
+          }
+        }
+      },
+      "Silk.NET.OpenAL/2.23.0": {
+        "dependencies": {
+          "Silk.NET.Core": "2.23.0"
+        },
+        "runtime": {
+          "lib/net5.0/Silk.NET.OpenAL.dll": {
+            "assemblyVersion": "2.23.0.0",
+            "fileVersion": "2.23.0.0"
+          }
+        }
+      },
+      "Silk.NET.OpenAL.Extensions.Creative/2.23.0": {
+        "dependencies": {
+          "Silk.NET.Core": "2.23.0",
+          "Silk.NET.OpenAL": "2.23.0"
+        },
+        "runtime": {
+          "lib/net5.0/Silk.NET.OpenAL.Extensions.Creative.dll": {
+            "assemblyVersion": "2.23.0.0",
+            "fileVersion": "2.23.0.0"
+          }
+        }
+      },
+      "Silk.NET.OpenAL.Extensions.EXT/2.23.0": {
+        "dependencies": {
+          "Silk.NET.Core": "2.23.0",
+          "Silk.NET.OpenAL": "2.23.0"
+        },
+        "runtime": {
+          "lib/net5.0/Silk.NET.OpenAL.Extensions.EXT.dll": {
+            "assemblyVersion": "2.23.0.0",
+            "fileVersion": "2.23.0.0"
+          }
+        }
+      },
+      "Silk.NET.OpenAL.Extensions.Soft/2.23.0": {
+        "dependencies": {
+          "Silk.NET.Core": "2.23.0",
+          "Silk.NET.OpenAL": "2.23.0"
+        },
+        "runtime": {
+          "lib/net5.0/Silk.NET.OpenAL.Extensions.Soft.dll": {
+            "assemblyVersion": "2.23.0.0",
+            "fileVersion": "2.23.0.0"
+          }
+        }
+      },
       "StbImageSharp/2.30.15": {
         "runtime": {
           "lib/netstandard2.0/StbImageSharp.dll": {
@@ -237,12 +316,26 @@
       "path": "fontstashsharp.rasterizers.stbtruetypesharp/1.2.2",
       "hashPath": "fontstashsharp.rasterizers.stbtruetypesharp.1.2.2.nupkg.sha512"
     },
+    "Microsoft.DotNet.PlatformAbstractions/3.1.6": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-jek4XYaQ/PGUwDKKhwR8K47Uh1189PFzMeLqO83mXrXQVIpARZCcfuDedH50YDTepBkfijCZN5U/vZi++erxtg==",
+      "path": "microsoft.dotnet.platformabstractions/3.1.6",
+      "hashPath": "microsoft.dotnet.platformabstractions.3.1.6.nupkg.sha512"
+    },
     "Microsoft.Extensions.DependencyInjection.Abstractions/7.0.0": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-h3j/QfmFN4S0w4C2A6X7arXij/M/OVw3uQHSOFxnND4DyAzO1F9eMX7Eti7lU/OkSthEE0WzRsfT/Dmx86jzCw==",
       "path": "microsoft.extensions.dependencyinjection.abstractions/7.0.0",
       "hashPath": "microsoft.extensions.dependencyinjection.abstractions.7.0.0.nupkg.sha512"
+    },
+    "Microsoft.Extensions.DependencyModel/9.0.9": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-fNGvKct2De8ghm0Bpfq0iWthtzIWabgOTi+gJhNOPhNJIowXNEUE2eZNW/zNCzrHVA3PXg2yZ+3cWZndC2IqYA==",
+      "path": "microsoft.extensions.dependencymodel/9.0.9",
+      "hashPath": "microsoft.extensions.dependencymodel.9.0.9.nupkg.sha512"
     },
     "MonoGame.Framework.DesktopGL/3.8.4.1": {
       "type": "package",
@@ -278,6 +371,41 @@
       "sha512": "sha512-WYnil3DhQHzjCY0dM9I2B3r1vWip90AOuQd25KE4NrjPQBg0tBJFluRLm5YPnO5ZLDmwrfosY8jCQGQRmWI/Pg==",
       "path": "nvorbis/0.10.4",
       "hashPath": "nvorbis.0.10.4.nupkg.sha512"
+    },
+    "Silk.NET.Core/2.23.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-D7AT/nnwlB+4RZ84XY8QNGBZMJI5z9l4CSSETIJ1wCfRJzRt/341y3MRZ4HbnFz4r/IGaWOEZr86iE+0/65yyQ==",
+      "path": "silk.net.core/2.23.0",
+      "hashPath": "silk.net.core.2.23.0.nupkg.sha512"
+    },
+    "Silk.NET.OpenAL/2.23.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-O8EaDRWGOcKniZ2VxKD/xOmugzUJz747KpqGRw3cezDsz8nD66OZW217o1rT06cG76f8eYigy/yY6eRdhRqHHQ==",
+      "path": "silk.net.openal/2.23.0",
+      "hashPath": "silk.net.openal.2.23.0.nupkg.sha512"
+    },
+    "Silk.NET.OpenAL.Extensions.Creative/2.23.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-++3+P3G2CuV4ZbD9EG81XAxsu2enofp6jFhz6GmqEf96ZrC+3COMJPgzFtjDnPswuNOFK8FWzTCucdbw1jGXBQ==",
+      "path": "silk.net.openal.extensions.creative/2.23.0",
+      "hashPath": "silk.net.openal.extensions.creative.2.23.0.nupkg.sha512"
+    },
+    "Silk.NET.OpenAL.Extensions.EXT/2.23.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-nhn0wv7o+RFqcxv5QTbHyEcZAf4ojqyK5aE4xoIyBubIlHBPXvV46O7w7ybo0z0ChZCBBS/teP42vaxx5YP+tQ==",
+      "path": "silk.net.openal.extensions.ext/2.23.0",
+      "hashPath": "silk.net.openal.extensions.ext.2.23.0.nupkg.sha512"
+    },
+    "Silk.NET.OpenAL.Extensions.Soft/2.23.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-DPgw7XVWe1XtEKVmf5/PbifXjLRXAEmd6ICVT93Ath3bFPzPUaqf2VTVNQbM7EE4gFinam/Eu21g9zXG4hmw+g==",
+      "path": "silk.net.openal.extensions.soft/2.23.0",
+      "hashPath": "silk.net.openal.extensions.soft.2.23.0.nupkg.sha512"
     },
     "StbImageSharp/2.30.15": {
       "type": "package",

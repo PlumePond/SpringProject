@@ -62,7 +62,7 @@ public class MainMenu : Scene
 
         LevelSaveManager.LoadAll();
 
-        HorizontalArray horizontalArray = new HorizontalArray(Point.Zero, scaledSize, 10);
+        ArrayElement horizontalArray = new ArrayElement(Point.Zero, scaledSize, 10, ArrayDirection.Right, Anchor.MiddleLeft);
         _editorLevelSelectCanvas.AddChild(horizontalArray);
 
         foreach (var levelData in LevelSaveManager.LoadedLevelsData)

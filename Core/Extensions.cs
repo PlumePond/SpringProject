@@ -17,10 +17,10 @@ public static class Extensions
     {
         return
         [
-            new Vector2(rectangle.Left, rectangle.Top),
+            new Vector2(rectangle.Left,  rectangle.Top),
             new Vector2(rectangle.Right, rectangle.Top),
-            new Vector2(rectangle.Left, rectangle.Bottom),
-            new Vector2(rectangle.Right, rectangle.Bottom)
+            new Vector2(rectangle.Right, rectangle.Bottom),
+            new Vector2(rectangle.Left,  rectangle.Bottom)
         ];
     }
 }

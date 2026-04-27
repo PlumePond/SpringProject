@@ -16,5 +16,6 @@ namespace SpringProject.Core.Editor
         Ceramic,
         Wood,
         Glass,
+        Ice
     }
 }

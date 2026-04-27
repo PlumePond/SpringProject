@@ -13,13 +13,12 @@ public static class Loader
     {
         // load types
         LevelObjectTypeLoader.Load();
-
-        // load settings
         Main.Settings = SettingsLoader.Load("settings.json");
-
-        // load data
         LevelObjectLoader.Load(Path.Combine(root, "LevelObjects"), graphicsDevice);
+
+        AudioManager.Initialize();
         AudioManager.SetSounds(AudioCompositeLoader.Load(Path.Combine(root, "Audio")));
+
         FontManager.SetFonts(FontLoader.Load(Path.Combine(root, "Fonts")));
         Input.SetInputStates(InputLoader.Load(Path.Combine(root, "Input")));
         TextureManager.SetTextures(TextureLoader.Load(Path.Combine(root, "Textures"), graphicsDevice));

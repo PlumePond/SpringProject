@@ -95,7 +95,7 @@ public static class Debug
 
         foreach (var hit in rayData.Hits)
         {
-            DrawRectangleOutline(spriteBatch, hit.HitObject.hitbox, hitColor);
+            DrawRectangleOutline(spriteBatch, hit.HitObject.hitbox, Color.White);
         }
     }
 }

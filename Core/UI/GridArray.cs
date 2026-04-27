@@ -60,6 +60,12 @@ public class GridArray : Element
         int height = ((rows + 1)* _gridSize.Y) + (_space * (rows - 1));
         size = new Point(size.X, height);
         ReCalculateBounds();
+
+        // propagate clipping bounds to newly added children
+        if (ClippingBounds.HasValue)
+        {
+            child.SetClippingBounds(ClippingBounds.Value);
+        }
     }
 
     public override void Draw(SpriteBatch spriteBatch)

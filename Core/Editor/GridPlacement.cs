@@ -17,7 +17,7 @@ public class GridPlacement
 {
     public LevelObjectData SelectedObjectData => _selectedObjectData;
 
-    SnapSize _snapSize = SnapSize.Whole;
+    public SnapSize SnapSize = SnapSize.Whole;
 
     ResizeHandle _activeHandle = ResizeHandle.None;
     Point _mouseDragStart;
@@ -26,89 +26,106 @@ public class GridPlacement
     LevelObjectData _selectedObjectData = null;
     public LevelObject selectedObject { get; private set; } = null;
     public LevelObject hoveredObject { get; private set; } = null;
+    public Point LastPreviewPosition { get; private set; }
+    public bool LastPreviewInvalid { get; private set; }
     
-    bool _canPlaceObject = true;
+    public bool CanPlaceObject = true;
     bool _swipe = false;
-    int _rotation = 0;
+    public int Rotation = 0;
     bool _flipX = false;
     bool _flipY = false;
 
-    int resizeDistance = 4;
-
     bool _objectHoverConsumed = false;
-    bool _justPlaced = false;
-    Point _mousePos;
+    public bool JustPlaced = false;
+    public Point MousePos;
+    Point _lastSwipePlacementCell = new Point(int.MinValue, int.MinValue);
 
     AudioComposite _placeSound => AudioManager.Get("place");
     AudioComposite _removeSound => AudioManager.Get("remove");
-    AudioComposite _invalidSound => AudioManager.Get("invalid");
 
     Texture2D _resizeHandleTexture = null;
     Texture2D _resizeHandleSelectedTexture = null;
 
-    Grid _grid;
+    public Grid Grid;
+    public static Tool CurrentTool;
 
-    LevelObject _objectToDrag;
-    bool _dragging = false;
+    public static PointerTool Pointer;
+    public static BoxSelectTool BoxSelect;
+    public static PaintTool Paint;
+    public static DropperTool Dropper;
 
     public GridPlacement(Grid grid)
     {
-        _grid = grid;
+        Grid = grid;
 
         _resizeHandleTexture = TextureManager.Get("resize_handle");
         _resizeHandleSelectedTexture = TextureManager.Get("resize_handle_selected");
+
+        InitializeTools();
+    }
+
+    public static void SetTool(Tool tool)
+    {
+        CurrentTool = tool;
+        Cursor.SetCursor(tool.CursorType);
+    }
+
+    void InitializeTools()
+    {
+        Pointer = new PointerTool(this);
+        BoxSelect = new BoxSelectTool(this);
+        Paint = new PaintTool(this);
+        Dropper = new DropperTool(this);
+
+        SetTool(Pointer);
     }
 
     public void Update(GameTime gameTime)
     {
         // used to prevent placing an object and selecting it in the same frame
-        _justPlaced = false;
+        JustPlaced = false;
 
         _swipe = Input.Get("swipe").Holding;
 
-        float parallaxFactor = _grid.showParallax ? _grid.layers[_grid.activeLayer].ParallaxFactor : 0.0f;
-        _mousePos = Camera.Instance.ScreenToWorld(Input.Get("cursor").Vector, parallaxFactor).ToPoint();
+        float parallaxFactor = Grid.showParallax ? Grid.layers[Grid.activeLayer].ParallaxFactor : 0.0f;
+        MousePos = Camera.Instance.ScreenToWorld(Input.Get("cursor").Vector, parallaxFactor).ToPoint();
 
         HandleRotations();
         HandleFlipping();
         HandleSnapMode();
         HandleLayerSelection();
-        HandlePlacement();
         HandleHovering();
-        HandleSelection();
-        HandleDragging(gameTime);
-        HandleMovement();
-        HandleDeletion();
         HandleResizing();
+        HandleTools(gameTime);
     }
 
     void HandleLayerSelection()
     {
         if (Input.Get("layer_up").Pressed)
         {
-            _grid.SetActiveLayer(_grid.activeLayer + 1);
-            if (_grid.activeLayer > _grid.layers.Length - 1)
+            Grid.SetActiveLayer(Grid.activeLayer + 1);
+            if (Grid.activeLayer > Grid.layers.Length - 1)
             {
-                _grid.SetActiveLayer(_grid.layers.Length - 1);
+                Grid.SetActiveLayer(Grid.layers.Length - 1);
             }
 
             Deselect();
             Dehover();
 
-            _canPlaceObject = true;
+            CanPlaceObject = true;
         }   
         if (Input.Get("layer_down").Pressed)
         {
-            _grid.SetActiveLayer(_grid.activeLayer - 1);
-            if (_grid.activeLayer < 0)
+            Grid.SetActiveLayer(Grid.activeLayer - 1);
+            if (Grid.activeLayer < 0)
             {
-                _grid.SetActiveLayer(0);
+                Grid.SetActiveLayer(0);
             }
             
             Deselect();
             Dehover();
 
-            _canPlaceObject = true;
+            CanPlaceObject = true;
         }
     }
 
@@ -117,15 +134,15 @@ public class GridPlacement
         // check for snap mode input
         if (Input.Get("snap_half").Holding)
         {
-            _snapSize = SnapSize.Half;
+            SnapSize = SnapSize.Half;
         }
         else if (Input.Get("snap_pixel").Holding)
         {
-            _snapSize = SnapSize.Pixel;
+            SnapSize = SnapSize.Pixel;
         }
         else
         {
-            _snapSize = SnapSize.Whole;
+            SnapSize = SnapSize.Whole;
         }
     }
 
@@ -154,7 +171,7 @@ public class GridPlacement
     {
         if (Input.Get("rotate_ccw").Pressed)
         {
-            _rotation = (_rotation + 270) % 360;
+            Rotation = (Rotation + 270) % 360;
             if (selectedObject != null && !selectedObject.data.scalable)
             {
                 selectedObject.RotateCounterClockwise();
@@ -162,7 +179,7 @@ public class GridPlacement
         }
         else if (Input.Get("rotate_cw").Pressed)
         {
-            _rotation = (_rotation + 90) % 360;
+            Rotation = (Rotation + 90) % 360;
             if (selectedObject != null && !selectedObject.data.scalable)
             {
                 selectedObject.RotateClockwise();
@@ -170,161 +187,67 @@ public class GridPlacement
         }
     }
 
-    void HandlePlacement()
+    Tool previousTool;
+
+    void HandleTools(GameTime gameTime)
     {
-        // check for object placement
-        // do not place if there is a currently selected world object
-        // do not place if the mouse press is already consumed by a UI element
-        if (_selectedObjectData != null && _canPlaceObject && selectedObject == null && !Input.MousePressConsumed && !Input.MouseHoverConsumed)
+        if (Input.MousePressConsumed) return;
+        if (Input.MouseHoverConsumed) return;
+
+        if (Input.Get("dropper").Pressed)
         {
-            //Debug.Log($"Enforce grid: {_selectedObjectData.enforceGrid}");
-            int snapSize = _selectedObjectData.enforceGrid ? (int)SnapSize.Whole : (int)_snapSize;
-            Point snappedPosition = CalculateSmartPlacement(_selectedObjectData, _mousePos, snapSize, _rotation, out bool invalidPlacement);
-            if (Input.Get("place").Pressed || (Input.Get("place").Holding && _swipe))
-            {
-                if (invalidPlacement)
-                {
-                    // play error sound
-                    _invalidSound.Play();
-                }
-                else
-                {
-                    _justPlaced = true;
-                    PlaceObject(_selectedObjectData, snappedPosition, _grid.activeLayer);
-                }
-            }
-        }
-    }
-
-    void HandleMovement()
-    {
-        // check for object movement
-        if (selectedObject != null)
-        {
-            var direction = Input.Get("move").Point;
-
-            if (Input.Get("move").Pressed)
-            {
-                var newPos = new Point(selectedObject.transform.position.X + direction.X * (int)_snapSize, selectedObject.transform.position.Y + direction.Y * (int)_snapSize);
-                if (!OverlapsExistingObject(newPos, selectedObject.data.size, selectedObject.transform.rotation, selectedObject))
-                {
-                    selectedObject.SetPosition(newPos);
-                }
-            }
-        }
-    }
-
-    float _dragTimer = 0.0f;
-    const float TIME_PRESSED_UNTIL_DRAGGING = 0.2f;
-
-    void HandleDragging(GameTime gameTime)
-    {
-        if (_objectToDrag != null)
-        {
-            _dragTimer += (float)gameTime.ElapsedGameTime.TotalSeconds;
+            previousTool = CurrentTool;
+            SetTool(Dropper);
         }
 
-        if (Input.Get("select").Released && _objectToDrag != null)
+        if (Input.Get("dropper").Released)
         {
-            if (_dragging)
-            {
-                EndDrag();
-            }
-            else
-            {
-                Cursor.EndPress();
-                Select(_objectToDrag);
-                _objectToDrag = null;
-            }
+            SetTool(previousTool);
         }
 
-        // dont drag if the object stops being hovered
-        if (hoveredObject == null && _objectToDrag != null && !_dragging)
-        {
-            Cursor.EndPress();
-            Select(_objectToDrag);
-            _objectToDrag = null;
-        }
+        CurrentTool.Update(gameTime);
 
-        if (_dragTimer >= TIME_PRESSED_UNTIL_DRAGGING && !_dragging && hoveredObject != null)
-        {
-            if (_objectToDrag == hoveredObject)
-            {
-                BeginDrag();
-            }
-        }
-
-        // drag
-        if (_dragging && _objectToDrag != null)
-        {
-            int snapSize = _objectToDrag.data.enforceGrid ? (int)SnapSize.Whole : (int)_snapSize;
-            Point snappedPosition = CalculateSmartPlacement(_objectToDrag.data, _mousePos, snapSize, _rotation, out bool invalidPlacement, _objectToDrag);
-            
-            if (!invalidPlacement)
-            {
-                _objectToDrag.SetPosition(snappedPosition);
-            }
-        }
-    }
-    
-    void HandleDeletion()
-    {
-        if (hoveredObject != null && !_justPlaced && Input.Get("remove").Pressed)
-        {
-            RemoveObject(hoveredObject);
-            _canPlaceObject = true;
-        }
-        if (hoveredObject != null && !_justPlaced && _swipe && Input.Get("remove").Holding)
-        {
-            RemoveObject(hoveredObject);
-            _canPlaceObject = true;
-        }
-    }
-
-    void TryDrag(LevelObject levelObject)
-    {
-        _dragTimer = 0.0f;
-        _objectToDrag = levelObject;
-    }
-
-    void BeginDrag()
-    {
-        _dragging = true;
-        Cursor.BeginGrab();
-    }
-
-    void EndDrag()
-    {
-        _objectToDrag = null;
-        _dragging = false;
-        Cursor.EndGrab();
-    }
-
-    void HandleSelection()
-    {
-        // check for object selection
-        if (Input.Get("select").Pressed && !_justPlaced)
+        if (Input.Get("place").Pressed)
         {
             if (hoveredObject != null)
             {
-                if (selectedObject == hoveredObject && !Input.MouseHoverConsumed)
-                {
-                    Deselect();
-                }
-                else
-                {
-                    Cursor.BeginPress();
-                    TryDrag(hoveredObject);
-                }
+                CurrentTool.PressPrimary(hoveredObject, MousePos, false);
             }
-            else if (selectedObject != null && !Input.MouseHoverConsumed)
+            else if (!IsNearAnyHandle(MousePos, selectedObject))
             {
-                // only deselect if the mouse isn't near a resize handle
-                if (!IsNearAnyHandle(_mousePos, selectedObject))
+                CurrentTool.PressEmpty(MousePos, _swipe);
+            }
+        }
+        if (Input.Get("place").Holding)
+        {
+            CurrentTool.Hold(gameTime, hoveredObject);
+
+            if (hoveredObject != null && _swipe)
+            {
+                CurrentTool.PressPrimary(hoveredObject, MousePos, true);
+            }
+            else if (!IsNearAnyHandle(MousePos, selectedObject) && _swipe)
+            {
+                int snapSize = SelectedObjectData != null && SelectedObjectData.enforceGrid ? (int)SnapSize.Whole: (int)SnapSize; Point currentCell = SnapToGrid(MousePos, snapSize);
+                if (currentCell != _lastSwipePlacementCell)
                 {
-                    Deselect();
+                    _lastSwipePlacementCell = currentCell;
+                    CurrentTool.PressEmpty(MousePos, true); // ← pass true for swipe
                 }
             }
+        }
+        if (Input.Get("place").Released)
+        {
+            _lastSwipePlacementCell = new Point(int.MinValue, int.MinValue);
+            CurrentTool.Release();
+        }
+        if (Input.Get("remove").Pressed && hoveredObject != null)
+        {
+            CurrentTool.PressSecondary(hoveredObject, MousePos, false);
+        }
+        if (Input.Get("remove").Holding && _swipe && hoveredObject != null)
+        {
+            CurrentTool.PressSecondary(hoveredObject, MousePos, false);
         }
     }
 
@@ -332,9 +255,9 @@ public class GridPlacement
     {
         // check for object selection
         // reverse order in order to hover the topmost selected object
-        for (int i = _grid.layers[_grid.activeLayer].LevelObjects.Count - 1; i >= 0; i--)
+        for (int i = Grid.layers[Grid.activeLayer].LevelObjects.Count - 1; i >= 0; i--)
         {
-            LevelObject levelObject = _grid.layers[_grid.activeLayer].LevelObjects[i];
+            LevelObject levelObject = Grid.layers[Grid.activeLayer].LevelObjects[i];
 
             // if the mouse hover has already been consumed by a UI element, do not allow hovering over world objects
             if (Input.MouseHoverConsumed)
@@ -350,25 +273,25 @@ public class GridPlacement
             }
             
             // check for object hovering
-            if (levelObject.hitbox.Contains(_mousePos) && levelObject != hoveredObject)
+            if (levelObject.CanHover(MousePos) && levelObject != hoveredObject)
             {
                  // do not allow hovering if the cursor is by a resizing handle
                 if (selectedObject != null)
                 {
-                    if (IsNearAnyHandle(_mousePos, selectedObject))
+                    if (IsNearAnyHandle(MousePos, selectedObject))
                     {
                         break;
                     }
                 }
 
                 Hover(levelObject);
-                _canPlaceObject = false;
+                CanPlaceObject = false;
                 break;
             }
-            else if (!levelObject.hitbox.Contains(_mousePos) && levelObject == hoveredObject)
+            else if (!levelObject.CanHover(MousePos) && levelObject == hoveredObject)
             {
                 Dehover();
-                _canPlaceObject = true;
+                CanPlaceObject = true;
             }
         }
     }
@@ -380,15 +303,17 @@ public class GridPlacement
         selectedObject.SetSelected(true);
         
         // inherit the selected object's properties
-        _rotation = selectedObject.transform.rotation;
+        Rotation = selectedObject.transform.rotation;
         _flipX = selectedObject.transform.flipX;
         _flipY = selectedObject.transform.flipY;
 
         //Debug.Log("Selected Object Material?: " + selectedObject.data.material);
     }
 
-    bool IsNearAnyHandle(Point mousePos, LevelObject levelObject)
+    public bool IsNearAnyHandle(Point mousePos, LevelObject levelObject)
     {
+        if (levelObject == null) return false;
+
         Rectangle bounds = levelObject.hitbox;
 
         Point[] handlePositions = new Point[]
@@ -405,8 +330,8 @@ public class GridPlacement
 
         foreach (Point p in handlePositions)
         {
-            if (Math.Abs(mousePos.X - p.X) < resizeDistance &&
-                Math.Abs(mousePos.Y - p.Y) < resizeDistance)
+            if (Math.Abs(mousePos.X - p.X) < levelObject.ResizeDistance &&
+                Math.Abs(mousePos.Y - p.Y) < levelObject.ResizeDistance)
                 return true;
         }
 
@@ -419,7 +344,7 @@ public class GridPlacement
         if (selectedObject != null && selectedObject.data.scalable)
         {
             int resizeDistance = 8;
-            float parallaxFactor = _grid.showParallax ? _grid.layers[_grid.activeLayer].ParallaxFactor : 0.0f;
+            float parallaxFactor = Grid.showParallax ? Grid.layers[Grid.activeLayer].ParallaxFactor : 0.0f;
             Point mousePos = Camera.Instance.ScreenToWorld(Input.Get("cursor").Vector, parallaxFactor).ToPoint();
 
             bool atTopEdge    = Math.Abs(mousePos.Y - selectedObject.hitbox.Top)    < resizeDistance;
@@ -453,7 +378,7 @@ public class GridPlacement
             // apply drag
             if (Input.Get("select").Holding && _activeHandle != ResizeHandle.None)
             {
-                int snapValue = (int)_snapSize;
+                int snapValue = (int)SnapSize;
 
                 // raw delta snapped to grid increments
                 int rawDX = mousePos.X - _mouseDragStart.X;
@@ -569,28 +494,30 @@ public class GridPlacement
 
     public void Draw(SpriteBatch spriteBatch)
     {
-        float parallaxFactor = _grid.showParallax ? _grid.layers[_grid.activeLayer].ParallaxFactor : 0.0f;
+        float parallaxFactor = Grid.showParallax ? Grid.layers[Grid.activeLayer].ParallaxFactor : 0.0f;
         Point mousePos = Camera.Instance.ScreenToWorld(Input.Get("cursor").Vector, parallaxFactor).ToPoint();
         
         spriteBatch.Begin(SpriteSortMode.Deferred, null, SamplerState.PointClamp, null, null, null, Camera.Instance.GetParallaxTransform(parallaxFactor));
 
         // draw tile debug
-        if (!Input.MouseHoverConsumed && _grid.showHitboxes && _selectedObjectData != null)
+        if (!Input.MouseHoverConsumed && Grid.showHitboxes && _selectedObjectData != null)
         {
-            Point gridPos = SnapToGrid(mousePos, _selectedObjectData.enforceGrid ? (int)SnapSize.Whole : (int)_snapSize);
-            Point gridSize = new Point((int)_snapSize, (int)_snapSize);
+            Point gridPos = SnapToGrid(mousePos, _selectedObjectData.enforceGrid ? (int)SnapSize.Whole : (int)SnapSize);
+            Point gridSize = new Point((int)SnapSize, (int)SnapSize);
             Rectangle gridRect = new Rectangle(gridPos, gridSize);
             Debug.DrawRectangleOutline(spriteBatch, gridRect, Color.White, 1);
         }
 
         // draw preview
-        if (_selectedObjectData != null && _canPlaceObject && selectedObject == null && !Input.MouseHoverConsumed)
+        if (_selectedObjectData != null && CanPlaceObject && selectedObject == null && !Input.MouseHoverConsumed && !JustPlaced)
         {
-            int snapSize = _selectedObjectData.enforceGrid ? (int)SnapSize.Whole : (int)_snapSize;
-            Point snappedPos = CalculateSmartPlacement(_selectedObjectData, mousePos, snapSize, _rotation, out bool invalidPlacement);
-            Color objectColor = _grid.colorObjects ? ColorManager.SelectedColor : Color.White;
+            int snapSize = _selectedObjectData.enforceGrid ? (int)SnapSize.Whole : (int)SnapSize;
+            LastPreviewPosition = CalculateSmartPlacement(_selectedObjectData, mousePos, snapSize, Rotation, out bool invalidPlacement);
+            LastPreviewInvalid = invalidPlacement;
+
+            Color objectColor = Grid.colorObjects ? ColorManager.SelectedColor : Color.White;
             Color color = invalidPlacement ? Color.Red * 0.5f : objectColor * 0.5f;
-            DrawPlacementPreview(spriteBatch, _selectedObjectData, snappedPos, _rotation, _flipX, _flipY, color);
+            DrawPlacementPreview(spriteBatch, _selectedObjectData, LastPreviewPosition, Rotation, _flipX, _flipY, color);
         }
 
         if (selectedObject != null && selectedObject.data.scalable)
@@ -659,7 +586,9 @@ public class GridPlacement
 
     public void PlaceObject(LevelObjectData levelObjectData, Point point, int layer)
     {
-        CommandInvoker.Execute(new PlaceObjectCommand(this, levelObjectData, point, _grid, _flipX, _flipY, _rotation, layer, _grid.colorObjects ? ColorManager.SelectedColorIndex : 0));
+        JustPlaced = true;
+
+        CommandInvoker.Execute(new PlaceObjectCommand(this, levelObjectData, point, Grid, _flipX, _flipY, Rotation, layer, Grid.colorObjects ? ColorManager.SelectedColorIndex : 0));
 
         _placeSound.Play();
 
@@ -671,7 +600,7 @@ public class GridPlacement
 
     public void RemoveObject(LevelObject levelObject)
     {
-        CommandInvoker.Execute(new RemoveObjectCommand(this, _grid, levelObject));
+        CommandInvoker.Execute(new RemoveObjectCommand(this, Grid, levelObject));
             
         _removeSound.Play();
     }
@@ -691,7 +620,7 @@ public class GridPlacement
 
     public bool OverlapsExistingObject(Rectangle rect, LevelObject ignoreObject = null)
     {
-        foreach (LevelObject obj in _grid.layers[_grid.activeLayer].LevelObjects)
+        foreach (LevelObject obj in Grid.layers[Grid.activeLayer].LevelObjects)
         {
             if (obj == ignoreObject) continue;
             if (rect.Intersects(obj.hitbox))
@@ -732,8 +661,8 @@ public class GridPlacement
 
         Point centeredPosition = new Point(snappedMouse.X - centerOffsetX, snappedMouse.Y - centerOffsetY);
 
-        int maxOffsetX = rotatedSize.X - snapSize;
-        int maxOffsetY = rotatedSize.Y - snapSize;
+        int maxOffsetX = Math.Max(rotatedSize.X - snapSize, 0);
+        int maxOffsetY = Math.Max(rotatedSize.Y - snapSize, 0);
 
         List<(Point point, int distSq)> candidates = new();
 

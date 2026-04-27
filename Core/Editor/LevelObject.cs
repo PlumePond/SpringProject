@@ -7,6 +7,9 @@ using SpringProject.Core.Debugging;
 using SpringProject.Core.UI;
 using StbImageSharp;
 using System;
+using System.Collections.Generic;
+using SpringProject.Core.Components;
+using System.Linq;
 
 namespace SpringProject.Core.Editor;
 
@@ -25,19 +28,48 @@ public class LevelObject
     public Point frame { get; protected set; } = Point.Zero;
     public int layer { get; protected set; } = 0;
 
+    public List<Component> Components { get; private set; } = new List<Component>();
+
+    public T AddComponent<T>() where T : Component, new()
+    {
+        var component = new T();
+        Components.Add(component);
+        component.LevelObject = this;
+        component.Start();
+        return component;
+    }
+
+    public void RemoveComponent<T>() where T : Component
+    {
+        var component = Components.OfType<T>().FirstOrDefault();
+        if (component == null) return;
+
+        component.OnDestroy();
+        ComponentSystem.Remove(component);
+        Components.Remove(component);
+    }
+
+    public T GetComponent<T>() where T : Component
+    {
+        return Components.OfType<T>().FirstOrDefault();
+    }
+
+    public virtual float ResizeDistance => 4;
+
     public LevelObject()
     {
     }
 
     public virtual void Initialize(LevelObjectData data, Grid grid, Point position)
     {
-        transform = new Transform();
+        transform = AddComponent<Transform>();
         this.data = data;
         this.grid = grid;
         transform.position = position;
         size = data.size;
         frame = data.frame;
         CalculateBounds();
+        AddComponent<Sprite>();
     }
 
     public virtual void OnPlaced()
@@ -47,10 +79,18 @@ public class LevelObject
 
     public virtual void OnRemoved()
     {
-        
+        foreach (var component in Components)
+        {
+            component.OnDestroy();
+        }
     }
 
     public virtual void Update(GameTime gameTime)
+    {
+        
+    }
+
+    public virtual void FixedUpdate(GameTime gameTime)
     {
         
     }
@@ -62,27 +102,22 @@ public class LevelObject
 
     public virtual void Draw(SpriteBatch spriteBatch)
     {
-        Point framedSize = data.frame != Point.Zero ? data.frame : data.size;
-        Vector2 drawPos = new Vector2(bounds.X + bounds.Width / 2f, bounds.Y + bounds.Height / 2f);
-        Vector2 origin = new Vector2(framedSize.X / 2f, framedSize.Y / 2f);
-        float radians = transform.rotation * (float)Math.PI / 180f;
+        foreach (var component in Components)
+        {
+            component.Draw(spriteBatch);
+        }
+    }
 
-        SpriteEffects effects = SpriteEffects.None;
-        if (transform.flipX) effects |= SpriteEffects.FlipHorizontally;
-        if (transform.flipY) effects |= SpriteEffects.FlipVertically;
-
-        Vector2 drawScale = new Vector2((float)size.X / data.sprite.Width, (float)size.Y / data.sprite.Height);
-        Color objectColor = selected ? Color.LightGoldenrodYellow * ColorManager.Get(colorIndex) : ColorManager.Get(colorIndex);
-        Rectangle? sourceRect = frame != Point.Zero ? new Rectangle(data.defaultFramePos, frame) : null;
-
-        spriteBatch.Draw(data.sprite, drawPos, sourceRect, objectColor * tint, radians, origin, drawScale, effects, 0);
+    public virtual void DrawEditor(SpriteBatch spriteBatch)
+    {
+        foreach (var component in Components)
+        {
+            component.Draw(spriteBatch);
+        }
     }
 
     public virtual void DrawOutline(SpriteBatch spriteBatch)
     {
-        // no need to draw this if it is not selected or hovered boii
-        if (!hovered && !selected) return;
-
         Point framedSize = data.frame != Point.Zero ? data.frame : data.size;
         Vector2 drawPos = new Vector2(bounds.X + bounds.Width / 2f, bounds.Y + bounds.Height / 2f);
         Vector2 origin = new Vector2(framedSize.X / 2f, framedSize.Y / 2f);
@@ -103,11 +138,6 @@ public class LevelObject
     {
         Color hitboxColor = data.solid ? Color.Green : Color.Blue;
         Debug.DrawRectangle(spriteBatch, hitbox, hitboxColor * 0.25f);
-
-        string debugText = $"{data.material}";
-        Vector2 textPos = hitbox.Center.ToVector2();
-        Vector2 textOrigin = font.FontBase.MeasureString(debugText) * 0.5f;
-        spriteBatch.DrawString(font.FontBase, debugText, textPos, Color.White, 0, textOrigin, Vector2.One * 0.5f);
         
         if (hovered)
         {
@@ -120,6 +150,11 @@ public class LevelObject
         else
         {
             Debug.DrawRectangleOutline(spriteBatch, hitbox, hitboxColor, 1);   
+        }
+
+        foreach (var component in Components)
+        {
+            component.DrawDebug(spriteBatch);
         }
     }
 
@@ -238,9 +273,35 @@ public class LevelObject
     {
         InfoPanel.ClearElements();
 
-        InfoPanel.AddElement("name", new TextElement(new Point(4, 3), FontManager.Get("body"), data.name, Main.SelectedOutlineColor, Anchor.TopLeft));
-        InfoPanel.AddElement("pos", new TextElement(new Point(4, 13), FontManager.Get("body"), $"pos: ({transform.position.X}, {transform.position.Y})", Color.White, Anchor.TopLeft));
-        InfoPanel.AddElement("color", new TextElement(new Point(4, 23), FontManager.Get("body"), $"color: {colorIndex}", ColorManager.Get(colorIndex), Anchor.TopLeft));
+        // InfoPanel.AddElement("name", new TextElement(Point.Zero, FontManager.Get("body"), data.name, Main.SelectedOutlineColor, Anchor.TopLeft));
+        // InfoPanel.AddElement("pos", new TextElement(Point.Zero, FontManager.Get("body"), $"pos: ({transform.position.X}, {transform.position.Y})", Color.White, Anchor.TopLeft));
+        // InfoPanel.AddElement("color", new TextElement(Point.Zero, FontManager.Get("body"), $"color: {colorIndex}", ColorManager.Get(colorIndex), Anchor.TopLeft));
+
+        // scan self and all components for parameters
+        var targets = new List<object> { this };
+        targets.AddRange(Components);
+
+        var sliderTexture = "panel_dark";
+        var panelTexture = "panel_light_gold";
+        var selectedTexture = "panel_selected";
+        var fillTexture = "slider_fill";
+
+        var sliderSize = new Point(48, 7);
+        var handleSize = new Point(6, 10);
+
+        foreach (var target in targets)
+        {
+            foreach (var parameter in ParameterScanner.Scan(target))
+            {
+                ParameterUIFactory.Configure(sliderTexture, panelTexture, selectedTexture, fillTexture, sliderSize, handleSize);
+                var element = ParameterUIFactory.Create(parameter);
+
+                if (element != null)
+                {
+                    InfoPanel.AddElement($"{parameter.Label}_Value", element);
+                }
+            }
+        }
     }
 
     public virtual void UpdateInfo()
@@ -249,5 +310,10 @@ public class LevelObject
         {
             text.SetText($"pos: ({transform.position.X}, {transform.position.Y})");
         }
+    }
+
+    public virtual bool CanHover(Point mousePos)
+    {
+        return hitbox.Contains(mousePos);
     }
 }

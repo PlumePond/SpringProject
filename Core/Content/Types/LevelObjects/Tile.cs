@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using SpringProject.Core.Components;
 using SpringProject.Core.Debugging;
 using SpringProject.Core.Editor;
 
@@ -13,6 +14,11 @@ public class Tile : LevelObject
     int frameIndex = 0;
     Point framePos = Point.Zero;
     int _tileSize = 16;
+
+    public override void Initialize(LevelObjectData data, Grid grid, Point position)
+    {
+        base.Initialize(data, grid, position);
+    }
 
     public override void OnPlaced()
     {
@@ -49,7 +55,7 @@ public class Tile : LevelObject
         }
     }
 
-    public void CalculateFrameIndex()
+    public virtual void CalculateFrameIndex()
     {
         bool hasTopLeft = HasNeighbor(new Point(-_tileSize, -_tileSize));
         bool hasTop = HasNeighbor(new Point(0, -_tileSize));
@@ -278,7 +284,7 @@ public class Tile : LevelObject
         }
     }
 
-    void SetFrame(int index)
+    protected void SetFrame(int index)
     {
         int columns = data.sprite.Width / _tileSize;
 
@@ -288,9 +294,19 @@ public class Tile : LevelObject
         framePos = new Point(x * _tileSize, y * _tileSize);
     }
 
-    bool HasNeighbor(Point offset)
+    protected bool HasNeighbor(Point offset)
     {
         Point pos = transform.position + offset;
+        
+        // check for world bounds
+        Rectangle worldRect = new Rectangle(0, 0, grid.size.X * grid.GridSize, grid.size.Y * grid.GridSize);
+        if (grid.layers[layer].ParallaxFactor == 0)
+        {
+            if (pos.X >= worldRect.Right || pos.X <= worldRect.Left || pos.Y <= worldRect.Top || pos.Y >= worldRect.Bottom)
+            {
+                return true;
+            }
+        }
 
         foreach (var levelObject in grid.layers[layer].LevelObjects)
         {
@@ -311,7 +327,7 @@ public class Tile : LevelObject
         return false;
     }
 
-    List<Tile> GetNeighbors()
+    protected List<Tile> GetNeighbors()
     {
         var neighbors = new List<Tile>();
 
@@ -368,7 +384,14 @@ public class Tile : LevelObject
         
         Rectangle? sourceRect = frame != Point.Zero ? new Rectangle(framePos, frame) : null;
 
-        spriteBatch.Draw(data.sprite, drawPos, sourceRect, objectColor * tint, radians, origin, drawScale, effects, 0f);
+        Vector2 gapFix = new Vector2(1.0001f, 1.0001f);
+
+        spriteBatch.Draw(data.sprite, drawPos, sourceRect, objectColor * tint, radians, origin, drawScale * gapFix, effects, 0f);
+    }
+
+    public override void DrawEditor(SpriteBatch spriteBatch)
+    {
+        Draw(spriteBatch);
     }
 
     public override void DrawOutline(SpriteBatch spriteBatch)

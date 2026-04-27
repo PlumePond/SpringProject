@@ -24,17 +24,15 @@ public static class Raycasting
 {
     public static bool Cast(Grid grid, int layer, Vector2 origin, Vector2 dir, float distance, out RayData rayData, LevelObject ignoreObject = null, bool penetrate = false)
     {
-        var levelObjects = grid.layers[layer].LevelObjects.OrderBy(a => Vector2.Distance(a.transform.position.ToVector2(), origin)).ToList();
-        
         dir.Normalize();
         var hits = new List<RayHit>();
         var rayOrigin = origin;
         var rayEnd = rayOrigin + dir * distance;
 
-        bool done = false;
+        var levelObjects = grid.layers[layer].LevelObjects;
+
         foreach (var levelObject in levelObjects)
         {
-            if (done) break;
             if (levelObject == ignoreObject) continue;
             
             var vertices = levelObject.hitbox.Vertices().ToList();
@@ -45,21 +43,26 @@ public static class Raycasting
 
                 if (RaySegmentIntersect(rayOrigin, dir, a, b, out var t))
                 {
-                    if (t > distance) break;
-                    
+                    if (t > distance) continue; // skip this edge
+
                     Vector2 hitPos = rayOrigin + dir * t;
                     hits.Add(new RayHit(hitPos.ToPoint(), levelObject));
-                    break;
+                    break; // one hit per object
                 }
             }
+        }
 
-            // stop at the first object if penetrating
-            if (hits.Count > 0 && !penetrate) done = true;
+        // sort hits by distance from the origin
+        hits.Sort((a, b) => Vector2.DistanceSquared(origin, a.HitPoint.ToVector2()).CompareTo(Vector2.DistanceSquared(origin, b.HitPoint.ToVector2())));
+
+        if (!penetrate && hits.Count > 1)
+        {
+            hits.RemoveRange(1, hits.Count - 1);
         }
 
         var hitEnd = (hits.Count > 0 && !penetrate) ? hits[0].HitPoint.ToVector2() : rayEnd;
+
         rayData = new RayData(hits, origin, hitEnd);
-        
         return hits.Count > 0;
     }
     
@@ -84,6 +87,6 @@ public static class Raycasting
         t = (toA.X * edge.Y - toA.Y * edge.X) / denominator;
         float u = (toA.X * dir.Y - toA.Y * dir.X) / denominator;
 
-        return t >= -1e-4f && u >= 0f && u <= 1f;
+        return t >= 0f && u >= 0f && u <= 1f;
     }
 }
