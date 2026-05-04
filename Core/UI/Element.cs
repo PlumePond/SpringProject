@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -159,7 +160,7 @@ public class Element
 
     public void UpdateChildren(GameTime gameTime)
     {
-        foreach (var child in _children)
+        foreach (var child in _children.ToList())
         {
             if (child.Active)
             {

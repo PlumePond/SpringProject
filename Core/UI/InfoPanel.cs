@@ -31,6 +31,7 @@ public class InfoPanel : Panel
     public override void OnEnable()
     {
         Instance = this;
+        ClearElements(); // fresh instance, fresh state
     }
     
     /// <summary>
@@ -57,6 +58,7 @@ public class InfoPanel : Panel
         if (_elements.TryGetValue(name, out Element element))
         {
             ArrayElement.Children.Remove(element);
+            _elements.Remove(name); // this line was missing
         }
         else
         {
@@ -91,6 +93,6 @@ public class InfoPanel : Panel
     public static void ClearElements()
     {
         _elements.Clear();
-        ArrayElement.ClearChildren();
+        ArrayElement?.ClearChildren();
     }
 }

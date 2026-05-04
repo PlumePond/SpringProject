@@ -1,6 +1,6 @@
 {
     "material": "foliage",
-    "solid": false,
+    "solid": true,
     "type": "floral_stalker",
     "frame": {
         "X": 32,

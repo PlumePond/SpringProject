@@ -11,6 +11,8 @@ using System.Threading.Tasks;
 using SpringProject.Core.Editor;
 using SpringProject.Core.Audio;
 using SpringProject.Core.Components;
+using Newtonsoft.Json;
+using System.Runtime.Serialization;
 
 namespace SpringProject.Core.Content.Types.LevelObjects;
 
@@ -18,7 +20,7 @@ public class Pot : LevelObject
 {
     Animator _animator;
 
-    //[Parameter("Sound")] public DropdownList Sound { get; set; } = new DropdownList(() => AudioManager.Sounds.Select(s => new DropdownOption(s.Key, s.Value)).ToList());
+    [Parameter("Sound")] public DropdownList Sound { get; set; } = new DropdownList();
 
     public override void Initialize(LevelObjectData data, Grid grid, Point position)
     {
@@ -32,6 +34,13 @@ public class Pot : LevelObject
         _animator.Set("default");
 
         AddComponent<BoxCollider>().CollisionEnter += OnCollisionEnter;
+        var audioSource = AddComponent<AudioSource>();
+        Sound.SelectedEvent += (DropdownOption option) => audioSource.Sound = option.Text; 
+    }
+
+    public override void RestoreProviders()
+    {
+        Sound.SetOptionsProvider(() => AudioManager.Sounds.Select(s => new DropdownOption(s.Key, s.Value)).ToList());
     }
 
     void OnCollisionEnter(Collider other)

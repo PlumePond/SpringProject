@@ -37,9 +37,7 @@ public class PointerTool(GridPlacement placement) : Tool(placement)
                 _objectToDrag = null;
             }
         }
-
-        // dont drag if the object stops being hovered
-        if (_placement.hoveredObject == null && _objectToDrag != null && !_dragging)
+        else if (_placement.hoveredObject == null && _objectToDrag != null && !_dragging)
         {
             Cursor.EndPress();
             _placement.Select(_objectToDrag);

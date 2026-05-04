@@ -293,29 +293,17 @@ public class Grid
             {
                 LevelObjectData levelObjectData = LevelObjectLoader.LevelObjectDataDictionary[data.dataKey];
                 LevelObject levelObject = (LevelObject)Activator.CreateInstance(levelObjectData.type);
+
                 levelObject.Initialize(levelObjectData, this, data.position);
+
+                RestoreParameters(levelObject, data);
+                levelObject.RestoreProviders();
 
                 levelObject.SetRotation(data.rotation);
                 levelObject.SetFlipX(data.flipX);
                 levelObject.SetFlipY(data.flipY);
                 levelObject.SetColorIndex(data.colorIndex);
                 levelObject.SetSize(data.size);
-
-                // restore exposed parameters
-                var targets = new List<object> { levelObject };
-                targets.AddRange(levelObject.Components);
-
-                foreach (var target in targets)
-                {
-                    foreach (var param in ParameterScanner.Scan(target))
-                    {
-                        if (!data.parameters.TryGetValue(param.Label, out var raw)) continue;
-
-                        // Newtonsoft deserializes numbers as long/double by default, so coerce
-                        var coerced = CoerceValue(raw, param.ValueType);
-                        param.SetValue(coerced);
-                    }
-                }
 
                 AddLevelObject(data.layer, levelObject);
                 levelObject.OnPlaced();
@@ -336,6 +324,40 @@ public class Grid
                 bool bIsEntity = b is Entity;
                 return aIsEntity.CompareTo(bIsEntity); // false (0) sorts before true (1)
             });
+        }
+    }
+
+    void RestoreParameters(LevelObject levelObject, LevelObjectSaveData data)
+    {
+        // restore exposed parameters
+        var targets = new List<object> { levelObject };
+        targets.AddRange(levelObject.Components);
+
+        foreach (var target in targets)
+        {
+            foreach (var param in ParameterScanner.Scan(target))
+            {
+                if (!data.parameters.TryGetValue(param.Label, out var raw)) continue;
+
+                if (param.ValueType == typeof(DropdownList))
+                {
+                    var dropdownList = (DropdownList)param.GetValue();
+                    if (raw is Newtonsoft.Json.Linq.JObject jObj)
+                    {
+                        dropdownList.SelectedKey = jObj["SelectedKey"]?.ToString();
+                    }
+                    else
+                    {
+                        dropdownList.SelectedKey = raw?.ToString();
+                    }
+                }
+                else
+                {
+                    // Newtonsoft deserializes numbers as long/double by default, so coerce
+                    var coerced = CoerceValue(raw, param.ValueType);
+                    param.SetValue(coerced);
+                }
+            }
         }
     }
 

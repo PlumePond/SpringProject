@@ -298,16 +298,15 @@ public class GridPlacement
 
     public void Select(LevelObject levelObject)
     {
+        if (selectedObject == levelObject) return; // already selected, nothing to do
+
         selectedObject?.SetSelected(false);
         selectedObject = levelObject;
         selectedObject.SetSelected(true);
-        
-        // inherit the selected object's properties
+
         Rotation = selectedObject.transform.rotation;
         _flipX = selectedObject.transform.flipX;
         _flipY = selectedObject.transform.flipY;
-
-        //Debug.Log("Selected Object Material?: " + selectedObject.data.material);
     }
 
     public bool IsNearAnyHandle(Point mousePos, LevelObject levelObject)

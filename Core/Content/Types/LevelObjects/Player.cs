@@ -17,6 +17,7 @@ using SpringProject.Core.Commands;
 using SpringProject.Core.Components;
 using System.Data;
 using System.Runtime.CompilerServices;
+using System.ComponentModel;
 
 namespace SpringProject.Core.Content.Types.LevelObjects;
 
@@ -28,6 +29,9 @@ public class Player : Entity
     [Parameter("Ice Friction", 0f, 1f)] public float IceFriction = 0.95f;
     [Parameter("Ice Speed", 0f, 1f)] public float IceSpeed = 0.4f;
     [Parameter("Jump Force", 0f, 8f)] public float JumpForce = 4.0f;
+    [Parameter("Pounce Force X", 0f, 10f)] public float PounceForceX = 4.0f;
+    [Parameter("Pounce Force Y", 0f, 10f)] public float PounceForceY = 4.0f;
+    [Parameter("Slide Friction")] public float SlideFriction = 0.9f;
     [Parameter("God Mode")] public bool GodMode = false;
     [Parameter("Nickname")] public string Nickname = "";
 
@@ -48,6 +52,8 @@ public class Player : Entity
         Animator.Add("jump", new Animation(2, 6, 0.075f, false));
         Animator.Add("fall", new Animation(3, 1, 0.1f, false));
         Animator.Add("turn", new Animation(5, 3, 0.075f, false));
+        Animator.Add("pounce", new Animation(8, 4, 0.1f, false));
+        Animator.Add("slide", new Animation(9, 1, 0.1f, false));
 
         Animator.Set("idle");
 
@@ -58,6 +64,8 @@ public class Player : Entity
         StateMachine.Add<Jump>("jump");
         StateMachine.Add<Fall>("fall");
         StateMachine.Add<Turn>("turn");
+        StateMachine.Add<Pounce>("pounce");
+        StateMachine.Add<Slide>("slide");
         
         StateMachine.Set("idle");
 
@@ -102,8 +110,6 @@ public class Player : Entity
         {
             Rigidbody.InternalVelocity.Y = 10.0f;
         }
-
-        ApplyFriction();
     }
 
     public void ApplyFriction()
@@ -144,6 +150,17 @@ public class Player : Entity
             {
                 _stateMachine.Set("fall");
             }
+
+            if (Input.Get("pounce").Pressed)
+            {
+                _stateMachine.Set("pounce");
+                _entity.Rigidbody.InternalVelocity += new Vector2(0, -_entity.PounceForceY);
+            }
+        }
+
+        public override void FixedUpdate(GameTime gameTime)
+        {
+            _entity.ApplyFriction();
         }
     }
 
@@ -181,11 +198,18 @@ public class Player : Entity
             {
                 _stateMachine.Set("fall");
             }
+
+            if (Input.Get("pounce").Pressed)
+            {
+                _stateMachine.Set("pounce");
+                _entity.Rigidbody.InternalVelocity += new Vector2(0, -_entity.PounceForceY);
+            }
         }
 
         public override void FixedUpdate(GameTime gameTime)
         {
             _entity.ApplyMovement();
+            _entity.ApplyFriction();
         }
 
         public override void IterateFrame(int frame)
@@ -249,11 +273,17 @@ public class Player : Entity
             {
                 _entity.Rigidbody.InternalVelocity.Y *= 0.3f;
             }
+
+            if (Input.Get("pounce").Pressed)
+            {
+                _stateMachine.Set("pounce");
+            }
         }
 
         public override void FixedUpdate(GameTime gameTime)
         {
             _entity.ApplyMovement();
+            _entity.ApplyFriction();
         }
     }
 
@@ -276,11 +306,18 @@ public class Player : Entity
                 Vector2 pos = new Vector2(_entity.transform.position.X, _entity.transform.position.Y + 10);
                 _entity.ParticleSystem.Burst("small_dust", pos, 4, 5, 15f, 1f);
             }
+
+            if (Input.Get("pounce").Pressed)
+            {
+                _stateMachine.Set("pounce");
+                _entity.Rigidbody.InternalVelocity += new Vector2(0, -_entity.PounceForceY);
+            }
         }
 
         public override void FixedUpdate(GameTime gameTime)
         {
             _entity.ApplyMovement();
+            _entity.ApplyFriction();
         }
     }
 
@@ -307,6 +344,7 @@ public class Player : Entity
         public override void FixedUpdate(GameTime gameTime)
         {
             _entity.ApplyMovement();
+            _entity.ApplyFriction();
         }
 
         public override void IterateFrame(int frame)
@@ -316,6 +354,78 @@ public class Player : Entity
                 _entity.SetFlipX(!_entity.transform.flipX);
                 _stateMachine.Set("idle");
             }
+        }
+    }
+    
+    class Pounce : State<Player>
+    {
+        float _elapsedTime;
+
+        const float MinPounceTime = 0.2f;
+
+        public override void Enter()
+        {
+            _entity.Animator.Set("pounce");
+            var direction = _entity.transform.flipX ? -1 : 1;
+            var force = new Vector2(_entity.PounceForceX * direction, 0);
+            _entity.Rigidbody.InternalVelocity += force;
+            _elapsedTime = 0f;
+            
+            var pounceSound = AudioManager.Get("pounce");
+                pounceSound.SetChannel("sfx");
+                pounceSound.Play();
+        }
+
+        public override void Update(GameTime gameTime)
+        {
+            _elapsedTime += (float)gameTime.ElapsedGameTime.TotalSeconds;
+            if (_entity.Grounded && _elapsedTime >= MinPounceTime)
+            {
+                _stateMachine.Set("slide");
+                var footSound = AudioManager.Get($"step_{_entity.FootstepMaterial.ToString().ToLower()}");
+                footSound.SetChannel("sfx");
+                footSound.Play();
+
+                var landSound = AudioManager.Get("slide_land");
+                landSound.SetChannel("sfx");
+                landSound.Play();
+
+                Vector2 pos = new Vector2(_entity.transform.position.X, _entity.transform.position.Y + 10);
+                _entity.ParticleSystem.Burst("small_dust", pos, 4, 5, 15f, 1f);
+            }
+
+            if (Input.Get("jump").Pressed)
+            {
+                _stateMachine.Set("fall");
+            }
+        }
+
+        public override void FixedUpdate(GameTime gameTime)
+        {
+            _entity.Rigidbody.ExternalVelocity.X *= _entity.SlideFriction;
+            _entity.Rigidbody.InternalVelocity.X *= _entity.SlideFriction;
+        }
+    }
+
+    class Slide : State<Player>
+    {
+        public override void Enter()
+        {
+            _entity.Animator.Set("slide");
+        }
+
+        public override void Update(GameTime gameTime)
+        {
+            if (Input.Get("jump").Pressed)
+            {
+                _stateMachine.Set("jump");
+            }
+        }
+
+        public override void FixedUpdate(GameTime gameTime)
+        {
+            _entity.Rigidbody.ExternalVelocity.X *= _entity.SlideFriction;
+            _entity.Rigidbody.InternalVelocity.X *= _entity.SlideFriction;
         }
     }
 }

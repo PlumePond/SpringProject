@@ -1,5 +1,6 @@
 using System;
 using Microsoft.Xna.Framework;
+using SpringProject.Core.Debugging;
 using SpringProject.Core.UI;
 
 namespace SpringProject.Core.Editor;
@@ -82,13 +83,25 @@ public static class ParameterUIFactory
 
     static Element CreateDropdown(ParameterDescriptor parameter, Panel panel)
     {
-        var dropdown = new DropdownElement(Point.Zero, _sliderSize, Anchor.TopLeft);
-        var options = ((DropdownList)parameter.GetValue()).OptionsProvider();
+        var dropdownList = (DropdownList)parameter.GetValue();
+        var dropdown = new DropdownElement(Point.Zero, _sliderSize, dropdownList, Anchor.TopLeft);
 
-        foreach (var option in options)
+        Debug.Log("Creating dropdown!");
+        
+        if (dropdownList?.OptionsProvider != null)
         {
-            dropdown.AddOption(option);
+            var options = dropdownList.OptionsProvider();
+
+            Debug.Log($"Dropdown option count: {options.Count}");
+
+            foreach (var option in options)
+            {
+                dropdown.AddOption(option);
+                Debug.Log($"Added dropdown option '{option.Text}'");
+            }
         }
+
+        dropdown.SelectFromKey(dropdownList.SelectedKey);
         
         panel.AddChild(dropdown);
         

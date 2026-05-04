@@ -77,6 +77,11 @@ public class LevelObject
         
     }
 
+    public virtual void RestoreProviders()
+    {
+        
+    }
+
     public virtual void OnRemoved()
     {
         foreach (var component in Components)
@@ -273,10 +278,14 @@ public class LevelObject
         var sliderSize = new Point(48, 7);
         var handleSize = new Point(6, 10);
 
+        Debug.Log("Info setting");
+
         foreach (var target in targets)
         {
+            Debug.Log($"Target detected {target}");
             foreach (var parameter in ParameterScanner.Scan(target))
             {
+                Debug.Log($"Parameter detected '{parameter.Label}' of type {parameter.ValueType}");
                 ParameterUIFactory.Configure(sliderTexture, panelTexture, selectedTexture, fillTexture, sliderSize, handleSize);
                 var element = ParameterUIFactory.Create(parameter);
 
