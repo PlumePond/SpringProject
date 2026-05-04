@@ -8,8 +8,7 @@ namespace SpringProject.Core.Components;
 
 public class ReverbSource : Component
 {
-    uint _slot;
-    uint _effect;
+    ReverbEffect _reverbEffect = null;
     string _registeredChannel = "";
 
     [Parameter("Channel")] public string Channel { get; set; } = "";
@@ -32,8 +31,7 @@ public class ReverbSource : Component
             UnregisterEffect();
             RegisterEffect();
         }
-
-        ApplyProperties();
+        _reverbEffect?.SetProperties(Density, Diffusion, Gain, DecayTime, LateDelay);
     }
 
     public override void EditorUpdate(GameTime gameTime)
@@ -46,77 +44,26 @@ public class ReverbSource : Component
             RegisterEffect();
         }
 
-        ApplyProperties();
+        _reverbEffect?.SetProperties(Density, Diffusion, Gain, DecayTime, LateDelay);
     }
 
     void RegisterEffect()
     {
-        var efx = AudioManager.Efx;
-        if (efx == null)
-        {
-            Debug.Log("ReverbSource: EFX not available.");
-            return;
-        }
-        if (string.IsNullOrEmpty(Channel))
-        {
-            //Debug.Log("ReverbSource: Channel not set.");
-            return;
-        }
-
         var channel = AudioManager.GetChannel(Channel);
-        if (channel == null)
-        {
-            //Debug.Log($"ReverbSource: Channel '{Channel}' does not exist.");
-            return;
-        }
+        if (channel == null) return;
 
-        _effect = efx.GenEffect();
-        efx.SetEffectProperty(_effect, EffectInteger.EffectType, (int)EffectType.Reverb);
-
-        _slot = efx.GenAuxiliaryEffectSlot();
-
-        ApplyProperties();
-
-        // attatch effect to slot
-        efx.SetAuxiliaryEffectSlotProperty(_slot, EffectSlotInteger.Effect, (int)_effect);
-
-        channel.AddEffect(_slot, _effect);
-        _registeredChannel = Channel;
-        //Debug.Log($"ReverbSource: Registered reverb on channel '{Channel}' - slot={_slot}, effect={_effect}");
+        _reverbEffect = new ReverbEffect(channel);
+        _reverbEffect.SetProperties(Density, Diffusion, Gain, DecayTime, LateDelay);
+        _registeredChannel = channel.Name;
     }
 
     void UnregisterEffect()
     {
-        if (_slot == 0) return;
-
-        var channel = AudioManager.GetChannel(_registeredChannel);
-        channel?.RemoveEffect(_slot, _effect);
+        if (_reverbEffect == null) return;
         
-        AudioManager.Efx?.DeleteAuxiliaryEffectSlot(_slot);
-        AudioManager.Efx?.DeleteEffect(_effect);
-
-        _slot = 0;
-        _effect = 0;
+        _reverbEffect.Dispose();
+        _reverbEffect = null;
         _registeredChannel = "";
-    }
-
-    void ApplyProperties()
-    {
-        var efx = AudioManager.Efx;
-        if (efx == null) return;
-        if (_effect == 0) return;
-
-        efx.SetEffectProperty(_effect, EffectFloat.ReverbDensity, Density);
-        efx.SetEffectProperty(_effect, EffectFloat.ReverbDiffusion, Diffusion);
-        efx.SetEffectProperty(_effect, EffectFloat.ReverbGain, Gain);
-        efx.SetEffectProperty(_effect, EffectFloat.ReverbDecayTime, DecayTime);
-        efx.SetEffectProperty(_effect, EffectFloat.ReverbLateReverbDelay, LateDelay);
-
-        // reattach effect to slot so changes take effect
-        if (_slot != 0)
-        {
-            efx.SetAuxiliaryEffectSlotProperty(_slot, EffectSlotInteger.Effect, (int)_effect);
-        }
     }
 
     public override void OnDestroy()

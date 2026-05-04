@@ -23,7 +23,7 @@ public static class AudioManager
     static readonly Dictionary<string, AudioChannel> _channels = new();
 
     // active source handles that need cleanup when they finish
-    static readonly List<uint> _activeSources = new();
+    static readonly List<AudioSource> _activeSources = new();
     public static AL _al;
     static ALContext _alc;
     static unsafe Context* _context;
@@ -85,7 +85,7 @@ public static class AudioManager
 
     static unsafe void SetDevice(string deviceName)
     {
-        StopAll();
+        PreReloadAudioSources();
 
         _alc.MakeContextCurrent(null);
         _alc.DestroyContext(_context);
@@ -114,17 +114,45 @@ public static class AudioManager
         _currentDeviceName = GetDeviceName();
         Debug.Log($"Audio device switched to: '{_currentDeviceName}'.");
 
-        // Re-upload all audio buffers to the new context
+        // re-upload all audio buffers to the new context
         ReloadAllSounds();
+        ReloadAudioSources();
+        ReloadChannels();
     }
 
     static void ReloadAllSounds()
     {
         foreach (var composite in Sounds.Values)
         {
-            composite.ReloadBuffers();
+            composite.Reload();
         }
         Debug.Log("Audio buffers reloaded for new device context.");
+    }
+
+    static void PreReloadAudioSources()
+    {
+        foreach (var source in _activeSources)
+        {
+            source.PreReload();
+        }
+        Debug.Log("Prepares Audio Sources for reloading.");
+    }
+
+    static void ReloadAudioSources()
+    {
+        foreach (var source in _activeSources)
+        {
+            source.Reload();
+        }
+        Debug.Log("Audio sources reloaded for new device context.");
+    }
+
+    static void ReloadChannels()
+    {
+        foreach (var channel in _channels)
+        {
+            channel.Value.Reload();
+        }
     }
 
     static void CheckForDeviceChange()
@@ -162,12 +190,16 @@ public static class AudioManager
         float distance = Vector2.Distance(sourcePos, listenerPos);
         
         if (distance <= refDistance)
+        {
             return 1f;
+        }
         
         if (distance >= maxDistance)
+        {
             return 0f;
+        }
         
-        // Inverse distance rolloff
+        // inverse distance rolloff
         float attenuation = refDistance / (refDistance + rolloff * (distance - refDistance));
         return Math.Clamp(attenuation, 0f, 1f);
     }
@@ -200,34 +232,21 @@ public static class AudioManager
         }
     }
 
-    static public uint Play(string name)
+    public static bool HasSource(AudioSource source)
     {
-        var composite = Get(name);
-
-        if (composite == null) return 0;
-
-        uint source = composite.Play();
-        if (source != 0)
-        {
-            _activeSources.Add(source);
-        }
-
-        return source;
+        return _activeSources.Contains(source);
     }
 
-    static public uint Play(string name, Vector2 position)
+    public static void AddSource(AudioSource source)
     {
-        var composite = Get(name);
+        _activeSources.Add(source);
+    }
 
-        if (composite == null) return 0;
-
-        uint source = composite.Play(position);
-        if (source != 0)
-        {
-            _activeSources.Add(source);
-        }
-
-        return source;
+    public static void RemoveSource(AudioSource source)
+    {
+        _al.DeleteSource(source.Id);
+        source.Channel?.DisconnectSource(source);
+        _activeSources.Remove(source);
     }
 
     static public void Update(GameTime gameTime)
@@ -247,20 +266,14 @@ public static class AudioManager
     {
         for (int i = _activeSources.Count - 1; i >= 0; i--)
         {
-            uint source = _activeSources[i];
-            
-            // check if source is still valid
-            _al.GetSourceProperty(source, GetSourceInteger.SourceState, out int state);
-            
-            // clean up stopped, paused, or invalid sources
-            if (state == (int)SourceState.Stopped || state == (int)SourceState.Paused)
+            uint sourceId = _activeSources[i].Id;
+
+            _al.GetSourceProperty(sourceId, GetSourceInteger.SourceState, out int state);
+
+            if (state == (int)SourceState.Stopped)
             {
-                _al.DeleteSource(source);
-                _activeSources.RemoveAt(i);
-            }
-            else if (state == 0) // Invalid/initial state means source may have failed
-            {
-                _al.DeleteSource(source);
+                _activeSources[i].Channel?.DisconnectSource(_activeSources[i]);
+                _al.DeleteSource(sourceId);
                 _activeSources.RemoveAt(i);
             }
         }
@@ -268,10 +281,12 @@ public static class AudioManager
 
     static public void StopAll()
     {
-        foreach (uint source in _activeSources)
+        foreach (var source in _activeSources)
         {
-            _al.SourceStop(source);
-            _al.DeleteSource(source);
+            var sourceId = source.Id;
+            source.Channel?.DisconnectSource(source);
+            _al.SourceStop(sourceId);
+            _al.DeleteSource(sourceId);
         }
         _activeSources.Clear();
     }

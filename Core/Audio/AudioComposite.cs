@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using Microsoft.Xna.Framework.Audio;
 using System;
-using System.Diagnostics;
 using Silk.NET.OpenAL;
 using Microsoft.Xna.Framework;
+using SpringProject.Core.Debugging;
 
 namespace SpringProject.Core.Audio;
 
@@ -39,58 +39,36 @@ public class AudioComposite
         _channel = channel;
     }
 
-    public uint Play(Vector2 position)
+    public AudioSource Play(Vector2? position = null)
     {
-        if (AudioClips.Count == 0) return 0;
+        if (AudioClips.Count == 0) return null;
 
         AudioClip audioClip = AudioClips[_random.Next(AudioClips.Count)];
 
         float volume = Math.Clamp(Volume + (float)(_random.NextDouble() * 2 - 1) * VolumeVariance, 0f, 1f);
         float pitch  = Math.Clamp(Pitch  + (float)_random.NextDouble() * PitchVariance, 0.1f, 4f);
 
-        uint source = _al.GenSource();
-        AudioManager.SetSourcePosition(source, position);
-        AudioManager.GetChannel(_channel)?.ConnectSource(source);
-        _al.SetSourceProperty(source, SourceInteger.Buffer, audioClip.Buffer);
-        _al.SetSourceProperty(source, SourceFloat.Gain, volume);
-        _al.SetSourceProperty(source, SourceFloat.Pitch, pitch);
-        _al.SetSourceProperty(source, SourceBoolean.Looping, Loop);
-        _al.SourcePlay(source);
+        var source = new AudioSource();
+        source.SetChannel(AudioManager.GetChannel(_channel));
+        source.SetAudioClip(audioClip);
+
+        if (position != null)
+        {
+            source.SetPosition(position.Value);
+        }
+        
+        source.SetGain(volume);
+        source.SetPitch(pitch);
+        source.Play();
 
         return source;
     }
 
-    public uint Play()
-    {
-        if (AudioClips.Count == 0) return 0;
-
-        AudioClip audioClip = AudioClips[_random.Next(AudioClips.Count)];
-
-        float volume = Math.Clamp(Volume + (float)(_random.NextDouble() * 2 - 1) * VolumeVariance, 0f, 1f);
-        float pitch  = Math.Clamp(Pitch  + (float)_random.NextDouble() * PitchVariance, 0.1f, 4f);
-
-        uint source = _al.GenSource();
-        
-        // get listener position and play at that location for centered audio
-        _al.GetListenerProperty(ListenerVector3.Position, out float lx, out float ly, out float lz);
-        Vector2 listenerPos = new Vector2(lx / AudioManager.AudioScale, ly / AudioManager.AudioScale);
-        AudioManager.SetSourcePosition(source, listenerPos);
-        
-        AudioManager.GetChannel(_channel)?.ConnectSource(source);
-        _al.SetSourceProperty(source, SourceInteger.Buffer, audioClip.Buffer);
-        _al.SetSourceProperty(source, SourceFloat.Gain, volume);
-        _al.SetSourceProperty(source, SourceFloat.Pitch, pitch);
-        _al.SetSourceProperty(source, SourceBoolean.Looping, Loop);
-        _al.SourcePlay(source);
-
-        return source;
-    }
-
-    public void ReloadBuffers()
+    public void Reload()
     {
         foreach (var clip in AudioClips)
         {
-            clip.ReloadBuffers();
+            clip.Reload();
         }
     }
 }

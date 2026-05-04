@@ -90,13 +90,13 @@ public class GridPlacement
         float parallaxFactor = Grid.showParallax ? Grid.layers[Grid.activeLayer].ParallaxFactor : 0.0f;
         MousePos = Camera.Instance.ScreenToWorld(Input.Get("cursor").Vector, parallaxFactor).ToPoint();
 
+        HandleTools(gameTime);
         HandleRotations();
         HandleFlipping();
         HandleSnapMode();
         HandleLayerSelection();
         HandleHovering();
         HandleResizing();
-        HandleTools(gameTime);
     }
 
     void HandleLayerSelection()

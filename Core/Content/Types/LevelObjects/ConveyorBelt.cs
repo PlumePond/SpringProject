@@ -46,7 +46,7 @@ public class ConveyorBelt : LevelObject
         collider.CollisionEnter += OnCollisionEnter;
         collider.CollisionExit += OnCollisionExit;
 
-        AddComponent<AudioSource>();
+        AddComponent<AudioSourceComponent>();
     }
 
     public override void Update(GameTime gameTime)

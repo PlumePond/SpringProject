@@ -33,6 +33,7 @@ public class RemoveObjectCommand : Command
 
         // trigger on removed
         _levelObject.OnRemoved();
+        _gridPlacement.CanPlaceObject = true;
     }
 
     public override void Undo()

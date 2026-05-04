@@ -34,7 +34,7 @@ public class Pot : LevelObject
         _animator.Set("default");
 
         AddComponent<BoxCollider>().CollisionEnter += OnCollisionEnter;
-        var audioSource = AddComponent<AudioSource>();
+        var audioSource = AddComponent<AudioSourceComponent>();
         Sound.SelectedEvent += (DropdownOption option) => audioSource.Sound = option.Text; 
     }
 

@@ -10,7 +10,7 @@ public class AudioClip(string name, uint buffer, byte[] pcmData, int sampleRate,
     public int SampleRate { get; } = sampleRate;
     public BufferFormat Format { get; } = format;
 
-    public void ReloadBuffers()
+    public void Reload()
     {
         // re-upload PCM data to OpenAL buffer (used when device is lost and recreated)
         Buffer = AudioManager.GetAL().GenBuffer();
