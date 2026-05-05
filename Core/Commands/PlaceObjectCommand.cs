@@ -52,7 +52,7 @@ public class PlaceObjectCommand : Command
 
     public override void Undo()
     {
-        if (_levelObject == _gridPlacement.selectedObject)
+        if (_gridPlacement.SelectedObjects.Contains(_levelObject))
         {
             _gridPlacement.Deselect();
         }

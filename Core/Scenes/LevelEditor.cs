@@ -376,14 +376,14 @@ public class LevelEditor : Scene
 
     void SetObjectColor()
     {
-        GridPlacement.selectedObject?.SetColorIndex(ColorManager.SelectedColorIndex);
+        GridPlacement.SelectedObjects[0]?.SetColorIndex(ColorManager.SelectedColorIndex);
     }
 
     void GetObjectColor()
     {
-        if (GridPlacement.selectedObject != null)
+        if (GridPlacement.SelectedObjects[0] != null && GridPlacement.SelectedObjects.Count == 1)
         {
-            int objectColor = GridPlacement.selectedObject.colorIndex;
+            int objectColor = GridPlacement.SelectedObjects[0].colorIndex;
             SelectColor(objectColor);
         }
     }

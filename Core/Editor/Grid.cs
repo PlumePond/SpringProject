@@ -5,6 +5,7 @@ using System.Security.Cryptography.X509Certificates;
 using FontStashSharp;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using SpringProject.Core.Components;
 using SpringProject.Core.Content;
 using SpringProject.Core.Debugging;
 using SpringProject.Core.SaveSystem;
@@ -392,6 +393,10 @@ public class Grid
             if (obj == ignore) continue;
             if (!obj.data.solid) continue;
             if (!obj.hitbox.Intersects(rect)) continue;
+            // if (obj.TryGetComponent<Collider>(out var collider))
+            // {
+            //     if (!collider.Overlaps(rect)) continue;
+            // }
 
             levelObject = obj;
             return true;
@@ -399,6 +404,19 @@ public class Grid
 
         levelObject = null;
         return false;
+    }
+
+    public List<LevelObject> GetObjectsInRect(Rectangle rect, int layer)
+    {
+        List<LevelObject> result = new();
+        foreach (var obj in layers[layer].LevelObjects)
+        {
+            if (obj.hitbox.Intersects(rect))
+            {
+                result.Add(obj);
+            }
+        }
+        return result;
     }
 
     public void SetSize(Point size)

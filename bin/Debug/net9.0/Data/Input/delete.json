@@ -1,0 +1,12 @@
+{
+    "bindings": [
+        { 
+            "type": "key", 
+            "key": "Back"
+        },
+        { 
+            "type": "key", 
+            "key": "Delete"
+        }
+    ]
+}

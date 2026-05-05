@@ -22,7 +22,7 @@ public class RemoveObjectCommand : Command
 
     public override void Execute()
     {
-        if (_levelObject == _gridPlacement.selectedObject)
+        if (_gridPlacement.SelectedObjects.Contains(_levelObject))
         {
             _gridPlacement.Deselect();
         }
@@ -45,7 +45,7 @@ public class RemoveObjectCommand : Command
 
     public override void Redo()
     {
-        if (_levelObject == _gridPlacement.selectedObject)
+        if (_gridPlacement.SelectedObjects.Contains(_levelObject))
         {
             _gridPlacement.Deselect();
         }

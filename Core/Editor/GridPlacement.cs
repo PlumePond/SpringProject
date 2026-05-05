@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Reflection.Metadata;
+using System.Security.Cryptography.X509Certificates;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -24,7 +25,7 @@ public class GridPlacement
     Rectangle _dragStartBounds;
 
     LevelObjectData _selectedObjectData = null;
-    public LevelObject selectedObject { get; private set; } = null;
+    public List<LevelObject> SelectedObjects { get; private set; } = new();
     public LevelObject hoveredObject { get; private set; } = null;
     public Point LastPreviewPosition { get; private set; }
     public bool LastPreviewInvalid { get; private set; }
@@ -37,7 +38,8 @@ public class GridPlacement
 
     bool _objectHoverConsumed = false;
     public bool JustPlaced = false;
-    public Point MousePos;
+    public Point WorldMousePos;
+    public Point UIMousePos;
     Point _lastSwipePlacementCell = new Point(int.MinValue, int.MinValue);
 
     AudioComposite _placeSound => AudioManager.Get("place");
@@ -88,7 +90,8 @@ public class GridPlacement
         _swipe = Input.Get("swipe").Holding;
 
         float parallaxFactor = Grid.showParallax ? Grid.layers[Grid.activeLayer].ParallaxFactor : 0.0f;
-        MousePos = Camera.Instance.ScreenToWorld(Input.Get("cursor").Vector, parallaxFactor).ToPoint();
+        WorldMousePos = Camera.Instance.ScreenToWorld(Input.Get("cursor").Vector, parallaxFactor).ToPoint();
+        UIMousePos = (Input.Get("cursor").Vector / Main.Settings.UISize).ToPoint();
 
         HandleTools(gameTime);
         HandleRotations();
@@ -97,6 +100,15 @@ public class GridPlacement
         HandleLayerSelection();
         HandleHovering();
         HandleResizing();
+        HandleDeletion();
+    }
+
+    void HandleDeletion()
+    {
+        if (Input.Get("delete").Pressed)
+        {
+            BatchRemoveObjects(SelectedObjects);
+        }
     }
 
     void HandleLayerSelection()
@@ -151,18 +163,20 @@ public class GridPlacement
         if (Input.Get("flip_x").Pressed)
         {
             _flipX = !_flipX;
-            if (selectedObject != null)
+
+            foreach (var obj in SelectedObjects)
             {
-                selectedObject.SetFlipX(_flipX);
+                obj.SetFlipX(_flipX);
             }
         }
 
         if (Input.Get("flip_y").Pressed)
         {
             _flipY = !_flipY;
-            if (selectedObject != null)
+
+            foreach (var obj in SelectedObjects)
             {
-                selectedObject.SetFlipY(_flipY);
+                obj.SetFlipX(_flipY);
             }
         }
     }
@@ -172,17 +186,20 @@ public class GridPlacement
         if (Input.Get("rotate_ccw").Pressed)
         {
             Rotation = (Rotation + 270) % 360;
-            if (selectedObject != null && !selectedObject.data.scalable)
+
+            foreach (var obj in SelectedObjects)
             {
-                selectedObject.RotateCounterClockwise();
+                if (obj.data.scalable) continue;
+                obj.RotateCounterClockwise();
             }
         }
         else if (Input.Get("rotate_cw").Pressed)
         {
             Rotation = (Rotation + 90) % 360;
-            if (selectedObject != null && !selectedObject.data.scalable)
+            foreach (var obj in SelectedObjects)
             {
-                selectedObject.RotateClockwise();
+                if (obj.data.scalable) continue;
+                obj.RotateClockwise();
             }
         }
     }
@@ -211,11 +228,11 @@ public class GridPlacement
         {
             if (hoveredObject != null)
             {
-                CurrentTool.PressPrimary(hoveredObject, MousePos, false);
+                CurrentTool.PressPrimary(hoveredObject, WorldMousePos, UIMousePos, false);
             }
-            else if (!IsNearAnyHandle(MousePos, selectedObject))
+            else if (!IsNearAnyHandle(WorldMousePos))
             {
-                CurrentTool.PressEmpty(MousePos, _swipe);
+                CurrentTool.PressEmpty(WorldMousePos, UIMousePos, _swipe);
             }
         }
         if (Input.Get("place").Holding)
@@ -224,15 +241,15 @@ public class GridPlacement
 
             if (hoveredObject != null && _swipe)
             {
-                CurrentTool.PressPrimary(hoveredObject, MousePos, true);
+                CurrentTool.PressPrimary(hoveredObject, WorldMousePos, UIMousePos, true);
             }
-            else if (!IsNearAnyHandle(MousePos, selectedObject) && _swipe)
+            else if (!IsNearAnyHandle(WorldMousePos) && _swipe)
             {
-                int snapSize = SelectedObjectData != null && SelectedObjectData.enforceGrid ? (int)SnapSize.Whole: (int)SnapSize; Point currentCell = SnapToGrid(MousePos, snapSize);
+                int snapSize = SelectedObjectData != null && SelectedObjectData.enforceGrid ? (int)SnapSize.Whole: (int)SnapSize; Point currentCell = SnapToGrid(WorldMousePos, snapSize);
                 if (currentCell != _lastSwipePlacementCell)
                 {
                     _lastSwipePlacementCell = currentCell;
-                    CurrentTool.PressEmpty(MousePos, true); // ← pass true for swipe
+                    CurrentTool.PressEmpty(WorldMousePos, UIMousePos, true); // ← pass true for swipe
                 }
             }
         }
@@ -243,11 +260,11 @@ public class GridPlacement
         }
         if (Input.Get("remove").Pressed && hoveredObject != null)
         {
-            CurrentTool.PressSecondary(hoveredObject, MousePos, false);
+            CurrentTool.PressSecondary(hoveredObject, WorldMousePos, UIMousePos, false);
         }
         if (Input.Get("remove").Holding && _swipe && hoveredObject != null)
         {
-            CurrentTool.PressSecondary(hoveredObject, MousePos, false);
+            CurrentTool.PressSecondary(hoveredObject, WorldMousePos, UIMousePos, false);
         }
     }
 
@@ -273,22 +290,19 @@ public class GridPlacement
             }
             
             // check for object hovering
-            if (levelObject.CanHover(MousePos) && levelObject != hoveredObject)
+            if (levelObject.CanHover(WorldMousePos) && levelObject != hoveredObject)
             {
-                 // do not allow hovering if the cursor is by a resizing handle
-                if (selectedObject != null)
+                // do not allow hovering if the cursor is by a resizing handle
+                if (IsNearAnyHandle(WorldMousePos))
                 {
-                    if (IsNearAnyHandle(MousePos, selectedObject))
-                    {
-                        break;
-                    }
+                    break;
                 }
 
                 Hover(levelObject);
                 CanPlaceObject = false;
                 break;
             }
-            else if (!levelObject.CanHover(MousePos) && levelObject == hoveredObject)
+            else if (!levelObject.CanHover(WorldMousePos) && levelObject == hoveredObject)
             {
                 Dehover();
                 CanPlaceObject = true;
@@ -298,19 +312,29 @@ public class GridPlacement
 
     public void Select(LevelObject levelObject)
     {
-        if (selectedObject == levelObject) return; // already selected, nothing to do
+        if (SelectedObjects.Count == 1 && SelectedObjects[0] == levelObject) return;
 
-        selectedObject?.SetSelected(false);
-        selectedObject = levelObject;
-        selectedObject.SetSelected(true);
+        Deselect();
+        SelectedObjects.Add(levelObject);
+        levelObject.SetSelected(true);
 
-        Rotation = selectedObject.transform.rotation;
-        _flipX = selectedObject.transform.flipX;
-        _flipY = selectedObject.transform.flipY;
+        Rotation = levelObject.transform.rotation;
+        _flipX = levelObject.transform.flipX;
+        _flipY = levelObject.transform.flipY;
     }
 
-    public bool IsNearAnyHandle(Point mousePos, LevelObject levelObject)
+    public void SelectMultiple(List<LevelObject> objects)
     {
+        Deselect();
+        SelectedObjects = objects;
+        foreach (var obj in objects)
+            obj.SetSelected(true);
+    }
+
+    public bool IsNearAnyHandle(Point mousePos)
+    {
+        var levelObject = SelectedObjects.Count == 1 ? SelectedObjects[0] : null;
+
         if (levelObject == null) return false;
 
         Rectangle bounds = levelObject.hitbox;
@@ -339,107 +363,109 @@ public class GridPlacement
 
     void HandleResizing()
     {
+        if (SelectedObjects.Count != 1) return;
+        var selectedObject = SelectedObjects[0];
+        if (!selectedObject.data.scalable) return;
+
         // check for object resizing
-        if (selectedObject != null && selectedObject.data.scalable)
+        int resizeDistance = 8;
+        float parallaxFactor = Grid.showParallax ? Grid.layers[Grid.activeLayer].ParallaxFactor : 0.0f;
+        Point mousePos = Camera.Instance.ScreenToWorld(Input.Get("cursor").Vector, parallaxFactor).ToPoint();
+
+        bool atTopEdge    = Math.Abs(mousePos.Y - selectedObject.hitbox.Top)    < resizeDistance;
+        bool atBottomEdge = Math.Abs(mousePos.Y - selectedObject.hitbox.Bottom) < resizeDistance;
+        bool atLeftEdge   = Math.Abs(mousePos.X - selectedObject.hitbox.Left)   < resizeDistance;
+        bool atRightEdge  = Math.Abs(mousePos.X - selectedObject.hitbox.Right)  < resizeDistance;
+
+        // begin drag
+        if (Input.Get("select").Pressed && _activeHandle == ResizeHandle.None)
         {
-            int resizeDistance = 8;
-            float parallaxFactor = Grid.showParallax ? Grid.layers[Grid.activeLayer].ParallaxFactor : 0.0f;
-            Point mousePos = Camera.Instance.ScreenToWorld(Input.Get("cursor").Vector, parallaxFactor).ToPoint();
+            ResizeHandle handle = ResizeHandle.None;
 
-            bool atTopEdge    = Math.Abs(mousePos.Y - selectedObject.hitbox.Top)    < resizeDistance;
-            bool atBottomEdge = Math.Abs(mousePos.Y - selectedObject.hitbox.Bottom) < resizeDistance;
-            bool atLeftEdge   = Math.Abs(mousePos.X - selectedObject.hitbox.Left)   < resizeDistance;
-            bool atRightEdge  = Math.Abs(mousePos.X - selectedObject.hitbox.Right)  < resizeDistance;
+            if      (atTopEdge    && atLeftEdge)  handle = ResizeHandle.TopLeft;
+            else if (atTopEdge    && atRightEdge) handle = ResizeHandle.TopRight;
+            else if (atBottomEdge && atLeftEdge)  handle = ResizeHandle.BottomLeft;
+            else if (atBottomEdge && atRightEdge) handle = ResizeHandle.BottomRight;
+            else if (atTopEdge)                   handle = ResizeHandle.Top;
+            else if (atBottomEdge)                handle = ResizeHandle.Bottom;
+            else if (atLeftEdge)                  handle = ResizeHandle.Left;
+            else if (atRightEdge)                 handle = ResizeHandle.Right;
 
-            // begin drag
-            if (Input.Get("select").Pressed && _activeHandle == ResizeHandle.None)
+            if (handle != ResizeHandle.None)
             {
-                ResizeHandle handle = ResizeHandle.None;
+                _activeHandle    = handle;
+                _mouseDragStart  = mousePos;
+                _dragStartBounds = selectedObject.hitbox;
+                Input.ConsumePress(); // prevent deselect from firing
+            }
+        }
 
-                if      (atTopEdge    && atLeftEdge)  handle = ResizeHandle.TopLeft;
-                else if (atTopEdge    && atRightEdge) handle = ResizeHandle.TopRight;
-                else if (atBottomEdge && atLeftEdge)  handle = ResizeHandle.BottomLeft;
-                else if (atBottomEdge && atRightEdge) handle = ResizeHandle.BottomRight;
-                else if (atTopEdge)                   handle = ResizeHandle.Top;
-                else if (atBottomEdge)                handle = ResizeHandle.Bottom;
-                else if (atLeftEdge)                  handle = ResizeHandle.Left;
-                else if (atRightEdge)                 handle = ResizeHandle.Right;
+        // apply drag
+        if (Input.Get("select").Holding && _activeHandle != ResizeHandle.None)
+        {
+            int snapValue = (int)SnapSize;
 
-                if (handle != ResizeHandle.None)
-                {
-                    _activeHandle    = handle;
-                    _mouseDragStart  = mousePos;
-                    _dragStartBounds = selectedObject.hitbox;
-                    Input.ConsumePress(); // prevent deselect from firing
-                }
+            // raw delta snapped to grid increments
+            int rawDX = mousePos.X - _mouseDragStart.X;
+            int rawDY = mousePos.Y - _mouseDragStart.Y;
+            int dx = (rawDX / snapValue) * snapValue;
+            int dy = (rawDY / snapValue) * snapValue;
+
+            // remap drag delta to match object's local axes
+            (dx, dy) = selectedObject.transform.rotation switch
+            {
+                90  => ( dy, -dx),
+                180 => (-dx, -dy),
+                270 => (-dy,  dx),
+                _   => ( dx,  dy),
+            };
+
+            int newX = _dragStartBounds.X;
+            int newY = _dragStartBounds.Y;
+            int newW = _dragStartBounds.Width;
+            int newH = _dragStartBounds.Height;
+
+            int minSize = snapValue; // never collapse below one grid cell
+
+            switch (_activeHandle)
+            {
+                case ResizeHandle.TopLeft:
+                    newX = _dragStartBounds.X + dx;
+                    newY = _dragStartBounds.Y + dy;
+                    newW = Math.Max(_dragStartBounds.Width  - dx, minSize);
+                    newH = Math.Max(_dragStartBounds.Height - dy, minSize);
+                    break;
+                case ResizeHandle.Top:
+                    newY = _dragStartBounds.Y + dy;
+                    newH = Math.Max(_dragStartBounds.Height - dy, minSize);
+                    break;
+                case ResizeHandle.TopRight:
+                    newY = _dragStartBounds.Y + dy;
+                    newW = Math.Max(_dragStartBounds.Width  + dx, minSize);
+                    newH = Math.Max(_dragStartBounds.Height - dy, minSize);
+                    break;
+                case ResizeHandle.Right:
+                    newW = Math.Max(_dragStartBounds.Width + dx, minSize);
+                    break;
+                case ResizeHandle.BottomRight:
+                    newW = Math.Max(_dragStartBounds.Width  + dx, minSize);
+                    newH = Math.Max(_dragStartBounds.Height + dy, minSize);
+                    break;
+                case ResizeHandle.Bottom:
+                    newH = Math.Max(_dragStartBounds.Height + dy, minSize);
+                    break;
+                case ResizeHandle.BottomLeft:
+                    newX = _dragStartBounds.X + dx;
+                    newW = Math.Max(_dragStartBounds.Width  - dx, minSize);
+                    newH = Math.Max(_dragStartBounds.Height + dy, minSize);
+                    break;
+                case ResizeHandle.Left:
+                    newX = _dragStartBounds.X + dx;
+                    newW = Math.Max(_dragStartBounds.Width - dx, minSize);
+                    break;
             }
 
-            // apply drag
-            if (Input.Get("select").Holding && _activeHandle != ResizeHandle.None)
-            {
-                int snapValue = (int)SnapSize;
-
-                // raw delta snapped to grid increments
-                int rawDX = mousePos.X - _mouseDragStart.X;
-                int rawDY = mousePos.Y - _mouseDragStart.Y;
-                int dx = (rawDX / snapValue) * snapValue;
-                int dy = (rawDY / snapValue) * snapValue;
-
-                // remap drag delta to match object's local axes
-                (dx, dy) = selectedObject.transform.rotation switch
-                {
-                    90  => ( dy, -dx),
-                    180 => (-dx, -dy),
-                    270 => (-dy,  dx),
-                    _   => ( dx,  dy),
-                };
-
-                int newX = _dragStartBounds.X;
-                int newY = _dragStartBounds.Y;
-                int newW = _dragStartBounds.Width;
-                int newH = _dragStartBounds.Height;
-
-                int minSize = snapValue; // never collapse below one grid cell
-
-                switch (_activeHandle)
-                {
-                    case ResizeHandle.TopLeft:
-                        newX = _dragStartBounds.X + dx;
-                        newY = _dragStartBounds.Y + dy;
-                        newW = Math.Max(_dragStartBounds.Width  - dx, minSize);
-                        newH = Math.Max(_dragStartBounds.Height - dy, minSize);
-                        break;
-                    case ResizeHandle.Top:
-                        newY = _dragStartBounds.Y + dy;
-                        newH = Math.Max(_dragStartBounds.Height - dy, minSize);
-                        break;
-                    case ResizeHandle.TopRight:
-                        newY = _dragStartBounds.Y + dy;
-                        newW = Math.Max(_dragStartBounds.Width  + dx, minSize);
-                        newH = Math.Max(_dragStartBounds.Height - dy, minSize);
-                        break;
-                    case ResizeHandle.Right:
-                        newW = Math.Max(_dragStartBounds.Width + dx, minSize);
-                        break;
-                    case ResizeHandle.BottomRight:
-                        newW = Math.Max(_dragStartBounds.Width  + dx, minSize);
-                        newH = Math.Max(_dragStartBounds.Height + dy, minSize);
-                        break;
-                    case ResizeHandle.Bottom:
-                        newH = Math.Max(_dragStartBounds.Height + dy, minSize);
-                        break;
-                    case ResizeHandle.BottomLeft:
-                        newX = _dragStartBounds.X + dx;
-                        newW = Math.Max(_dragStartBounds.Width  - dx, minSize);
-                        newH = Math.Max(_dragStartBounds.Height + dy, minSize);
-                        break;
-                    case ResizeHandle.Left:
-                        newX = _dragStartBounds.X + dx;
-                        newW = Math.Max(_dragStartBounds.Width - dx, minSize);
-                        break;
-                }
-
-                // clamp position when size hits minimum (left/top edges)
+            // clamp position when size hits minimum (left/top edges)
                 if (newW == minSize && (_activeHandle == ResizeHandle.Left
                                     || _activeHandle == ResizeHandle.TopLeft
                                     || _activeHandle == ResizeHandle.BottomLeft))
@@ -462,13 +488,15 @@ public class GridPlacement
             {
                 _activeHandle = ResizeHandle.None;
             }
-        }
     }
 
     public void Deselect()
     {
-        selectedObject?.SetSelected(false);
-        selectedObject = null;
+        foreach (var obj in SelectedObjects)
+        {
+            obj.SetSelected(false);
+        }
+        SelectedObjects.Clear();
     }
 
     public void Hover(LevelObject levelObject)
@@ -495,8 +523,14 @@ public class GridPlacement
     {
         float parallaxFactor = Grid.showParallax ? Grid.layers[Grid.activeLayer].ParallaxFactor : 0.0f;
         Point mousePos = Camera.Instance.ScreenToWorld(Input.Get("cursor").Vector, parallaxFactor).ToPoint();
+
+        spriteBatch.Begin(SpriteSortMode.Deferred, null, SamplerState.PointClamp, null, null, null, Main.UIMatrtix);
+        CurrentTool?.DrawUI(spriteBatch);
+        spriteBatch.End();
         
         spriteBatch.Begin(SpriteSortMode.Deferred, null, SamplerState.PointClamp, null, null, null, Camera.Instance.GetParallaxTransform(parallaxFactor));
+        
+        CurrentTool?.DrawWorld(spriteBatch);
 
         // draw tile debug
         if (!Input.MouseHoverConsumed && Grid.showHitboxes && _selectedObjectData != null)
@@ -508,7 +542,7 @@ public class GridPlacement
         }
 
         // draw preview
-        if (_selectedObjectData != null && CanPlaceObject && selectedObject == null && !Input.MouseHoverConsumed && !JustPlaced)
+        if (_selectedObjectData != null && CanPlaceObject && SelectedObjects.Count == 0 && !Input.MouseHoverConsumed && !JustPlaced)
         {
             int snapSize = _selectedObjectData.enforceGrid ? (int)SnapSize.Whole : (int)SnapSize;
             LastPreviewPosition = CalculateSmartPlacement(_selectedObjectData, mousePos, snapSize, Rotation, out bool invalidPlacement);
@@ -519,9 +553,9 @@ public class GridPlacement
             DrawPlacementPreview(spriteBatch, _selectedObjectData, LastPreviewPosition, Rotation, _flipX, _flipY, color);
         }
 
-        if (selectedObject != null && selectedObject.data.scalable)
+        if (SelectedObjects.Count == 1 && SelectedObjects[0].data.scalable)
         {
-            DrawHandles(spriteBatch, selectedObject, _activeHandle);
+            DrawHandles(spriteBatch, SelectedObjects[0], _activeHandle);
         }
 
         spriteBatch.End();
@@ -600,6 +634,13 @@ public class GridPlacement
     public void RemoveObject(LevelObject levelObject)
     {
         CommandInvoker.Execute(new RemoveObjectCommand(this, Grid, levelObject));
+            
+        _removeSound.Play();
+    }
+
+    public void BatchRemoveObjects(List<LevelObject> levelObjects)
+    {
+        CommandInvoker.Execute(new BatchRemoveObjectsCommand(this, Grid, levelObjects.ToArray()));
             
         _removeSound.Play();
     }

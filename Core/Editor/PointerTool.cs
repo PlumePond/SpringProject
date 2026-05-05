@@ -17,11 +17,11 @@ public class PointerTool(GridPlacement placement) : Tool(placement)
         
     }
 
-    public override void PressPrimary(LevelObject hovered, Point mousePos, bool swipe)
+    public override void PressPrimary(LevelObject hovered, Point worldMousePos, Point uiMousePos, bool swipe)
     {
         if (swipe) return;
 
-        if (_placement.selectedObject != hovered)
+        if (!_placement.SelectedObjects.Contains(hovered))
         {
             _placement.Select(hovered);
         }
@@ -31,9 +31,9 @@ public class PointerTool(GridPlacement placement) : Tool(placement)
         }
     }
 
-    public override void PressEmpty(Point mousePos, bool swipe)
+    public override void PressEmpty(Point worldMousePos, Point uiMousePos, bool swipe)
     {
-        if (_placement.selectedObject != null)
+        if (_placement.SelectedObjects.Count > 0)
         {
             _placement.Deselect();
             return;
@@ -42,16 +42,15 @@ public class PointerTool(GridPlacement placement) : Tool(placement)
         if (_placement.SelectedObjectData == null) return;
         if (!_placement.CanPlaceObject) return;
 
-        var objectPos = _placement.CalculateSmartPlacement(_placement.SelectedObjectData, mousePos, _placement.Grid.GridSize, _placement.Rotation, out bool invalidPlacement, null);
+        var objectPos = _placement.CalculateSmartPlacement(_placement.SelectedObjectData, worldMousePos, _placement.Grid.GridSize, _placement.Rotation, out bool invalidPlacement, null);
         if (!invalidPlacement)
         {
             _placement.PlaceObject(_placement.SelectedObjectData, objectPos, _placement.Grid.activeLayer);
         }
     }
 
-    public override void PressSecondary(LevelObject hovered, Point mousePos, bool swipe)
+    public override void PressSecondary(LevelObject hovered, Point worldMousePos, Point uiMousePos, bool swipe)
     {
-        Debug.Log($"deleted object: '{hovered.data.name}'");
         _placement.RemoveObject(hovered);
     }
 

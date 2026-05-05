@@ -34,6 +34,14 @@ public class Player : Entity
     [Parameter("Slide Friction")] public float SlideFriction = 0.9f;
     [Parameter("God Mode")] public bool GodMode = false;
     [Parameter("Nickname")] public string Nickname = "";
+    [Parameter("Coyote Time")] public float CoyoteTime = 0.2f;
+    [Parameter("Jump Buffer")] public float JumpBuffer = 0.2f;
+    [Parameter("Max Pounces")] public int MaxPounces = 1;
+
+    float _coyoteTimer = 0.0f;
+    public int pouncesLeft { get; private set; } = 1;
+
+    public bool HasCoyoteTime => _coyoteTimer < CoyoteTime;
 
     public static Player Instance;
     public ParticleSystem ParticleSystem;
@@ -97,6 +105,19 @@ public class Player : Entity
         Instance = this;
     }
 
+    public override void Update(GameTime gameTime)
+    {
+        if (Grounded)
+        {
+            _coyoteTimer = 0.0f;
+            pouncesLeft = MaxPounces;
+        }
+        else
+        {
+            _coyoteTimer += (float)gameTime.ElapsedGameTime.TotalSeconds;
+        }
+    }
+
     public override void FixedUpdate(GameTime gameTime)
     {
         base.FixedUpdate(gameTime);
@@ -141,7 +162,7 @@ public class Player : Entity
                 _stateMachine.Set("walk");
             }
 
-            if (Input.Get("jump").Pressed && _entity.Grounded)
+            if (Input.Get("jump").Pressed && _entity.HasCoyoteTime)
             {
                 _stateMachine.Set("jump");
             }
@@ -289,15 +310,30 @@ public class Player : Entity
 
     class Fall : State<Player>
     {
+        float _jumpBufferTimer = 0f;
+
         public override void Enter()
         {
             _entity.Animator.Set("fall");
+            _jumpBufferTimer = 0f;
         }
 
         public override void Update(GameTime gameTime)
         {
+            if (Input.Get("jump").Pressed)
+            {
+                _jumpBufferTimer = _entity.JumpBuffer;
+            }
+
+            _jumpBufferTimer -= (float)gameTime.ElapsedGameTime.TotalSeconds;
+
             if (_entity.Grounded)
             {
+                if (_jumpBufferTimer > 0)
+                {
+                    _stateMachine.Set("jump");
+                }
+
                 _stateMachine.Set("idle");
                 var landSound = AudioManager.Get($"step_{_entity.FootstepMaterial.ToString().ToLower()}");
                 landSound.SetChannel("sfx");
@@ -307,10 +343,15 @@ public class Player : Entity
                 _entity.ParticleSystem.Burst("small_dust", pos, 4, 5, 15f, 1f);
             }
 
-            if (Input.Get("pounce").Pressed)
+            if (Input.Get("pounce").Pressed && _entity.pouncesLeft > 0)
             {
                 _stateMachine.Set("pounce");
                 _entity.Rigidbody.InternalVelocity += new Vector2(0, -_entity.PounceForceY);
+            }
+
+            if (Input.Get("jump").Pressed && _entity.HasCoyoteTime)
+            {
+                _stateMachine.Set("jump");
             }
         }
 
@@ -330,7 +371,7 @@ public class Player : Entity
 
         public override void Update(GameTime gameTime)
         {
-            if (Input.Get("jump").Pressed && _entity.Grounded)
+            if (Input.Get("jump").Pressed && _entity.HasCoyoteTime)
             {
                 _stateMachine.Set("jump");
             }
@@ -370,6 +411,7 @@ public class Player : Entity
             var force = new Vector2(_entity.PounceForceX * direction, 0);
             _entity.Rigidbody.InternalVelocity += force;
             _elapsedTime = 0f;
+            _entity.pouncesLeft--;
             
             var pounceSound = AudioManager.Get("pounce");
                 pounceSound.SetChannel("sfx");
@@ -416,7 +458,7 @@ public class Player : Entity
 
         public override void Update(GameTime gameTime)
         {
-            if (Input.Get("jump").Pressed)
+            if (Input.Get("jump").Pressed && _entity.HasCoyoteTime)
             {
                 _stateMachine.Set("jump");
             }

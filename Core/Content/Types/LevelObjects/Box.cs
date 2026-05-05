@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SpringProject.Core.Editor;
+using SpringProject.Core.Components;
 
 namespace SpringProject.Core.Content.Types.LevelObjects;
 
@@ -17,6 +18,7 @@ public class Box : LevelObject
     public override void Initialize(LevelObjectData data, Grid grid, Point position)
     {
         base.Initialize(data, grid, position);
+        AddComponent<BoxCollider>();
     }
 
     public override void Update(GameTime gameTime)

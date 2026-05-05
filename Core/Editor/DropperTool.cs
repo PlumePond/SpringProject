@@ -7,7 +7,7 @@ public class DropperTool(GridPlacement placement) : Tool(placement)
 {
     public override CursorType CursorType => CursorType.Dropper;
 
-    public override void PressPrimary(LevelObject hovered, Point mousePos, bool swipe)
+    public override void PressPrimary(LevelObject hovered, Point worldMousePos, Point uiMousePos, bool swipe)
     {
         if (_placement.SelectedObjectData != hovered.data)
         {
@@ -16,7 +16,7 @@ public class DropperTool(GridPlacement placement) : Tool(placement)
         }
     }
 
-    public override void PressSecondary(LevelObject hovered, Point mousePos, bool swipe)
+    public override void PressSecondary(LevelObject hovered, Point worldMousePos, Point uiMousePos, bool swipe)
     {
         if (ColorManager.SelectedColorIndex != hovered.colorIndex)
         {

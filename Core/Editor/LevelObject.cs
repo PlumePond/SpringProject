@@ -10,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using SpringProject.Core.Components;
 using System.Linq;
+using Silk.NET.OpenAL;
 
 namespace SpringProject.Core.Editor;
 
@@ -52,6 +53,18 @@ public class LevelObject
     public T GetComponent<T>() where T : Component
     {
         return Components.OfType<T>().FirstOrDefault();
+    }
+
+    public bool TryGetComponent<T>(out T component) where T : Component
+    {
+        if (Components.OfType<T>() == null)
+        {
+            component = null;
+            return false;
+        }
+
+        component = GetComponent<T>();
+        return true;
     }
 
     public virtual float ResizeDistance => 4;
@@ -278,14 +291,10 @@ public class LevelObject
         var sliderSize = new Point(48, 7);
         var handleSize = new Point(6, 10);
 
-        Debug.Log("Info setting");
-
         foreach (var target in targets)
         {
-            Debug.Log($"Target detected {target}");
             foreach (var parameter in ParameterScanner.Scan(target))
             {
-                Debug.Log($"Parameter detected '{parameter.Label}' of type {parameter.ValueType}");
                 ParameterUIFactory.Configure(sliderTexture, panelTexture, selectedTexture, fillTexture, sliderSize, handleSize);
                 var element = ParameterUIFactory.Create(parameter);
 
