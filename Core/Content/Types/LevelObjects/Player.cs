@@ -23,19 +23,19 @@ namespace SpringProject.Core.Content.Types.LevelObjects;
 
 public class Player : Entity
 {
-    [Parameter("Speed", 0f, 1f)] public float Speed = 0.4f;
-    [Parameter("Internal Friction", 0f, 1f)] public float InternalFriction = 0.8f;
-    [Parameter("External Friction", 0f, 1f)] public float ExternalFriction = 0.8f;
-    [Parameter("Ice Friction", 0f, 1f)] public float IceFriction = 0.95f;
-    [Parameter("Ice Speed", 0f, 1f)] public float IceSpeed = 0.4f;
+    [Parameter("Speed", 0f, 1f)] public float Speed = 0.45f;
+    [Parameter("Internal Friction", 0f, 1f)] public float InternalFriction = 0.80f;
+    [Parameter("External Friction", 0f, 1f)] public float ExternalFriction = 0.80f;
+    [Parameter("Ice Friction", 0f, 1f)] public float IceFriction = 0.97f;
+    [Parameter("Ice Speed", 0f, 1f)] public float IceSpeed = 0.08f;
     [Parameter("Jump Force", 0f, 8f)] public float JumpForce = 4.0f;
-    [Parameter("Pounce Force X", 0f, 10f)] public float PounceForceX = 4.0f;
-    [Parameter("Pounce Force Y", 0f, 10f)] public float PounceForceY = 4.0f;
-    [Parameter("Slide Friction")] public float SlideFriction = 0.9f;
+    [Parameter("Pounce Force X", 0f, 10f)] public float PounceForceX = 3.0f;
+    [Parameter("Pounce Force Y", 0f, 10f)] public float PounceForceY = 2.0f;
+    [Parameter("Slide Friction")] public float SlideFriction = 0.97f;
     [Parameter("God Mode")] public bool GodMode = false;
     [Parameter("Nickname")] public string Nickname = "";
-    [Parameter("Coyote Time")] public float CoyoteTime = 0.2f;
-    [Parameter("Jump Buffer")] public float JumpBuffer = 0.2f;
+    [Parameter("Coyote Time")] public float CoyoteTime = 0.15f;
+    [Parameter("Jump Buffer")] public float JumpBuffer = 0.20f;
     [Parameter("Max Pounces")] public int MaxPounces = 1;
 
     float _coyoteTimer = 0.0f;

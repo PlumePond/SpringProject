@@ -42,7 +42,7 @@ public class PointerTool(GridPlacement placement) : Tool(placement)
         if (_placement.SelectedObjectData == null) return;
         if (!_placement.CanPlaceObject) return;
 
-        var objectPos = _placement.CalculateSmartPlacement(_placement.SelectedObjectData, worldMousePos, _placement.Grid.GridSize, _placement.Rotation, out bool invalidPlacement, null);
+        var objectPos = _placement.CalculateSmartPlacement(_placement.SelectedObjectData, worldMousePos, (int)_placement.SnapSize, _placement.Rotation, out bool invalidPlacement, null);
         if (!invalidPlacement)
         {
             _placement.PlaceObject(_placement.SelectedObjectData, objectPos, _placement.Grid.activeLayer);
