@@ -1,0 +1,11 @@
+{
+    "bindings": [
+        { 
+            "type": "mouse_click", 
+            "button": "Left" },
+        { 
+            "type": "controller_button", 
+            "button": "A" 
+        }
+    ]
+}

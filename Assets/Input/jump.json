@@ -1,0 +1,16 @@
+{
+    "bindings": [
+        { 
+            "type": "key", 
+            "key": "Space"
+        },
+        {
+            "type": "controller_button",
+            "button": "A"
+        },
+        {
+            "type": "joystick_button",
+            "joystickbutton": 0
+        }
+    ]
+}

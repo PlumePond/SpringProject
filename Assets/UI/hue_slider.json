@@ -1,0 +1,16 @@
+{
+    "type": "slider",
+    "position": [5, 110],
+    "size": [100, 10],
+    "scale": [1.0, 1.0],
+    "origin": "top_left",
+    "anchor": "top_left",
+    "slider_texture": "panel_dark",
+    "handle_texture": "panel",
+    "selected_texture": "panel_selected",
+    "slider_fill_texure": "slider_fill",
+    "min": 0.0,
+    "max": 360.0,
+    "corner_size": 3,
+    "parent": "color_panel"
+}

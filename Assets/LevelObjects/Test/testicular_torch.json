@@ -1,0 +1,25 @@
+{
+  "material": "default",
+  "solid": false,
+  "type": "touchable_flower",
+  "scalable": false,
+  "frame": {
+    "X": 0,
+    "Y": 0
+  },
+  "defaultFramePos": {
+    "X": 0,
+    "Y": 0
+  },
+  "placeSound": null,
+  "frameOutline": false,
+  "enforceGrid": false,
+  "tags": null,
+  "hitbox": {
+    "X": 0,
+    "Y": 0,
+    "Width": 0,
+    "Height": 0
+  },
+  "restrictPlacement": true
+}

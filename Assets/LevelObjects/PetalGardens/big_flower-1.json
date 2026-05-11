@@ -1,0 +1,10 @@
+{
+    "material": "foliage",
+    "solid": false,
+    "hitbox": {
+        "X": 21,
+        "Y": 0,
+        "Width": 17,
+        "Height": 116
+    }
+}

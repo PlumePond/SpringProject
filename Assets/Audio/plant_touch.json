@@ -1,0 +1,10 @@
+{
+    "volume": 0.05,
+    "pitch": 1,
+    "loop": false,
+    "variance":
+    {
+        "volume": 0.02,
+        "pitch": 0.4
+    }
+}

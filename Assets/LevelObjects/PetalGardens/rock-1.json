@@ -1,0 +1,10 @@
+{
+    "material": "stone",
+    "solid": false,
+    "hitbox": {
+        "X": 0,
+        "Y": 0,
+        "Width": 19,
+        "Height": 13
+    }
+}

@@ -1,0 +1,6 @@
+{
+    "type": "solid_rectangle",
+    "material": "metal",
+    "solid": true,
+    "placeSound": "step_metal"
+}

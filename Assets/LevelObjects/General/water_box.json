@@ -1,0 +1,9 @@
+{
+    "material": "default",
+    "solid": false,
+    "type": "water_box",
+    "scalable": true,
+    "tags": [
+        "water"
+    ]
+}

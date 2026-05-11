@@ -1,0 +1,15 @@
+{
+    "material": "foliage",
+    "solid": false,
+    "type": "floral_buzzer",
+    "frame": {
+        "X": 39,
+        "Y": 33
+    },
+    "hitbox": {
+        "X": 12,
+        "Y": 9,
+        "Width": 14,
+        "Height": 19
+    }
+}

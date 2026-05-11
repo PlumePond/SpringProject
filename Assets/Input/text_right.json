@@ -1,0 +1,9 @@
+{
+    "ignoreLock": true,
+    "bindings": [
+        { 
+            "type": "key", 
+            "key": "Right"
+        }
+    ]
+}

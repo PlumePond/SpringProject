@@ -1,0 +1,11 @@
+{
+    "material": "ice",
+    "solid": true,
+    "type": "slope_tile",
+    "enforceGrid": true,
+    "placeSound": "step_ice",
+    "tags": [
+        "ice",
+        "stone"
+    ]
+}

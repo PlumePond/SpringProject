@@ -1,0 +1,16 @@
+{
+    "bindings": [
+        { 
+            "type": "key", 
+            "key": "LeftShift"
+        },
+        {
+            "type": "controller_button",
+            "button": "RightTrigger"
+        },
+        {
+            "type": "joystick_button",
+            "joystickbutton": 3
+        }
+    ]
+}

@@ -1,0 +1,20 @@
+{
+    "material": "ice",
+    "solid": true,
+    "type": "tile",
+    "frameOutline": true,
+    "enforceGrid": true,
+    "placeSound": "step_ice",
+    "frame": {
+        "X": 16,
+        "Y": 16
+    },
+    "defaultFramePos": {
+        "X": 48,
+        "Y": 48
+    },
+    "tags": [
+        "ice",
+        "stone"
+    ]
+}

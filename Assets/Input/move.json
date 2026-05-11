@@ -1,0 +1,18 @@
+{
+    "bindings": [
+        { 
+            "type": "compound_key", 
+            "up": "W", 
+            "down": "S", 
+            "left": "A", 
+            "right": "D" 
+        },
+        {
+            "type": "controller_stick",
+            "stick": "left"
+        },
+        {
+            "type": "joystick_stick"
+        }
+    ]
+}
