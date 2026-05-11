@@ -24,6 +24,8 @@ public class Rigidbody : Component
 
     public List<Collider> intersectingColliders = new List<Collider>();
 
+    public bool GravityEnabled { get; set; } = true;
+
     public override void Start()
     {
         _position = LevelObject.transform.position.ToVector2();
@@ -37,7 +39,10 @@ public class Rigidbody : Component
 
     public override void FixedUpdate(GameTime gameTime)
     {
-        InternalVelocity.Y += Gravity * (float)Main.FIXED_TIMESTEP;
+        if (GravityEnabled)
+        {
+            InternalVelocity.Y += Gravity * (float)Main.FIXED_TIMESTEP;
+        }
 
         _velocity = ExternalVelocity + InternalVelocity;
 

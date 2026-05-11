@@ -1,9 +1,0 @@
-{
-    "ignoreLock": true,
-    "bindings": [
-        { 
-            "type": "modifier", 
-            "keys": ["LeftControl", "X"]
-        }
-    ]
-}

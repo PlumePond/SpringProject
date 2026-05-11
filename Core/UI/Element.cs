@@ -39,6 +39,8 @@ public class Element
     protected List<Element> _children;
     protected Element _parent;
 
+    public Action<Point> UpdateSizeEvent;
+
     public Point AbsolutePosition
     {
         get
@@ -231,6 +233,7 @@ public class Element
     public void SetSize(Point size)
     {
         this.size = size;
+        UpdateSizeEvent?.Invoke(size);
         ReCalculateOffsets();
     }
 

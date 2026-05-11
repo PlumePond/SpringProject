@@ -1,8 +1,0 @@
-{
-    "bindings": [
-        { 
-            "type": "modifier", 
-            "keys": ["LeftControl", "Z"]
-        }
-    ]
-}

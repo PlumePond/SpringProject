@@ -1,9 +1,0 @@
-{
-    "ignoreLock": true,
-    "bindings": [
-        { 
-            "type": "mouse_click", 
-            "button": "Middle"
-        }
-    ]
-}

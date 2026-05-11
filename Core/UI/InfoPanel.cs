@@ -37,20 +37,20 @@ public class InfoPanel : Panel
     /// <summary>
     /// Adds an Element as a child to the Info Panel.
     /// </summary>
-    /// <param name="name"></param>
-    /// <param name="element"></param>
-    /// <exception cref="Exception"></exception>
     public static void AddElement(string name, Element element)
     {
         if (_elements.ContainsKey(name))
         {
-            throw new Exception($"Element '{name}' is already present in the dictionary!");
+            _elements[name] = element; // Replace existing
+            ArrayElement.RemoveChild(_elements[name]);
+            Debug.Log($"Element '{name}' is already present in the dictionary!");
         }
         else
         {
-            ArrayElement.AddChild(element);
             _elements.Add(name, element);
         }
+
+        ArrayElement.AddChild(element);
     }
 
     public static void RemoveElement(string name)

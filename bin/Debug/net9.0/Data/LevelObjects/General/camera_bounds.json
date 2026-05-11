@@ -1,7 +1,0 @@
-{
-    "material": "default",
-    "solid": true,
-    "type": "camera_bounds",
-    "scalable": true,
-    "restrictPlacement": false
-}

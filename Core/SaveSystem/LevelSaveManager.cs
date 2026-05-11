@@ -6,16 +6,17 @@ using SpringProject.Core.Debugging;
 using SpringProject.Core.Editor;
 using Newtonsoft.Json;
 using SpringProject.Core.Scenes;
+using MemoryPack;
 
 namespace SpringProject.Core.SaveSystem;
 
 public static class LevelSaveManager
 {
-    const string SAVE_PATH = "Data/Levels";
+    const string SAVE_PATH = "Assets/Levels";
 
     public static string ActiveLevel = "";
 
-    public static Dictionary<string, GridSaveData> LoadedLevelsData = new Dictionary<string, GridSaveData>();
+    public static List<string> DiscoveredLevels = new List<string>();
 
     public static void Save(Grid grid)
     {
@@ -46,7 +47,7 @@ public static class LevelSaveManager
                 {
                     foreach (var param in ParameterScanner.Scan(target))
                     {
-                        data.parameters[param.Label] = param.GetValue();
+                        data.Parameters[param.Label] = JsonConvert.SerializeObject(param.GetValue());
                     }
                 }
 
@@ -58,86 +59,131 @@ public static class LevelSaveManager
 
         GridSaveData saveData = new GridSaveData(grid.BackgroundColorIndex, grid.FogColorIndex, grid.size, levelObjects.ToArray(), colorSaveData);
 
-        string path = Path.Combine(SAVE_PATH, $"{ActiveLevel}.json");
-        string json = JsonConvert.SerializeObject(saveData, Formatting.Indented);
-        File.WriteAllText(path, json);
+        string path = Path.Combine(SAVE_PATH, $"{ActiveLevel}.level");
+        // string json = JsonConvert.SerializeObject(saveData, Formatting.Indented);
+        var binary = MemoryPackSerializer.Serialize(saveData);
+        File.WriteAllBytes(path, binary);
     }
 
     public static void LoadAll()
     {
         string path = SAVE_PATH;
         
-        LoadedLevelsData.Clear();
+        DiscoveredLevels.Clear();
+
+        ConvertAllJsonLevelDataToBinaryFormat();
+
+        foreach (string saveFile in Directory.GetFiles(path, "*.level"))
+        {
+            //byte[] data = File.ReadAllBytes(saveFile);
+            string name = Path.GetFileNameWithoutExtension(saveFile);
+
+            //GridSaveData saveData = MemoryPackSerializer.Deserialize<GridSaveData>(data);
+            DiscoveredLevels.Add(name);
+        }
+    }
+
+    public static void ConvertAllJsonLevelDataToBinaryFormat()
+    {
+        string path = SAVE_PATH;
 
         foreach (string jsonFile in Directory.GetFiles(path, "*.json"))
         {
             string json = File.ReadAllText(jsonFile);
             string name = Path.GetFileNameWithoutExtension(jsonFile);
-
             GridSaveData saveData = JsonConvert.DeserializeObject<GridSaveData>(json);
-            LoadedLevelsData.Add(name, saveData);
+            
+            string outputPath = Path.Combine(SAVE_PATH, $"{name}.level");
+            var binary = MemoryPackSerializer.Serialize(saveData);
+            File.WriteAllBytes(outputPath, binary);
         }
     }
 
     public static void Load(string level, Grid grid)
     {
-        string path = Path.Combine(SAVE_PATH, $"{level}.json");
-        string json = File.ReadAllText(path);
+        string path = Path.Combine(SAVE_PATH, $"{level}.level");
+        byte[] data = File.ReadAllBytes(path);
 
-        GridSaveData saveData = JsonConvert.DeserializeObject<GridSaveData>(json);
-
-        if (saveData != null)
+        if (data.Length > 0)
         {
-            grid.SetSize(saveData.size);
-            grid.LoadLevelObjects(saveData.levelObjects);
-            grid.SetFogColorIndex(saveData.fogColorIndex);
-            grid.SetBackgroundColorIndex(saveData.backgroundColorIndex);
+            GridSaveData saveData = MemoryPackSerializer.Deserialize<GridSaveData>(data);
 
-            ColorManager.Load(saveData.color?.colors);
-
-            Debug.Log($"Level '{level}' loaded successfully.");
+            if (saveData != null)
+            {
+                grid.SetSize(saveData.Size);
+                grid.LoadLevelObjects(saveData.LevelObjects);
+                grid.SetFogColorIndex(saveData.FogColorIndex);
+                grid.SetBackgroundColorIndex(saveData.BackgroundColorIndex);
+                ColorManager.Load(saveData.Color?.Colors);
+                Debug.Log($"Level '{level}' loaded successfully.");
+            }
+            else
+            {
+                Debug.Log($"Level '{level}' failed to load.");
+            }
         }
         else
         {
-            Debug.Log($"Level '{level}' failed to load.");
+            Debug.Log($"Level '{level}' is empty, starting fresh.");
         }
 
         ActiveLevel = level;
     }
 }
 
-public class GridSaveData
+[MemoryPackable(GenerateType.VersionTolerant)]
+public partial class GridSaveData
 {
     public GridSaveData(int backgroundColorIndex, int fogColorIndex, Point size, LevelObjectSaveData[] levelObjects, ColorSaveData color)
     {
-        this.backgroundColorIndex = backgroundColorIndex;
-        this.fogColorIndex = fogColorIndex;
-        this.size = size;
-        this.levelObjects = levelObjects;
-        this.color = color;
+        BackgroundColorIndex = backgroundColorIndex;
+        FogColorIndex = fogColorIndex;
+        Size = size;
+        LevelObjects = levelObjects;
+        Color = color;
     }
     
-    public int backgroundColorIndex { get; set; }
-    public int fogColorIndex { get; set; }
-    public Point size { get; set; }
-    public LevelObjectSaveData[] levelObjects { get; set; }
-    public ColorSaveData color { get; set; }
+    [MemoryPackOrder(0)] public int BackgroundColorIndex { get; set; }
+    [MemoryPackOrder(1)] public int FogColorIndex { get; set; }
+    [MemoryPackOrder(2)] public Point Size { get; set; }
+    [MemoryPackOrder(3)] public LevelObjectSaveData[] LevelObjects { get; set; }
+    [MemoryPackOrder(4)] public ColorSaveData Color { get; set; }
 }
 
-public class ColorSaveData(Color[] colors)
+[MemoryPackable(GenerateType.VersionTolerant)]
+public partial class ColorSaveData
 {
-    public Color[] colors { get; set; } = colors;
+    [MemoryPackOrder(0)] public Color[] Colors { get; set; }
+
+    public ColorSaveData(Color[] colors)
+    {
+        Colors = colors;
+    }
 }
 
-public class LevelObjectSaveData(int colorIndex, Point position, Point size, int rotation, bool flipX, bool flipY, int layer, string dataKey)
+
+[MemoryPackable(GenerateType.VersionTolerant)]
+public partial class LevelObjectSaveData
 {
-    public int colorIndex { get; set; } = colorIndex;
-    public Point position { get; set; } = position;
-    public Point size { get; set; } = size;
-    public int rotation { get; set; } = rotation;
-    public bool flipX { get; set; } = flipX;
-    public bool flipY { get; set; } = flipY;
-    public int layer { get; set; } = layer;
-    public string dataKey { get; set; } = dataKey;
-    public Dictionary<string, object> parameters { get; set; } = new();
+    [MemoryPackOrder(0)] public int ColorIndex { get; set; }
+    [MemoryPackOrder(1)] public Point Position { get; set; }
+    [MemoryPackOrder(2)] public Point Size { get; set; }
+    [MemoryPackOrder(3)] public int Rotation { get; set; }
+    [MemoryPackOrder(4)] public bool FlipX { get; set; }
+    [MemoryPackOrder(5)] public bool FlipY { get; set; }
+    [MemoryPackOrder(6)] public int Layer { get; set; }
+    [MemoryPackOrder(7)] public string DataKey { get; set; }
+    [MemoryPackOrder(8)] [JsonConverter(typeof(StringifyValuesConverter))] public Dictionary<string, string> Parameters { get; set; } = new(); // the string key will be converted from json
+
+    public LevelObjectSaveData(int colorIndex, Point position, Point size, int rotation, bool flipX, bool flipY, int layer, string dataKey)
+    {
+        ColorIndex = colorIndex;
+        Position = position;
+        Size = size;
+        Rotation = rotation;
+        FlipX = flipX;
+        FlipY = flipY;
+        Layer = layer;
+        DataKey = dataKey;
+    }
 }

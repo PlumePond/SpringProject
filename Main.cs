@@ -96,7 +96,7 @@ public class Main : Game
             var dummy = new DynamicSoundEffectInstance(44100, AudioChannels.Stereo);
             dummy.Dispose();
             // loads all content needed for the game
-            Loader.Load("Data", GraphicsDevice);
+            Loader.Load("Assets", GraphicsDevice);
             _audioInitialized = true;
         }
 
@@ -104,7 +104,7 @@ public class Main : Game
 
         CalculateUIMatrix();
 
-        SetScene<MainMenu>(false);
+        SetScene<AssetImporterScene>(false);
 
         // LevelEditor.levelName = "test_world-1";
         // SetScene<LevelEditor>(false);

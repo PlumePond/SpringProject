@@ -1,23 +1,13 @@
-using FontStashSharp;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using SpringProject.Core.Debugging;
-using SpringProject.Core.UI;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using SpringProject.Core.Editor;
 using SpringProject.Core.UserInput;
-using System.Runtime.InteropServices;
 using SpringProject.Core.Audio;
 using SpringProject.Core.Particles;
-using SpringProject.Core.Commands;
 using SpringProject.Core.Components;
-using System.Data;
-using System.Runtime.CompilerServices;
-using System.ComponentModel;
+using NativeFileDialogCore;
 
 namespace SpringProject.Core.Content.Types.LevelObjects;
 
@@ -37,6 +27,8 @@ public class Player : Entity
     [Parameter("Coyote Time")] public float CoyoteTime = 0.15f;
     [Parameter("Jump Buffer")] public float JumpBuffer = 0.20f;
     [Parameter("Max Pounces")] public int MaxPounces = 1;
+    [Parameter("Swim Speed", 0f, 10f)] public float SwimSpeed = 0.15f;
+    [Parameter("Water Friction")] public float WaterFriction = 0.90f;
 
     float _coyoteTimer = 0.0f;
     public int pouncesLeft { get; private set; } = 1;
@@ -48,12 +40,22 @@ public class Player : Entity
     public Rigidbody Rigidbody;
     public StateMachine<Player> StateMachine;
 
+    Rectangle _surfacedCheck;
+    public bool Surfaced { get; private set; } = false;
+    public bool IgnoreWaterTransition { get; set; } = false;
+    public int WaterSurfaceY { get; private set; } = 0;
+
+    int _watersTouching = 0;
+
     public override void Initialize(LevelObjectData data, Grid grid, Point position)
     {
         base.Initialize(data, grid, position);
 
         Rigidbody = GetComponent<Rigidbody>();
         StateMachine = AddComponent<StateMachine<Player>>();
+
+        GetComponent<Collider>().CollisionEnter += OnCollisionEnter;
+        GetComponent<Collider>().CollisionExit += OnCollisionExit;
 
         Animator.Add("idle", new Animation(0, 4, 0.15f, true));
         Animator.Add("walk", new Animation(1, 8, 0.1f, true));
@@ -62,6 +64,13 @@ public class Player : Entity
         Animator.Add("turn", new Animation(5, 3, 0.075f, false));
         Animator.Add("pounce", new Animation(8, 4, 0.1f, false));
         Animator.Add("slide", new Animation(9, 1, 0.1f, false));
+        Animator.Add("swim_idle", new Animation(6, 4, 0.25f, true));
+        Animator.Add("swim_move", new Animation(7, 4, 0.15f, true));
+        Animator.Add("water_surface_idle", new Animation(10, 4, 0.15f, true));
+        Animator.Add("dolphin_dive", new Animation(11, 6, 0.1f, false));
+        Animator.Add("swim_surface_gasp", new Animation(12, 3, 0.15f, false));
+        Animator.Add("swim_turn", new Animation(13, 3, 0.075f, false));
+        Animator.Add("water_surface_move", new Animation(14, 4, 0.15f, true));
 
         Animator.Set("idle");
 
@@ -74,6 +83,12 @@ public class Player : Entity
         StateMachine.Add<Turn>("turn");
         StateMachine.Add<Pounce>("pounce");
         StateMachine.Add<Slide>("slide");
+        StateMachine.Add<SwimIdle>("swim_idle");
+        StateMachine.Add<SwimMove>("swim_move");
+        StateMachine.Add<WaterSurfaceIdle>("water_surface_idle");
+        StateMachine.Add<WaterSurfaceMove>("water_surface_move");
+        StateMachine.Add<DolphinDive>("dolphin_dive"); 
+        StateMachine.Add<SwimTurn>("swim_turn");
         
         StateMachine.Set("idle");
 
@@ -99,10 +114,57 @@ public class Player : Entity
             startSpeed = 0.1f
         };
 
+        var bubbleData = new ParticleData
+        {
+            texture = TextureManager.Get("particle_bubble"),
+            frameCount = 1,
+            frameInterval = 0.25f,
+            frameSize = new Point(4, 4),
+            loop = false,
+            lifespan = 3,
+            startSpeed = 12f
+        };
+
         ParticleSystem.AddType("big_dust", bigDustData);
         ParticleSystem.AddType("small_dust", smallDustData);
+        ParticleSystem.AddType("bubble", bubbleData);
 
         Instance = this;
+
+        GetComponent<Sprite>().SetLayerDepth(0.2f);
+        
+        // random color
+        // GetComponent<Sprite>()?.SetOverrideColor(new Color(Main.Random.NextSingle(), Main.Random.NextSingle(), Main.Random.NextSingle()));
+    }
+
+    void OnCollisionEnter(Collider collider)
+    {
+        if (collider.LevelObject.HasTag("water") && !IgnoreWaterTransition)
+        {
+            if (_watersTouching <= 0)
+            {
+                WaterSurfaceY = collider.LevelObject.hitbox.Top; // get the top of the water surface
+                StateMachine.Set("swim_idle");
+                var sound = AudioManager.Get("splash_small");
+                sound.SetChannel("sfx");
+                sound.Play();
+            }
+            
+            _watersTouching++;
+        }
+    }
+
+    void OnCollisionExit(Collider collider)
+    {
+        if (collider.LevelObject.HasTag("water") && !IgnoreWaterTransition)
+        {
+            _watersTouching--;
+
+            if (_watersTouching <= 0)
+            {
+                StateMachine.Set("idle");
+            }
+        }
     }
 
     public override void Update(GameTime gameTime)
@@ -131,6 +193,31 @@ public class Player : Entity
         {
             Rigidbody.InternalVelocity.Y = 10.0f;
         }
+
+        SurfacedCheck();
+    }
+
+    void SurfacedCheck()
+    {
+        var size = new Point(hitbox.Width, 8);
+        _surfacedCheck = new Rectangle(hitbox.Center.X - size.X / 2, hitbox.Top, size.X, size.Y);
+
+        var objects = grid.GetObjectsInRect(_surfacedCheck, layer);
+        foreach (var obj in objects)
+        {
+            if (obj.HasTag("water"))
+            {
+                Surfaced = false;
+                return;
+            }
+        }
+        Surfaced = true;
+    }
+
+    public override void DrawDebug(SpriteBatch spriteBatch, Font font)
+    {
+        base.DrawDebug(spriteBatch, font);
+        Debug.DrawRectangle(spriteBatch, _surfacedCheck, Surfaced ? Color.Green : Color.Red);
     }
 
     public void ApplyFriction()
@@ -153,6 +240,7 @@ public class Player : Entity
         public override void Enter()
         {
             _entity.Animator.Set("idle");
+            _entity.Rigidbody.GravityEnabled = true;
         }
 
         public override void Update(GameTime gameTime)
@@ -290,7 +378,7 @@ public class Player : Entity
                 _stateMachine.Set("fall");
             }
 
-            if (Input.Get("jump").Released)
+            if (!Input.Get("jump").Holding)
             {
                 _entity.Rigidbody.InternalVelocity.Y *= 0.3f;
             }
@@ -468,6 +556,309 @@ public class Player : Entity
         {
             _entity.Rigidbody.ExternalVelocity.X *= _entity.SlideFriction;
             _entity.Rigidbody.InternalVelocity.X *= _entity.SlideFriction;
+        }
+    }
+
+    class SwimIdle : State<Player>
+    {
+        public override void Enter()
+        {
+            _entity.Animator.Set("swim_idle");
+            _entity.Rigidbody.GravityEnabled = false;
+        }
+
+        public override void Update(GameTime gameTime)
+        {
+            if (Input.Get("move").Holding)
+            {
+                _stateMachine.Set("swim_move");
+            }
+
+            if (_entity.Surfaced && _entity.Rigidbody.Velocity.Y < -0.1f) 
+            {
+                _stateMachine.Set("water_surface_idle");
+                _entity.Animator.Set("swim_surface_gasp");
+                AudioManager.Get("gasp").Play();
+            }
+        }
+
+        public override void FixedUpdate(GameTime gameTime)
+        {
+            _entity.Rigidbody.InternalVelocity *= _entity.WaterFriction;
+        }
+
+        public override void IterateFrame(int frame)
+        {
+            if (frame == 4)
+            {
+                Vector2 pos = _entity.hitbox.Center.ToVector2();
+                int dir = _entity.transform.flipX ? -1 : 1;
+                pos += new Vector2(dir * 6, -2);
+                _entity.ParticleSystem.Burst("bubble", pos, 1, 1, 3f, 3f);
+            }
+        }
+    }
+
+    class SwimMove : State<Player>
+    {
+        public override void Enter()
+        {
+            _entity.Animator.Set("swim_move");
+        }
+
+        public override void Update(GameTime gameTime)
+        {
+            var moveDir = Input.Get("move").Point;
+            if (Input.Get("move").Released)
+            {
+                _stateMachine.Set("swim_idle");
+            }
+
+            if (_entity.Surfaced && _entity.Rigidbody.Velocity.Y < -0.1f) 
+            {
+                _stateMachine.Set("water_surface_idle");
+                _entity.Animator.Set("swim_surface_gasp");
+                AudioManager.Get("gasp").Play();
+            }
+
+            if (moveDir.X > 0 && _entity.transform.flipX)
+            {
+                _stateMachine.Set("swim_turn");
+            }
+            else if (moveDir.X < 0 && !_entity.transform.flipX)
+            {
+                _stateMachine.Set("swim_turn");
+            }
+        }
+
+        public override void FixedUpdate(GameTime gameTime)
+        {
+            _entity.Rigidbody.InternalVelocity += Input.Get("move").Point.ToVector2() * _entity.SwimSpeed;
+            _entity.Rigidbody.InternalVelocity *= _entity.WaterFriction;
+        }
+
+        public override void IterateFrame(int frame)
+        {
+            if (frame == 1 || frame == 3)
+            {
+                var sound = AudioManager.Get("swim_kick");
+                sound.SetChannel("sfx");
+                sound.Play();
+
+                // _entity.ParticleSystem.Burst("bubble", _entity.transform.position.ToVector2(), 1, 3, 1f, 1f);
+                Vector2 pos = _entity.hitbox.Center.ToVector2();
+                _entity.ParticleSystem.Burst("bubble", pos, 3, 6, 10f, 10f);
+            }
+            if (frame == 2 || frame == 4)
+            {
+                var sound = AudioManager.Get("swim_paddle");
+                sound.SetChannel("sfx");
+                sound.Play();
+            }
+        }
+    }
+
+    class WaterSurfaceIdle : State<Player>
+    {
+        public override void Enter()
+        {
+            _entity.Animator.Queue("water_surface_idle", true);
+
+            _entity.Rigidbody.InternalVelocity.Y = 0f;
+        }
+
+        public override void Update(GameTime gameTime)
+        {
+            var moveDir = Input.Get("move").Point.ToVector2().X;
+            if (moveDir > 0 && _entity.transform.flipX)
+            {
+                _entity.SetFlipX(false);
+            }
+            else if (moveDir < 0 && !_entity.transform.flipX)
+            {
+                _entity.SetFlipX(true);
+            }
+
+            if (Input.Get("jump").Pressed)
+            {
+                _stateMachine.Set("dolphin_dive");
+            }
+
+            if (!_entity.Surfaced)
+            {
+                _stateMachine.Set("swim_idle");
+            }
+
+            if (Input.Get("move").Holding)
+            {
+                _stateMachine.Set("water_surface_move");
+            }
+        }
+
+        public override void FixedUpdate(GameTime gameTime)
+        {
+            int bobHeight = 10;
+            int height = (int)MathF.Max(_entity.transform.position.Y, _entity.WaterSurfaceY - bobHeight);
+            _entity.SetPosition(new Point(_entity.transform.position.X, height));
+
+            _entity.Rigidbody.InternalVelocity *= _entity.WaterFriction;
+
+            _entity.Rigidbody.InternalVelocity.Y = Math.Max(_entity.Rigidbody.InternalVelocity.Y, 0f);
+            _entity.Rigidbody.ExternalVelocity.Y = Math.Max(_entity.Rigidbody.ExternalVelocity.Y, 0f);
+
+            Debug.Log($"Player Y: {_entity.transform.position.Y}, Surface Y: {_entity.WaterSurfaceY}");
+        }
+
+        public override void DrawDebug(SpriteBatch spriteBatch)
+        {
+            Debug.DrawRectangle(spriteBatch, new Rectangle(new Point(_entity.hitbox.Center.X - 32, _entity.WaterSurfaceY), new Point(64, 3)), Color.Yellow);
+        }
+    }
+
+    class DolphinDive : State<Player>
+    {
+        public override void Enter()
+        {
+            _entity.Animator.Set("dolphin_dive");
+            _entity.Rigidbody.InternalVelocity.Y = -3;
+            
+            var direction = _entity.transform.flipX ? -1 : 1;
+            var force = new Vector2(2 * direction, 0);
+            _entity.Rigidbody.InternalVelocity += force;
+
+            var sound = AudioManager.Get("splash_small");
+                sound.SetChannel("sfx");
+                sound.Play();
+
+            _entity.IgnoreWaterTransition = true;
+        }
+
+        public override void Update(GameTime gameTime)
+        {
+            if (!_entity.Surfaced)
+            {
+                _stateMachine.Set("swim_idle");
+                var sound = AudioManager.Get("splash_small");
+                sound.SetChannel("sfx");
+                sound.Play();
+            }
+
+            if (_entity.Grounded)
+            {
+                _stateMachine.Set("idle");
+                _entity._watersTouching = 0;
+            }
+        }
+
+        public override void FixedUpdate(GameTime gameTime)
+        {
+            _entity.Rigidbody.InternalVelocity.Y += 0.13f;
+            _entity.Rigidbody.InternalVelocity.X *= 0.98f;
+        }
+
+        public override void Exit()
+        {
+            _entity.IgnoreWaterTransition = false;
+        }
+    }
+
+    class SwimTurn : State<Player>
+    {
+        public override void Enter()
+        {
+            _entity.Animator.Set("swim_turn");
+        }
+
+        public override void Update(GameTime gameTime)
+        {
+            var moveDir = Input.Get("move").Point;
+            if (Input.Get("move").Released)
+            {
+                _stateMachine.Set("swim_idle");
+                _entity.SetFlipX(!_entity.transform.flipX);
+            }
+
+            if (_entity.Surfaced && _entity.Rigidbody.Velocity.Y < -0.1f) 
+            {
+                _stateMachine.Set("water_surface_idle");
+                _entity.Animator.Set("swim_surface_gasp");
+                AudioManager.Get("gasp").Play();
+            }
+        }
+
+        public override void FixedUpdate(GameTime gameTime)
+        {
+            _entity.Rigidbody.InternalVelocity += Input.Get("move").Point.ToVector2() * _entity.SwimSpeed;
+            _entity.Rigidbody.InternalVelocity *= _entity.WaterFriction;
+        }
+
+        public override void IterateFrame(int frame)
+        {
+            if (frame >= _entity.Animator.CurrentAnimation.FrameCount)
+            {
+                _entity.SetFlipX(!_entity.transform.flipX);
+                _stateMachine.Set("swim_idle");
+            }
+        }
+    }
+
+    class WaterSurfaceMove : State<Player>
+    {
+        public override void Enter()
+        {
+            _entity.Animator.Set("water_surface_move");
+
+            _entity.Rigidbody.InternalVelocity.Y = 0f;
+        }
+
+        public override void Update(GameTime gameTime)
+        {
+            var moveDir = Input.Get("move").Point.ToVector2().X;
+            if (moveDir > 0 && _entity.transform.flipX)
+            {
+                _entity.SetFlipX(false);
+            }
+            else if (moveDir < 0 && !_entity.transform.flipX)
+            {
+                _entity.SetFlipX(true);
+            }
+
+            if (Input.Get("jump").Pressed)
+            {
+                _stateMachine.Set("dolphin_dive");
+            }
+
+            if (!_entity.Surfaced)
+            {
+                _stateMachine.Set("swim_idle");
+            }
+
+            if (Input.Get("move").Released)
+            {
+                _stateMachine.Set("water_surface_idle");
+            }
+        }
+
+        public override void FixedUpdate(GameTime gameTime)
+        {
+            int bobHeight = 10;
+            int height = (int)MathF.Max(_entity.transform.position.Y, _entity.WaterSurfaceY - bobHeight);
+            _entity.SetPosition(new Point(_entity.transform.position.X, height));
+
+            var dir = Input.Get("move").Point.ToVector2();
+            dir.Y = Math.Max(dir.Y, 0);
+            _entity.Rigidbody.InternalVelocity += dir * _entity.SwimSpeed;
+            _entity.Rigidbody.InternalVelocity *= _entity.WaterFriction;
+
+            _entity.Rigidbody.InternalVelocity.Y = Math.Max(_entity.Rigidbody.InternalVelocity.Y, 0f);
+            _entity.Rigidbody.ExternalVelocity.Y = Math.Max(_entity.Rigidbody.ExternalVelocity.Y, 0f);
+
+            Debug.Log($"Player Y: {_entity.transform.position.Y}, Surface Y: {_entity.WaterSurfaceY}");
+        }
+
+        public override void DrawDebug(SpriteBatch spriteBatch)
+        {
+            Debug.DrawRectangle(spriteBatch, new Rectangle(new Point(_entity.hitbox.Center.X - 32, _entity.WaterSurfaceY), new Point(64, 3)), Color.Yellow);
         }
     }
 }

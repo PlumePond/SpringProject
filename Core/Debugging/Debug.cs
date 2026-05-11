@@ -19,6 +19,7 @@ public static class Debug
     public static void Log(string message)
     {
         Console.WriteLine(message);
+        //System.Diagnostics.Debug.WriteLine(message);
     }
 
     public static void Fail(string message)
@@ -27,22 +28,22 @@ public static class Debug
     }
 
     // draws a rectangle outline for debugging purposes
-    public static void DrawRectangleOutline(SpriteBatch spriteBatch, Rectangle rect, Color color, int thickness = 1)
+    public static void DrawRectangleOutline(SpriteBatch spriteBatch, Rectangle rect, Color color, int thickness = 1, float layerDepth = 0)
     {
         // top
-        spriteBatch.Draw(_pixel, new Rectangle(rect.Left, rect.Top, rect.Width, thickness), color);
+        spriteBatch.Draw(_pixel, new Rectangle(rect.Left, rect.Top, rect.Width, thickness), null, color, 0f, Vector2.Zero, SpriteEffects.None, layerDepth);
         // right
-        spriteBatch.Draw(_pixel, new Rectangle(rect.Right - thickness, rect.Top, thickness, rect.Height), color);
+        spriteBatch.Draw(_pixel, new Rectangle(rect.Right - thickness, rect.Top, thickness, rect.Height), null, color, 0f, Vector2.Zero, SpriteEffects.None, layerDepth);
         // bottom
-        spriteBatch.Draw(_pixel, new Rectangle(rect.Left, rect.Bottom - thickness, rect.Width, thickness), color);
+        spriteBatch.Draw(_pixel, new Rectangle(rect.Left, rect.Bottom - thickness, rect.Width, thickness), null, color, 0f, Vector2.Zero, SpriteEffects.None, layerDepth);
         // left
-        spriteBatch.Draw(_pixel, new Rectangle(rect.Left, rect.Top, thickness, rect.Height), color);
+        spriteBatch.Draw(_pixel, new Rectangle(rect.Left, rect.Top, thickness, rect.Height), null, color, 0f, Vector2.Zero, SpriteEffects.None, layerDepth);
     }
 
     // draws a rectangle for debugging purposes
-    public static void DrawRectangle(SpriteBatch spriteBatch, Rectangle rect, Color color)
+    public static void DrawRectangle(SpriteBatch spriteBatch, Rectangle rect, Color color, float layerDepth = 0)
     {
-        spriteBatch.Draw(_pixel, rect, color);
+        spriteBatch.Draw(_pixel, rect, null, color, 0, Vector2.Zero, SpriteEffects.None, layerDepth);
     }
 
     // draws a circle for debugging purposes

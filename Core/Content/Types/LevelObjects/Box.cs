@@ -52,6 +52,11 @@ public class Box : LevelObject
         }
     }
 
+    public override void DrawEditor(SpriteBatch spriteBatch)
+    {
+        Draw(spriteBatch);
+    }
+
     public override void DrawDebug(SpriteBatch spriteBatch, Font font)
     {
         Color hitboxColor = data.solid ? Color.Green : Color.Blue;
@@ -60,19 +65,6 @@ public class Box : LevelObject
         string debugText = $"RECTANGLE!!!";
         Vector2 textPos = bounds.Center.ToVector2();
         Vector2 textOrigin = font.FontBase.MeasureString(debugText) * 0.5f;
-        spriteBatch.DrawString(font.FontBase, debugText, textPos, Color.White, 0, textOrigin, Vector2.One * 0.25f);
-
-        if (hovered)
-        {
-            Debug.DrawRectangleOutline(spriteBatch, bounds, Color.White, 1);   
-        }
-        else if (selected)
-        {
-            Debug.DrawRectangleOutline(spriteBatch, bounds, Color.Yellow, 1);   
-        }
-        else
-        {
-            Debug.DrawRectangleOutline(spriteBatch, bounds, hitboxColor, 1);   
-        }
+        spriteBatch.DrawString(font.FontBase, debugText, textPos, Color.White, 0, textOrigin, Vector2.One);
     }
 }

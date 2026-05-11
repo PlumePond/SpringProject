@@ -83,6 +83,6 @@ public class Particle
     {
         Point point = new Point(_currentFrame * _data.frameSize.X, 0);
         Rectangle sourceRect = new Rectangle(point, _data.frameSize);
-        spriteBatch.Draw(_data.texture, _position, sourceRect, _color * _opacity, 0f, Vector2.Zero, Vector2.One, SpriteEffects.None, 1f);
+        spriteBatch.Draw(_data.texture, _position, sourceRect, new Color(_color.R, _color.G, _color.B, _opacity), 0f, Vector2.Zero, Vector2.One, SpriteEffects.None, 1f);
     }
 }

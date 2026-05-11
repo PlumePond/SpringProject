@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.Serialization;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Newtonsoft.Json;
 using SpringProject.Core.Debugging;
 
@@ -58,16 +59,25 @@ public class DropdownElement : Element
     bool _open = false;
 
     public DropdownOption SelectedOption { get; private set; } = null;
+    ButtonElement _buttonElement;
     TextElement _textElement;
     ArrayElement _arrayElement;
 
+    int _dropDownElementHeight = 10;
+
     DropdownList _list;
 
-    public DropdownElement(Point localPosition, Point size, DropdownList list, Anchor anchor = Anchor.MiddleCenter) : base(localPosition, size, anchor)
+    public DropdownElement(Point localPosition, Point size, DropdownList list, string title, Anchor anchor = Anchor.MiddleCenter) : base(localPosition, size, anchor)
     {
         _list = list;
-        _textElement = new TextElement(Point.Zero, FontManager.Get("body"), "None", Color.White, Anchor.MiddleCenter);
-        AddChild(_textElement);
+        
+        _buttonElement = new ButtonElement(Point.Zero, size, Anchor.TopLeft, "panel", "panel_selected");
+        _buttonElement.Pressed += Pressed;
+        AddChild(_buttonElement);
+        
+        _textElement = new TextElement(new Point(3, -3), FontManager.Get("body"), "None", Color.White, Anchor.BottomLeft);
+        _buttonElement.AddChild(_textElement);
+        _buttonElement.AddChild(new TextElement(new Point(3, 3), FontManager.Get("body"), title, Color.Gray, Anchor.TopLeft));
         
         _arrayElement = new ArrayElement(new Point(0, size.Y), size, 0, ArrayDirection.Down, Anchor.TopLeft);
         AddChild(_arrayElement);
@@ -112,7 +122,7 @@ public class DropdownElement : Element
         _options.Clear();
     }
 
-    public override void OnPressed()
+    void Pressed()
     {
         if (_open)
         {
@@ -124,14 +134,33 @@ public class DropdownElement : Element
         }
     }
 
+    public void RecalculateSize(bool open)
+    {
+        Point newSize;
+        if (open)
+        {
+            newSize = new Point(size.X, _arrayElement.size.Y + _buttonElement.size.Y);
+        }
+        else
+        {
+            newSize = new Point(size.X, _buttonElement.size.Y);
+        }
+        SetSize(newSize);
+
+        ReCalculateOffsets();
+    }
+
     public void Open()
     {
         _open = true;
 
+        // Populate _options from the provider each time the dropdown opens
+        _options = _list.OptionsProvider?.Invoke() ?? new List<DropdownOption>();
+
         foreach (var option in _options)
         {
-            var optionElement = new ButtonElement(Point.Zero, size, Anchor.TopLeft, "panel_mid", "panel_selected_small");
-            optionElement.AddChild(new TextElement(Point.Zero, FontManager.Get("body"), option.Text, Color.White, Anchor.MiddleCenter));
+            var optionElement = new ButtonElement(Point.Zero, new Point(size.X, _dropDownElementHeight), Anchor.TopLeft, "panel_mid", "panel_selected_small");
+            optionElement.AddChild(new TextElement(new Point(3, -3), FontManager.Get("body"), option.Text, Color.White, Anchor.BottomLeft));
 
             optionElement.Pressed += () => SelectOption(option);
 
@@ -143,6 +172,8 @@ public class DropdownElement : Element
         {
             SelectFromKey(_list.SelectedKey);
         }
+
+        RecalculateSize(true);
     }
 
     public void Close()
@@ -158,5 +189,7 @@ public class DropdownElement : Element
         }
         
         _arrayElement.Children.Clear();
+
+        RecalculateSize(false);
     }
 }

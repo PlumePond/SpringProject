@@ -1,9 +1,0 @@
-{
-    "ignoreLock": true,
-    "bindings": [
-        { 
-            "type": "key", 
-            "key": "F11"
-        }
-    ]
-}

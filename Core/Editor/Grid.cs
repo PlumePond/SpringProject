@@ -5,6 +5,8 @@ using System.Security.Cryptography.X509Certificates;
 using FontStashSharp;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using SpringProject.Core.Components;
 using SpringProject.Core.Content;
 using SpringProject.Core.Debugging;
@@ -163,7 +165,7 @@ public class Grid
             }
 
             float parallaxFactor = showParallax ? layers[layer].ParallaxFactor : 0.0f;
-            spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.NonPremultiplied, SamplerState.PointClamp, null, _rasterizerState, null, Camera.Instance.GetParallaxTransform(parallaxFactor));
+            spriteBatch.Begin(SpriteSortMode.BackToFront, BlendState.NonPremultiplied, SamplerState.PointClamp, null, _rasterizerState, null, Camera.Instance.GetParallaxTransform(parallaxFactor));
 
             foreach (LevelObject levelObject in layers[layer].LevelObjects)
             {
@@ -290,28 +292,28 @@ public class Grid
 
         foreach (var data in levelObjectSaveDataArray)
         {
-            if (LevelObjectLoader.LevelObjectDataDictionary.ContainsKey(data.dataKey))
+            if (LevelObjectLoader.LevelObjectDataDictionary.ContainsKey(data.DataKey))
             {
-                LevelObjectData levelObjectData = LevelObjectLoader.LevelObjectDataDictionary[data.dataKey];
+                LevelObjectData levelObjectData = LevelObjectLoader.LevelObjectDataDictionary[data.DataKey];
                 LevelObject levelObject = (LevelObject)Activator.CreateInstance(levelObjectData.type);
 
-                levelObject.Initialize(levelObjectData, this, data.position);
+                levelObject.Initialize(levelObjectData, this, data.Position);
 
                 RestoreParameters(levelObject, data);
                 levelObject.RestoreProviders();
 
-                levelObject.SetRotation(data.rotation);
-                levelObject.SetFlipX(data.flipX);
-                levelObject.SetFlipY(data.flipY);
-                levelObject.SetColorIndex(data.colorIndex);
-                levelObject.SetSize(data.size);
+                levelObject.SetRotation(data.Rotation);
+                levelObject.SetFlipX(data.FlipX);
+                levelObject.SetFlipY(data.FlipY);
+                levelObject.SetColorIndex(data.ColorIndex);
+                levelObject.SetSize(data.Size);
 
-                AddLevelObject(data.layer, levelObject);
+                AddLevelObject(data.Layer, levelObject);
                 levelObject.OnPlaced();
             }
             else
             {
-                Debug.Log($"Warning: Level Object '{data.dataKey}' not found!");
+                Debug.Log($"Warning: Level Object '{data.DataKey}' not found!");
             }
         }
 
@@ -330,7 +332,6 @@ public class Grid
 
     void RestoreParameters(LevelObject levelObject, LevelObjectSaveData data)
     {
-        // restore exposed parameters
         var targets = new List<object> { levelObject };
         targets.AddRange(levelObject.Components);
 
@@ -338,25 +339,26 @@ public class Grid
         {
             foreach (var param in ParameterScanner.Scan(target))
             {
-                if (!data.parameters.TryGetValue(param.Label, out var raw)) continue;
+                if (!data.Parameters.TryGetValue(param.Label, out var json)) continue;
 
-                if (param.ValueType == typeof(DropdownList))
+                try
                 {
-                    var dropdownList = (DropdownList)param.GetValue();
-                    if (raw is Newtonsoft.Json.Linq.JObject jObj)
+                    if (param.ValueType == typeof(DropdownList))
                     {
-                        dropdownList.SelectedKey = jObj["SelectedKey"]?.ToString();
+                        var dropdownList = (DropdownList)param.GetValue();
+                        var jObj = JToken.Parse(json);
+                        dropdownList.SelectedKey = jObj["SelectedKey"]?.ToString() ?? json;
                     }
                     else
                     {
-                        dropdownList.SelectedKey = raw?.ToString();
+                        var token = JToken.Parse(json);
+                        var value = token.ToObject(param.ValueType);
+                        param.SetValue(value);
                     }
                 }
-                else
+                catch (Exception e)
                 {
-                    // Newtonsoft deserializes numbers as long/double by default, so coerce
-                    var coerced = CoerceValue(raw, param.ValueType);
-                    param.SetValue(coerced);
+                    Debug.Log($"Failed to restore parameter '{param.Label}': {e.Message}");
                 }
             }
         }

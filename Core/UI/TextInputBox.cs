@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Reflection;
 using System.Reflection.PortableExecutable;
 using FontStashSharp;
@@ -11,6 +12,16 @@ using SpringProject.Core.UserInput;
 using TextCopy;
 
 namespace SpringProject.Core.UI;
+
+public enum TextFormat
+{
+    None,
+    Uppercase,
+    Lowercase,
+    SnakeCase,
+    Alphanumeric,
+    AlphaOnly
+}
 
 public class TextInputBox : Element
 {
@@ -44,11 +55,15 @@ public class TextInputBox : Element
     const float KeyRepeatDelay = 1.5f;
     const float KeyRepeatInterval = 0.2f;
 
-    public TextInputBox(Point localPosition, Point size, Font font, string defaultText, Color defaultColor, Color color, Anchor anchor = Anchor.MiddleCenter) : base(localPosition, size, anchor)
+    TextFormat _format = TextFormat.None;
+
+    public TextInputBox(Point localPosition, Point size, Font font, string defaultText, Color defaultColor, Color color, TextFormat format = TextFormat.None, Anchor anchor = Anchor.MiddleCenter) : base(localPosition, size, anchor)
     {
         _defaultColor = defaultColor;
         _defaultText = defaultText;
         _font = font;
+
+        _format = format;
 
         this.color = color;
 
@@ -111,6 +126,28 @@ public class TextInputBox : Element
             }
         }
         else _rightHeldTimer = 0f;
+    }
+
+    bool FilterChar(char c)
+    {
+        return _format switch
+        {
+            TextFormat.Alphanumeric => char.IsLetterOrDigit(c),
+            TextFormat.AlphaOnly    => char.IsLetter(c),
+            TextFormat.SnakeCase    => char.IsLetterOrDigit(c) || c == '_' || c == '-',
+            _                       => true
+        };
+    }
+
+    string ApplyFormat(string text)
+    {
+        return _format switch
+        {
+            TextFormat.Uppercase => text.ToUpperInvariant(),
+            TextFormat.Lowercase => text.ToLowerInvariant(),
+            TextFormat.SnakeCase => text.ToLowerInvariant(),
+            _                    => text
+        };
     }
 
     public override void Draw(SpriteBatch spriteBatch)
@@ -205,8 +242,21 @@ public class TextInputBox : Element
 
     void Paste()
     {
-        var clipBoardText = ClipboardService.GetText();
-        SetText(_text + clipBoardText);
+        var clipText = ClipboardService.GetText() ?? "";
+
+        if (_format == TextFormat.SnakeCase)
+        {
+            clipText = clipText.Replace(' ', '_');
+        }
+
+        var filtered = new string(clipText.Where(FilterChar).ToArray());
+
+        if (HasSelection()) DeleteSelection();
+
+        SetText(_text.Insert(_cursorIndex, filtered));
+        _cursorIndex += filtered.Length;
+        _selectionStart = _cursorIndex;
+        _selectionEnd = _cursorIndex;
     }
 
     void OnTextInput(object sender, TextInputEventArgs eventArgs)
@@ -230,7 +280,16 @@ public class TextInputBox : Element
         else
         {
             if (HasSelection()) DeleteSelection();
-            SetText(_text.Insert(_cursorIndex, eventArgs.Character.ToString()));
+
+            char c = eventArgs.Character;
+            if (_format == TextFormat.SnakeCase && c == ' ')
+            {
+                c = '_';
+            }
+
+            if (!FilterChar(c)) return; // reject invalid chars early
+
+            SetText(_text.Insert(_cursorIndex, c.ToString()));
             _cursorIndex++;
         }
 
@@ -336,7 +395,7 @@ public class TextInputBox : Element
 
     public void SetText(string text)
     {
-        _text = text;
+        _text = ApplyFormat(text);
 
         // set size only horizontally
         _textSize = _font.FontBase.MeasureString(_text.Length > 0 ? _text : _defaultText, AbsoluteScale).ToPoint();

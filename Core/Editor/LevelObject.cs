@@ -67,6 +67,12 @@ public class LevelObject
         return true;
     }
 
+    public bool HasTag(string tag)
+    {
+        if (data.tags == null) return false;
+        return data.tags.Contains(tag);
+    }
+
     public virtual float ResizeDistance => 4;
 
     public LevelObject()

@@ -388,7 +388,7 @@ public class Tile : LevelObject
 
         Vector2 gapFix = new Vector2(1.0001f, 1.0001f);
 
-        spriteBatch.Draw(data.sprite, drawPos, sourceRect, objectColor * tint, radians, origin, drawScale * gapFix, effects, 0f);
+        spriteBatch.Draw(data.sprite, drawPos, sourceRect, objectColor * tint, radians, origin, drawScale * gapFix, effects, 0.1f);
     }
 
     public override void DrawEditor(SpriteBatch spriteBatch)

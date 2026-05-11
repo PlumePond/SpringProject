@@ -112,7 +112,7 @@ public class GameScene : Scene
     {
         Grid.Draw(spriteBatch);
         // // eventually add a toggle for this!
-        // Pathfinder.DrawDebug(spriteBatch);
+        //Pathfinding.DrawDebug(spriteBatch);
 
         base.Draw(spriteBatch);
     }

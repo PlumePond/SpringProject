@@ -65,17 +65,17 @@ public class MainMenu : Scene
         ArrayElement horizontalArray = new ArrayElement(Point.Zero, scaledSize, 10, ArrayDirection.Right, Anchor.MiddleLeft);
         _editorLevelSelectCanvas.AddChild(horizontalArray);
 
-        foreach (var levelData in LevelSaveManager.LoadedLevelsData)
+        foreach (var levelName in LevelSaveManager.DiscoveredLevels)
         {
             var levelSelectPanel = new Panel(new Point(0, 16), new Point(64, 64), Anchor.MiddleLeft, panelTexture, 3);
-            levelSelectPanel.AddChild(new TextElement(Point.Zero, font, levelData.Key, Color.White));
+            levelSelectPanel.AddChild(new TextElement(Point.Zero, font, levelName, Color.White));
             horizontalArray.AddChild(levelSelectPanel);
 
             var levelPlayButton = new ButtonElement(Point.Zero, new Point(16, 16), Anchor.BottomLeft, panelTexture, panelSelectedTexture, 3);
             levelPlayButton.AddChild(new ImageElement(Point.Zero, Anchor.MiddleCenter, "play_icon", Main.UIDefaultColor));
             levelPlayButton.Pressed += () => 
             { 
-                GameScene.levelName = levelData.Key;  
+                GameScene.levelName = levelName;
                 Main.SetScene<GameScene>();
             };
             levelSelectPanel.AddChild(levelPlayButton);
@@ -84,7 +84,7 @@ public class MainMenu : Scene
             levelEditButton.AddChild(new ImageElement(Point.Zero, Anchor.MiddleCenter, "edit_icon", Main.UIDefaultColor));
             levelEditButton.Pressed += () => 
             { 
-                LevelEditor.levelName = levelData.Key;  
+                LevelEditor.levelName = levelName;
                 Main.SetScene<LevelEditor>();
             };
             levelSelectPanel.AddChild(levelEditButton);
@@ -99,7 +99,7 @@ public class MainMenu : Scene
         // newLevelButton.AddChild(new TextElement(Point.Zero, Vector2.One * 0.5f, font, levelData.Key, Color.White));
         // horizontalArray.AddChild(levelSelectEditButton);
 
-        _mainCanvas.AddChild(new TextInputBox(new Point(-5, -5), new Point(30, 7), font, "[insert text]", Color.Black * 0.25f, Color.Black, Anchor.BottomRight));
+        _mainCanvas.AddChild(new TextInputBox(new Point(-5, -5), new Point(30, 7), font, "[insert text]", Color.Black * 0.25f, Color.Black, TextFormat.None, Anchor.BottomRight));
 
         SetActiveCanvas(_mainCanvas);
     }

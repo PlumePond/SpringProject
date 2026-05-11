@@ -2,8 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Security.Cryptography.X509Certificates;
+using Microsoft.VisualBasic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using SpringProject.Core.Audio;
 using SpringProject.Core.Components;
 using SpringProject.Core.Editor;
 
@@ -65,13 +67,20 @@ public class Animator : Component
         _hasAdvanced = false;
     }
 
-    public void Queue(string name)
+    public void Queue(string name, bool ignoreLooping = false)
     {
         if (!Animations.TryGetValue(name, out var animation))
         {
             throw new KeyNotFoundException($"Animation '{name}' not found for level object '{LevelObject.data.name}'.");
+        } 
+
+        if (_queue.Count > 0 && Animations[(_queue.Peek())].Loop && ignoreLooping)
+        {
+            _queue.Clear();
+            Set(name);
+            return;
         }
-        
+
         _queue.Enqueue(name);
     }
 

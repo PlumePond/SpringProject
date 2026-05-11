@@ -12,7 +12,7 @@ public static class RuntimeReloader
 	public static Action<object, FileSystemEventArgs> FileChangedEvent;
 	public static Action<object, RenamedEventArgs> FileRenamedEvent; 
 
-    const string PATH = "Data";
+    const string PATH = "Assets";
     static FileSystemWatcher _watcher = new FileSystemWatcher(PATH);
 
     static readonly Dictionary<string, DateTime> _lastReloadTime = new();

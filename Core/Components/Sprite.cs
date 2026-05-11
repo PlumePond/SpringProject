@@ -14,6 +14,9 @@ public class Sprite : Component
     Rectangle _sourceRectOverride;
     bool _overrideSourceRect;
 
+    Color? _overrideColor = null;
+    float _layerDepth = 0.1f;
+
     public override void Draw(SpriteBatch spriteBatch)
     {
         Point frame = LevelObject.data.frame;
@@ -46,7 +49,17 @@ public class Sprite : Component
             sourceRect = frame != Point.Zero ? new Rectangle(defaultFramePos, frame) : null;
         }
 
-        spriteBatch.Draw(sprite, drawPos, sourceRect, objectColor * LevelObject.tint, radians, origin, drawScale, effects, 0);
+        if (_overrideColor != null)
+        {
+            objectColor = _overrideColor.Value;
+        }
+
+        spriteBatch.Draw(sprite, drawPos, sourceRect, objectColor * LevelObject.tint, radians, origin, drawScale, effects, _layerDepth);
+    }
+
+    public void SetLayerDepth(float layerDepth)
+    {
+        _layerDepth = layerDepth;
     }
 
     public void SetSourceRect(Rectangle rectangle)
@@ -56,5 +69,10 @@ public class Sprite : Component
             _overrideSourceRect = true;
         }
         _sourceRectOverride = rectangle;
+    }
+
+    public void SetOverrideColor(Color color)
+    {
+        _overrideColor = color;
     }
 }

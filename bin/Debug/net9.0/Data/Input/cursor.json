@@ -1,8 +1,0 @@
-{
-    "ignoreLock": true,
-    "bindings": [
-        { 
-            "type": "mouse_position" 
-        }
-    ]
-}

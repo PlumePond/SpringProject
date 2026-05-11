@@ -66,6 +66,9 @@ public static class InputLoader
         "compound_key" => new CompoundKeyBinding(Enum.Parse<Keys>(data.Up, true), Enum.Parse<Keys>(data.Down, true), Enum.Parse<Keys>(data.Left, true), Enum.Parse<Keys>(data.Right, true)),
         "mouse_click" => new MouseClickBinding(Enum.Parse<MouseButton>(data.Button, true)),
         "controller_button" => new ControllerButtonBinding(Enum.Parse<Buttons>(data.Button, true)),
+        "controller_stick" => new ControllerStickBinding(Enum.Parse<ControllerStick>(data.Stick, true)),
+        "joystick_stick" => new JoystickStickBinding(),
+        "joystick_button" => new JoystickButtonBinding(data.JoystickButton),
         "mouse_position" => new MousePositionBinding(),
         "scroll" => new MouseScrollBinding(),
         "modifier" => new ModifierBinding(data.Keys.Select(k => Enum.Parse<Keys>(k, true)).ToArray()),
@@ -78,6 +81,8 @@ public static class InputLoader
         public string Key { get; set; }
         public string Button { get; set; }
         public string[] Keys { get; set; }
+        public string Stick { get; set; }
+        public int JoystickButton { get; set; }
         
         // compound key binding
         public string Up { get; set; }

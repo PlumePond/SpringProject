@@ -73,7 +73,7 @@ public class LevelObjectData
     }
 }
 
-class LevelObjectJsonData
+public class LevelObjectJsonData
 {
     [JsonPropertyName("material")] public string material { get; set; } = "default";
     [JsonPropertyName("solid")] public bool solid { get; set; } = false;

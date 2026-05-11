@@ -1,4 +1,5 @@
 using System;
+using System.Globalization;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -18,8 +19,6 @@ public class ArrayElement : Element
 {
     protected int _space;
     protected ArrayDirection _direction;
-
-    public Action<Point> UpdateSizeEvent;
 
     public ArrayElement(Point position, Point size, int space, ArrayDirection direction, Anchor anchor) : base(position, size, anchor)
     {
@@ -45,6 +44,8 @@ public class ArrayElement : Element
             step += GetStepSize(_children[i]) + _space;
         }
 
+        child.UpdateSizeEvent += (Point g) => { RecalculateSize(); };
+
         RecalculateSize();
     }
 
@@ -59,11 +60,20 @@ public class ArrayElement : Element
             step += GetStepSize(_children[i]) + _space;
         }
 
+        child.UpdateSizeEvent = null;
+
         RecalculateSize();
     }
 
+    bool _recalculating = false;
+
     public void RecalculateSize()
     {
+        if (_recalculating) return;
+        _recalculating = true;
+
+        Debug.Log("RECALUCATING!");
+
         int mainAxis = 0;
         int crossAxis = 0;
 
@@ -84,8 +94,18 @@ public class ArrayElement : Element
             case ArrayDirection.Down or ArrayDirection.Up: size = new Point(crossAxis, mainAxis); break;
         }
 
+        // reposition all children
+        int step = 0;
+        foreach (var child in _children)
+        {
+            child.SetLocalPosition(GetLocalPosition(child, step));
+            step += GetStepSize(child) + _space;
+        }
+
         ReCalculateOffsets();
         UpdateSizeEvent?.Invoke(size);
+
+        _recalculating = false;
     }
 
     int GetStepSize(Element child)

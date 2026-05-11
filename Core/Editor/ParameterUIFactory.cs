@@ -74,7 +74,7 @@ public static class ParameterUIFactory
     {
         var panelBox = new Panel(Point.Zero, _sliderSize, Anchor.MiddleCenter, "text_box");
         panel.AddChild(panelBox);
-        var textBox = new TextInputBox(Point.Zero, _sliderSize, FontManager.Get("body"), parameter.Label, Color.DarkGray, Color.White, Anchor.TopLeft);
+        var textBox = new TextInputBox(Point.Zero, _sliderSize, FontManager.Get("body"), parameter.Label, Color.DarkGray, Color.White, TextFormat.None, Anchor.TopLeft);
         textBox.ChangeTextEvent += (string value) => parameter.SetValue((string)value);
         textBox.SetText((string)parameter.GetValue());
         panelBox.AddChild(textBox);
@@ -84,7 +84,7 @@ public static class ParameterUIFactory
     static Element CreateDropdown(ParameterDescriptor parameter, Panel panel)
     {
         var dropdownList = (DropdownList)parameter.GetValue();
-        var dropdown = new DropdownElement(Point.Zero, _sliderSize, dropdownList, Anchor.TopLeft);
+        var dropdown = new DropdownElement(Point.Zero, _sliderSize, dropdownList, parameter.Label, Anchor.TopLeft);
 
         Debug.Log("Creating dropdown!");
         

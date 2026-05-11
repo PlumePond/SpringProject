@@ -56,5 +56,6 @@ public class DirectionInputState : InputState
         if (rightHolding) x += 1;
 
         Point = new Point(x, y);
+        Vector = new Vector2(x, y);
     }
 }

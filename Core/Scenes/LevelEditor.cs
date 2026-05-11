@@ -63,7 +63,7 @@ public class LevelEditor : Scene
         Panel searchPanel = new Panel(new Point(0, 4), new Point(80, 13), Anchor.TopCenter, "panel_mid", 3);
         searchPanel.AddChild(new ImageElement(new Point(3, 0), Anchor.MiddleLeft, "search_icon", Color.White));
         Panel inputTextPanel = new Panel(new Point(-4, 0), new Point(65, 7), Anchor.MiddleRight, "text_box", 3);
-        TextInputBox textInput = new TextInputBox(new Point(1, 0), new Point(65, 7), FontManager.Get("body"), "", Color.Gray, Color.White, Anchor.MiddleLeft);
+        TextInputBox textInput = new TextInputBox(new Point(1, 0), new Point(65, 7), FontManager.Get("body"), "", Color.Gray, Color.White, TextFormat.None, Anchor.MiddleLeft);
         textInput.ChangeTextEvent += SearchLevelObjects;
         inputTextPanel.AddChild(textInput);
         searchPanel.AddChild(inputTextPanel);
